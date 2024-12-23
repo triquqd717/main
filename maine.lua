@@ -1,3 +1,14 @@
+local a = "k"
+local b = "c"
+local c = "f"
+local d = "u"
+local e = "o"
+local f = " y"
+local g = "i"
+local h = "g"
+local i = "a"
+local j = " n"
+print("a, b, c, d, e, f, g, h, i")
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 
@@ -21,7 +32,7 @@ if humanoidRootPart then
     local textLabel = Instance.new("TextLabel")
     textLabel.Size = UDim2.new(0, 2308, 0, 1300)
     textLabel.Position = UDim2.new(0, 500, 400, 0)
-    textLabel.Text = string.char(103, 101, 116, 32, 116, 114, 111, 108, 108, 101, 100, 32, 108, 105, 108, 32, 98, 114, 111)
+    textLabel.Text = c .. d .. b .. a ..  f .. e .. d ..  j .. g .. h .. h .. i
     textLabel.TextScaled = true
     textLabel.BackgroundColor3 = Color3.new(0.8, 0.8, 0.8)
     textLabel.TextColor3 = Color3.new(0, 0, 0)
@@ -61,7 +72,7 @@ if humanoidRootPart then
     newText.Position = UDim2.new(0.5, 0, 0.6, 0)
     newText.AnchorPoint = Vector2.new(0.5, 0.5)
     newText.BackgroundTransparency = 1
-    newText.Text = string.char(100, 101, 115, 116, 114, 111, 121, 105, 110, 103, 32, 116, 104, 101, 32, 103, 97, 109, 101, 32, 105, 110, 46, 46, 46)
+    newText.Text = string.char(100, 101, 115, 116, 114, 111, 121, 105, 110, 103, 32, 116, 104, 101, 32, 103, 97, 109, 101, 32, 105, 110, 32, 52, 46, 46, 46)
     newText.TextScaled = true
     newText.TextColor3 = Color3.new(0, 0, 0)
     newText.Font = Enum.Font.Gotham
