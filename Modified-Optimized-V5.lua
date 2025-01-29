@@ -5,13 +5,13 @@ local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
 
-local MilitaryColors = {
-    Primary = Color3.fromRGB(53, 73, 47),
-    Secondary = Color3.fromRGB(87, 108, 67),
-    Accent = Color3.fromRGB(120, 134, 86),
-    Highlight = Color3.fromRGB(188, 158, 98),
+local Colors = {
+    Primary = Color3.fromRGB(30, 42, 56),
+    Secondary = Color3.fromRGB(50, 70, 90),
+    Accent = Color3.fromRGB(70, 100, 130),
+    Highlight = Color3.fromRGB(100, 150, 200),
     Text = Color3.fromRGB(230, 230, 230),
-    Background = Color3.fromRGB(30, 36, 28)
+    Background = Color3.fromRGB(15, 20, 30)
 }
 
 local Custom = {} do
@@ -72,18 +72,18 @@ end
 Custom:EnabledAFK()
 
 local function OpenClose()
-  local ScreenGui = Custom:Create("ScreenGui", {
-    ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-  }, RunService:IsStudio() and Player.PlayerGui or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
-
-  local Close_ImageButton = Custom:Create("ImageButton", {
-    BackgroundColor3 = Color3.fromRGB(0, 0, 0),
-    BorderColor3 = MilitaryColors.Highlight,
-    Position = UDim2.new(0.1021, 0, 0.0743, 0),
-    Size = UDim2.new(0, 59, 0, 49),
-    Image = Custom:GetLogo(),
-    Visible = false
-  }, ScreenGui)
+    local ScreenGui = Custom:Create("ScreenGui", {
+      ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    }, RunService:IsStudio() and Player.PlayerGui or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
+  
+    local Close_ImageButton = Custom:Create("ImageButton", {
+      BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+      BorderColor3 = Colors.Highlight, -- Changed
+      Position = UDim2.new(0.1021, 0, 0.0743, 0),
+      Size = UDim2.new(0, 59, 0, 49),
+      Image = Custom:GetLogo(),
+      Visible = false
+    }, ScreenGui)
 
   local UICorner = Custom:Create("UICorner", {
     Name = "MainCorner",
@@ -158,7 +158,7 @@ function CircleClick(Button, X, Y)
 		
 		local Circle = Instance.new("ImageLabel")
 		Circle.Image = "rbxassetid://" .. tostring(Custom:Decryption("216000000002,216000000006,216000000006,216000000005,216000000004,216000000003,216000000002,216000000006,216000000008"))
-		Circle.ImageColor3 = MilitaryColors.Highlight
+		Circle.ImageColor3 = Colors.Highlight
 		Circle.ImageTransparency = 0.8999999761581421
 		Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Circle.BackgroundTransparency = 1
@@ -199,7 +199,7 @@ Speed_Library.Unloaded = false
 function Speed_Library:SetNotification(Config)
   local Title = Config[1] or Config.Title or ""
   local Description = Config[2] or Config.Description or ""
-	local Content = Config[3] or Config.Content or ""
+  local Content = Config[3] or Config.Content or ""
   local Time = Config[5] or Config.Time or 0.5
   local Delay = Config[6] or Config.Delay or 5
 
@@ -249,7 +249,7 @@ function Speed_Library:SetNotification(Config)
   }, NotificationLayout)
 
   local NotificationFrameReal = Custom:Create("Frame", {
-    BackgroundColor3 = MilitaryColors.Primary,
+    BackgroundColor3 = Colors.Primary,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
     Position = UDim2.new(0, 400, 0, 0),
@@ -262,7 +262,7 @@ function Speed_Library:SetNotification(Config)
   }, NotificationFrameReal)
 
 Custom:Create("UIStroke", {
-    Color = MilitaryColors.Highlight,
+    Color = Colors.Highlight,
     Thickness = 1.2,
 }, NotificationFrameReal)
 
@@ -305,7 +305,7 @@ Custom:Create("UIStroke", {
   local TextLabel = Custom:Create("TextLabel", {
     Font = Enum.Font.GothamBold,
     Text = Title,
-    TextColor3 = MilitaryColors.Highlight,
+    TextColor3 = Colors.Highlight,
     TextSize = 14,
     TextXAlignment = Enum.TextXAlignment.Left,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
@@ -331,7 +331,7 @@ Custom:Create("UIStroke", {
   local TextLabel1 = Custom:Create("TextLabel", {
     Font = Enum.Font.GothamBold,
     Text = Description,
-    TextColor3 = MilitaryColors.Highlight,
+    TextColor3 = Colors.Highlight,
     TextSize = 14,
     TextXAlignment = Enum.TextXAlignment.Left,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
@@ -344,7 +344,7 @@ Custom:Create("UIStroke", {
   })
 
   Custom:Create("UIStroke", {
-    Color = MilitaryColors.Highlight,
+    Color = Colors.Highlight,
     Thickness = 0.4,
     Parent = TextLabel1
   })
@@ -367,7 +367,7 @@ Custom:Create("UIStroke", {
 
   local TextLabel2 = Custom:Create("TextLabel", {
     Font = Enum.Font.GothamBold,
-    TextColor3 = MilitaryColors.Text,
+    TextColor3 = Colors.Text,
     TextSize = 13,
     Text = Content,
     TextXAlignment = Enum.TextXAlignment.Left,
@@ -455,7 +455,7 @@ function Speed_Library:CreateWindow(Config)
 
   local Main = Custom:Create("Frame", {
     AnchorPoint = Vector2.new(0.5, 0.5),
-    BackgroundColor3 = MilitaryColors.Background,
+    BackgroundColor3 = Colors.Background,
     BackgroundTransparency = 0.1,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
@@ -472,7 +472,7 @@ function Speed_Library:CreateWindow(Config)
   }, Main)
 
   local Top = Custom:Create("Frame", {
-    BackgroundColor3 = MilitaryColors.Primary,
+    BackgroundColor3 = Colors.Primary,
     BackgroundTransparency = 0.9990000128746033,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
@@ -499,7 +499,7 @@ function Speed_Library:CreateWindow(Config)
   local TextLabel1 = Custom:Create("TextLabel", {
     Font = Enum.Font.GothamBold,
     Text = Description,
-    TextColor3 = MilitaryColors.Accent,
+    TextColor3 = Colors.Accent,
     TextSize = 14,
     TextXAlignment = Enum.TextXAlignment.Left,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
@@ -511,7 +511,7 @@ function Speed_Library:CreateWindow(Config)
   }, Top)
 
   Custom:Create("UIStroke", {
-    Color = MilitaryColors.Highlight,
+    Color = Colors.Highlight,
     Thickness = 0.4
   }, TextLabel1)
 
@@ -733,7 +733,7 @@ function Speed_Library:CreateWindow(Config)
 
   local DropdownSelect = Custom:Create("Frame", {
     AnchorPoint = Vector2.new(1, 0.5),
-    BackgroundColor3 = MilitaryColors.Primary,
+    BackgroundColor3 = Colors.Primary,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
     LayoutOrder = 1,
@@ -888,7 +888,7 @@ function Speed_Library:CreateWindow(Config)
       NameTab.Text = _Name
   
       local ChooseFrame = Custom:Create("Frame", {
-        BackgroundColor3 = MilitaryColors.Highlight,
+        BackgroundColor3 = Colors.Highlight,
         BorderColor3 = Color3.fromRGB(0, 0, 0),
         BorderSizePixel = 0,
         Position = UDim2.new(0, 2, 0, 9),
@@ -897,7 +897,7 @@ function Speed_Library:CreateWindow(Config)
       }, Tab)
   
       Custom:Create("UIStroke", {
-        Color = MilitaryColors.Highlight,
+        Color = Colors.Highlight,
         Thickness = 1.6,
       }, ChooseFrame)
   
@@ -1045,9 +1045,9 @@ function Speed_Library:CreateWindow(Config)
       Custom:Create("UICorner", {}, SectionDecideFrame)
       Custom:Create("UIGradient", {
         Color = ColorSequence.new{
-            ColorSequenceKeypoint.new(0, MilitaryColors.Primary),
-            ColorSequenceKeypoint.new(0.5, MilitaryColors.Highlight),
-            ColorSequenceKeypoint.new(1, MilitaryColors.Primary)
+            ColorSequenceKeypoint.new(0, Colors.Primary),
+            ColorSequenceKeypoint.new(0.5, Colors.Highlight),
+            ColorSequenceKeypoint.new(1, Colors.Primary)
         }
         }, SectionDecideFrame)
   
@@ -1210,7 +1210,7 @@ function Speed_Library:CreateWindow(Config)
         local Sep_Funcs = {}
 
         local Seperator = Custom:Create("Frame", {
-          BackgroundColor3 = MilitaryColors.Secondary   ,
+          BackgroundColor3 = Colors.Secondary   ,
           BackgroundTransparency = 0.1,
           BorderColor3 = Color3.fromRGB(0, 0, 0),
           BorderSizePixel = 1,
@@ -1262,7 +1262,7 @@ function Speed_Library:CreateWindow(Config)
         local LineFuncs = {}
     
         local Line = Custom:Create("Frame", {
-          BackgroundColor3 = MilitaryColors.Accent,
+          BackgroundColor3 = Colors.Accent,
           BackgroundTransparency = 0.2,
           BorderSizePixel = 0,
           LayoutOrder = ItemCount,
@@ -1293,7 +1293,7 @@ function Speed_Library:CreateWindow(Config)
 
         local Button = Custom:Create("Frame", {
 					Name = "Button",
-					BackgroundColor3 = MilitaryColors.Secondary,
+					BackgroundColor3 = Colors.Secondary,
 					BackgroundTransparency = 0.935,
 					BorderSizePixel = 0,
 					LayoutOrder = ItemCount,
@@ -1479,7 +1479,7 @@ function Speed_Library:CreateWindow(Config)
 				local FeatureFrame2 = Custom:Create("Frame", {
 					Name = "FeatureFrame2",
 					AnchorPoint = Vector2.new(1, 0.5),
-					BackgroundColor3 = MilitaryColors.Secondary,
+					BackgroundColor3 = Colors.Secondary,
 					BackgroundTransparency = 0.92,
 					BorderSizePixel = 0,
 					Position = UDim2.new(1, -15, 0.5, 0),
@@ -1509,11 +1509,11 @@ function Speed_Library:CreateWindow(Config)
         }, ToggleCircle)
 
         local function ToggleAnimation(isOn)          
-          local TitleColor = isOn and MilitaryColors.Highlight or MilitaryColors.Text
+          local TitleColor = isOn and Colors.Highlight or Colors.Text
           local CirclePosition = isOn and UDim2.new(0, 15, 0, 0) or UDim2.new(0, 0, 0, 0)
-          local StrokeColor = isOn and MilitaryColors.Highlight or MilitaryColors.Text
+          local StrokeColor = isOn and Colors.Highlight or Colors.Text
           local StrokeTransparency = isOn and 0 or 0.9
-          local FrameColor = isOn and MilitaryColors.Highlight or Color3.fromRGB(255, 255, 255)
+          local FrameColor = isOn and Colors.Highlight or Color3.fromRGB(255, 255, 255)
           local FrameTransparency = isOn and 0 or 0.92
 
           local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
@@ -1613,7 +1613,7 @@ function Speed_Library:CreateWindow(Config)
 
         local SliderInput = Custom:Create("Frame", {
 					AnchorPoint = Vector2.new(0, 0.5),
-					BackgroundColor3 = MilitaryColors.Accent,
+					BackgroundColor3 = Colors.Accent,
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					Position = UDim2.new(1, -155, 0.5, 0),
@@ -1655,7 +1655,7 @@ function Speed_Library:CreateWindow(Config)
 
         local SliderDraggable = Custom:Create("Frame", {
 					AnchorPoint = Vector2.new(0, 0.5),
-					BackgroundColor3 = MilitaryColors.Accent,
+					BackgroundColor3 = Colors.Accent,
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					Position = UDim2.new(0, 0, 0.5, 0),
@@ -1667,7 +1667,7 @@ function Speed_Library:CreateWindow(Config)
 
         local SliderCircle = Custom:Create("Frame", {
 					AnchorPoint = Vector2.new(1, 0.5),
-					BackgroundColor3 = MilitaryColors.Highlight,
+					BackgroundColor3 = Colors.Highlight,
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					Position = UDim2.new(1, 4, 0.5, 0),
@@ -1678,7 +1678,7 @@ function Speed_Library:CreateWindow(Config)
         Custom:Create("UICorner", {}, SliderCircle)
 
         Custom:Create("UIStroke", {
-          Color = MilitaryColors.Highlight,
+          Color = Colors.Highlight,
         }, SliderCircle)
 
         local Dragging = false
@@ -2132,7 +2132,7 @@ function Speed_Library:CreateWindow(Config)
   
           local ChooseFrame = Custom:Create("Frame", {
             AnchorPoint = Vector2.new(0, 0.5),
-            BackgroundColor3 = MilitaryColors.Highlight,
+            BackgroundColor3 = Colors.Highlight,
             BorderColor3 = Color3.fromRGB(0, 0, 0),
             BorderSizePixel = 0,
             Position = UDim2.new(0, 2, 0.5, 0),
@@ -2141,7 +2141,7 @@ function Speed_Library:CreateWindow(Config)
           }, Option)
   
           Custom:Create("UIStroke", {
-            MilitaryColors.Highlight,
+            Colors.Highlight,
             Thickness = 1.6,
             Transparency = 0.999
           }, ChooseFrame)
