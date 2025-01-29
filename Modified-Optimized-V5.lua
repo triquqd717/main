@@ -6,7 +6,14 @@ local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
 
 local Custom = {} do
-  Custom.ColorRGB = Color3.fromRGB(60, 70, 50)
+  local MilitaryColors = {
+    Primary = Color3.fromRGB(53, 73, 47),    -- Dark Olive Green
+    Secondary = Color3.fromRGB(87, 108, 67), -- Medium Camo Green
+    Accent = Color3.fromRGB(120, 134, 86),   -- Light Camo Green
+    Highlight = Color3.fromRGB(188, 158, 98),-- Desert Tan
+    Text = Color3.fromRGB(230, 230, 230),    -- Off-White
+    Background = Color3.fromRGB(30, 36, 28)  -- Dark Field Green
+}
 
   function Custom:Create(Name, Properties, Parent)
     local _instance = Instance.new(Name)
@@ -151,7 +158,7 @@ function CircleClick(Button, X, Y)
 		
 		local Circle = Instance.new("ImageLabel")
 		Circle.Image = "rbxassetid://" .. tostring(Custom:Decryption("216000000002,216000000006,216000000006,216000000005,216000000004,216000000003,216000000002,216000000006,216000000008"))
-		Circle.ImageColor3 = Color3.fromRGB(80, 80, 80)
+		Circle.ImageColor3 = MilitaryColors.Highlight
 		Circle.ImageTransparency = 0.8999999761581421
 		Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Circle.BackgroundTransparency = 1
@@ -242,7 +249,7 @@ function Speed_Library:SetNotification(Config)
   }, NotificationLayout)
 
   local NotificationFrameReal = Custom:Create("Frame", {
-    BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+    BackgroundColor3 = MilitaryColors.Primary,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
     Position = UDim2.new(0, 400, 0, 0),
@@ -254,6 +261,12 @@ function Speed_Library:SetNotification(Config)
     CornerRadius = UDim.new(0, 8)
   }, NotificationFrameReal)
 
+Custom:Create("UIStroke", {
+    Color = MilitaryColors.Highlight,
+    Thickness = 1.2
+}, NotificationFrameReal)
+
+	
   local DropShadowHolder = Custom:Create("Frame", {
     BackgroundTransparency = 1,
     BorderSizePixel = 0,
@@ -292,7 +305,7 @@ function Speed_Library:SetNotification(Config)
   local TextLabel = Custom:Create("TextLabel", {
     Font = Enum.Font.GothamBold,
     Text = Title,
-    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextColor3 = MilitaryColors.Highlight,
     TextSize = 14,
     TextXAlignment = Enum.TextXAlignment.Left,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
@@ -443,7 +456,7 @@ function Speed_Library:CreateWindow(Config)
 
   local Main = Custom:Create("Frame", {
     AnchorPoint = Vector2.new(0.5, 0.5),
-    BackgroundColor3 = Color3.fromRGB(15, 15, 15),
+    BackgroundColor3 = MilitaryColors.Background,
     BackgroundTransparency = 0.1,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
@@ -460,7 +473,7 @@ function Speed_Library:CreateWindow(Config)
   }, Main)
 
   local Top = Custom:Create("Frame", {
-    BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+    BackgroundColor3 = MilitaryColors.Primary,
     BackgroundTransparency = 0.9990000128746033,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
@@ -721,7 +734,7 @@ function Speed_Library:CreateWindow(Config)
 
   local DropdownSelect = Custom:Create("Frame", {
     AnchorPoint = Vector2.new(1, 0.5),
-    BackgroundColor3 = Color3.fromRGB(30, 30, 30),
+    BackgroundColor3 = MilitaryColors.Primary,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
     LayoutOrder = 1,
@@ -1281,7 +1294,7 @@ function Speed_Library:CreateWindow(Config)
 
         local Button = Custom:Create("Frame", {
 					Name = "Button",
-					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+					BackgroundColor3 = MilitaryColors.Secondary,
 					BackgroundTransparency = 0.935,
 					BorderSizePixel = 0,
 					LayoutOrder = ItemCount,
@@ -1467,7 +1480,7 @@ function Speed_Library:CreateWindow(Config)
 				local FeatureFrame2 = Custom:Create("Frame", {
 					Name = "FeatureFrame2",
 					AnchorPoint = Vector2.new(1, 0.5),
-					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+					BackgroundColor3 = MilitaryColors.Secondary,
 					BackgroundTransparency = 0.92,
 					BorderSizePixel = 0,
 					Position = UDim2.new(1, -15, 0.5, 0),
@@ -1497,7 +1510,7 @@ function Speed_Library:CreateWindow(Config)
         }, ToggleCircle)
 
         local function ToggleAnimation(isOn)          
-          local TitleColor = isOn and Color3.fromRGB(80, 90, 70) or Color3.fromRGB(150, 150, 150)
+          local TitleColor = isOn and MilitaryColors.Highlight or MilitaryColors.Text
           local CirclePosition = isOn and UDim2.new(0, 15, 0, 0) or UDim2.new(0, 0, 0, 0)
           local StrokeColor = isOn and Custom.ColorRGB or Color3.fromRGB(255, 255, 255)
           local StrokeTransparency = isOn and 0 or 0.9
@@ -1643,7 +1656,7 @@ function Speed_Library:CreateWindow(Config)
 
         local SliderDraggable = Custom:Create("Frame", {
 					AnchorPoint = Vector2.new(0, 0.5),
-					BackgroundColor3 = Custom.ColorRGB,
+					BackgroundColor3 = MilitaryColors.Accent,
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					Position = UDim2.new(0, 0, 0.5, 0),
