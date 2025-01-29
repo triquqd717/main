@@ -1497,7 +1497,7 @@ function Speed_Library:CreateWindow(Config)
         }, ToggleCircle)
 
         local function ToggleAnimation(isOn)          
-          local TitleColor = isOn and Custom.ColorRGB or Color3.fromRGB(230, 230, 230)
+          local TitleColor = isOn and Color3.fromRGB(80, 90, 70) or Color3.fromRGB(150, 150, 150)
           local CirclePosition = isOn and UDim2.new(0, 15, 0, 0) or UDim2.new(0, 0, 0, 0)
           local StrokeColor = isOn and Custom.ColorRGB or Color3.fromRGB(255, 255, 255)
           local StrokeTransparency = isOn and 0 or 0.9
