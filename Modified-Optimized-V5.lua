@@ -10,7 +10,7 @@ local Colors = {
     Secondary = Color3.fromRGB(50, 70, 90),
     Accent = Color3.fromRGB(70, 100, 130),
     Highlight = Color3.fromRGB(100, 150, 200),
-    Text = Color3.fromRGB(230, 230, 230),
+    Text = Color3.fromRGB(0, 0, 0),
     Background = Color3.fromRGB(15, 20, 30)
 }
 
