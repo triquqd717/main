@@ -263,7 +263,7 @@ function Speed_Library:SetNotification(Config)
   }, NotificationFrameReal)
 
 Custom:Create("UIStroke", {
-    Color = Colors.Highlight,
+    Color = Colors.Stroke,
     Thickness = 1.2,
 }, NotificationFrameReal)
 
@@ -319,7 +319,7 @@ Custom:Create("UIStroke", {
   })
 
   Custom:Create("UIStroke", {
-    Color = Color3.fromRGB(255, 255, 255),
+    Color = Colors.Stroke,
     Thickness = 0.3,
     Parent = TextLabel
   })
@@ -765,7 +765,7 @@ function Speed_Library:CreateWindow(Config)
   })
 
   Custom:Create("UIStroke", {
-    Color = Color3.fromRGB(255, 255, 255),
+    Color = Colors.Stroke,
     Thickness = 2.5,
     Transparency = 0.8,
     Parent = DropdownSelect
@@ -1492,7 +1492,7 @@ function Speed_Library:CreateWindow(Config)
         }, FeatureFrame2)
       
         local UIStroke8 = Custom:Create("UIStroke", {
-          Color = Color3.fromRGB(255, 255, 255),
+          Color = Colors.Stroke,
           Thickness = 2,
           Transparency = 0.9
         }, FeatureFrame2)
@@ -2142,7 +2142,7 @@ function Speed_Library:CreateWindow(Config)
           }, Option)
   
           Custom:Create("UIStroke", {
-            Colors.Stroke,
+            Color = Colors.Stroke,
             Thickness = 1.6,
             Transparency = 0.999
           }, ChooseFrame)
