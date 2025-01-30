@@ -351,7 +351,7 @@ Custom:Create("UIStroke", {
 
   local Close = Custom:Create("TextButton", {
     Font = Enum.Font.SourceSans,
-    Text = "X",
+    Text = "Close",
     TextColor3 = Color3.fromRGB(255, 255, 255),
     TextSize = 18,
     AnchorPoint = Vector2.new(1, 0.5),
