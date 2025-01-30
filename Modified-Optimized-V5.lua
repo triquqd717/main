@@ -276,16 +276,16 @@ function Speed_Library:SetNotification(Config)
 		_Count = -v.Position.Y.Offset + v.Size.Y.Offset + 12
 	end
 
-	local NotificationFrame = Custom:Create("Frame", {
-		BackgroundColor3 = Color3.fromRGB(0, 0, 0),
-		BorderColor3 = Color3.fromRGB(0, 0, 0),
-		BorderSizePixel = 0,
-		Size = UDim2.new(1, 0, 0, 150),
-		Name = "NotificationFrame",
-		BackgroundTransparency = 1,
-		AnchorPoint = Vector2.new(0, 1),
-		Position = UDim2.new(0, 0, 1, -_Count),
-	}, NotificationLayout)
+local NotificationFrame = Custom:Create("Frame", {
+    BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+    BorderColor3 = Color3.fromRGB(0, 0, 0),
+    BorderSizePixel = 0,
+    Size = UDim2.new(1, 0, 0, 180),  -- Increased from 150 to 180 (height)
+    Name = "NotificationFrame",
+    BackgroundTransparency = 1,
+    AnchorPoint = Vector2.new(0, 1),
+    Position = UDim2.new(0, 0, 1, -_Count),
+}, NotificationLayout)
 
 	local NotificationFrameReal = Custom:Create("Frame", {
 		BackgroundColor3 = Colors.Primary,
@@ -422,11 +422,11 @@ function Speed_Library:SetNotification(Config)
 	TextLabel2.Size = UDim2.new(1, -20, 0, 13 + (13 * (TextLabel2.TextBounds.X // TextLabel2.AbsoluteSize.X)))
 	TextLabel2.TextWrapped = true
 
-	if TextLabel2.AbsoluteSize.Y < 27 then
-		NotificationFrame.Size = UDim2.new(1, 0, 0, 65)
-	else
-		NotificationFrame.Size = UDim2.new(1, 0, 0, TextLabel2.AbsoluteSize.Y + 40)
-	end
+if TextLabel2.AbsoluteSize.Y < 27 then
+    NotificationFrame.Size = UDim2.new(1, 0, 0, 80)  -- Increased from 65 to 80
+else
+    NotificationFrame.Size = UDim2.new(1, 0, 0, TextLabel2.AbsoluteSize.Y + 60)  -- Increased from +40 to +60
+end
 
 	local Waitted = false
 
