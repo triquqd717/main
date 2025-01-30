@@ -1263,7 +1263,7 @@ function Speed_Library:CreateWindow(Config)
     
         local Line = Custom:Create("Frame", {
           BackgroundColor3 = Colors.Accent,
-          BackgroundTransparency = 0.2,
+          BackgroundTransparency = 0.7,
           BorderSizePixel = 0,
           LayoutOrder = ItemCount,
           Size = UDim2.new(1, 0, 0, 7),
