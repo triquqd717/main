@@ -9,9 +9,10 @@ local Colors = {
     Primary = Color3.fromRGB(30, 42, 56),
     Secondary = Color3.fromRGB(50, 70, 90),
     Accent = Color3.fromRGB(70, 100, 130),
-    Highlight = Color3.fromRGB(0, 0, 0),
+    Highlight = Color3.fromRGB(100, 150, 200),
     Text = Color3.fromRGB(230, 230, 230),
-    Background = Color3.fromRGB(15, 20, 30)
+    Background = Color3.fromRGB(15, 20, 30),
+    Stroke = Color3.fromRGB(45, 60, 75) 
 }
 
 local Custom = {} do
@@ -344,7 +345,7 @@ Custom:Create("UIStroke", {
   })
 
   Custom:Create("UIStroke", {
-    Color = Colors.Highlight,
+    Color = Colors.Stroke,
     Thickness = 0.4,
     Parent = TextLabel1
   })
@@ -511,7 +512,7 @@ function Speed_Library:CreateWindow(Config)
   }, Top)
 
   Custom:Create("UIStroke", {
-    Color = Colors.Highlight,
+    Color = Colors.Stroke,
     Thickness = 0.4
   }, TextLabel1)
 
@@ -897,7 +898,7 @@ function Speed_Library:CreateWindow(Config)
       }, Tab)
   
       Custom:Create("UIStroke", {
-        Color = Colors.Highlight,
+        Color = Colors.Stroke,
         Thickness = 1.6,
       }, ChooseFrame)
   
@@ -1678,7 +1679,7 @@ function Speed_Library:CreateWindow(Config)
         Custom:Create("UICorner", {}, SliderCircle)
 
         Custom:Create("UIStroke", {
-          Color = Colors.Highlight,
+          Color = Colors.Stroke,
         }, SliderCircle)
 
         local Dragging = false
@@ -2141,7 +2142,7 @@ function Speed_Library:CreateWindow(Config)
           }, Option)
   
           Custom:Create("UIStroke", {
-            Colors.Highlight,
+            Colors.Stroke,
             Thickness = 1.6,
             Transparency = 0.999
           }, ChooseFrame)
