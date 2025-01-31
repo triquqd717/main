@@ -229,122 +229,240 @@ end
 local Speed_Library, Notification = {}, {}
 
 Speed_Library.Unloaded = false
-local NotificationQueue = {}
-local IsNotificationActive = false
-local Player = game:GetService("Players").LocalPlayer
-local TweenService = game:GetService("TweenService")
-
--- Custom creation function (assuming this exists in your environment)
-local Custom = {
-    Create = function(_, type, properties, parent)
-        local instance = Instance.new(type)
-        for prop, value in pairs(properties) do
-            instance[prop] = value
-        end
-        if parent then instance.Parent = parent end
-        return instance
-    end
-}
-
-Colors = {
-    Primary = Color3.fromRGB(30, 42, 56),
-    Highlight = Color3.fromRGB(100, 150, 200),
-    Stroke = Color3.fromRGB(45, 60, 75),
-    Text = Color3.fromRGB(230, 230, 230),
-}
 
 function Speed_Library:SetNotification(Config)
-    local Title = Config.Title or ""
-    local Content = Config.Content or ""
-    local Time = Config.Time or 0.5
-    local Delay = Config.Delay or 5
+	local Title = Config[1] or Config.Title or ""
+	local Description = Config[2] or Config.Description or ""
+	local Content = Config[3] or Config.Content or ""
+	local Time = Config[5] or Config.Time or 0.5
+	local Delay = Config[6] or Config.Delay or 5
 
-    table.insert(NotificationQueue, {
-        Title = Title,
-        Content = Content,
-        Time = Time,
-        Delay = Delay
-    })
+	local NotificationGui = Custom:Create(
+		"ScreenGui",
+		{
+			ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+		},
+		RunService:IsStudio() and Player.PlayerGui
+			or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui"))
+	)
 
-    if not IsNotificationActive then
-        processNotificationQueue()
-    end
+	local NotificationLayout = Custom:Create("Frame", {
+		AnchorPoint = Vector2.new(1, 1),
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BackgroundTransparency = 0.999,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Position = UDim2.new(1, -30, 1, -30),
+		Size = UDim2.new(0, 320, 1, 0),
+		Name = "NotificationLayout",
+	}, NotificationGui)
+
+	local Count = 0
+
+	NotificationLayout.ChildRemoved:Connect(function()
+		Count = 0
+		local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+
+		for _, v in ipairs(NotificationLayout:GetChildren()) do
+			local NewPOS = UDim2.new(0, 0, 1, -((v.Size.Y.Offset + 12) * Count))
+			local tween = TweenService:Create(v, tweenInfo, { Position = NewPOS })
+			tween:Play()
+			Count = Count + 1
+		end
+	end)
+
+	local _Count = 0
+	for _, v in ipairs(NotificationLayout:GetChildren()) do
+		_Count = -v.Position.Y.Offset + v.Size.Y.Offset + 12
+	end
+
+local NotificationFrame = Custom:Create("Frame", {
+    BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+    BorderColor3 = Color3.fromRGB(0, 0, 0),
+    BorderSizePixel = 0,
+    Size = UDim2.new(1, 0, 0, 180),  -- Increased from 150 to 180 (height)
+    Name = "NotificationFrame",
+    BackgroundTransparency = 1,
+    AnchorPoint = Vector2.new(0, 1),
+    Position = UDim2.new(0, 0, 1, -_Count),
+}, NotificationLayout)
+
+	local NotificationFrameReal = Custom:Create("Frame", {
+		BackgroundColor3 = Colors.Primary,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Position = UDim2.new(0, 400, 0, 0),
+		Size = UDim2.new(1, 0, 1, 0),
+		Name = "NotificationFrameReal",
+	}, NotificationFrame)
+
+	Custom:Create("UICorner", {
+		CornerRadius = UDim.new(0, 8),
+	}, NotificationFrameReal)
+
+	Custom:Create("UIStroke", {
+		Color = Colors.Stroke,
+		Thickness = 1.2,
+	}, NotificationFrameReal)
+
+	local DropShadowHolder = Custom:Create("Frame", {
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		Size = UDim2.new(1, 0, 1, 0),
+		ZIndex = 0,
+		Name = "DropShadowHolder",
+		Parent = NotificationFrameReal,
+	})
+
+	local DropShadow = Custom:Create("ImageLabel", {
+		Image = "",
+		ImageColor3 = Color3.fromRGB(0, 0, 0),
+		ImageTransparency = 0.5,
+		ScaleType = Enum.ScaleType.Slice,
+		SliceCenter = Rect.new(49, 49, 450, 450),
+		AnchorPoint = Vector2.new(0.5, 0.5),
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		Position = UDim2.new(0.5, 0, 0.5, 0),
+		Size = UDim2.new(1, 47, 1, 47),
+		ZIndex = 0,
+		Name = "DropShadow",
+		Parent = DropShadowHolder,
+	})
+
+	local Top = Custom:Create("Frame", {
+		BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+		BackgroundTransparency = 0.999,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Size = UDim2.new(1, 0, 0, 36),
+		Name = "Top",
+		Parent = NotificationFrameReal,
+	})
+
+	local TextLabel = Custom:Create("TextLabel", {
+		Font = Enum.Font.GothamBold,
+		Text = Title,
+		TextColor3 = Colors.Highlight,
+		TextSize = 14,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BackgroundTransparency = 0.999,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Size = UDim2.new(1, 0, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
+		Parent = Top,
+	})
+
+	Custom:Create("UIStroke", {
+		Color = Colors.Stroke,
+		Thickness = 0.3,
+		Parent = TextLabel,
+	})
+
+	Custom:Create("UICorner", {
+		Parent = Top,
+		CornerRadius = UDim.new(0, 5),
+	})
+
+	local TextLabel1 = Custom:Create("TextLabel", {
+		Font = Enum.Font.GothamBold,
+		Text = Description,
+		TextColor3 = Colors.Highlight,
+		TextSize = 14,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BackgroundTransparency = 0.999,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Size = UDim2.new(1, 0, 1, 0),
+		Position = UDim2.new(0, TextLabel.TextBounds.X + 15, 0, 0),
+		Parent = Top,
+	})
+
+	Custom:Create("UIStroke", {
+		Color = Colors.Stroke,
+		Thickness = 0.4,
+		Parent = TextLabel1,
+	})
+
+	local Close = Custom:Create("TextButton", {
+		Font = Enum.Font.SourceSans,
+		Text = "X",
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		TextSize = 18,
+		AnchorPoint = Vector2.new(1, 0.5),
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BackgroundTransparency = 0.999,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Position = UDim2.new(1, -5, 0.5, 0),
+		Size = UDim2.new(0, 25, 0, 25),
+		Name = "Close",
+		Parent = Top,
+	})
+
+	local TextLabel2 = Custom:Create("TextLabel", {
+		Font = Enum.Font.GothamBold,
+		TextColor3 = Colors.Text,
+		TextSize = 13,
+		Text = Content,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		TextYAlignment = Enum.TextYAlignment.Top,
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BackgroundTransparency = 0.999,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Position = UDim2.new(0, 10, 0, 27),
+		Size = UDim2.new(1, -20, 0, 13),
+		Parent = NotificationFrameReal,
+	})
+
+	TextLabel2.Size = UDim2.new(1, -20, 0, 13 + (13 * (TextLabel2.TextBounds.X // TextLabel2.AbsoluteSize.X)))
+	TextLabel2.TextWrapped = true
+
+if TextLabel2.AbsoluteSize.Y < 27 then
+    NotificationFrame.Size = UDim2.new(1, 0, 0, 80)  -- Increased from 65 to 80
+else
+    NotificationFrame.Size = UDim2.new(1, 0, 0, TextLabel2.AbsoluteSize.Y + 60)  -- Increased from +40 to +60
 end
 
-local function processNotificationQueue()
-    if #NotificationQueue == 0 then
-        IsNotificationActive = false
-        return
-    end
+	local Waitted = false
 
-    IsNotificationActive = true
-    local notification = table.remove(NotificationQueue, 1)
+	function Notification:Close()
+		if Waitted then
+			return false
+		end
+		Waitted = true
 
-    -- Create notification GUI
-    local NotificationGui = Custom:Create("ScreenGui", {
-        ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
-    }, game:GetService("CoreGui"))
+		local tween = TweenService:Create(
+			NotificationFrameReal,
+			TweenInfo.new(tonumber(Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+			{ Position = UDim2.new(0, 400, 0, 0) }
+		)
+		tween:Play()
 
-    local MainFrame = Custom:Create("Frame", {
-        Size = UDim2.new(0, 300, 0, 80),
-        Position = UDim2.new(1, -320, 1, -100),
-        AnchorPoint = Vector2.new(1, 1),
-        BackgroundTransparency = 1,
-    }, NotificationGui)
+		task.wait(tonumber(Time) / 1.2)
 
-    local NotificationFrame = Custom:Create("Frame", {
-        Size = UDim2.new(1, 0, 0, 80),
-        Position = UDim2.new(0, 0, 1, 0),
-        AnchorPoint = Vector2.new(1, 1),
-        BackgroundColor3 = Colors.Primary,
-    }, MainFrame)
+		NotificationFrame:Destroy()
 
-    Custom:Create("UICorner", {CornerRadius = UDim.new(0, 8)}, NotificationFrame)
-    Custom:Create("UIStroke", {Color = Colors.Stroke, Thickness = 1.2}, NotificationFrame)
+		Waitted = false
+	end
 
-    local TitleLabel = Custom:Create("TextLabel", {
-        Text = notification.Title,
-        TextColor3 = Colors.Highlight,
-        Font = Enum.Font.GothamBold,
-        TextSize = 14,
-        Position = UDim2.new(0, 10, 0, 5),
-        Size = UDim2.new(1, -20, 0, 20),
-        BackgroundTransparency = 1,
-    }, NotificationFrame)
+	Close.Activated:Connect(function()
+		Notification:Close()
+	end)
 
-    local ContentLabel = Custom:Create("TextLabel", {
-        Text = notification.Content,
-        TextColor3 = Colors.Text,
-        Font = Enum.Font.Gotham,
-        TextSize = 13,
-        Position = UDim2.new(0, 10, 0, 30),
-        Size = UDim2.new(1, -20, 1, -35),
-        TextWrapped = true,
-        BackgroundTransparency = 1,
-    }, NotificationFrame)
+	TweenService:Create(
+		NotificationFrameReal,
+		TweenInfo.new(tonumber(Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+		{ Position = UDim2.new(0, 0, 0, 0) }
+	):Play()
+	task.wait(tonumber(Delay))
+	Notification:Close()
 
-    -- Animation logic
-    local showTween = TweenService:Create(
-        NotificationFrame,
-        TweenInfo.new(0.5, Enum.EasingStyle.Quint),
-        {Position = UDim2.new(0, 0, 1, 0)}
-    )
-
-    local hideTween = TweenService:Create(
-        NotificationFrame,
-        TweenInfo.new(0.5, Enum.EasingStyle.Quint),
-        {Position = UDim2.new(1, 0, 1, 0)}
-    )
-
-    showTween:Play()
-    task.wait(notification.Delay)
-    
-    hideTween:Play()
-    hideTween.Completed:Wait()
-    NotificationGui:Destroy()
-    
-    -- Process next notification
-    processNotificationQueue()
+	return Notification
 end
 
 function Speed_Library:CreateWindow(Config)
