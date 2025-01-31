@@ -1,4 +1,8 @@
 local games = {
+	["anime adventures"] = 8304191830,
+	["aa"] = 8304191830,
+	["dandys world"] = 16116270224,
+	["dw"] = 16116270224,
 	["royale high"] = 735030788,
 	["rh"] = 735030788,
 	["fisch"] = 16732694052,
@@ -1042,6 +1046,8 @@ local games = {
 }
 
 local gameNames = {
+    [8304191830] = "Anime Adventures",
+    [16116270224] = "Dandy's World",
     [735030788] = "Royale High",
     [16732694052] = "Fisch",
     [4616652839] = "Shindo Life",
