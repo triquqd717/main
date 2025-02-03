@@ -1,4 +1,3 @@
-print("hi")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local RunService = game:GetService("RunService")
@@ -78,7 +77,6 @@ else
         Stroke = Color3.fromRGB(50, 70, 90),
     }
 end
-print("hi2")
 local Custom = {}
 do
 	function Custom:Create(Name, Properties, Parent)
@@ -117,7 +115,7 @@ do
 		if getcustomasset and writefile then
 			writefile(
 				"speedhubz.png",
-				game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/main/logo/speedhubz.png"")
+				game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/main/logo/speedhubz.png")
 			)
 			return getcustomasset("speedhubz.png")
 		else
@@ -136,7 +134,7 @@ do
 		return tonumber(table.concat(List))
 	end
 end
-print("hi3")
+
 Custom:EnabledAFK()
 
 local function OpenClose()
