@@ -7,19 +7,9 @@ local VirtualUser = game:GetService("VirtualUser")
 local Colors
 
 
-
-
-
-
-print("1")
-
 if not getgenv().Theme then
     getgenv().Theme = "Default"
 end
-
-print("2")
-
-
 
 if getgenv().Theme == "Red" then
     Colors = {
@@ -87,7 +77,6 @@ else
         Stroke = Color3.fromRGB(50, 70, 90),
     }
 end
-print("3")
 local Custom = {}
 do
 	function Custom:Create(Name, Properties, Parent)
@@ -145,8 +134,6 @@ do
 		return tonumber(table.concat(List))
 	end
 end
-
-print("4")
 
 Custom:EnabledAFK()
 
