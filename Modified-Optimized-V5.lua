@@ -1,3 +1,4 @@
+print("hi")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local RunService = game:GetService("RunService")
@@ -77,6 +78,7 @@ else
         Stroke = Color3.fromRGB(50, 70, 90),
     }
 end
+print("hi2")
 local Custom = {}
 do
 	function Custom:Create(Name, Properties, Parent)
@@ -134,7 +136,7 @@ do
 		return tonumber(table.concat(List))
 	end
 end
-
+print("hi3")
 Custom:EnabledAFK()
 
 local function OpenClose()
