@@ -114,10 +114,10 @@ do
 	function Custom:GetLogo()
 		if getcustomasset and writefile then
 			writefile(
-				"SpeedHubZ.png",
-				game:HttpGet("https://github.com/triquqd717/main/blob/main/logo/speedhubz.png")
+				"speedhubz.png",
+				game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/main/logo/speedhubz.png"")
 			)
-			return getcustomasset("SpeedHubZ.png")
+			return getcustomasset("speedhubz.png")
 		else
 			return ""
 		end
