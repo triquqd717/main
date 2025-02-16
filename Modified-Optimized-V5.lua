@@ -110,7 +110,6 @@ do
 
 		return table.concat(List)
 	end
-	print("hi")
 	function Custom:GetLogo()
 		if getcustomasset and writefile then
 			writefile(
@@ -122,7 +121,6 @@ do
 			return ""
 		end
 	end
-	print("hi")
 	function Custom:Decryption(Enc)
 		local List = {}
 
