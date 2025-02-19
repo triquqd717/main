@@ -8,7 +8,12 @@ local VIM = game:GetService("VirtualInputManager")
 
 function sphz:GetTo(pos)
     local success, err = pcall(function()
-        root.CFrame = pos
+        if char and root then
+			root.CFrame = CFrame.new(pos)
+		else
+			print("nuh uh")
+			return
+		end
     end)
     if not success then
         warn("error: " .. err)
@@ -19,10 +24,16 @@ end
 function sphz:TweenTo(pos)
 	local targetCFrame = pos
 	if not root or not root.Parent then
+		print("nu uh")
 		return
 	end
+	local succccccccccc, errrrrrrrr = pcall(function()
 	local tween = game:GetService("TweenService"):Create(root, TweenInfo.new(1, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), { CFrame = targetCFrame })
 	tween:Play()
+	end)
+	if not succccccccccc then
+		warn("error: " .. errrrrrrrr)
+	end
 end
 
 function sphz:FireServer(func, ...)
