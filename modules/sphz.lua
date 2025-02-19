@@ -6,7 +6,7 @@ local char = player.Character
 local root = char:FindFirstChild("HumanoidRootPart")
 local VIM = game:GetService("VirtualInputManager")
 
-function sphz:GetTo(...)
+function sphz.GetTo(...)
 	local args = { ... }
 	if #args >= 12 then
 		root.CFrame = CFrame.new(
@@ -30,7 +30,7 @@ function sphz:GetTo(...)
 	end
 end
 
-function sphz:TweenTo(...)
+function sphz.TweenTo(...)
 	local args = { ... }
 	local targetCFrame
 	if #args >= 12 then
@@ -62,7 +62,7 @@ function sphz:TweenTo(...)
 	tween:Play()
 end
 
-function sphz:FireServer(func, ...)
+function sphz.FireServer(func, ...)
 	local args = { ... }
 	local success, err = pcall(function()
 		func:FireServer(unpack(args))
@@ -72,7 +72,7 @@ function sphz:FireServer(func, ...)
 	end
 end
 
-function sphz:FirePrompt(prompt)
+function sphz.FirePrompt(prompt)
 	local success, err = pcall(function()
 		fireproximityprompt(prompt)
 	end)
@@ -81,7 +81,7 @@ function sphz:FirePrompt(prompt)
 	end
 end
 
-function sphz:HasRod(rod)
+function sphz.HasRod(rod)
 	if game:GetService("ReplicatedStorage").playerstats:FindFirstChild(player.Name).Rods:FindFirstChild(rod) then
 		return true
 	else
@@ -89,7 +89,7 @@ function sphz:HasRod(rod)
 	end
 end
 
-function sphz:SelectRod(rod)
+function sphz.SelectRod(rod)
 	local success, result = pcall(function()
 		game:GetService("ReplicatedStorage").packages.Net["RE/Rod/Equip"]:FireServer(rod)
 	end)
@@ -98,7 +98,7 @@ function sphz:SelectRod(rod)
 	end
 end
 
-function sphz:EquipTool(tool)
+function sphz.EquipTool(tool)
 	local equip = player.Backpack:FindFirstChild(tool)
 	if equip then
 		game.ReplicatedStorage.packages.Net["RE/Backpack/Equip"]:FireServer(equip)
@@ -109,14 +109,14 @@ function sphz:EquipTool(tool)
 	end
 end
 
-function sphz:UnequipTool(tool)
+function sphz.UnequipTool(tool)
 	local equip = player.Character:FindFirstChild(tool)
 	if equip then
 		game.ReplicatedStorage.packages.Net["RE/Backpack/Equip"]:FireServer(equip)
 	end
 end
 
-function sphz:CheckTool(tool)
+function sphz.CheckTool(tool)
 	if player.Backpack:FindFirstChild(tool) then
 		return "found"
 	elseif char:FindFirstChild("Tool") then
@@ -126,7 +126,7 @@ function sphz:CheckTool(tool)
 	end
 end
 
-function sphz:GetMagnitude(...)
+function sphz.GetMagnitude(...)
 	local args = { ... }
 	local cframe
 
@@ -147,7 +147,7 @@ function sphz:GetMagnitude(...)
 	return (cframe.Position - playerPosition).Magnitude
 end
 
-function sphz:SendWebhook( ... )
+function sphz.SendWebhook( ... )
 	local args = { ... }
 	local data = request({
 		Url = args[1],
@@ -161,7 +161,7 @@ function sphz:SendWebhook( ... )
 				["title"] = args[2],
 				["description"] = args[3],
 				["type"] = "rich",
-				["color"] = tonumber("0x212f3c")
+				["color"] = tonumber("0x212f3c"),
 				["fields"] = {
 					{
 						["name"] = "Instance ID:",
@@ -174,7 +174,7 @@ function sphz:SendWebhook( ... )
 	})
 end
 
-function sphz:Interact(button)
+function sphz.Interact(button)
     local button1 = game.Players.LocalPlayer.PlayerGui:FindFirstChild(button)
     if button1 and button1.Enabled and button1:FindFirstChild("safezone") then
         local selectedbutton = button1.safezone:FindFirstChild("button")
