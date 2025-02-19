@@ -8,7 +8,7 @@ local VIM = game:GetService("VirtualInputManager")
 
 function sphz:GetTo(pos)
 	local success, err = pcall(function()
-		root.CFrame = CFrame.new(pos)
+		root.CFrame = pos
 	end)
 	if not success then
 		warn("error: " .. err)
@@ -17,7 +17,7 @@ end
 
 
 function sphz:TweenTo(pos)
-	local targetCFrame = CFrame.new(pos)
+	local targetCFrame = pos
 	if not root or not root.Parent then
 		return
 	end
