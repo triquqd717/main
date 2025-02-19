@@ -89,17 +89,8 @@ function sphz:CheckTool(tool)
 	end
 end
 
-function sphz:GetMagnitude(...)
-	local args = { ... }
-	local cframe
-
-	if #args >= 12 then
-		cframe = CFrame.new(table.unpack(args, 1, 12))
-	elseif #args >= 6 then
-		cframe = CFrame.new(args[1], args[2], args[3], args[4], args[5], args[6])
-	else
-		cframe = CFrame.new(args[1] or 0, args[2] or 0, args[3] or 0)
-	end
+function sphz:GetMagnitude(pos)
+	local cframe = CFrame.new(pos)
 
 	local playerCharacter = player.Character
 	if not (playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart")) then
@@ -110,10 +101,9 @@ function sphz:GetMagnitude(...)
 	return (cframe.Position - playerPosition).Magnitude
 end
 
-function sphz:SendWebhook( ... )
-	local args = { ... }
+function sphz:SendWebhook(url, title, description)
 	local data = request({
-		Url = args[1],
+		Url = url,
 		Method = "POST",
 		Headers = {
 			["Content-Type"] = "application/json"
@@ -121,8 +111,8 @@ function sphz:SendWebhook( ... )
 		Body = game:GetService("HttpService"):JSONEncode({
 			["content"] = "",
 			["embeds"] = ({
-				["title"] = args[2],
-				["description"] = args[3],
+				["title"] = title,
+				["description"] = description,
 				["type"] = "rich",
 				["color"] = tonumber("0x212f3c"),
 				["fields"] = {
