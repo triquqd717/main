@@ -6,59 +6,22 @@ local char = player.Character
 local root = char:FindFirstChild("HumanoidRootPart")
 local VIM = game:GetService("VirtualInputManager")
 
-function sphz:GetTo(...)
-	local args = { ... }
-	if #args >= 12 then
-		root.CFrame = CFrame.new(
-			args[1],
-			args[2],
-			args[3],
-			args[4],
-			args[5],
-			args[6],
-			args[7],
-			args[8],
-			args[9],
-			args[10],
-			args[11],
-			args[12]
-		)
-	elseif #args >= 6 then
-		root.CFrame = CFrame.new(args[1], args[2], args[3], args[4], args[5], args[6])
-	else
-		root.CFrame = CFrame.new(args[1] or 0, args[2] or 0, args[3] or 0)
+function sphz:GetTo(pos)
+	local success, err = pcall(function()
+		char.HumanoidRootPart.CFrame = pos
+	end)
+	if not success then
+		warn("error: " .. err)
 	end
 end
 
-function sphz:TweenTo(...)
-	local args = { ... }
-	local targetCFrame
-	if #args >= 12 then
-		targetCFrame = CFrame.new(
-			args[1],
-			args[2],
-			args[3],
-			args[4],
-			args[5],
-			args[6],
-			args[7],
-			args[8],
-			args[9],
-			args[10],
-			args[11],
-			args[12]
-		)
-	elseif #args >= 6 then
-		targetCFrame = CFrame.new(args[1], args[2], args[3], args[4], args[5], args[6])
-	else
-		targetCFrame = CFrame.new(args[1] or 0, args[2] or 0, args[3] or 0)
-	end
+
+function sphz:TweenTo(pos)
+	local targetCFrame = pos
 	if not root or not root.Parent then
 		return
 	end
-	local tween =
-		game:GetService("TweenService"):Create(root, TweenInfo.new(1, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), { CFrame = targetCFrame })
-
+	local tween = game:GetService("TweenService"):Create(root, TweenInfo.new(1, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), { CFrame = targetCFrame })
 	tween:Play()
 end
 
