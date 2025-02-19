@@ -101,7 +101,7 @@ function sphz:GetMagnitude(pos)
     return (targetPosition - playerPosition).Magnitude
 end
 
-function sphz:SendWebhook(url, title, description)
+function sphz:SendWebhook(url, title, description, name, value)
 	local data = request({
 		Url = url,
 		Method = "POST",
@@ -111,14 +111,14 @@ function sphz:SendWebhook(url, title, description)
 		Body = game:GetService("HttpService"):JSONEncode({
 			["content"] = "",
 			["embeds"] = ({
-				["title"] = title,
-				["description"] = description,
+				["title"] = title or "nil",
+				["description"] = description or "nil",
 				["type"] = "rich",
 				["color"] = tonumber("0x212f3c"),
 				["fields"] = {
 					{
-						["name"] = "Instance ID:",
-						["value"] = Xeno.PID,
+						["name"] = name or "Instance ID",
+						["value"] = value or Xeno.PID,
 						["inline"] = true
 					}
 				}
