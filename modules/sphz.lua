@@ -1,4 +1,5 @@
 local sphz = {}
+local modulever = "1.0.0"
 function sphz:Initialize()
     self.vim = game:GetService("VirtualInputManager")
     self.player = game.Players.LocalPlayer
@@ -15,6 +16,7 @@ function sphz:Initialize()
         self.hum = self.char:WaitForChild("Humanoid")
         self.root = self.char:WaitForChild("HumanoidRootPart")
     end
+	print("module initalized, module version: " .. modulever)
 end
 
 function sphz:GetTo(pos)
