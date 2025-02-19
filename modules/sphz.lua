@@ -9,7 +9,7 @@ local vim = game:GetService("VirtualInputManager")
 function sphz:GetTo(pos)
     local success, err = pcall(function()
         if char and root then
-			root.CFrame = CFrame.new(pos)
+			root.CFrame = pos
 		else
 			print("nuh uh")
 			return
