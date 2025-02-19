@@ -2,7 +2,7 @@ local sphz = {}
 local modulever = "1.0.0"
 function sphz:Initialize()
     self.vim = game:GetService("VirtualInputManager")
-	self.players = game:GetService("Players")
+    self.players = game:GetService("Players")
     self.player = game.Players.LocalPlayer
     self.httpservice = game:GetService("HttpService")
     self.playergui = self.player.PlayerGui
