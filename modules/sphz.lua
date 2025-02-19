@@ -8,10 +8,6 @@ local VIM = game:GetService("VirtualInputManager")
 
 function sphz:GetTo(pos)
     local success, err = pcall(function()
-        if not root or not root.Parent then
-            local char = player.Character or player.CharacterAdded:Wait()
-            root = char:WaitForChild("HumanoidRootPart")
-        end
         root.CFrame = pos
     end)
     if not success then
