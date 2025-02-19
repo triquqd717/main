@@ -7,12 +7,16 @@ local root = char:FindFirstChild("HumanoidRootPart")
 local VIM = game:GetService("VirtualInputManager")
 
 function sphz:GetTo(pos)
-	local success, err = pcall(function()
-		root.CFrame = pos
-	end)
-	if not success then
-		warn("error: " .. err)
-	end
+    local success, err = pcall(function()
+        if not root or not root.Parent then
+            local char = player.Character or player.CharacterAdded:Wait()
+            root = char:WaitForChild("HumanoidRootPart")
+        end
+        root.CFrame = pos
+    end)
+    if not success then
+        warn("error: " .. err)
+    end
 end
 
 
@@ -90,15 +94,15 @@ function sphz:CheckTool(tool)
 end
 
 function sphz:GetMagnitude(pos)
-	local cframe = CFrame.new(pos)
+    local targetPosition = (typeof(pos) == "CFrame") and pos.Position or pos
 
-	local playerCharacter = player.Character
-	if not (playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart")) then
-		return 0
-	end
+    local playerCharacter = player.Character
+    if not (playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart")) then
+        return 0
+    end
 
-	local playerPosition = playerCharacter.HumanoidRootPart.Position
-	return (cframe.Position - playerPosition).Magnitude
+    local playerPosition = playerCharacter.HumanoidRootPart.Position
+    return (targetPosition - playerPosition).Magnitude
 end
 
 function sphz:SendWebhook(url, title, description)
