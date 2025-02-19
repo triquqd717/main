@@ -1,10 +1,10 @@
 local sphz = {}
 local player = game.Players.LocalPlayer
-local hum = player.Character:FindFirstChild("Humanoid")
 local mouse = player:GetMouse()
 local char = player.Character
-local root = char:FindFirstChild("HumanoidRootPart")
-local VIM = game:GetService("VirtualInputManager")
+local hum = char:WaitForChild("Humanoid")
+local root = char:WaitForChild("HumanoidRootPart")
+local vim = game:GetService("VirtualInputManager")
 
 function sphz:GetTo(pos)
     local success, err = pcall(function()
@@ -146,8 +146,8 @@ function sphz:Interact(button)
         if selectedbutton then
             local GuiService = game:GetService("GuiService")
             GuiService.SelectedObject = selectedbutton
-            VIM:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
-            VIM:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+            vim:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+            vim:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
             task.wait(0.1)
             GuiService.SelectedObject = nil
         end
