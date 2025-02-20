@@ -1,6 +1,6 @@
 
 local sphz = {}
-local modulever = "1.0.5"
+local modulever = "1.0.6"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -205,7 +205,10 @@ end
 
 
 function sphz:NearestPrompt(promptName)
-    return self:NearestPromptCheck(math.huge, promptName)
+	local nearestPrompt, shortestDistance = self:NearestPromptCheck(math.huge, promptName)
+	if nearestPrompt then
+		self:FirePrompt(nearestPrompt)
+	end
 end
 
 function sphz:Interact(button)
