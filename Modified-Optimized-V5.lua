@@ -110,17 +110,6 @@ do
 
 		return table.concat(List)
 	end
-	function Custom:GetLogo()
-		if getcustomasset and writefile then
-			writefile(
-				"speedhubz.png",
-				game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/main/logo/speedhubz.png")
-			)
-			return getcustomasset("speedhubz.png")
-		else
-			return "rbxassetid://125533253519681"
-		end
-	end
 	function Custom:Decryption(Enc)
 		local List = {}
 
@@ -150,7 +139,7 @@ local function OpenClose()
 		BorderColor3 = Colors.ThemeHighlight, 
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
 		Size = UDim2.new(0, 59, 0, 49),
-		Image = "rbxassetid://125533253519681",
+		Image = "125533253519681",
 		Visible = false,
 	}, ScreenGui)
 
@@ -246,12 +235,7 @@ function CircleClick(Button, X, Y)
 		Button.ClipsDescendants = true
 
 		local Circle = Instance.new("ImageLabel")
-		Circle.Image = "rbxassetid://"
-			.. tostring(
-				Custom:Decryption(
-					"216000000002,216000000006,216000000006,216000000005,216000000004,216000000003,216000000002,216000000006,216000000008"
-				)
-			)
+		Circle.Image = ""
 		Circle.ImageColor3 = Colors.ThemeHighlight
 		Circle.ImageTransparency = 0.8999999761581421
 		Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1156,12 +1140,7 @@ function Speed_Library:CreateWindow(Config)
 			}, SectionReal)
 
 			local FeatureImg = Custom:Create("ImageLabel", {
-				Image = "rbxassetid://"
-					.. tostring(
-						Custom:Decryption(
-							"216000000001,216000000006,216000000008,216000000005,216000000001,216000000008,216000000004,216000000001,216000000001,216000000000,216000000001"
-						)
-					),
+				Image = ""
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 				BackgroundTransparency = 0.9990000128746033,
@@ -1465,12 +1444,7 @@ function Speed_Library:CreateWindow(Config)
 				local Content = Config[2] or Config.Content or ""
 				local Icon = Config[3]
 					or Config.Icon
-					or "rbxassetid://"
-						.. tostring(
-							Custom:Decryption(
-								"216000000001,216000000006,216000000009,216000000003,216000000002,216000000007,216000000004,216000000000,216000000000,216000000008,216000000002"
-							)
-						)
+					or ""
 				local Callback = Config[4] or Config.Callback or function() end
 				local Funcs_Button = {}
 
@@ -2228,12 +2202,7 @@ function Speed_Library:CreateWindow(Config)
 				}, SelectOptionsFrame)
 
 				local OptionImg = Custom:Create("ImageLabel", {
-					Image = "rbxassetid://"
-						.. tostring(
-							Custom:Decryption(
-								"216000000001,216000000006,216000000008,216000000005,216000000001,216000000008,216000000004,216000000001,216000000001,216000000000,216000000001"
-							)
-						),
+					Image = ""
 					ImageColor3 = Color3.fromRGB(231, 231, 231),
 					AnchorPoint = Vector2.new(1, 0.5),
 					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
