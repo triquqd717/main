@@ -1,6 +1,6 @@
 
 local sphz = {}
-local modulever = "1.0.4"
+local modulever = "1.0.5"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -178,54 +178,34 @@ function sphz:BuyShop(item, type, amount)
 	self.rs.events.purchase:FireServer(item, type, amount)
 end
 
-function sphz:NearestPromptCheck(distance, name)
-	local success, result = pcall(function()
-		local closestPrompt = nil
-		local closestDistance = math.huge
-		for _, prompt in pairs(workspace:GetDescendants()) do
-			if prompt:IsA("ProximityPrompt") and (not name or prompt.Name == name) then
-				local promptPosition = nil
-				-- Check if the parent is a BasePart
-				if prompt.Parent:IsA("BasePart") then
-					promptPosition = prompt.Parent.Position
-				-- Else if it's a Model with a PrimaryPart, use that
-				elseif prompt.Parent:IsA("Model") and prompt.Parent.PrimaryPart then
-					promptPosition = prompt.Parent.PrimaryPart.Position
-				-- Else, try to find a Model ancestor with a PrimaryPart
-				else
-					local modelAncestor = prompt:FindFirstAncestorWhichIsA("Model")
-					if modelAncestor and modelAncestor.PrimaryPart then
-						promptPosition = modelAncestor.PrimaryPart.Position
-					end
-				end
-
-				if promptPosition then
-					local promptDistance = (promptPosition - self.root.Position).Magnitude
-					if promptDistance < closestDistance and promptDistance < distance then
-						closestPrompt = prompt
-						closestDistance = promptDistance
-					end
-				end
-			end
-		end
-		return closestPrompt
-	end)
-
-	if not success then
-		warn("function: NearestPromptCheck, error: " .. tostring(result))
-		return nil
-	end
-	return result
+function sphz:NearestPromptCheck(maxDistance, promptName)
+    if not self.root then
+        warn("Character root not initialized")
+        return nil
+    end
+    local nearestPrompt = nil
+    local shortestDistance = maxDistance or math.huge
+    for _, obj in ipairs(game.Workspace:GetDescendants()) do
+        if obj:IsA("ProximityPrompt") then
+            if not promptName or obj.Name == promptName then
+                local parentPart = obj.Parent
+                if parentPart and parentPart:IsA("BasePart") then
+                    local dist = (self.root.Position - parentPart.Position).Magnitude
+                    if dist < shortestDistance then
+                        shortestDistance = dist
+                        nearestPrompt = obj
+                    end
+                end
+            end
+        end
+    end
+    
+    return nearestPrompt, shortestDistance
 end
 
 
-function sphz:NearestPrompt(distance, name)
-	local prompt = self:NearestPromptCheck(distance, name)
-	if prompt then
-		self:FirePrompt(prompt)
-	else
-		warn("No ProximityPrompt found within " .. distance .. " studs.")
-	end
+function sphz:NearestPrompt(promptName)
+    return self:NearestPromptCheck(math.huge, promptName)
 end
 
 function sphz:Interact(button)
