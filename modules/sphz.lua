@@ -1,6 +1,5 @@
-
 local sphz = {}
-local modulever = "1.0.7"
+local modulever = "1.0.8"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -174,8 +173,8 @@ function Send(url, title, description, name, value)
 	})
 end
 
-function sphz:BuyShop(item, type, amount)
-	self.rs.events.purchase:FireServer(item, type, amount)
+function sphz:BuyShop(item, type, etc, amount)
+	self.rs.events.purchase:FireServer(item, type, etc, amount)
 end
 
 function sphz:NearestPromptCheck(maxDistance, promptName)
@@ -188,7 +187,6 @@ function sphz:NearestPromptCheck(maxDistance, promptName)
 		end
 	end
 end
-
 
 function sphz:NearestPrompt(distance)
 	for i, v in pairs(workspace:GetDescendants()) do
@@ -208,28 +206,31 @@ function sphz:Interact(button)
 end
 
 function sphz:Run_Loop(name, func)
-	if not self.activeLoops then
-		self.activeLoops = {}
-	end
-	if self.activeLoops[name] then
-		self:Stop_Loop(name)
-	end
-	self.activeLoops[name] = true
-	task.spawn(function()
-		while self.activeLoops[name] do
-			local success, err = pcall(func)
-			if not success then
-				warn("Error in loop '" .. name .. "': " .. tostring(err))
-			end
-			task.wait(0.1)
-		end
-	end)
+    if not self.activeLoops then
+        self.activeLoops = {}
+    end
+    self:Stop_Loop(name)
+    self.activeLoops[name] = {
+        running = true,
+        thread = task.spawn(function()
+            while self.activeLoops[name] and self.activeLoops[name].running do
+                local success, err = pcall(func)
+                if not success then
+                    warn("Error in loop '" .. name .. "': " .. tostring(err))
+                end
+                task.wait(0.1)
+            end
+            self.activeLoops[name] = nil
+        end)
+    }
 end
 
 function sphz:Stop_Loop(name)
-	if self.activeLoops and self.activeLoops[name] then
-		self.activeLoops[name] = nil
-	end
+    if self.activeLoops and self.activeLoops[name] then
+        self.activeLoops[name].running = false
+        task.cancel(self.activeLoops[name].thread)
+        self.activeLoops[name] = nil
+    end
 end
 
 return sphz
