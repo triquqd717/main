@@ -1,6 +1,6 @@
 
 local sphz = {}
-local modulever = "1.0.6"
+local modulever = "1.0.7"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -69,9 +69,9 @@ function sphz:FireServer(func, ...)
 	end
 end
 
-function sphz:FirePrompt(prompt)
+function sphz:FirePrompt(prompt, distance)
 	local success, err = pcall(function()
-		fireproximityprompt(prompt)
+		fireproximityprompt(prompt, distance)
 	end)
 	if not success then
 		warn("function: FirePrompt, error: " .. tostring(err))
@@ -179,35 +179,22 @@ function sphz:BuyShop(item, type, amount)
 end
 
 function sphz:NearestPromptCheck(maxDistance, promptName)
-    if not self.root then
-        warn("Character root not initialized")
-        return nil
-    end
-    local nearestPrompt = nil
-    local shortestDistance = maxDistance or math.huge
-    for _, obj in ipairs(game.Workspace:GetDescendants()) do
-        if obj:IsA("ProximityPrompt") then
-            if not promptName or obj.Name == promptName then
-                local parentPart = obj.Parent
-                if parentPart and parentPart:IsA("BasePart") then
-                    local dist = (self.root.Position - parentPart.Position).Magnitude
-                    if dist < shortestDistance then
-                        shortestDistance = dist
-                        nearestPrompt = obj
-                    end
-                end
-            end
-        end
-    end
-    
-    return nearestPrompt, shortestDistance
+	for i, v in pairs(workspace:GetDescendants()) do
+		if v.Name == promptName and v:IsA("ProximityPrompt") or v:IsA("ProximityPrompt") then
+			local distance = self:GetMagnitude(v.Parent.PrimaryPart.Position) or v.Parent.CFrame or v.Parent.Position
+			if distance < maxDistance then
+				return v, distance
+			end
+		end
+	end
 end
 
 
-function sphz:NearestPrompt(promptName)
-	local nearestPrompt, shortestDistance = self:NearestPromptCheck(math.huge, promptName)
-	if nearestPrompt then
-		self:FirePrompt(nearestPrompt)
+function sphz:NearestPrompt(distance)
+	for i, v in pairs(workspace:GetDescendants()) do
+		if v:IsA("ProximityPrompt") then
+			fireproximityprompt(v, distance)
+		end
 	end
 end
 
