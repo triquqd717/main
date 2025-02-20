@@ -1140,7 +1140,7 @@ function Speed_Library:CreateWindow(Config)
 			}, SectionReal)
 
 			local FeatureImg = Custom:Create("ImageLabel", {
-				Image = ""
+				Image = "",
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 				BackgroundTransparency = 0.9990000128746033,
@@ -2202,7 +2202,7 @@ function Speed_Library:CreateWindow(Config)
 				}, SelectOptionsFrame)
 
 				local OptionImg = Custom:Create("ImageLabel", {
-					Image = ""
+					Image = "",
 					ImageColor3 = Color3.fromRGB(231, 231, 231),
 					AnchorPoint = Vector2.new(1, 0.5),
 					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
