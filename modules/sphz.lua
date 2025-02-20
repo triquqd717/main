@@ -1,41 +1,42 @@
 local sphz = {}
-local modulever = "1.0.0"
+local modulever = "1.0.3"
 function sphz:Initialize()
-    self.vim = game:GetService("VirtualInputManager")
-    self.players = game:GetService("Players")
-    self.player = game.Players.LocalPlayer
-    self.httpservice = game:GetService("HttpService")
-    self.playergui = self.player.PlayerGui
-    self.backpack = self.player.Backpack
-    self.player.CharacterAdded:Connect(function(char)
-        self.char = char
-        self.hum = char:WaitForChild("Humanoid")
-        self.root = char:WaitForChild("HumanoidRootPart")
-    end)
-    if self.player.Character then
-        self.char = self.player.Character
-        self.hum = self.char:WaitForChild("Humanoid")
-        self.root = self.char:WaitForChild("HumanoidRootPart")
-    end
+	self.rs = game:GetService("ReplicatedStorage")
+	self.vim = game:GetService("VirtualInputManager")
+	self.players = game:GetService("Players")
+	self.player = game.Players.LocalPlayer
+	self.httpservice = game:GetService("HttpService")
+	self.playergui = self.player.PlayerGui
+	self.backpack = self.player.Backpack
+	self.player.CharacterAdded:Connect(function(char)
+		self.char = char
+		self.hum = char:WaitForChild("Humanoid")
+		self.root = char:WaitForChild("HumanoidRootPart")
+	end)
+	if self.player.Character then
+		self.char = self.player.Character
+		self.hum = self.char:WaitForChild("Humanoid")
+		self.root = self.char:WaitForChild("HumanoidRootPart")
+	end
 	print("module initalized, module version: " .. modulever)
 end
 
 function sphz:GetTo(pos)
 	if not self.root or not self.root.Parent then
-        warn("char not initialized, function: GetTo")
-        return
-    end
-    local success, err = pcall(function()
-        if self.char and self.root then
+		warn("char not initialized, function: GetTo")
+		return
+	end
+	local success, err = pcall(function()
+		if self.char and self.root then
 			self.root.CFrame = pos
 		else
 			print("nuh uh")
 			return
 		end
-    end)
-    if not success then
-        warn("error: " .. tostring(err))
-    end
+	end)
+	if not success then
+		warn("error: " .. tostring(err))
+	end
 end
 
 function sphz:TweenTo(pos)
@@ -45,8 +46,12 @@ function sphz:TweenTo(pos)
 		return
 	end
 	local success, err = pcall(function()
-	local tween = game:GetService("TweenService"):Create(self.root, TweenInfo.new(1, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), { CFrame = targetCFrame })
-	tween:Play()
+		local tween = game:GetService("TweenService"):Create(
+			self.root,
+			TweenInfo.new(1, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out),
+			{ CFrame = targetCFrame }
+		)
+		tween:Play()
 	end)
 	if not success then
 		warn("function: TweenTo, error: " .. tostring(err))
@@ -73,9 +78,11 @@ function sphz:FirePrompt(prompt)
 end
 
 function sphz:HasRod(rod)
-    local playerStats = game:GetService("ReplicatedStorage").playerstats:FindFirstChild(self.player.Name)
-    if not playerStats then return false end
-    return playerStats.Rods:FindFirstChild(rod) ~= nil
+	local playerStats = game:GetService("ReplicatedStorage").playerstats:FindFirstChild(self.player.Name)
+	if not playerStats then
+		return false
+	end
+	return playerStats.Rods:FindFirstChild(rod) ~= nil
 end
 
 function sphz:SelectRod(rod)
@@ -106,10 +113,10 @@ function sphz:UnequipTool(tool)
 end
 
 function sphz:CheckTool(tool)
-    if not self.backpack or not self.char then
-        warn("char/backpack not initialized, function: CheckTool")
-        return "not found"
-    end
+	if not self.backpack or not self.char then
+		warn("char/backpack not initialized, function: CheckTool")
+		return "not found"
+	end
 	if self.backpack:FindFirstChild(tool) then
 		return "backpack"
 	elseif self.char:FindFirstChild("Tool") then
@@ -120,30 +127,27 @@ function sphz:CheckTool(tool)
 end
 
 function sphz:GetMagnitude(pos)
-    local targetPosition = (typeof(pos) == "CFrame") and pos.Position or pos
+	local targetPosition = (typeof(pos) == "CFrame") and pos.Position or pos
 
-    if not (self.char and self.root) then
-        warn("player character not found, function: GetMagnitude")
-        return 0
-    end
+	if not (self.char and self.root) then
+		warn("player character not found, function: GetMagnitude")
+		return 0
+	end
 
-    return (targetPosition - self.root.Position).Magnitude
+	return (targetPosition - self.root.Position).Magnitude
 end
 local req = Xeno.http_request or Xeno.request or request
-function sphz.Send(url, title, description, name, value)
-    if not req then
-        warn("HTTP request library not loaded")
-        return
-    end
-	local data = request({
-		Url = url,
-		Method = "POST",
-		Headers = {
-			["Content-Type"] = "application/json"
-		},
-		Body = sphz.httpservice:JSONEncode({
-			["content"] = "",
-			["embeds"] = ({
+
+function Send(url, title, description, name, value)
+	if not req then
+		warn("HTTP request library not loaded")
+		return
+	end
+
+	local payload = {
+		["content"] = "",
+		["embeds"] = {
+			{
 				["title"] = title or "nil",
 				["description"] = description or "nil",
 				["type"] = "rich",
@@ -151,56 +155,97 @@ function sphz.Send(url, title, description, name, value)
 				["fields"] = {
 					{
 						["name"] = name or "Instance ID",
-						["value"] = value or Xeno.PID,
-						["inline"] = true
-					}
-				}
-			})
-		})
+						["value"] = value or Xeno.PID or "none",
+						["inline"] = true,
+					},
+				},
+			},
+		},
+	}
+
+	local data = req({
+		Url = url,
+		Method = "POST",
+		Headers = {
+			["Content-Type"] = "application/json",
+		},
+		Body = sphz.httpservice:JSONEncode(payload),
 	})
 end
 
-function sphz:Interact(button)
-    local button1 = self.playergui:FindFirstChild(button)
-    if button1 and button1.Enabled and button1:FindFirstChild("safezone") then
-        local selectedbutton = button1.safezone:FindFirstChild("button")
+function sphz:BuyShop(item, type, amount)
+	self.rs.events.purchase:FireServer(item, type, amount)
+end
 
-        if selectedbutton then
-            local GuiService = game:GetService("GuiService")
-            GuiService.SelectedObject = selectedbutton
-            self.vim:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
-            self.vim:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
-            task.wait(0.1)
-            GuiService.SelectedObject = nil
-        end
-    else
-		game:GetService("GuiService").SelectedObject = nil
+function sphz:NearestPromptCheck(distance, name)
+	local success, result = pcall(function()
+		local closestPrompt = nil
+		local closestDistance = math.huge
+		for _, prompt in pairs(game:GetService("Workspace"):GetDescendants()) do
+			if prompt:IsA("ProximityPrompt") and (not name or prompt.Name == name) then
+				local parentModel = prompt.Parent:IsA("Model") and prompt.Parent or prompt:FindFirstAncestorWhichIsA("Model")
+				local promptPosition = parentModel and parentModel.PrimaryPart and parentModel.PrimaryPart.Position
+				if promptPosition then
+					local promptDistance = (promptPosition - self.root.Position).Magnitude
+					if promptDistance < closestDistance and promptDistance < distance then
+						closestPrompt = prompt
+						closestDistance = promptDistance
+					end
+				end
+			end
+		end
+		return closestPrompt
+	end)
+
+	if not success then
+		warn("function: NearestPromptCheck, error: " .. tostring(result))
+		return nil
+	end
+	return result
+end
+
+
+function sphz:NearestPrompt(distance, name)
+	local prompt = self:NearestPromptCheck(distance, name)
+	if prompt then
+		self:FirePrompt(prompt)
+	else
+		warn("No ProximityPrompt found within " .. distance .. " studs.")
 	end
 end
 
+function sphz:Interact(button)
+	local GuiService = game:GetService("GuiService")
+	GuiService.SelectedObject = button
+	self.vim:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+	self.vim:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+	task.wait(1 / 20)
+	GuiService.SelectedObject = nil
+end
+
 function sphz:Run_Loop(name, func)
-    if not self.activeLoops then
-        self.activeLoops = {}
-    end
-    if self.activeLoops[name] then
-        self:Stop_Loop(name)
-    end
-    self.activeLoops[name] = true
-    task.spawn(function()
-        while self.activeLoops[name] do
-            local success, err = pcall(func)
-            if not success then
-                warn("Error in loop '" .. name .. "': " .. tostring(err))
-            end
-            task.wait(0.1)
-        end
-    end)
+	if not self.activeLoops then
+		self.activeLoops = {}
+	end
+	if self.activeLoops[name] then
+		self:Stop_Loop(name)
+	end
+	self.activeLoops[name] = true
+	task.spawn(function()
+		while self.activeLoops[name] do
+			local success, err = pcall(func)
+			if not success then
+				warn("Error in loop '" .. name .. "': " .. tostring(err))
+			end
+			task.wait(0.1)
+		end
+	end)
 end
 
 function sphz:Stop_Loop(name)
-    if self.activeLoops and self.activeLoops[name] then
-        self.activeLoops[name] = nil
-    end
+	if self.activeLoops and self.activeLoops[name] then
+		self.activeLoops[name] = nil
+	end
 end
 
 return sphz
