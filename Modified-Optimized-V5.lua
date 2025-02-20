@@ -150,7 +150,7 @@ local function OpenClose()
 		BorderColor3 = Colors.ThemeHighlight, 
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
 		Size = UDim2.new(0, 59, 0, 49),
-		Image = Custom:GetLogo(),
+		Image = "rbxassetid://125533253519681",
 		Visible = false,
 	}, ScreenGui)
 
