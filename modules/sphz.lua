@@ -135,7 +135,7 @@ function sphz.Send(url, title, description, name, value)
         warn("HTTP request library not loaded")
         return
     end
-	local data = Xeno.http_request({
+	local data = request({
 		Url = url,
 		Method = "POST",
 		Headers = {
