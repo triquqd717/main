@@ -129,9 +129,9 @@ function sphz:GetMagnitude(pos)
 
     return (targetPosition - self.root.Position).Magnitude
 end
-
-function sphz:SendWebhook(url, title, description, name, value)
-    if not request then
+local req = Xeno.http_request or Xeno.request or request
+function sphz.Send(url, title, description, name, value)
+    if not req then
         warn("HTTP request library not loaded")
         return
     end
@@ -141,7 +141,7 @@ function sphz:SendWebhook(url, title, description, name, value)
 		Headers = {
 			["Content-Type"] = "application/json"
 		},
-		Body = self.httpservice:JSONEncode({
+		Body = sphz.httpservice:JSONEncode({
 			["content"] = "",
 			["embeds"] = ({
 				["title"] = title or "nil",
@@ -186,13 +186,13 @@ function sphz:Run_Loop(name, func)
         self:Stop_Loop(name)
     end
     self.activeLoops[name] = true
-    spawn(function()
+    task.spawn(function()
         while self.activeLoops[name] do
             local success, err = pcall(func)
             if not success then
                 warn("Error in loop '" .. name .. "': " .. tostring(err))
             end
-            wait(0.1)
+            task.wait(0.1)
         end
     end)
 end
