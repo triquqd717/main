@@ -118,7 +118,7 @@ do
 			)
 			return getcustomasset("speedhubz.png")
 		else
-			return ""
+			return "rbxassetid://125533253519681"
 		end
 	end
 	function Custom:Decryption(Enc)
