@@ -1,5 +1,6 @@
+
 local sphz = {}
-local modulever = "1.0.3"
+local modulever = "1.0.4"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -181,10 +182,23 @@ function sphz:NearestPromptCheck(distance, name)
 	local success, result = pcall(function()
 		local closestPrompt = nil
 		local closestDistance = math.huge
-		for _, prompt in pairs(game:GetService("Workspace"):GetDescendants()) do
+		for _, prompt in pairs(workspace:GetDescendants()) do
 			if prompt:IsA("ProximityPrompt") and (not name or prompt.Name == name) then
-				local parentModel = prompt.Parent:IsA("Model") and prompt.Parent or prompt:FindFirstAncestorWhichIsA("Model")
-				local promptPosition = parentModel and parentModel.PrimaryPart and parentModel.PrimaryPart.Position
+				local promptPosition = nil
+				-- Check if the parent is a BasePart
+				if prompt.Parent:IsA("BasePart") then
+					promptPosition = prompt.Parent.Position
+				-- Else if it's a Model with a PrimaryPart, use that
+				elseif prompt.Parent:IsA("Model") and prompt.Parent.PrimaryPart then
+					promptPosition = prompt.Parent.PrimaryPart.Position
+				-- Else, try to find a Model ancestor with a PrimaryPart
+				else
+					local modelAncestor = prompt:FindFirstAncestorWhichIsA("Model")
+					if modelAncestor and modelAncestor.PrimaryPart then
+						promptPosition = modelAncestor.PrimaryPart.Position
+					end
+				end
+
 				if promptPosition then
 					local promptDistance = (promptPosition - self.root.Position).Magnitude
 					if promptDistance < closestDistance and promptDistance < distance then
