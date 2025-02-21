@@ -1,5 +1,5 @@
 local sphz = {}
-local modulever = "1.0.9"
+local modulever = "1.1.0"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -101,11 +101,9 @@ end
 function sphz:EquipTool(tool)
 	local equip = self.backpack:FindFirstChild(tool)
 	if equip then
-		game.ReplicatedStorage.packages.Net["RE/Backpack/Equip"]:FireServer(equip)
-		return true
+		equip.Parent = self.char
 	else
 		warn("tool was not found, function: EquipTool")
-		return false
 	end
 end
 
@@ -215,31 +213,31 @@ function sphz:Interact(button)
 end
 
 function sphz:Run_Loop(name, func)
-    if not self.activeLoops then
-        self.activeLoops = {}
-    end
-    self:Stop_Loop(name)
-    self.activeLoops[name] = {
-        running = true,
-        thread = task.spawn(function()
-            while self.activeLoops[name] and self.activeLoops[name].running do
-                local success, err = pcall(func)
-                if not success then
-                    warn("Error in loop '" .. name .. "': " .. tostring(err))
-                end
-                task.wait(0.1)
-            end
-            self.activeLoops[name] = nil
-        end)
-    }
+	if not self.activeLoops then
+		self.activeLoops = {}
+	end
+	self:Stop_Loop(name)
+	self.activeLoops[name] = {
+		running = true,
+		thread = task.spawn(function()
+			while self.activeLoops[name] and self.activeLoops[name].running do
+				local success, err = pcall(func)
+				if not success then
+					warn("Error in loop '" .. name .. "': " .. tostring(err))
+				end
+				task.wait(0.1)
+			end
+			self.activeLoops[name] = nil
+		end),
+	}
 end
 
 function sphz:Stop_Loop(name)
-    if self.activeLoops and self.activeLoops[name] then
-        self.activeLoops[name].running = false
-        task.cancel(self.activeLoops[name].thread)
-        self.activeLoops[name] = nil
-    end
+	if self.activeLoops and self.activeLoops[name] then
+		self.activeLoops[name].running = false
+		task.cancel(self.activeLoops[name].thread)
+		self.activeLoops[name] = nil
+	end
 end
 
 return sphz
