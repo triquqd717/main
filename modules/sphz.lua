@@ -1,5 +1,5 @@
 local sphz = {}
-local modulever = "1.1.2"
+local modulever = "1.1.3"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -99,7 +99,7 @@ function sphz:SelectRod(rod)
 end
 
 function sphz:EquipTool(tool)
-	local equip = self.backpack[tool]
+	local equip = self.backpack[tostring(tool)]
 	if equip then
 		equip.Parent = self.char
 	else
