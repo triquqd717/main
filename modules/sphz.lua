@@ -1,5 +1,5 @@
 local sphz = {}
-local modulever = "1.1.3"
+local modulever = "1.1.4"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -82,11 +82,11 @@ function sphz:FirePrompt(prompt, distance)
 end
 
 function sphz:HasRod(rod)
-	local playerStats = game:GetService("ReplicatedStorage").playerstats:FindFirstChild(self.player.Name)
-	if not playerStats then
+	if self.rs.playerstats[self.player.Name].Rods:FindFirstChild(rod) then
+		return true
+	else
 		return false
 	end
-	return playerStats.Rods:FindFirstChild(rod) ~= nil
 end
 
 function sphz:SelectRod(rod)
