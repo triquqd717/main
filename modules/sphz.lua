@@ -1,5 +1,5 @@
 local sphz = {}
-local modulever = "1.0.8"
+local modulever = "1.0.9"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -19,6 +19,10 @@ function sphz:Initialize()
 		self.root = self.char:WaitForChild("HumanoidRootPart")
 	end
 	print("module initalized, module version: " .. modulever)
+end
+local isxeno = false
+if Xeno ~= nil then
+	isxeno = true
 end
 
 function sphz:GetTo(pos)
@@ -136,7 +140,12 @@ function sphz:GetMagnitude(pos)
 
 	return (targetPosition - self.root.Position).Magnitude
 end
-local req = Xeno.http_request or Xeno.request or request
+local req
+if isxeno then
+	req = Xeno.http_request or Xeno.request or request
+else
+	req = request
+end
 
 function Send(url, title, description, name, value)
 	if not req then
