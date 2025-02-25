@@ -1,5 +1,5 @@
 local sphz = {}
-local modulever = "1.1.4"
+local modulever = "1.1.5"
 function sphz:Initialize()
 	self.rs = game:GetService("ReplicatedStorage")
 	self.vim = game:GetService("VirtualInputManager")
@@ -145,7 +145,7 @@ else
 	req = request
 end
 
-function Send(url, title, description, name, value)
+function sphz.Send(url, title, description, name, value)
 	if not req then
 		warn("HTTP request library not loaded")
 		return
