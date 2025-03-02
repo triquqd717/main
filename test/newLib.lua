@@ -317,9 +317,9 @@ function Speed_Library:SetNotification(Config)
 	local Content = Config.Content or ""
 	local Time = Config.Time or 0.5
 	local Delay = Config.Delay or 5
-	local CloseButtonImage = Config.CloseButtonImage or "" -- Add a way to set custom Close Image
-	local CallbackCloseButton = Config.CallbackCloseButton or function() end --Add way to use the function
-	local HeightNotify = 135 --Defaut Height
+	local CloseButtonImage = Config.CloseButtonImage or ""
+	local CallbackCloseButton = Config.CallbackCloseButton or function() end
+	local HeightNotify = 135
 
 	local _Count = 0
 	for _, v in ipairs(NotificationLayout:GetChildren()) do
@@ -330,7 +330,7 @@ function Speed_Library:SetNotification(Config)
 		BackgroundColor3 = Colors.Background,
 		BorderColor3 = Colors.Stroke,
 		BorderSizePixel = 0,
-		Size = UDim2.new(1, 0, 0, HeightNotify), -- Initial size
+		Size = UDim2.new(1, 0, 0, HeightNotify),
 		Name = "NotificationFrame",
 		BackgroundTransparency = 1,
 		AnchorPoint = Vector2.new(0, 1),
@@ -342,7 +342,7 @@ function Speed_Library:SetNotification(Config)
 		BackgroundColor3 = Colors.Primary,
 		BorderColor3 = Colors.Stroke,
 		BorderSizePixel = 0,
-		Position = UDim2.new(0, 400, 0, 0), -- start offscreen
+		Position = UDim2.new(0, 400, 0, 0),
 		Size = UDim2.new(1, 0, 1, 0),
 		Name = "NotificationFrameReal",
 		ClipsDescendants = true,
@@ -392,7 +392,6 @@ function Speed_Library:SetNotification(Config)
 		Parent = NotificationFrameReal,
 	})
 
-	-- Title Text
 	local TitleLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.GothamBold,
 		Text = Title,
@@ -404,7 +403,7 @@ function Speed_Library:SetNotification(Config)
 		BorderColor3 = Color3.fromRGB(0, 0, 0),
 		BorderSizePixel = 0,
 		Position = UDim2.new(0, 10, 0, 5),
-		Size = UDim2.new(0.7, 0, 0, 20), -- Take up most of the width
+		Size = UDim2.new(0.7, 0, 0, 20),
 		Parent = Top,
 		ZIndex = 2,
 	})
@@ -415,7 +414,6 @@ function Speed_Library:SetNotification(Config)
 		Parent = TitleLabel,
 	})
 
-	-- Description Text
 	local DescriptionLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.Gotham,
 		Text = Description,
@@ -432,8 +430,7 @@ function Speed_Library:SetNotification(Config)
 		ZIndex = 2,
 	})
 
-	-- Close Button
-	local CloseButton = Custom:Create("TextButton", { --Change TextButton to ImageButton
+	local CloseButton = Custom:Create("TextButton", {
 		Font = Enum.Font.SourceSans,
 		Text = "X",
 		TextColor3 = Colors.Text,
@@ -449,7 +446,6 @@ function Speed_Library:SetNotification(Config)
 		ZIndex = 2,
 	})
 
-	-- Content Frame
 	local ContentFrame = Custom:Create("Frame", {
 		BackgroundColor3 = Colors.Background,
 		BackgroundTransparency = 1,
@@ -459,11 +455,10 @@ function Speed_Library:SetNotification(Config)
 		Size = UDim2.new(1, 0, 1, -Top.Size.Y.Offset),
 		Name = "ContentFrame",
 		Parent = NotificationFrameReal,
-		ClipsDescendants = true, -- prevents text overflow
+		ClipsDescendants = true,
 		ZIndex = 1,
 	})
 
-	-- Content Text (with scrolling)
 	local ContentLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.Gotham,
 		Text = Content,
@@ -477,17 +472,15 @@ function Speed_Library:SetNotification(Config)
 		BorderColor3 = Color3.fromRGB(0, 0, 0),
 		BorderSizePixel = 0,
 		Position = UDim2.new(0, 10, 0, 5),
-		Size = UDim2.new(1, -20, 0, 0), -- Dynamic height based on content
+		Size = UDim2.new(1, -20, 0, 0),
 		Parent = ContentFrame,
 		ZIndex = 1,
 	})
 
 	function Speed_Library:UpdateNotify()
-		--Calculate Height of the Label.
 		local CalculatedHeight = 23 + (14 * (ContentLabel.TextBounds.X // ContentLabel.AbsoluteSize.X))
-		local finalheight = math.min(300, CalculatedHeight) -- Limit Max Height
+		local finalheight = math.min(300, CalculatedHeight)
 
-		--Setting Height For ContentFrame Real
 		ContentLabel.Size = UDim2.new(1, -20, 0, finalheight)
 
 		HeightNotify = Top.Size.Y.Offset + ContentLabel.Size.Y.Offset + 10
@@ -495,7 +488,6 @@ function Speed_Library:SetNotification(Config)
 	end
 	Speed_Library:UpdateNotify()
 
-	-- Animate in
 	TweenService:Create(
 		NotificationFrameReal,
 		TweenInfo.new(tonumber(Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
@@ -529,9 +521,9 @@ function Speed_Library:SetNotification(Config)
 	end)
 	coroutine.resume(autoCloseThread)
 
-	CloseButton.MouseButton1Click:Connect(function() -- Close button action
+	CloseButton.MouseButton1Click:Connect(function()
 		Notification:Close()
-		CallbackCloseButton() --Run function close callback
+		CallbackCloseButton()
 	end)
 
 	return Notification
