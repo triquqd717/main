@@ -6,15 +6,15 @@ local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
 
 Colors = {
-    Primary = Color3.fromRGB(40, 20, 60),
-    Secondary = Color3.fromRGB(70, 40, 90),
-    Accent = Color3.fromRGB(160, 80, 220),
-    ThemeHighlight = Color3.fromRGB(200, 160, 250),
-    Text = Color3.fromRGB(240, 230, 250),
-    Background = Color3.fromRGB(15, 5, 20), 
-    Stroke = Color3.fromRGB(80, 40, 120),
-    GradientStart = Color3.fromRGB(30, 20, 45),
-    GradientEnd = Color3.fromRGB(25, 10, 50),
+    Primary = Color3.fromRGB(20, 40, 20),
+    Secondary = Color3.fromRGB(40, 70, 40),
+    Accent = Color3.fromRGB(80, 160, 80),
+    ThemeHighlight = Color3.fromRGB(160, 250, 160),
+    Text = Color3.fromRGB(230, 250, 230),
+    Background = Color3.fromRGB(5, 15, 5),
+    Stroke = Color3.fromRGB(40, 80, 40),
+    GradientStart = Color3.fromRGB(25, 45, 25),
+    GradientEnd = Color3.fromRGB(10, 30, 10),
 }
 local Custom = {}
 
