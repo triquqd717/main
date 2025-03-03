@@ -86,10 +86,10 @@ local VirtualUser = game:GetService("VirtualUser")
 local Colors = {}
 local Custom = {}
 if not getgenv().Theme then
-	Colors = themes["blue"]
+	Colors = themes["red"]
 else
-	if getgenv().Theme == "Red" then
-		Colors = themes["red"]
+	if getgenv().Theme == "Blue" then
+		Colors = themes["Blue"]
 	elseif getgenv().Theme == "Purple" then
 		Colors = themes["purple"]
 	elseif getgenv().Theme == "Green" then
@@ -101,7 +101,7 @@ else
 	elseif getgenv().Theme == "Cosmic" then
 		Colors = themes["cosmic"]
 	else
-		Colors = themes["blue"]
+		Colors = themes["red"]
 	end
 end
 
