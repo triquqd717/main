@@ -1,23 +1,109 @@
-print("e")
+print("1")
+local themes = {}
+themes["blue"] = {
+	Primary = Color3.fromRGB(20, 30, 60),
+	Secondary = Color3.fromRGB(40, 50, 90),
+	Accent = Color3.fromRGB(60, 120, 220),
+	ThemeHighlight = Color3.fromRGB(100, 170, 250),
+	Text = Color3.fromRGB(230, 240, 250),
+	Background = Color3.fromRGB(5, 10, 20),
+	Stroke = Color3.fromRGB(40, 60, 120),
+	GradientStart = Color3.fromRGB(25, 30, 45),
+	GradientEnd = Color3.fromRGB(10, 25, 50),
+}
+themes["red"] = {
+	Primary = Color3.fromRGB(60, 20, 20),
+	Secondary = Color3.fromRGB(90, 40, 40),
+	Accent = Color3.fromRGB(220, 60, 60),
+	ThemeHighlight = Color3.fromRGB(250, 100, 100),
+	Text = Color3.fromRGB(250, 230, 230),
+	Background = Color3.fromRGB(20, 5, 5),
+	Stroke = Color3.fromRGB(120, 40, 40),
+	GradientStart = Color3.fromRGB(45, 25, 25),
+	GradientEnd = Color3.fromRGB(50, 25, 25),
+}
+themes["purple"] = {
+	Primary = Color3.fromRGB(40, 20, 60),
+	Secondary = Color3.fromRGB(70, 40, 90),
+	Accent = Color3.fromRGB(160, 80, 220),
+	ThemeHighlight = Color3.fromRGB(200, 160, 250),
+	Text = Color3.fromRGB(240, 230, 250),
+	Background = Color3.fromRGB(15, 5, 20),
+	Stroke = Color3.fromRGB(80, 40, 120),
+	GradientStart = Color3.fromRGB(30, 20, 45),
+	GradientEnd = Color3.fromRGB(25, 10, 50),
+}
+themes["green"] = {
+	Primary = Color3.fromRGB(20, 40, 20),
+	Secondary = Color3.fromRGB(40, 70, 40),
+	Accent = Color3.fromRGB(80, 160, 80),
+	ThemeHighlight = Color3.fromRGB(160, 250, 160),
+	Text = Color3.fromRGB(230, 250, 230),
+	Background = Color3.fromRGB(5, 15, 5),
+	Stroke = Color3.fromRGB(40, 80, 40),
+	GradientStart = Color3.fromRGB(25, 45, 25),
+	GradientEnd = Color3.fromRGB(10, 30, 10),
+}
+themes["pink"] = {
+	Primary = Color3.fromRGB(50, 15, 30),
+	Secondary = Color3.fromRGB(90, 30, 60),
+	Accent = Color3.fromRGB(220, 60, 150),
+	ThemeHighlight = Color3.fromRGB(250, 100, 180),
+	Text = Color3.fromRGB(250, 230, 240),
+	Background = Color3.fromRGB(10, 5, 8),
+	Stroke = Color3.fromRGB(120, 40, 80),
+	GradientStart = Color3.fromRGB(45, 20, 35),
+	GradientEnd = Color3.fromRGB(30, 10, 25),
+}
+themes["black"] = {
+	Primary = Color3.fromRGB(15, 15, 15),
+	Secondary = Color3.fromRGB(30, 30, 30),
+	Accent = Color3.fromRGB(80, 80, 80),
+	ThemeHighlight = Color3.fromRGB(160, 160, 160),
+	Text = Color3.fromRGB(230, 230, 230),
+	Background = Color3.fromRGB(0, 0, 0),
+	Stroke = Color3.fromRGB(50, 50, 50),
+	GradientStart = Color3.fromRGB(20, 20, 20),
+	GradientEnd = Color3.fromRGB(5, 5, 5),
+}
+themes["cosmic"] = {
+	Primary = Color3.fromRGB(20, 15, 40),
+	Secondary = Color3.fromRGB(30, 25, 60),
+	Accent = Color3.fromRGB(100, 200, 220),
+	ThemeHighlight = Color3.fromRGB(180, 140, 250),
+	Text = Color3.fromRGB(220, 240, 250),
+	Background = Color3.fromRGB(5, 5, 15),
+	Stroke = Color3.fromRGB(40, 30, 80),
+	GradientStart = Color3.fromRGB(25, 20, 50),
+	GradientEnd = Color3.fromRGB(15, 10, 30),
+}
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
-
-Colors = {
-	Primary = Color3.fromRGB(30, 0, 0),
-	Secondary = Color3.fromRGB(60, 0, 0),
-	Accent = Color3.fromRGB(220, 40, 40),
-	ThemeHighlight = Color3.fromRGB(250, 80, 80),
-	Text = Color3.fromRGB(250, 230, 230),
-	Background = Color3.fromRGB(10, 0, 0),
-	Stroke = Color3.fromRGB(90, 0, 0),
-	GradientStart = Color3.fromRGB(40, 0, 0),
-	GradientEnd = Color3.fromRGB(20, 0, 0),
-}
+local Colors = {}
 local Custom = {}
+if not getgenv().Theme then
+	Colors = themes["blue"]
+else
+	if getgenv().Theme == "Red" then
+		Colors = themes["red"]
+	elseif getgenv().Theme == "Purple" then
+		Colors = themes["purple"]
+	elseif getgenv().Theme == "Green" then
+		Colors = themes["green"]
+	elseif getgenv().Theme == "Pink" then
+		Colors = themes["pink"]
+	elseif getgenv().Theme == "Black" then
+		Colors = themes["black"]
+	elseif getgenv().Theme == "Cosmic" then
+		Colors = themes["cosmic"]
+	else
+		Colors = themes["blue"]
+	end
+end
 
 local function applyHoverEffect(button, defaultTransparency)
 	button.MouseEnter:Connect(function()
