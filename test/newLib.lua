@@ -1,3 +1,4 @@
+print("e")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local RunService = game:GetService("RunService")
@@ -6,15 +7,15 @@ local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
 
 Colors = {
-    Primary = Color3.fromRGB(30, 0, 0),
-    Secondary = Color3.fromRGB(60, 0, 0),
-    Accent = Color3.fromRGB(220, 40, 40),
-    ThemeHighlight = Color3.fromRGB(250, 80, 80),
-    Text = Color3.fromRGB(250, 230, 230),
-    Background = Color3.fromRGB(10, 0, 0),
-    Stroke = Color3.fromRGB(90, 0, 0),
-    GradientStart = Color3.fromRGB(40, 0, 0),
-    GradientEnd = Color3.fromRGB(20, 0, 0),
+	Primary = Color3.fromRGB(30, 0, 0),
+	Secondary = Color3.fromRGB(60, 0, 0),
+	Accent = Color3.fromRGB(220, 40, 40),
+	ThemeHighlight = Color3.fromRGB(250, 80, 80),
+	Text = Color3.fromRGB(250, 230, 230),
+	Background = Color3.fromRGB(10, 0, 0),
+	Stroke = Color3.fromRGB(90, 0, 0),
+	GradientStart = Color3.fromRGB(40, 0, 0),
+	GradientEnd = Color3.fromRGB(20, 0, 0),
 }
 local Custom = {}
 
@@ -167,7 +168,7 @@ local function OpenClose()
 		end
 	end)
 
-	Close_ImageButton.InputChanged:Connect(function(input)
+	UserInputService.InputChanged:Connect(function(input)
 		if
 			dragging
 			and (
@@ -194,14 +195,6 @@ local function MakeDraggable(topbarobject, object)
 		object.Position = newPos
 	end
 
-	local function animateTopBar(opacity)
-		TweenService:Create(
-			topbarobject,
-			TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-			{ BackgroundTransparency = opacity }
-		):Play()
-	end
-
 	topbarobject.InputBegan:Connect(function(input)
 		if
 			input.UserInputType == Enum.UserInputType.MouseButton1
@@ -211,18 +204,14 @@ local function MakeDraggable(topbarobject, object)
 			dragStart = input.Position
 			startPos = object.Position
 
-			animateTopBar(0.5)
-
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragging = false
-					animateTopBar(0.99)
 				end
 			end)
 		end
 	end)
-
-	topbarobject.InputChanged:Connect(function(input)
+	UserInputService.InputChanged:Connect(function(input)
 		if
 			dragging
 			and (
