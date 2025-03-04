@@ -1,6 +1,8 @@
-print("1")
-local themes = {}
-themes["blue"] = {
+print("2")
+local Themes = {}
+local Colors = {}
+local Custom = {}
+Themes["blue"] = {
 	Primary = Color3.fromRGB(20, 30, 60),
 	Secondary = Color3.fromRGB(40, 50, 90),
 	Accent = Color3.fromRGB(60, 120, 220),
@@ -11,7 +13,7 @@ themes["blue"] = {
 	GradientStart = Color3.fromRGB(25, 30, 45),
 	GradientEnd = Color3.fromRGB(10, 25, 50),
 }
-themes["red"] = {
+Themes["red"] = {
 	Primary = Color3.fromRGB(60, 20, 20),
 	Secondary = Color3.fromRGB(90, 40, 40),
 	Accent = Color3.fromRGB(220, 60, 60),
@@ -22,7 +24,7 @@ themes["red"] = {
 	GradientStart = Color3.fromRGB(45, 25, 25),
 	GradientEnd = Color3.fromRGB(50, 25, 25),
 }
-themes["purple"] = {
+Themes["purple"] = {
 	Primary = Color3.fromRGB(40, 20, 60),
 	Secondary = Color3.fromRGB(70, 40, 90),
 	Accent = Color3.fromRGB(160, 80, 220),
@@ -33,7 +35,7 @@ themes["purple"] = {
 	GradientStart = Color3.fromRGB(30, 20, 45),
 	GradientEnd = Color3.fromRGB(25, 10, 50),
 }
-themes["green"] = {
+Themes["green"] = {
 	Primary = Color3.fromRGB(20, 40, 20),
 	Secondary = Color3.fromRGB(40, 70, 40),
 	Accent = Color3.fromRGB(80, 160, 80),
@@ -44,7 +46,7 @@ themes["green"] = {
 	GradientStart = Color3.fromRGB(25, 45, 25),
 	GradientEnd = Color3.fromRGB(10, 30, 10),
 }
-themes["pink"] = {
+Themes["pink"] = {
 	Primary = Color3.fromRGB(50, 15, 30),
 	Secondary = Color3.fromRGB(90, 30, 60),
 	Accent = Color3.fromRGB(220, 60, 150),
@@ -55,7 +57,7 @@ themes["pink"] = {
 	GradientStart = Color3.fromRGB(45, 20, 35),
 	GradientEnd = Color3.fromRGB(30, 10, 25),
 }
-themes["black"] = {
+Themes["black"] = {
 	Primary = Color3.fromRGB(15, 15, 15),
 	Secondary = Color3.fromRGB(30, 30, 30),
 	Accent = Color3.fromRGB(80, 80, 80),
@@ -66,7 +68,7 @@ themes["black"] = {
 	GradientStart = Color3.fromRGB(20, 20, 20),
 	GradientEnd = Color3.fromRGB(5, 5, 5),
 }
-themes["cosmic"] = {
+Themes["cosmic"] = {
 	Primary = Color3.fromRGB(20, 15, 40),
 	Secondary = Color3.fromRGB(30, 25, 60),
 	Accent = Color3.fromRGB(100, 200, 220),
@@ -83,27 +85,22 @@ local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
-local Colors = {}
-local Custom = {}
-if not getgenv().Theme then
-	Colors = themes["red"]
+if getgenv().Theme == "Blue" then
+	Colors = Themes["blue"]
+elseif getgenv().Theme == "Purple" then
+	Colors = Themes["purple"]
+elseif getgenv().Theme == "Green" then
+	Colors = Themes["green"]
+elseif getgenv().Theme == "Pink" then
+	Colors = Themes["pink"]
+elseif getgenv().Theme == "Black" then
+	Colors = Themes["black"]
+elseif getgenv().Theme == "Cosmic" then
+	Colors = Themes["cosmic"]
 else
-	if getgenv().Theme == "Blue" then
-		Colors = themes["Blue"]
-	elseif getgenv().Theme == "Purple" then
-		Colors = themes["purple"]
-	elseif getgenv().Theme == "Green" then
-		Colors = themes["green"]
-	elseif getgenv().Theme == "Pink" then
-		Colors = themes["pink"]
-	elseif getgenv().Theme == "Black" then
-		Colors = themes["black"]
-	elseif getgenv().Theme == "Cosmic" then
-		Colors = themes["cosmic"]
-	else
-		Colors = themes["red"]
-	end
+	Colors = Themes["red"]
 end
+task.wait() -- really important for some reason
 
 local function applyHoverEffect(button, defaultTransparency)
 	button.MouseEnter:Connect(function()
