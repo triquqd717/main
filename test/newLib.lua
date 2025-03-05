@@ -1,4 +1,4 @@
-print("7")
+print("8")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -896,7 +896,7 @@ function Speed_Library:CreateWindow(Config)
 			Transparency = 0.5,
 		}, UnsavedChangesUi)
 
-		local TextLabel = Custom:Create("TextLabel", {
+		Custom:Create("TextLabel", {
 			Text = "You have unsaved changes",
 			Font = Enum.Font.GothamBold,
 			TextColor3 = Colors.Text,
@@ -930,6 +930,11 @@ function Speed_Library:CreateWindow(Config)
 			CircleClick(SaveButton, Player:GetMouse().X, Player:GetMouse().Y)
 			if type(Callback) == "function" then
 				Callback()
+			elseif type(Callback) == "table" then
+				for _, cbfunction in pairs(Callback) do
+					cbfunction()
+					task.wait()
+				end
 			end
 			local tween1 = TweenService:Create(
 				UnsavedChangesUi,
