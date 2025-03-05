@@ -1,4 +1,4 @@
-print("112")
+print("11223")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -390,7 +390,7 @@ function Speed_Library:SetNotification(Config)
 
 	local VerticalOffset = 0
 	for _, v in ipairs(NotificationLayout:GetChildren()) do
-		VerticalOffset += v.Size.Y.Offset + 8
+		VerticalOffset = VerticalOffset + v.Size.Y.Offset + 8
 	end
 
 	local NotificationFrame = Custom:Create("Frame", {
@@ -432,7 +432,7 @@ function Speed_Library:SetNotification(Config)
 	}, NotificationBody)
 
 	local DropShadow = Custom:Create("ImageLabel", {
-		Image = "",
+		Image = "rbxassetid://6014261993",
 		ImageColor3 = Color3.fromRGB(0, 0, 0),
 		ImageTransparency = 0.6,
 		ScaleType = Enum.ScaleType.Slice,
@@ -609,7 +609,13 @@ function Speed_Library:SetNotification(Config)
 			ContentContainer.Visible = false
 		end
 
-		local baseContentHeight = hasContent(70 + contentHeight + 10)
+		local baseContentHeight = 0
+		if hasContent then
+			baseContentHeight = 70 + contentHeight + 10
+		else
+			baseContentHeight = BaseHeight
+		end
+
 		local newHeight = math.max(BaseHeight, baseContentHeight)
 
 		NotificationFrame.Size = UDim2.new(1, 0, 0, newHeight)
