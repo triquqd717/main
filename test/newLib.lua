@@ -1,4 +1,4 @@
-print("9")
+print("10!")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -363,32 +363,20 @@ end)
 function Speed_Library:SetNotification(Config)
 	local Title = Config.Title or "Notification"
 	local Description = Config.Description or ""
-	local Content = Config.Content or ""
 	local Time = Config.Time or 0.3
 	local Delay = Config.Delay or 5
 	local CallbackCloseButton = Config.CallbackCloseButton or function() end
 
-	local Notification = {}
-	local BaseHeight = 120
-
-	local VerticalOffset = 0
-	for _, v in ipairs(NotificationLayout:GetChildren()) do
-		VerticalOffset += v.Size.Y.Offset + 8
-	end
-
 	local NotificationFrame = Custom:Create("Frame", {
 		Name = "NotificationFrame",
 		BackgroundTransparency = 1,
-		Size = UDim2.new(1, 0, 0, BaseHeight),
-		Position = UDim2.new(0, 0, 1, -VerticalOffset),
-		AnchorPoint = Vector2.new(0, 1),
+		Size = UDim2.new(0, 280, 0, 50),
 		ZIndex = 10,
 	}, NotificationLayout)
 
 	local NotificationBody = Custom:Create("Frame", {
 		Name = "NotificationBody",
 		BackgroundColor3 = Color3.fromRGB(18, 18, 24),
-		Position = UDim2.new(0, 400, 0, 0),
 		Size = UDim2.new(1, 0, 1, 0),
 		ClipsDescendants = true,
 		ZIndex = 10,
@@ -413,104 +401,47 @@ function Speed_Library:SetNotification(Config)
 		ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
 	}, NotificationBody)
 
-	local DropShadow = Custom:Create("ImageLabel", {
-		Image = "rbxassetid://6014261993",
-		ImageColor3 = Color3.fromRGB(0, 0, 0),
-		ImageTransparency = 0.5,
-		ScaleType = Enum.ScaleType.Slice,
-		SliceCenter = Rect.new(49, 49, 450, 450),
-		BackgroundTransparency = 1,
-		Position = UDim2.new(0.5, 0, 0.5, 0),
-		Size = UDim2.new(1, 40, 1, 40),
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		ZIndex = 9,
-	}, NotificationBody)
-
-	local Header = Custom:Create("Frame", {
-		BackgroundColor3 = Color3.fromRGB(25, 25, 35),
-		BackgroundTransparency = 0,
-		Size = UDim2.new(1, 0, 0, 30),
-		ZIndex = 11,
-	}, NotificationBody)
-
-	Custom:Create("UICorner", {
-		CornerRadius = UDim.new(0, 6),
-	}, Header)
-
 	local TitleLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.GothamBold,
 		Text = Title,
 		TextColor3 = Color3.fromRGB(80, 140, 255),
-		TextSize = 16,
+		TextSize = 14,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 12, 0, 0),
-		Size = UDim2.new(0.7, 0, 1, 0),
+		Position = UDim2.new(0, 5, 0, 5),
+		Size = UDim2.new(0.7, 0, 0, 20),
 		ZIndex = 12,
-	}, Header)
-
-	Custom:Create("UIStroke", {
-		Color = Color3.fromRGB(80, 140, 255),
-		Thickness = 0.3,
-		Transparency = 0.7,
-	}, TitleLabel)
+	}, NotificationBody)
 
 	local DescriptionLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.Gotham,
 		Text = Description,
 		TextColor3 = Color3.fromRGB(180, 180, 180),
-		TextSize = 13,
+		TextSize = 12,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 12, 0, 30),
-		Size = UDim2.new(0.95, 0, 0, 15),
+		Position = UDim2.new(0, 5, 0, 25),
+		Size = UDim2.new(0.7, 0, 0, 20),
 		ZIndex = 11,
+		TextWrapped = true,
 	}, NotificationBody)
 
 	local CloseButton = Custom:Create("TextButton", {
-		Text = "",
-		AnchorPoint = Vector2.new(1, 0.5),
+		Text = "X",
+		Font = Enum.Font.GothamBold,
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		TextSize = 14,
+		AnchorPoint = Vector2.new(1, 0),
 		BackgroundColor3 = Color3.fromRGB(255, 70, 70),
 		BackgroundTransparency = 0.6,
-		Position = UDim2.new(1, -8, 0.5, 0),
-		Size = UDim2.new(0, 18, 0, 18),
+		Position = UDim2.new(1, -5, 0, 5),
+		Size = UDim2.new(0, 20, 0, 20),
 		ZIndex = 12,
-	}, Header)
+	}, NotificationBody)
 
 	Custom:Create("UICorner", {
 		CornerRadius = UDim.new(1, 0),
 	}, CloseButton)
-
-	local CloseIcon = Custom:Create("TextLabel", {
-		Text = "×",
-		Font = Enum.Font.GothamBold,
-		TextColor3 = Color3.fromRGB(255, 255, 255),
-		TextSize = 16,
-		BackgroundTransparency = 1,
-		Size = UDim2.new(1, 0, 1, 0),
-		ZIndex = 13,
-	}, CloseButton)
-
-	local ContentFrame = Custom:Create("Frame", {
-		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 0, 0, 50),
-		Size = UDim2.new(1, 0, 1, -50),
-		ZIndex = 11,
-	}, NotificationBody)
-
-	local ContentLabel = Custom:Create("TextLabel", {
-		Font = Enum.Font.Gotham,
-		Text = Content,
-		TextColor3 = Color3.fromRGB(220, 220, 220),
-		TextSize = 14,
-		TextXAlignment = Enum.TextXAlignment.Left,
-		TextYAlignment = Enum.TextYAlignment.Top,
-		TextWrapped = true,
-		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 12, 0, 5),
-		Size = UDim2.new(1, -24, 0, 0),
-		ZIndex = 11,
-	}, ContentFrame)
 
 	local ProgressBarContainer = Custom:Create("Frame", {
 		BackgroundColor3 = Color3.fromRGB(30, 30, 40),
@@ -528,29 +459,13 @@ function Speed_Library:SetNotification(Config)
 		ZIndex = 13,
 	}, ProgressBarContainer)
 
-	local function UpdateNotifySize()
-		local textWidth = ContentLabel.AbsoluteSize.X
-		local lines = 1
-		if textWidth > 0 then
-			lines = math.ceil(ContentLabel.TextBounds.X / textWidth)
-			lines = lines + math.ceil(ContentLabel.TextBounds.Y / 14) - 1
-		end
-
-		local contentHeight = math.min(250, 15 + (lines * 14))
-		ContentLabel.Size = UDim2.new(1, -24, 0, contentHeight)
-
-		local totalHeight = 50 + contentHeight + 10
-		NotificationFrame.Size = UDim2.new(1, 0, 0, totalHeight)
-	end
-
-	UpdateNotifySize()
-
-	local entranceTween = TweenService:Create(
-		NotificationBody,
-		TweenInfo.new(Time, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-		{ Position = UDim2.new(0, 0, 0, 0) }
+	NotificationFrame.Size = UDim2.new(0, 0, 0, 50)
+	local tweenIn = TweenService:Create(
+		NotificationFrame,
+		TweenInfo.new(Time, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+		{ Size = UDim2.new(0, 280, 0, 50) }
 	)
-	entranceTween:Play()
+	tweenIn:Play()
 
 	local progressTween = TweenService:Create(
 		ProgressBar,
@@ -568,7 +483,7 @@ function Speed_Library:SetNotification(Config)
 	end)
 
 	local Waitted = false
-	function Notification:Close()
+	function NotificationFrame:Close()
 		if Waitted then
 			return false
 		end
@@ -577,9 +492,9 @@ function Speed_Library:SetNotification(Config)
 		progressTween:Cancel()
 
 		local exitTween = TweenService:Create(
-			NotificationBody,
+			NotificationFrame,
 			TweenInfo.new(Time, Enum.EasingStyle.Quint, Enum.EasingDirection.In),
-			{ Position = UDim2.new(0, 400, 0, 0) }
+			{ Size = UDim2.new(0, 0, 0, 50) }
 		)
 		exitTween:Play()
 
@@ -590,15 +505,15 @@ function Speed_Library:SetNotification(Config)
 	task.spawn(function()
 		task.wait(Delay)
 		if not Waitted then
-			Notification:Close()
+			NotificationFrame:Close()
 		end
 	end)
 	CloseButton.MouseButton1Click:Connect(function()
-		Notification:Close()
+		NotificationFrame:Close()
 		CallbackCloseButton()
 	end)
 
-	return Notification
+	return NotificationFrame
 end
 
 function Speed_Library:CreateWindow(Config)
