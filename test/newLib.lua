@@ -1,4 +1,4 @@
-print("8")
+print("9")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -864,13 +864,16 @@ function Speed_Library:CreateWindow(Config)
 	DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
 	MakeDraggable(Top, DropShadowHolder)
 
-	function Speed_Library:UnsavedChanges(State, Callback)
+	function Speed_Library:UnsavedChanges(State, Callback, ChangesNum)
 		local existingUi = Layers:FindFirstChild("UnsavedChangesUi")
 		if existingUi then
 			existingUi:Destroy()
 		end
 		if not State then
 			return
+		end
+		if not ChanegsNum then
+			ChangesNum = 0
 		end
 
 		local UnsavedChangesUi = Custom:Create("Frame", {
@@ -897,7 +900,7 @@ function Speed_Library:CreateWindow(Config)
 		}, UnsavedChangesUi)
 
 		Custom:Create("TextLabel", {
-			Text = "You have unsaved changes",
+			Text = "You have unsaved changes: " .. ChangesNum,
 			Font = Enum.Font.GothamBold,
 			TextColor3 = Colors.Text,
 			TextSize = 14,
