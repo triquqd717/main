@@ -1,4 +1,4 @@
-print("5")
+print("6")
 local Themes = {}
 local Colors = {}
 local Custom = {}
@@ -96,8 +96,9 @@ local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
-if getgenv.Theme then
-	Colors = Themes[getgenv.Theme]
+local env = getgenv()
+if env.Theme then
+	Colors = Themes[env.Theme]
 else
 	Colors = Themes["Red"]
 end
