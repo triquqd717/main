@@ -1,4 +1,4 @@
-print("9")
+print("10")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -863,7 +863,6 @@ function Speed_Library:CreateWindow(Config)
 
 	DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
 	MakeDraggable(Top, DropShadowHolder)
-
 	function Speed_Library:UnsavedChanges(State, Callback, ChangesNum)
 		local existingUi = Layers:FindFirstChild("UnsavedChangesUi")
 		if existingUi then
@@ -912,7 +911,7 @@ function Speed_Library:CreateWindow(Config)
 			ZIndex = 2,
 		})
 
-		local SaveButton = Custom:Create("TextButton", {
+		SaveButton = Custom:Create("TextButton", {
 			Text = "Save Changes",
 			Font = Enum.Font.GothamBold,
 			TextColor3 = Colors.Text,
@@ -958,19 +957,26 @@ function Speed_Library:CreateWindow(Config)
 		tween:Play()
 		return {
 			Destroy = function()
-				local tween = TweenService:Create(
+				local tw33n = TweenService:Create(
 					UnsavedChangesUi,
 					TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 					{ Position = UDim2.new(0.5, 0, 1, 100), BackgroundTransparency = 1 }
 				)
-				tween:Play()
+				tw33n:Play()
 
-				tween.Completed:Connect(function()
+				tw33n.Completed:Connect(function()
 					UnsavedChangesUi:Destroy()
 				end)
 			end,
 		}
 	end
+
+	function Speed_Library:UpdateChanges(newval)
+		if SaveButton.Parent.BackgroundTransparency ~= 1 then
+			SaveButton.Text = "You have unsaved changes: " .. newval
+		end
+	end
+
 	local MoreBlur = Custom:Create("Frame", {
 		AnchorPoint = Vector2.new(1, 1),
 		BackgroundColor3 = Color3.fromRGB(0, 0, 0),
