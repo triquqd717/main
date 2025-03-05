@@ -1,18 +1,8 @@
-print("6")
+print("7")
+local env = getgenv()
 local Themes = {}
 local Colors = {}
 local Custom = {}
-Themes["Blue"] = {
-	Primary = Color3.fromRGB(20, 30, 60),
-	Secondary = Color3.fromRGB(40, 50, 90),
-	Accent = Color3.fromRGB(60, 120, 220),
-	ThemeHighlight = Color3.fromRGB(100, 170, 250),
-	Text = Color3.fromRGB(230, 240, 250),
-	Background = Color3.fromRGB(5, 10, 20),
-	Stroke = Color3.fromRGB(40, 60, 120),
-	GradientStart = Color3.fromRGB(25, 30, 45),
-	GradientEnd = Color3.fromRGB(10, 25, 50),
-}
 Themes["Red"] = {
 	Primary = Color3.fromRGB(60, 20, 20),
 	Secondary = Color3.fromRGB(90, 40, 40),
@@ -24,17 +14,6 @@ Themes["Red"] = {
 	GradientStart = Color3.fromRGB(45, 25, 25),
 	GradientEnd = Color3.fromRGB(50, 25, 25),
 }
-Themes["Purple"] = {
-	Primary = Color3.fromRGB(40, 20, 60),
-	Secondary = Color3.fromRGB(70, 40, 90),
-	Accent = Color3.fromRGB(160, 80, 220),
-	ThemeHighlight = Color3.fromRGB(200, 160, 250),
-	Text = Color3.fromRGB(240, 230, 250),
-	Background = Color3.fromRGB(15, 5, 20),
-	Stroke = Color3.fromRGB(80, 40, 120),
-	GradientStart = Color3.fromRGB(30, 20, 45),
-	GradientEnd = Color3.fromRGB(25, 10, 50),
-}
 Themes["Green"] = {
 	Primary = Color3.fromRGB(20, 40, 20),
 	Secondary = Color3.fromRGB(40, 70, 40),
@@ -45,6 +24,28 @@ Themes["Green"] = {
 	Stroke = Color3.fromRGB(40, 80, 40),
 	GradientStart = Color3.fromRGB(25, 45, 25),
 	GradientEnd = Color3.fromRGB(10, 30, 10),
+}
+Themes["Blue"] = {
+	Primary = Color3.fromRGB(20, 30, 60),
+	Secondary = Color3.fromRGB(40, 50, 90),
+	Accent = Color3.fromRGB(60, 120, 220),
+	ThemeHighlight = Color3.fromRGB(100, 170, 250),
+	Text = Color3.fromRGB(230, 240, 250),
+	Background = Color3.fromRGB(5, 10, 20),
+	Stroke = Color3.fromRGB(40, 60, 120),
+	GradientStart = Color3.fromRGB(25, 30, 45),
+	GradientEnd = Color3.fromRGB(10, 25, 50),
+}
+Themes["Purple"] = {
+	Primary = Color3.fromRGB(40, 20, 60),
+	Secondary = Color3.fromRGB(70, 40, 90),
+	Accent = Color3.fromRGB(160, 80, 220),
+	ThemeHighlight = Color3.fromRGB(200, 160, 250),
+	Text = Color3.fromRGB(240, 230, 250),
+	Background = Color3.fromRGB(15, 5, 20),
+	Stroke = Color3.fromRGB(80, 40, 120),
+	GradientStart = Color3.fromRGB(30, 20, 45),
+	GradientEnd = Color3.fromRGB(25, 10, 50),
 }
 Themes["Pink"] = {
 	Primary = Color3.fromRGB(50, 15, 30),
@@ -74,15 +75,12 @@ local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
-local env = getgenv()
-if env.Theme then
+if env.Theme and env.Theme ~= "" then
 	Colors = Themes[env.Theme]
 else
-	Colors = Themes["Red"]
+	Colors = Themes["Black"]
 end
-
-
-local function applyHoverEffect(button, defaultTransparency)
+local function applyhover(button, defaultTransparency)
 	button.MouseEnter:Connect(function()
 		TweenService:Create(
 			button,
@@ -144,7 +142,7 @@ do
 		end
 
 		if Name == "TextButton" then
-			applyHoverEffect(_instance, defaultTransparency)
+			applyhover(_instance, defaultTransparency)
 		end
 
 		return _instance
@@ -320,7 +318,7 @@ function CircleClick(Button, X, Y)
 		Tween.Completed:Connect(function()
 			for i = 1, 10 do
 				Circle.ImageTransparency = Circle.ImageTransparency + 0.01
-				wait(Time / 10)
+				task.wait(Time / 10)
 			end
 			Circle:Destroy()
 		end)
@@ -866,6 +864,105 @@ function Speed_Library:CreateWindow(Config)
 	DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
 	MakeDraggable(Top, DropShadowHolder)
 
+	function Speed_Library:UnsavedChanges(State, Callback)
+		local existingUi = Layers:FindFirstChild("UnsavedChangesUi")
+		if existingUi then
+			existingUi:Destroy()
+		end
+		if not State then
+			return
+		end
+
+		local UnsavedChangesUi = Custom:Create("Frame", {
+			Name = "UnsavedChangesUi",
+			AnchorPoint = Vector2.new(0.5, 1),
+			BackgroundColor3 = Colors.Primary,
+			BackgroundTransparency = 1,
+			BorderColor3 = Colors.Stroke,
+			BorderSizePixel = 0,
+			Position = UDim2.new(0.5, 0, 1, 100),
+			Size = UDim2.new(1, -20, 0, 50),
+			Parent = Layers,
+			ZIndex = 1,
+		})
+
+		Custom:Create("UICorner", {
+			CornerRadius = UDim.new(0, 8),
+		}, UnsavedChangesUi)
+
+		Custom:Create("UIStroke", {
+			Color = Colors.Stroke,
+			Thickness = 1.2,
+			Transparency = 0.5,
+		}, UnsavedChangesUi)
+
+		local TextLabel = Custom:Create("TextLabel", {
+			Text = "You have unsaved changes",
+			Font = Enum.Font.GothamBold,
+			TextColor3 = Colors.Text,
+			TextSize = 14,
+			BackgroundTransparency = 1,
+			Size = UDim2.new(1, -120, 1, 0),
+			Position = UDim2.new(0, 10, 0, 0),
+			TextXAlignment = Enum.TextXAlignment.Left,
+			Parent = UnsavedChangesUi,
+			ZIndex = 2,
+		})
+
+		local SaveButton = Custom:Create("TextButton", {
+			Text = "Save Changes",
+			Font = Enum.Font.GothamBold,
+			TextColor3 = Colors.Text,
+			TextSize = 12,
+			BackgroundColor3 = Colors.Accent,
+			BackgroundTransparency = 0.8,
+			Size = UDim2.new(0, 100, 0, 35),
+			Position = UDim2.new(1, -110, 0.5, -17),
+			Parent = UnsavedChangesUi,
+			ZIndex = 2,
+		})
+
+		Custom:Create("UICorner", {
+			CornerRadius = UDim.new(0, 6),
+		}, SaveButton)
+
+		SaveButton.Activated:Connect(function()
+			CircleClick(SaveButton, Player:GetMouse().X, Player:GetMouse().Y)
+			if type(Callback) == "function" then
+				Callback()
+			end
+			local tween1 = TweenService:Create(
+				UnsavedChangesUi,
+				TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+				{ Position = UDim2.new(0.5, 0, 1, 25), BackgroundTransparency = 1 }
+			)
+			tween1:Play()
+
+			tween1.Completed:Connect(function()
+				UnsavedChangesUi:Destroy()
+			end)
+		end)
+		local tween = TweenService:Create(
+			UnsavedChangesUi,
+			TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+			{ Position = UDim2.new(0.5, 0, 1, -10), BackgroundTransparency = 0.2 }
+		)
+		tween:Play()
+		return {
+			Destroy = function()
+				local tween = TweenService:Create(
+					UnsavedChangesUi,
+					TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+					{ Position = UDim2.new(0.5, 0, 1, 100), BackgroundTransparency = 1 }
+				)
+				tween:Play()
+
+				tween.Completed:Connect(function()
+					UnsavedChangesUi:Destroy()
+				end)
+			end,
+		}
+	end
 	local MoreBlur = Custom:Create("Frame", {
 		AnchorPoint = Vector2.new(1, 1),
 		BackgroundColor3 = Color3.fromRGB(0, 0, 0),
@@ -878,7 +975,6 @@ function Speed_Library:CreateWindow(Config)
 		Visible = false,
 		Name = "MoreBlur",
 	}, Layers)
-
 	local DropShadowHolder1 = Custom:Create("Frame", {
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
