@@ -1,4 +1,4 @@
-print("13")
+print("12")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -861,12 +861,25 @@ function Speed_Library:CreateWindow(Config)
 		end
 	end)
 
+	local function CloseUnsavedChanges(obj1)
+		local tween1 = TweenService:Create(
+			obj1,
+			TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+			{ Position = UDim2.new(0.5, 0, 1, 25), BackgroundTransparency = 1 }
+		)
+		tween1:Play()
+
+		tween1.Completed:Connect(function()
+			obj1:Destroy()
+		end)
+	end
+
 	DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
 	MakeDraggable(Top, DropShadowHolder)
 	function Speed_Library:UnsavedChanges(State, Callback, ChangesNum)
 		local existingUi = Layers:FindFirstChild("UnsavedChangesUi")
 		if existingUi then
-			existingUi:Destroy()
+			CloseUnsavedChanges(existingUi)
 		end
 		if not State then
 			return
@@ -938,16 +951,7 @@ function Speed_Library:CreateWindow(Config)
 					task.wait()
 				end
 			end
-			local tween1 = TweenService:Create(
-				UnsavedChangesUi,
-				TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-				{ Position = UDim2.new(0.5, 0, 1, 25), BackgroundTransparency = 1 }
-			)
-			tween1:Play()
-
-			tween1.Completed:Connect(function()
-				UnsavedChangesUi:Destroy()
-			end)
+			CloseUnsavedChanges(UnsavedChangesUi)
 		end)
 		local tween = TweenService:Create(
 			UnsavedChangesUi,
