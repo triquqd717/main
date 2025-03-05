@@ -1,4 +1,4 @@
-print("11")
+print("112")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -363,6 +363,7 @@ end)
 function Speed_Library:SetNotification(Config)
 	local Title = Config.Title or "Notification"
 	local Description = Config.Description or ""
+	local Content = Config.Content or ""
 	local Time = Config.Time or 0.3
 	local Delay = Config.Delay or 5
 	local Type = Config.Type or "Info"
@@ -431,7 +432,7 @@ function Speed_Library:SetNotification(Config)
 	}, NotificationBody)
 
 	local DropShadow = Custom:Create("ImageLabel", {
-		Image = "rbxassetid://6014261993",
+		Image = "",
 		ImageColor3 = Color3.fromRGB(0, 0, 0),
 		ImageTransparency = 0.6,
 		ScaleType = Enum.ScaleType.Slice,
@@ -511,6 +512,33 @@ function Speed_Library:SetNotification(Config)
 		ZIndex = 11,
 	}, NotificationBody)
 
+	local ContentContainer = Custom:Create("Frame", {
+		BackgroundColor3 = Colors.Secondary,
+		BackgroundTransparency = 0.9,
+		BorderSizePixel = 0,
+		Position = UDim2.new(0, 10, 0, 70),
+		Size = UDim2.new(1, -20, 0, 0),
+		ZIndex = 11,
+	}, NotificationBody)
+
+	Custom:Create("UICorner", {
+		CornerRadius = UDim.new(0, 4),
+	}, ContentContainer)
+
+	local ContentLabel = Custom:Create("TextLabel", {
+		Font = Enum.Font.Gotham,
+		Text = Content,
+		TextColor3 = Colors.Text,
+		TextSize = 12,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		TextYAlignment = Enum.TextYAlignment.Top,
+		TextWrapped = true,
+		BackgroundTransparency = 1,
+		Position = UDim2.new(0, 8, 0, 8),
+		Size = UDim2.new(1, -16, 1, -16),
+		ZIndex = 12,
+	}, ContentContainer)
+
 	local CloseButton = Custom:Create("TextButton", {
 		Text = "",
 		AnchorPoint = Vector2.new(1, 0),
@@ -560,12 +588,34 @@ function Speed_Library:SetNotification(Config)
 	}, ProgressBar)
 
 	local function UpdateNotifySize()
-		local textHeight = DescriptionLabel.TextBounds.Y
-		local newHeight = math.max(BaseHeight, 52 + textHeight)
+		local descHeight = DescriptionLabel.TextBounds.Y
+		local hasContent = Content ~= ""
+
+		local contentHeight = 0
+		if hasContent then
+			ContentContainer.Visible = true
+
+			local textWidth = ContentLabel.AbsoluteSize.X
+			local textBounds = ContentLabel.TextBounds
+			local linesCount = math.ceil(textBounds.X / textWidth)
+
+			contentHeight = (linesCount * textBounds.Y) + 16
+			contentHeight = math.min(contentHeight, 150)
+
+			ContentContainer.Size = UDim2.new(1, -20, 0, contentHeight)
+
+			ContentContainer.Position = UDim2.new(0, 10, 0, 70)
+		else
+			ContentContainer.Visible = false
+		end
+
+		local baseContentHeight = hasContent(70 + contentHeight + 10)
+		local newHeight = math.max(BaseHeight, baseContentHeight)
+
 		NotificationFrame.Size = UDim2.new(1, 0, 0, newHeight)
 
-		if textHeight > 36 then
-			DescriptionLabel.Size = UDim2.new(0.8, -65, 0, textHeight)
+		if descHeight > 36 then
+			DescriptionLabel.Size = UDim2.new(0.8, -65, 0, descHeight)
 		end
 	end
 
