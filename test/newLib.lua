@@ -68,28 +68,6 @@ Themes["Black"] = {
 	GradientStart = Color3.fromRGB(20, 20, 20),
 	GradientEnd = Color3.fromRGB(5, 5, 5),
 }
-Themes["Cosmic"] = {
-	Primary = Color3.fromRGB(20, 15, 40),
-	Secondary = Color3.fromRGB(30, 25, 60),
-	Accent = Color3.fromRGB(100, 200, 220),
-	ThemeHighlight = Color3.fromRGB(180, 140, 250),
-	Text = Color3.fromRGB(220, 240, 250),
-	Background = Color3.fromRGB(5, 5, 15),
-	Stroke = Color3.fromRGB(40, 30, 80),
-	GradientStart = Color3.fromRGB(25, 20, 50),
-	GradientEnd = Color3.fromRGB(15, 10, 30),
-}
-Themes["Kawaii"] = {
-	Primary = Color3.fromRGB(255, 179, 186),
-	Secondary = Color3.fromRGB(255, 223, 186),
-	Accent = Color3.fromRGB(152, 221, 202),
-	ThemeHighlight = Color3.fromRGB(255, 105, 180),
-	Text = Color3.fromRGB(94, 53, 94),
-	Background = Color3.fromRGB(255, 249, 244),
-	Stroke = Color3.fromRGB(230, 206, 206),
-	GradientStart = Color3.fromRGB(255, 214, 214),
-	GradientEnd = Color3.fromRGB(221, 214, 255),
-}
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local RunService = game:GetService("RunService")
