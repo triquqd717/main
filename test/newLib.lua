@@ -1,4 +1,4 @@
-print("2")
+print("3")
 local Themes = {}
 local Colors = {}
 local Custom = {}
@@ -78,6 +78,17 @@ Themes["cosmic"] = {
 	Stroke = Color3.fromRGB(40, 30, 80),
 	GradientStart = Color3.fromRGB(25, 20, 50),
 	GradientEnd = Color3.fromRGB(15, 10, 30),
+}
+Themes["kawaii"] = {
+	Primary = Color3.fromRGB(255, 179, 186),
+	Secondary = Color3.fromRGB(255, 223, 186),
+	Accent = Color3.fromRGB(152, 221, 202),
+	ThemeHighlight = Color3.fromRGB(255, 105, 180),
+	Text = Color3.fromRGB(94, 53, 94),
+	Background = Color3.fromRGB(255, 249, 244),
+	Stroke = Color3.fromRGB(230, 206, 206),
+	GradientStart = Color3.fromRGB(255, 214, 214),
+	GradientEnd = Color3.fromRGB(221, 214, 255),
 }
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
