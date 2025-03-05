@@ -1,4 +1,4 @@
-print("12")
+print("13")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -1234,7 +1234,7 @@ function Speed_Library:CreateWindow(Config)
 				local _FTween = TweenService:Create(
 					FrameChoose,
 					TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-					{ Position = UDim2.new(0, 2, 0, 9 + (33 * Tab.LayoutOrder)) }
+					{ Position = UDim2.new(0, 2, 0, 9 + (30 * Tab.LayoutOrder)) }
 				)
 
 				_TabT:Play()
