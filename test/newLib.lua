@@ -1,4 +1,4 @@
-print("10")
+print("12")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -898,7 +898,7 @@ function Speed_Library:CreateWindow(Config)
 			Transparency = 0.5,
 		}, UnsavedChangesUi)
 
-		Custom:Create("TextLabel", {
+		SaveLabel = Custom:Create("TextLabel", {
 			Text = "You have unsaved changes: " .. ChangesNum,
 			Font = Enum.Font.GothamBold,
 			TextColor3 = Colors.Text,
@@ -911,7 +911,7 @@ function Speed_Library:CreateWindow(Config)
 			ZIndex = 2,
 		})
 
-		SaveButton = Custom:Create("TextButton", {
+		local SaveButton = Custom:Create("TextButton", {
 			Text = "Save Changes",
 			Font = Enum.Font.GothamBold,
 			TextColor3 = Colors.Text,
@@ -972,8 +972,8 @@ function Speed_Library:CreateWindow(Config)
 	end
 
 	function Speed_Library:UpdateChanges(newval)
-		if SaveButton.Parent.BackgroundTransparency ~= 1 then
-			SaveButton.Text = "You have unsaved changes: " .. newval
+		if SaveLabel.Parent.BackgroundTransparency ~= 1 then
+			SaveLabel.Text = "You have unsaved changes: " .. newval
 		end
 	end
 
