@@ -1,4 +1,3 @@
-print("12")
 local env = getgenv()
 local Themes = {}
 local Colors = {}
@@ -78,7 +77,7 @@ local VirtualUser = game:GetService("VirtualUser")
 if env.Theme and env.Theme ~= "" then
 	Colors = Themes[env.Theme]
 else
-	Colors = Themes["Black"]
+	Colors = Themes["Red"]
 end
 local function applyhover(button, defaultTransparency)
 	button.MouseEnter:Connect(function()
