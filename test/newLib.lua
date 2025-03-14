@@ -904,8 +904,10 @@ function Speed_Library:CreateWindow(Config)
 	end)
 
 	function Speed_Library:OnClose(Callback)
-		Open_Close.Activated:Connect(function()
-			Callback()
+		Close.Activated:Connect(function()
+			if type(Callback) == "function" then
+				Callback()
+			end
 		end)
 	end
 
