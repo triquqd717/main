@@ -903,6 +903,12 @@ function Speed_Library:CreateWindow(Config)
 		end
 	end)
 
+	function Speed_Library:OnClose(Callback)
+		Open_Close.Activated:Connect(function()
+			Callback()
+		end)
+	end
+
 	Close.Activated:Connect(function()
 		CircleClick(Close, Player:GetMouse().X, Player:GetMouse().Y)
 		if SpeedHubXGui then
