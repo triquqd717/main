@@ -2,6 +2,19 @@ local env = getgenv()
 local Themes = {}
 local Colors = {}
 local Custom = {}
+
+Themes["Speed Hub X"] = {
+	Primary = Color3.fromRGB(15, 15, 15),
+	Secondary = Color3.fromRGB(30, 30, 30),
+	Accent = Color3.fromRGB(250, 7, 7),
+	ThemeHighlight = Color3.fromRGB(255, 0, 0),
+	Text = Color3.fromRGB(255, 255, 255),
+	TextSecondary = Color3.fromRGB(231, 231, 231),
+	Background = Color3.fromRGB(20, 20, 20),
+	Stroke = Color3.fromRGB(50, 50, 50),
+	GradientStart = Color3.fromRGB(45, 45, 45),
+	GradientEnd = Color3.fromRGB(50, 50, 50),
+}
 Themes["Red"] = {
 	Primary = Color3.fromRGB(60, 20, 20),
 	Secondary = Color3.fromRGB(90, 40, 40),
@@ -77,7 +90,7 @@ local VirtualUser = game:GetService("VirtualUser")
 if env.Theme and env.Theme ~= "" then
 	Colors = Themes[env.Theme]
 else
-	Colors = Themes["Red"]
+	Colors = Themes["Speed Hub X"]
 end
 local function applyhover(button, defaultTransparency)
 	button.MouseEnter:Connect(function()
@@ -359,7 +372,13 @@ NotificationLayout.ChildRemoved:Connect(function()
 	end
 end)
 
+Speed_Library.closingNotifications = 0
+
 function Speed_Library:SetNotification(Config)
+	while Speed_Library.closingNotifications > 0 do
+		task.wait()
+	end
+
 	local Notification = {}
 	local Title = Config.Title or ""
 	local Description = Config.Description or ""
@@ -372,7 +391,9 @@ function Speed_Library:SetNotification(Config)
 
 	local _Count = 0
 	for _, v in ipairs(NotificationLayout:GetChildren()) do
-		_Count += v.Size.Y.Offset + 12
+		if v:IsA("Frame") then
+			_Count += v.Size.Y.Offset + 12
+		end
 	end
 
 	local NotificationFrame = Custom:Create("Frame", {
@@ -412,8 +433,7 @@ function Speed_Library:SetNotification(Config)
 		Size = UDim2.new(1, 0, 1, 0),
 		ZIndex = 0,
 		Name = "DropShadowHolder",
-		Parent = NotificationFrameReal,
-	})
+	}, NotificationFrameReal)
 
 	local DropShadow = Custom:Create("ImageLabel", {
 		Image = "",
@@ -428,8 +448,7 @@ function Speed_Library:SetNotification(Config)
 		Size = UDim2.new(1, 47, 1, 47),
 		ZIndex = 0,
 		Name = "DropShadow",
-		Parent = DropShadowHolder,
-	})
+	}, DropShadowHolder)
 
 	local Top = Custom:Create("Frame", {
 		BackgroundColor3 = Colors.Primary,
@@ -438,8 +457,7 @@ function Speed_Library:SetNotification(Config)
 		BorderSizePixel = 0,
 		Size = UDim2.new(1, 0, 0, 36),
 		Name = "Top",
-		Parent = NotificationFrameReal,
-	})
+	}, NotificationFrameReal)
 
 	local TitleLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.GothamBold,
@@ -453,15 +471,13 @@ function Speed_Library:SetNotification(Config)
 		BorderSizePixel = 0,
 		Position = UDim2.new(0, 10, 0, 5),
 		Size = UDim2.new(0.7, 0, 0, 20),
-		Parent = Top,
 		ZIndex = 2,
-	})
+	}, Top)
 
 	Custom:Create("UIStroke", {
 		Color = Colors.Stroke,
 		Thickness = 0.3,
-		Parent = TitleLabel,
-	})
+	}, TitleLabel)
 
 	local DescriptionLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.Gotham,
@@ -475,9 +491,8 @@ function Speed_Library:SetNotification(Config)
 		BorderSizePixel = 0,
 		Position = UDim2.new(0, 10, 0, 25),
 		Size = UDim2.new(0.7, 0, 0, 15),
-		Parent = Top,
 		ZIndex = 2,
-	})
+	}, Top)
 
 	local CloseButton = Custom:Create("TextButton", {
 		Font = Enum.Font.SourceSans,
@@ -493,7 +508,7 @@ function Speed_Library:SetNotification(Config)
 		Size = UDim2.new(0, 25, 0, 25),
 		Name = "CloseButton",
 		ZIndex = 2,
-	})
+	}, Top)
 
 	local ContentFrame = Custom:Create("Frame", {
 		BackgroundColor3 = Colors.Background,
@@ -503,10 +518,9 @@ function Speed_Library:SetNotification(Config)
 		Position = UDim2.new(0, 0, 0, Top.Size.Y.Offset),
 		Size = UDim2.new(1, 0, 1, -Top.Size.Y.Offset),
 		Name = "ContentFrame",
-		Parent = NotificationFrameReal,
 		ClipsDescendants = true,
 		ZIndex = 1,
-	})
+	}, NotificationFrameReal)
 
 	local ContentLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.Gotham,
@@ -522,21 +536,17 @@ function Speed_Library:SetNotification(Config)
 		BorderSizePixel = 0,
 		Position = UDim2.new(0, 10, 0, 5),
 		Size = UDim2.new(1, -20, 0, 0),
-		Parent = ContentFrame,
 		ZIndex = 1,
-	})
-
+	}, ContentFrame)
 	function Speed_Library:UpdateNotify()
 		local CalculatedHeight = 23 + (14 * (ContentLabel.TextBounds.X // ContentLabel.AbsoluteSize.X))
 		local finalheight = math.min(300, CalculatedHeight)
 
 		ContentLabel.Size = UDim2.new(1, -20, 0, finalheight)
-
 		HeightNotify = Top.Size.Y.Offset + ContentLabel.Size.Y.Offset + 10
 		NotificationFrame.Size = UDim2.new(1, 0, 0, HeightNotify)
 	end
 	Speed_Library:UpdateNotify()
-
 	TweenService:Create(
 		NotificationFrameReal,
 		TweenInfo.new(tonumber(Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
@@ -544,12 +554,13 @@ function Speed_Library:SetNotification(Config)
 	):Play()
 
 	local Waitted = false
-
 	function Notification:Close()
 		if Waitted then
 			return false
 		end
 		Waitted = true
+
+		Speed_Library.closingNotifications += 1
 
 		local tween = TweenService:Create(
 			NotificationFrameReal,
@@ -557,11 +568,41 @@ function Speed_Library:SetNotification(Config)
 			{ Position = UDim2.new(0, 400, 0, 0) }
 		)
 		tween:Play()
+		local function fadeOutElement(element, time)
+			if element:IsA("TextLabel") or element:IsA("TextButton") then
+				local tween = TweenService:Create(
+					element,
+					TweenInfo.new(time, Enum.EasingStyle.Quad, Enum.EasingDirection.In),
+					{ TextTransparency = 1 }
+				)
+				tween:Play()
+			elseif element:IsA("ImageLabel") or element:IsA("ImageButton") then
+				local tween = TweenService:Create(
+					element,
+					TweenInfo.new(time, Enum.EasingStyle.Quad, Enum.EasingDirection.In),
+					{ ImageTransparency = 1 }
+				)
+				tween:Play()
+			elseif element:IsA("Frame") then
+				local tween = TweenService:Create(
+					element,
+					TweenInfo.new(time, Enum.EasingStyle.Quad, Enum.EasingDirection.In),
+					{ BackgroundTransparency = 1 }
+				)
+				tween:Play()
+			end
 
-		task.wait(tonumber(Time))
-		NotificationFrame:Destroy()
+			for _, child in ipairs(element:GetChildren()) do
+				fadeOutElement(child, time)
+			end
+		end
+		fadeOutElement(NotificationFrameReal, Time)
+		tween.Completed:Connect(function()
+			task.wait(0.1)
+			NotificationFrame:Destroy()
+			Speed_Library.closingNotifications -= 1
+		end)
 	end
-
 	local autoCloseThread = coroutine.create(function()
 		task.wait(Delay)
 		if not Waitted then
@@ -569,14 +610,26 @@ function Speed_Library:SetNotification(Config)
 		end
 	end)
 	coroutine.resume(autoCloseThread)
-
 	CloseButton.MouseButton1Click:Connect(function()
 		Notification:Close()
 		CallbackCloseButton()
 	end)
+	applyhover(CloseButton, 0.999)
 
 	return Notification
 end
+NotificationLayout.ChildRemoved:Connect(function()
+	local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+	local CurrentY = 0
+	for _, v in ipairs(NotificationLayout:GetChildren()) do
+		if v:IsA("Frame") then
+			local NewPOS = UDim2.new(0, 0, 1, -(CurrentY + v.Size.Y.Offset))
+			local tween = TweenService:Create(v, tweenInfo, { Position = NewPOS })
+			tween:Play()
+			CurrentY += v.Size.Y.Offset + 12
+		end
+	end
+end)
 
 function Speed_Library:CreateWindow(Config)
 	local Title = Config[1] or Config.Title or ""
@@ -952,12 +1005,12 @@ function Speed_Library:CreateWindow(Config)
 			end
 			CloseUnsavedChanges(UnsavedChangesUi)
 		end)
-		local tween = TweenService:Create(
+		local tweenene = TweenService:Create(
 			UnsavedChangesUi,
 			TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 			{ Position = UDim2.new(0.5, 0, 1, -10), BackgroundTransparency = 0.2 }
 		)
-		tween:Play()
+		tweenene:Play()
 		return {
 			Destroy = function()
 				local tw33n = TweenService:Create(
