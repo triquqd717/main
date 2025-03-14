@@ -902,24 +902,34 @@ function Speed_Library:CreateWindow(Config)
 			Open_Close.Visible = false
 		end
 	end)
-
+	local OnCloseScripted = false
 	function Speed_Library:OnClose(Callback)
 		Close.Activated:Connect(function()
 			if type(Callback) == "function" then
-				Callback()
+				task.spawn(function()
+					CircleClick(Close, Player:GetMouse().X, Player:GetMouse().Y)
+					Callback()
+					if SpeedHubXGui then
+						SpeedHubXGui.Enabled = false
+						task.wait(1)
+						SpeedHubXGui:Destroy()
+					end
+					OnCloseScripted = true
+				end)
 			end
 		end)
 	end
-
-	Close.Activated:Connect(function()
-		CircleClick(Close, Player:GetMouse().X, Player:GetMouse().Y)
-		if SpeedHubXGui then
-			SpeedHubXGui:Destroy()
-		end
-		if not Speed_Library.Unloaded then
-			Speed_Library.Unloaded = true
-		end
-	end)
+	if not OnCloseScripted then
+		Close.Activated:Connect(function()
+			CircleClick(Close, Player:GetMouse().X, Player:GetMouse().Y)
+			if SpeedHubXGui then
+				SpeedHubXGui:Destroy()
+			end
+			if not Speed_Library.Unloaded then
+				Speed_Library.Unloaded = true
+			end
+		end)
+	end
 
 	local function CloseUnsavedChanges(obj1)
 		local tween1 = TweenService:Create(
