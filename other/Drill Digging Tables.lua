@@ -30,6 +30,11 @@ return {
 			["Thornspike"] = 5e13,
 			["Ravager"] = 6e13,
 		},
+		["Magic"] = {
+			["Spellboun"] = 500e12,
+			["Arcane Auger"] = 25e15,
+			["Mystic Bore"] = 100e15,
+		},
 	},
 	["Eggs"] = {
 		["Main"] = {
@@ -49,6 +54,11 @@ return {
 			["Tropical Egg"] = 2e12,
 			["Jungle Egg"] = 1e13,
 		},
+		["Magic"] = {
+			["Ember Egg"] = 250e12,
+			["Enigma Egg"] = 2.5e15,
+			["Necromancer Egg"] = 1,
+		},
 	},
 	["Pets"] = {
 		["Beach Egg"] = {
@@ -64,6 +74,7 @@ return {
 			["Inferno Rex"] = "Exclusive",
 			["Frostbite Leviathan"] = "Exclusive",
 			["Jungle King"] = "Exclusive",
+			["Obscure Oracle"] = "Exclusive",
 		},
 		["Lava Egg"] = {
 			["Pheonix"] = "Epic",
@@ -131,6 +142,29 @@ return {
 			["Thorn Turtle"] = "Rare",
 			["Scorpion"] = "Epic",
 			["Viper"] = "Legendary",
+		},
+		["Necromancer Egg"] = {
+			["Revenant"] = "Common",
+			["Forsaken Phantom"] = "Rare",
+			["Blighted Wraith"] = "Common", -- 60%, capped at Common
+			["Necro Shade"] = "Legendary",
+			["Cursed Banshee"] = "Exclusive",
+		},
+		["Enigma Egg"] = {
+			["Misty Moppet"] = "Common",
+			["Fae Fluff"] = "Common",
+			["Shimmer Sprite"] = "Uncommon",
+			["Radiant Raven"] = "Rare",
+			["Magus Manticore"] = "Epic",
+			["Arcane Archon"] = "Legendary",
+		},
+		["Ember Egg"] = {
+			["Sparkle Sprout"] = "Common",
+			["Twinkle Tot"] = "Common",
+			["Gremlin"] = "Uncommon",
+			["Chimera"] = "Legendary",
+			["Aurora Aesthercat"] = "Rare",
+			["Ethereal Elf"] = "Epic",
 		},
 	},
 }
