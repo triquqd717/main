@@ -647,6 +647,8 @@ function Speed_Library:CreateWindow(Config)
 		RunService:IsStudio() and Player.PlayerGui
 			or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui"))
 	)
+	
+	self.SpeedHubXGui = SpeedHubXGui
 
 	local DropShadowHolder = Custom:Create("Frame", {
 		BackgroundTransparency = 1,
