@@ -146,7 +146,7 @@ return {
 		["Necromancer Egg"] = {
 			["Revenant"] = "Common",
 			["Forsaken Phantom"] = "Rare",
-			["Blighted Wraith"] = "Common", -- 60%, capped at Common
+			["Blighted Wraith"] = "Common",
 			["Necro Shade"] = "Legendary",
 			["Cursed Banshee"] = "Exclusive",
 		},
