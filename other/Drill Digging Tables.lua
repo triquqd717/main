@@ -13,7 +13,7 @@ return {
 			["Quantum"] = 1100000000,
 		},
 		["Dinosaur"] = {
-			["Fossil"] = 2e9,
+			["Fossil"] = 2000000000,
 			["Volcano"] = 15000000000,
 			["Amber"] = 50000000000,
 			["Crusher"] = 5500000000,
