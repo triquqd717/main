@@ -57,7 +57,7 @@ return {
 		["Magic"] = {
 			["Ember Egg"] = 250e12,
 			["Enigma Egg"] = 2.5e15,
-			["Necromancer Egg"] = 1,
+			["Necromancer Egg"] = 9.9e27,
 		},
 	},
 	["Pets"] = {
