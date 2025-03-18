@@ -168,29 +168,34 @@ return {
 		},
 	},
 	["PetRarity"] = {
+		-- Beach Egg
 		["Sand Golem"] = "Epic",
 		["Crab"] = "Common",
 		["Monkey"] = "Uncommon",
 		["Seagull"] = "Uncommon",
 		["Parrot"] = "Uncommon",
+		-- Without Egg (Exclusives)
 		["Cyber Megalodon"] = "Exclusive",
 		["Solar Pheonix"] = "Exclusive",
 		["Inferno Rex"] = "Exclusive",
 		["Frostbite Leviathan"] = "Exclusive",
 		["Jungle King"] = "Exclusive",
 		["Obscure Oracle"] = "Exclusive",
+		-- Lava Egg
 		["Pheonix"] = "Epic",
 		["Magma Dragon"] = "Legendary",
 		["Fire Ant"] = "Uncommon",
 		["Molten Crab"] = "Uncommon",
 		["Lava Turtle"] = "Uncommon",
 		["Pearl Phantom"] = "Mythic",
+		-- Oceanic Egg
 		["Stingray"] = "Rare",
 		["Clownfish"] = "Common",
 		["Electric Eel"] = "Uncommon",
 		["Starfish"] = "Common",
 		["Megalodon"] = "Epic",
 		["Coral Sentinel"] = "Legendary",
+		-- Fossil Egg
 		["Raptor"] = "Common",
 		["Triceratops"] = "Uncommon",
 		["Stegosaurus"] = "Uncommon",
@@ -198,6 +203,7 @@ return {
 		["Shadow Rex"] = "Epic",
 		["Bronto"] = "Legendary",
 		["Fossilized Fury"] = "Mythic",
+		-- Jurassic Egg
 		["Dodo Chick"] = "Common",
 		["Pangolin"] = "Uncommon",
 		["Sabertooth"] = "Uncommon",
@@ -205,23 +211,49 @@ return {
 		["Ankylosaur"] = "Epic",
 		["Ghost Spino"] = "Legendary",
 		["Primal Shade"] = "Mythic",
+		-- Glacier Egg
+		["Snowy Hare"] = "Common",
+		["Chipmunk"] = "Common",
+		["Artic Fox"] = "Uncommon",
+		["Penguin"] = "Rare",
+		["Frozen Wolf"] = "Epic",
+		["Aurora Lynx"] = "Legendary",
+		["Glaciar Specter"] = "Mythic",
+		-- Blizzard Egg
+		["Elk"] = "Uncommon",
+		["Ice Mole"] = "Common",
+		["Aurora Sprite"] = "Exclusive",
+		["Storm Serpent"] = "Epic",
+		["Mammoth"] = "Legendary",
+		["Polar Bear"] = "Rare",
+		["Snowy Owl"] = "Common",
+		-- Jungle Egg
+		["Jaguar"] = "Common",
+		["Red Parrot"] = "Uncommon",
+		["Panther"] = "Rare",
+		["Tiger"] = "Epic",
+		["Gorilla"] = "Legendary",
+		-- Tropical Egg
 		["Leafhopper"] = "Common",
 		["Bramble Rat"] = "Common",
 		["Gecko"] = "Uncommon",
 		["Thorn Turtle"] = "Rare",
 		["Scorpion"] = "Epic",
 		["Viper"] = "Legendary",
+		-- Necromancer Egg
 		["Revenant"] = "Common",
 		["Forsaken Phantom"] = "Rare",
 		["Blighted Wraith"] = "Common",
 		["Necro Shade"] = "Legendary",
 		["Cursed Banshee"] = "Exclusive",
+		-- Enigma Egg
 		["Misty Moppet"] = "Common",
 		["Fae Fluff"] = "Common",
 		["Shimmer Sprite"] = "Uncommon",
 		["Radiant Raven"] = "Rare",
 		["Magus Manticore"] = "Epic",
 		["Arcane Archon"] = "Legendary",
+		-- Ember Egg
 		["Sparkle Sprout"] = "Common",
 		["Twinkle Tot"] = "Common",
 		["Gremlin"] = "Uncommon",
@@ -258,6 +290,13 @@ return {
 			["Frozen"] = CFrame.new(4345.21191, 6910.84668, 145.92926, 0.291371286, -4.214181e-08, -0.956610024, -4.19533741e-09, 1, -4.53311273e-08, 0.956610024, 1.72214918e-08, 0.291371286),
 			["Jungle"] = CFrame.new(9119.77637, 6914.2627, 135.310242, -0.0575630032, 7.87019161e-08, -0.998341858, 3.49942653e-08, 1, 7.68149064e-08, 0.998341858, -3.0514542e-08, -0.0575630032),
 			["Magic"] = CFrame.new(14037.6133, 6910.84668, 134.587677, -0.229702279, 7.79019658e-08, -0.973260939, 2.3896801e-08, 1, 7.44022657e-08, 0.973260939, -6.16745277e-09, -0.229702279)
+		},
+		["Interactables"] = {
+			["Golden Machine"] = CFrame.new(-71.1990128, 9557.17676, -126.324379, 0.665752292, -7.98462949e-08, -0.746172845, 9.51105772e-09, 1, -9.85217952e-08, 0.746172845, 5.84942157e-08, 0.665752292),
+			["Rainbow Machine"] = CFrame.new(14069.2012, 9557.17676, -4.08618784, 0.423263013, -3.01918384e-08, -0.906006873, 1.62001808e-08, 1, -2.57557655e-08, 0.906006873, -3.77601106e-09, 0.423263013),
+			["Drill Shop"] = CFrame.new(14060.1719, 9557.23145, 24.644207, -0.676852584, 4.68051233e-08, -0.736118615, -2.20949481e-08, 1, 8.38997209e-08, 0.736118615, 7.30522487e-08, -0.676852584),
+			["Amulet Shop"] = CFrame.new(-653.488403, 9560.92969, -2556.11133, 0.320611477, -2.34181066e-08, -0.947210789, -3.49563898e-08, 1, -3.65552495e-08, 0.947210789, 4.48311042e-08, 0.320611477),
+			["Amulet Storage"] = CFrame.new(-661.598206, 9560.98438, -2526.37378, -0.777586401, -1.41799097e-08, -0.628776133, 1.17836274e-08, 1, -3.71240212e-08, 0.628776133, -3.6276397e-08, -0.777586401),
 		}
 	},
 }
