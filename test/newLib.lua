@@ -381,8 +381,8 @@ function Speed_Library:SetNotification(Config)
 
 	local Notification = {}
 	local Title = Config.Title or ""
-	local OtherDescLabel = Config.OtherDescLabel or ""
 	local Description = Config.Description or ""
+	local Content = Config.Content or ""
 	local Time = Config.Time or 0.5
 	local Delay = Config.Delay or 5
 	local CloseButtonImage = Config.CloseButtonImage or ""
@@ -471,9 +471,9 @@ function Speed_Library:SetNotification(Config)
 
 	Custom:Create("UIStroke", { Color = Colors.Stroke, Thickness = 0.3 }, TitleLabel)
 
-	local OtherDescLabelLabel = Custom:Create("TextLabel", {
+	local DescriptionLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.Gotham,
-		Text = OtherDescLabel,
+		Text = Description,
 		TextColor3 = Colors.Text,
 		TextSize = 12,
 		TextXAlignment = Enum.TextXAlignment.Left,
@@ -502,7 +502,7 @@ function Speed_Library:SetNotification(Config)
 		ZIndex = 2,
 	}, Top)
 
-	local DescriptionFrame = Custom:Create("Frame", {
+	local ContentFrame = Custom:Create("Frame", {
 		BackgroundColor3 = Colors.Background,
 		BackgroundTransparency = 1,
 		BorderColor3 = Colors.Stroke,
@@ -514,7 +514,7 @@ function Speed_Library:SetNotification(Config)
 		ZIndex = 1,
 	}, NotificationFrameReal)
 
-	local DescriptionLabel = Custom:Create("TextLabel", {
+	local ContentLabel = Custom:Create("TextLabel", {
 		Font = Enum.Font.Gotham,
 		Text = Content,
 		TextColor3 = Colors.Text,
@@ -661,7 +661,7 @@ end)
 
 function Speed_Library:CreateWindow(Config)
 	local Title = Config[1] or Config.Title or ""
-	local OtherDescLabel = Config[2] or Config.OtherDescLabel or ""
+	local Description = Config[2] or Config.Description or ""
 	local TabWidth = Config[3] or Config["Tab Width"] or 120
 	local SizeUi = Config[4] or Config.SizeUi or UDim2.fromOffset(550, 315)
 
@@ -758,7 +758,7 @@ function Speed_Library:CreateWindow(Config)
 
 	local TextLabel1 = Custom:Create("TextLabel", {
 		Font = Enum.Font.GothamBold,
-		Text = OtherDescLabel,
+		Text = Description,
 		TextColor3 = Colors.Accent,
 		TextSize = 14,
 		TextXAlignment = Enum.TextXAlignment.Left,
@@ -1553,7 +1553,7 @@ function Speed_Library:CreateWindow(Config)
 			local Item, ItemCount = {}, 0
 			function Item:AddParagraph(Config)
 				local Title = Config[1] or Config.Title or ""
-				local Description = Config[2] or Config.Description or ""
+				local Content = Config[2] or Config.Content or ""
 				local SettingFuncs = {}
 
 				local Paragraph = Custom:Create("Frame", {
@@ -1617,7 +1617,7 @@ function Speed_Library:CreateWindow(Config)
 
 				function SettingFuncs:Set(Config)
 					local Title = Config[1] or Config.Title or ""
-					local Description = Config[2] or Config.Description or ""
+					local Content = Config[2] or Config.Content or ""
 
 					ParagraphTitle.Text = Title
 					ParagraphContent.Text = Content
@@ -1723,7 +1723,7 @@ function Speed_Library:CreateWindow(Config)
 
 			function Item:AddButton(Config)
 				local Title = Config[1] or Config.Title or ""
-				local Description = Config[2] or Config.Description or ""
+				local Content = Config[2] or Config.Content or ""
 				local Icon = Config[3] or Config.Icon or ""
 				local Callback = Config[4] or Config.Callback or function() end
 				local Funcs_Button = {}
@@ -1834,7 +1834,7 @@ function Speed_Library:CreateWindow(Config)
 
 			function Item:AddToggle(Config)
 				local Title = Config[1] or Config.Title or ""
-				local Description = Config[2] or Config.Description or ""
+				local Content = Config[2] or Config.Content or ""
 				local Default = Config[3] or Config.Default or false
 				local Callback = Config[4] or Config.Callback or function() end
 
@@ -1984,7 +1984,7 @@ function Speed_Library:CreateWindow(Config)
 
 			function Item:AddSlider(Config)
 				local Title = Config[1] or Config.Title or ""
-				local Description = Config[2] or Config.Description or ""
+				local Content = Config[2] or Config.Content or ""
 				local Increment = Config[3] or Config.Increment or 1
 				local Min = Config[4] or Config.Min or 0
 				local Max = Config[5] or Config.Max or 100
@@ -2318,7 +2318,7 @@ function Speed_Library:CreateWindow(Config)
 
 			function Item:AddInput(Config)
 				local Title = Config[1] or Config.Title or ""
-				local Description = Config[2] or Config.Description or ""
+				local Content = Config[2] or Config.Content or ""
 				local Default = Config[3] or Config.Default or ""
 				local Callback = Config[4] or Config.Callback or function() end
 				local Funcs_Input = { Value = Default }
@@ -2442,7 +2442,7 @@ function Speed_Library:CreateWindow(Config)
 
 			function Item:AddDropdown(Config)
 				local Title = Config[1] or Config.Title or ""
-				local Description = Config[2] or Config.Description or ""
+				local Content = Config[2] or Config.Content or ""
 				local Multi = Config[3] or Config.Multi or false
 				local Options = Config[4] or Config.Options or {}
 				local Default = Config[5] or Config.Default or {}
