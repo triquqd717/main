@@ -1643,4 +1643,38 @@ return {
 		"Tango",
 		"Sierra",
 	},
+	WeaponStat = {
+		["M17"] = {
+			["FireRate"] = 550,
+			["MaxSpread"] = 35,
+			["Mode"] = "Semi",
+			["MaxRecoilPower"] = 3,
+			["Distance"] = 500,
+			["BSpeed"] = 2000,
+		},
+		["M4A1"] = {
+			["Mode"] = "Auto",
+			["MaxSpread"] = 35,
+			["MaxRecoilPower"] = 3.5,
+			["Distance"] = 3200,
+			["BSpeed"] = 2200,
+			["FireRate"] = 650,
+		},
+		["M40 Sniper"] = {
+			["Mode"] = "Bolt-Action",
+			["MaxSpread"] = 100,
+			["MaxRecoilPower"] = 1,
+			["Distance"] = 8000,
+			["BSpeed"] = 3000,
+			["FireRate"] = 60,
+		},
+		["Micro UZI"] = {
+			["Mode"] = "Auto",
+			["MaxSpread"] = 40,
+			["MaxRecoilPower"] = 2.5,
+			["Distance"] = 500,
+			["BSpeed"] = 2000,
+			["FireRate"] = 1000,
+		},
+	},
 }
