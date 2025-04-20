@@ -202,7 +202,7 @@ local function OpenClose()
 			or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui"))
 	)
 
-	local Close_ImageButton = Custom:Create("ImageButton", {
+	local CloseImageButton = Custom:Create("ImageButton", {
 		BackgroundColor3 = Colors.Background,
 		BorderColor3 = Colors.ThemeHighlight,
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
@@ -214,46 +214,64 @@ local function OpenClose()
 	local UICorner = Custom:Create("UICorner", {
 		Name = "MainCorner",
 		CornerRadius = UDim.new(0, 9),
-	}, Close_ImageButton)
+	}, CloseImageButton)
 
-	local dragging, dragStart, startPos = false, nil, nil
+	local Dragging, DragStart, StartPos = false, nil, nil
+	local InitialInputPos = nil
 
-	local function UpdateDraggable(input)
-		local delta = input.Position - dragStart
-		Close_ImageButton.Position =
-			UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	local function UpdateDraggable(Input)
+		local Delta = Input.Position - DragStart
+		CloseImageButton.Position =
+			UDim2.new(StartPos.X.Scale, StartPos.X.Offset + Delta.X, StartPos.Y.Scale, StartPos.Y.Offset + Delta.Y)
 	end
 
-	Close_ImageButton.InputBegan:Connect(function(input)
+	CloseImageButton.InputBegan:Connect(function(Input)
 		if
-			input.UserInputType == Enum.UserInputType.Touch
-			or input.UserInputType == Enum.UserInputType.MouseButton1
+			Input.UserInputType == Enum.UserInputType.Touch
+			or Input.UserInputType == Enum.UserInputType.MouseButton1
 		then
-			dragging = true
-			dragStart = input.Position
-			startPos = Close_ImageButton.Position
+			Dragging = true
+			DragStart = Input.Position
+			InitialInputPos = Input.Position
+			StartPos = CloseImageButton.Position
 
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
+			Input.Changed:Connect(function()
+				if Input.UserInputState == Enum.UserInputState.End then
+					Dragging = false
 				end
 			end)
 		end
 	end)
 
-	UserInputService.InputChanged:Connect(function(input)
+	CloseImageButton.InputEnded:Connect(function(Input)
 		if
-			dragging
-			and (
-				input.UserInputType == Enum.UserInputType.MouseMovement
-				or input.UserInputType == Enum.UserInputType.Touch
-			)
+			Input.UserInputType == Enum.UserInputType.Touch
+			or Input.UserInputType == Enum.UserInputType.MouseButton1
 		then
-			UpdateDraggable(input)
+			local DeltaX = math.abs(Input.Position.X - InitialInputPos.X)
+			local DeltaY = math.abs(Input.Position.Y - InitialInputPos.Y)
+			local Distance = math.sqrt(DeltaX ^ 2 + DeltaY ^ 2)
+
+			if Distance <= 20 then
+				Speed_Library.SpeedHubXGui.Enabled = true
+				CloseImageButton.Visible = false
+			end
 		end
 	end)
 
-	return Close_ImageButton
+	UserInputService.InputChanged:Connect(function(Input)
+		if
+			Dragging
+			and (
+				Input.UserInputType == Enum.UserInputType.MouseMovement
+				or Input.UserInputType == Enum.UserInputType.Touch
+			)
+		then
+			UpdateDraggable(Input)
+		end
+	end)
+
+	return CloseImageButton
 end
 
 local Open_Close = OpenClose()
@@ -2446,7 +2464,8 @@ function Speed_Library:CreateWindow(Config)
 				local Multi = Config[3] or Config.Multi or false
 				local Options = Config[4] or Config.Options or {}
 				local Default = Config[5] or Config.Default or {}
-				local Callback = Config[6] or Config.Callback or function() end
+				local DefaultValue = Config[6] or Config.DefaultValue or nil
+				local Callback = Config[7] or Config.Callback or function() end
 
 				local Funcs_Dropdown = { Value = Default, Options = Options }
 
