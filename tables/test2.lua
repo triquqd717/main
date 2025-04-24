@@ -10,6 +10,7 @@ return {
     CropStock = true,
     GearStock = true,
     EasterStock = true,
+    Weather = true,
   },
   FixedSendDelay = false,
   SendDelay = 300,
