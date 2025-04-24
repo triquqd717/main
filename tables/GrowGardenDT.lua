@@ -1,5 +1,5 @@
 return {
-  CropRarities = {
+  		CropRarities = {
 			["Carrot Seed"] = "Common",
 			["Strawberry Seed"] = "Common",
 			["Blueberry Seed"] = "Uncommon",
@@ -10,14 +10,14 @@ return {
 			["Watermelon Seed"] = "Legendary",
 			["Pumpkin Seed"] = "Legendary",
 			["Apple Seed"] = "Legendary",
-      ["Bamboo Seed"] = "Legendary",
+      			["Bamboo Seed"] = "Legendary",
 			["Coconut Seed"] = "Mythical",
 			["Cactus Seed"] = "Mythical",
 			["Dragon Fruit Seed"] = "Mythical",
 			["Mango Seed"] = "Mythical",
 			["Grape Seed"] = "Divine",
 		},
-  Crops = {
+  		Crops = {
 			"Carrot Seed",
 			"Strawberry Seed",
 			"Blueberry Seed",
@@ -28,11 +28,25 @@ return {
 			"Watermelon Seed",
 			"Pumpkin Seed",
 			"Apple Seed",
-      "Bamboo Seed",
+      			"Bamboo Seed",
 			"Coconut Seed",
 			"Cactus Seed",
 			"Dragon Fruit Seed",
 			"Mango Seed",
 			"Grape Seed",
-		}
+		},
+		GearRarities = {
+			["Watering Can"] = "Common",
+			["Basic Sprinkler"] = "Rare",
+			["Advanced Sprinkler"] = "Legendary",
+			["Godly Sprinkler"] = "Mythical",
+			["Master Sprinkler"] = "Divine",
+		},
+		Gears = {
+			"Watering Can",
+			"Basic Sprinkler",
+			"Advanced Sprinkler",
+			"Godly Sprinkler",
+			"Master Sprinkler",
+		},
 }
