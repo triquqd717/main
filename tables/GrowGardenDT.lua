@@ -18,6 +18,7 @@ local SEED_ITEMS = {
 	"Mushroom",
 	"Pepper",
 	"Cacao",
+	"Beanstalk",
 }
 
 local GEAR_ITEMS = {
@@ -64,6 +65,7 @@ local CropRarities = {
 	Mushroom = "Divine",
 	Pepper = "Divine",
 	Cacao = "Divine",
+	Beanstalk = "Divine",
 }
 
 local EggRarities = {
@@ -90,4 +92,67 @@ local GearRarities = {
 	["Favorite Tool"] = "Divine",
 }
 
-return SEED_ITEMS, GEAR_ITEMS, EGG_ITEMS, CropRarities, EggRarities, GearRarities
+local WEATHER_TYPES = {
+	"Rain",
+	"Snow",
+	"Thunderstorm",
+	"Nightfall",
+}
+
+local SeedEmojis = {
+	Carrot = "🥕",
+	Strawberry = "🍓",
+	Blueberry = "🫐",
+	["Orange Tulip"] = "🌷",
+	Tomato = "🍅",
+	Corn = "🌽",
+	Daffodil = "🌼",
+	Watermelon = "🍉",
+	Pumpkin = "🎃",
+	Apple = "🍎",
+	Bamboo = "🎍",
+	Coconut = "🥥",
+	Cactus = "🌵",
+	["Dragon Fruit"] = "🍎",
+	Mango = "🥭",
+	Grape = "🍇",
+	Mushroom = "🍄",
+	Pepper = "🌶️",
+	Cacao = "🍫",
+	Beanstalk = "🌱",
+}
+
+local EggEmojis = {
+	["Common Egg"] = "🥚",
+	["Uncommon Egg"] = "🥚",
+	["Rare Egg"] = "🥚",
+	["Exotic Bug Egg"] = "🐛",
+	["Epic Egg"] = "🥚",
+	["Legendary Egg"] = "🥚",
+	["Mythical Egg"] = "🥚",
+	["Divine Egg"] = "🥚",
+	["Bug Egg"] = "🐞",
+}
+
+local WeatherEmojis = {
+	Rain = "🌧️",
+	Snow = "❄️",
+	Thunderstorm = "⛈️",
+	Nightfall = "🌑",
+}
+
+local RarityOrder = {
+	Premium = 9,
+	Prismatic = 8,
+	Divine = 7,
+	Mythical = 6,
+	Legendary = 5,
+	Epic = 4,
+	Rare = 3,
+	Uncommon = 2,
+	Common = 1,
+	Gear = 0,
+	Unknown = -1,
+}
+
+return SEED_ITEMS, GEAR_ITEMS, EGG_ITEMS, CropRarities, EggRarities, GearRarities, WEATHER_TYPES, SeedEmojis, EggEmojis, WeatherEmojis, RarityOrder
