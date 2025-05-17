@@ -97,7 +97,8 @@
     "Rain",
     "Snow",
     "Thunderstorm",
-    "Nightfall"
+    "Nightfall",
+    "BloodMoon",
   ],
 
   "SeedEmojis": {
@@ -139,7 +140,8 @@
     "Rain": "🌧️",
     "Snow": "❄️",
     "Thunderstorm": "⛈️",
-    "Nightfall": "🌑"
+    "Nightfall": "🌑",
+    "BloodMoon": "🩸",
   },
 
   "RarityOrder": {
