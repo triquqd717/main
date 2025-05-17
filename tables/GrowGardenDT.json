@@ -98,7 +98,10 @@
     "Snow",
     "Thunderstorm",
     "Nightfall",
-    "BloodMoon"
+    "BloodMoon",
+    "ChocolateRain",
+    "MeteorShower",
+    "Tornado"
   ],
 
   "SeedEmojis": {
