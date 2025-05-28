@@ -47,6 +47,22 @@
     "Bug Egg"
   ],
 
+  "NIGHTSTOCK_ITEMS": [
+    "Bloodmoon Crate",
+    "Night Egg",
+    "Night Seed Pack",
+    "Blood Banana Seed",
+    "Moon Melon Seed",
+    "Star Caller",
+    "Blood Hedgehog",
+    "Blood Kiwi",
+    "Blood Owl",
+    "Twilight Crate",
+    "Moon Cat",
+    "Celestiberry Seed",
+    "Moon Mango Seed"
+  ],
+
   "CropRarities": {
     "Carrot": "Common",
     "Strawberry": "Common",
