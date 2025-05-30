@@ -524,7 +524,7 @@ function Utils:SaveStockToDatabase(FullStockData)
 		self:SendDiscordLogMessage(
 			"Sent " .. #ItemsToInsert .. " stock items (Seeds/Gear/Eggs) to database.",
 			true,
-			false
+			true
 		)
 	else
 		print("No stock items (Seeds/Gear/Eggs) to send to database.")
@@ -540,7 +540,7 @@ function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
 				guild_id = GlobalStockIdentifier,
 			})
 		then
-			self:SendDiscordLogMessage("Sent " .. #CosmeticItemsList .. " cosmetic items to database.", true, false)
+			self:SendDiscordLogMessage("Sent " .. #CosmeticItemsList .. " cosmetic items to database.", true, true)
 			print("Successfully sent " .. #CosmeticItemsList .. " cosmetic items to WebSocket.")
 		else
 			warn("Failed to send cosmetic items to database via WebSocket.")
@@ -589,7 +589,7 @@ function Utils:SaveNightToDatabase(NightStock, Category)
 				category = Category or "Default",
 			})
 		then
-			self:SendDiscordLogMessage("Sent " .. #ItemsToInsert .. " night items to database.", true, false)
+			self:SendDiscordLogMessage("Sent " .. #ItemsToInsert .. " night items to database.", true, true)
 			print("Successfully sent " .. #ItemsToInsert .. " night items to WebSocket.")
 		else
 			warn("Failed to send night items to database via WebSocket.")
@@ -616,7 +616,7 @@ function Utils:SaveWeatherToDatabase(WeatherType, Duration)
 		self:SendDiscordLogMessage(
 			"Sent weather event: " .. WeatherType .. " for " .. Duration .. " seconds.",
 			true,
-			false
+			true
 		)
 		task.spawn(function()
 			task.wait(Duration)
