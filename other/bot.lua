@@ -222,21 +222,56 @@ function Utils:SendDiscordLogMessage(LogMessage, AddTimestamp, IncludeAvatarThum
 	if IncludeAvatarThumbnail == nil then
 		IncludeAvatarThumbnail = false
 	end
-	local avatarUrl = nil
+	local AvatarUrl = nil
+
 	if IncludeAvatarThumbnail then
-		local success, response = pcall(function()
-			local url = string.format(
+		local PcallSuccess, FetchedAvatarUrlOrError = pcall(function()
+			local RequestUrl = string.format(
 				"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=%d&size=420x420&format=Png&isCircular=false",
 				Player.UserId
 			)
-			local httpResponse = HttpService:GetAsync(url)
-			local data = HttpService:JSONDecode(httpResponse)
-			return data.data[1].imageUrl
+
+			local ResponseData = request({
+				Url = RequestUrl,
+				Method = "GET",
+			})
+
+			if ResponseData and ResponseData.StatusCode == 200 and ResponseData.Body then
+				local DecodedJson = HttpService:JSONDecode(ResponseData.Body)
+				if
+					DecodedJson
+					and DecodedJson.data
+					and #DecodedJson.data > 0
+					and DecodedJson.data[1]
+					and DecodedJson.data[1].imageUrl
+				then
+					return DecodedJson.data[1].imageUrl
+				else
+					warn(
+						"Failed to parse avatar JSON or find imageUrl from 'request' response. Response body: "
+							.. (ResponseData.Body or "N/A")
+					)
+					return nil
+				end
+			else
+				warn(
+					string.format(
+						"'request' to fetch avatar failed. Status Code: %s. Response Body: %s",
+						tostring(ResponseData and ResponseData.StatusCode),
+						tostring(ResponseData and ResponseData.Body)
+					)
+				)
+				return nil
+			end
 		end)
-		if success and response then
-			avatarUrl = response
+
+		if PcallSuccess and FetchedAvatarUrlOrError then
+			AvatarUrl = FetchedAvatarUrlOrError
 		else
-			warn("Failed to fetch avatar headshot: " .. tostring(response))
+			warn(
+				"Error during avatar fetch using 'request' or processing its response: "
+					.. tostring(FetchedAvatarUrlOrError)
+			)
 		end
 	end
 
@@ -246,15 +281,15 @@ function Utils:SendDiscordLogMessage(LogMessage, AddTimestamp, IncludeAvatarThum
 		timestamp = (AddTimestamp or AddTimestamp == nil) and os.date("!%Y-%m-%dT%H:%M:%SZ") or nil,
 		author = {
 			name = Player.Name,
-			icon_url = avatarUrl,
+			icon_url = AvatarUrl,
 		},
 		footer = {
 			text = "Roblox Stock Bot",
 		},
 	}
-	local Success, err = self:SendWebSocketMessage("discord_log", { embed = EmbedData })
-	if not Success then
-		warn("Failed to send embed log message to bot via WebSocket: " .. tostring(err))
+	local SendSuccess, SendError = self:SendWebSocketMessage("discord_log", { embed = EmbedData })
+	if not SendSuccess then
+		warn("Failed to send embed log message to bot via WebSocket: " .. tostring(SendError))
 	end
 end
 
