@@ -252,30 +252,15 @@ function Utils:SendDiscordLogMessage(LogMessage, AddTimestamp, IncludeAvatarThum
 			text = "Roblox Stock Bot",
 		},
 	}
-	local Success = self:SendWebSocketMessage("discord_log", { embed = EmbedData })
+	local Success, err = self:SendWebSocketMessage("discord_log", { embed = EmbedData })
 	if not Success then
-		warn("Failed to send embed log message to bot via WebSocket: " .. LogMessage)
+		warn("Failed to send embed log message to bot via WebSocket: " .. tostring(err))
 	end
 end
 
 local function JoinLink(id, jobid)
 	return string.format("https://speedhubx.vercel.app/?placeId=%s&jobId=%s", id, jobid)
 end
-
-pcall(function()
-	Utils:SendDiscordLogMessage(
-		"Bot successfully started on a new server.\n\n"
-			.. string.format(
-				"Server info:\n- Game Name: %s\n- PlaceID: %s\n- JobID: %s\n\nJoin game: [click here](<%s>)",
-				game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
-				tostring(game.PlaceId),
-				tostring(game.JobId),
-				JoinLink(tostring(game.PlaceId), tostring(game.JobId))
-			),
-		true,
-		true
-	)
-end)
 
 function Utils.WaitUntilTargetSecond(TargetSec)
 	local CurrentTime = os.date("*t")
@@ -716,6 +701,20 @@ local function Main()
 		print("Waiting for WebSocket connection to establish...")
 	end
 	print("WebSocket connection established.")
+	pcall(function()
+		Utils:SendDiscordLogMessage(
+			"Bot successfully started on a new server.\n\n"
+				.. string.format(
+					"Server info:\n- Game Name: %s\n- PlaceID: %s\n- JobID: %s\n\nJoin game: [click here](<%s>)",
+					game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+					tostring(game.PlaceId),
+					tostring(game.JobId),
+					JoinLink(tostring(game.PlaceId), tostring(game.JobId))
+				),
+			true,
+			true
+		)
+	end)
 
 	Utils:SendWebSocketMessage("ensure_tables", {
 		stock_table = StockTableName,
