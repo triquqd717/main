@@ -3,6 +3,7 @@ if not game:IsLoaded() then
 	task.wait(5)
 end
 
+local ContextActionService = game:GetService("ContextActionService")
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -19,17 +20,16 @@ local TargetCheckMinute = 0
 local StockTableName = "stock_data"
 local WeatherTableName = "weather_status"
 local CosmeticTableName = "cosmetic_data"
-local NightShopTableName = "night_shop_data"
+local HoneyShopTableName = "honey_shop_data"
 
 local SeedShop = "Seed_Shop"
 local GearShop = "Gear_Shop"
-local BloodmoonShop = "EventShop_UI"
-local TwilightShop = "NightEventShop_UI"
+local HoneyShop = "HoneyEventShop_UI"
 
 local SeedData = require(ReplicatedStorage.Data.SeedData)
 local GearData = require(ReplicatedStorage.Data.GearData)
 local PetEggData = require(ReplicatedStorage.Data.PetEggData)
-local NightData = require(ReplicatedStorage.Data.NightEventShopData)
+local HoneyEventData = require(ReplicatedStorage.Data.HoneyEventShopData)
 
 local SeedItems = {}
 local CropRarities = {}
@@ -90,22 +90,23 @@ for i, EggName in pairs(eggKeys) do
 	p = p + 1
 end
 
-local NightItems = {}
-local NightRarities = {}
-local NightOrder = {}
-local nightKeys = {}
-for NightName in pairs(NightData) do
-	table.insert(nightKeys, NightName)
+local HoneyItems = {}
+local HoneyRarities = {}
+local HoneyOrder = {}
+local HoneyKeys = {}
+
+for HoneyName in pairs(HoneyEventData) do
+	table.insert(HoneyKeys, HoneyName)
 end
-table.sort(nightKeys, function(a, b)
-	return (NightData[a].LayoutOrder or 9999) < (NightData[b].LayoutOrder or 9999)
+table.sort(HoneyKeys, function(a, b)
+	return (HoneyEventData[a].LayoutOrder or 9999) < (HoneyEventData[b].LayoutOrder or 9999)
 end)
-for i, NightName in pairs(nightKeys) do
-	local Data = NightData[NightName]
+for i, HoneyName in pairs(HoneyKeys) do
+	local Data = HoneyEventData[HoneyName]
 	if Data.DisplayInShop then
-		table.insert(NightItems, NightName)
-		NightRarities[NightName] = Data.Rarity or Data.SeedRarity or "Unknown"
-		NightOrder[NightName] = Data.LayoutOrder or p
+		table.insert(HoneyItems, HoneyName)
+		HoneyRarities[HoneyName] = Data.SeedRarity or "Unknown"
+		HoneyOrder[HoneyName] = Data.LayoutOrder or p
 		p = p + 1
 	end
 end
@@ -168,18 +169,18 @@ end
 local totalItems = #SeedItems
 	+ #GearItems
 	+ #EggItems
-	+ #NightItems
+	+ #HoneyItems
 	+ (CosmeticsItems and table.getn(CosmeticsItems) or 0)
 	+ (CosmeticsCrates and table.getn(CosmeticsCrates) or 0)
 print("Total Items: " .. totalItems)
 print("Seed Items: " .. #SeedItems)
 print("Gear Items: " .. #GearItems)
 print("Egg Items: " .. #EggItems)
-print("Night Shop Definable Items: " .. #NightItems)
+print("Honey Items: " .. #HoneyItems)
 print("Cosmetic Items: " .. (CosmeticsItems and table.getn(CosmeticsItems) or 0))
 print("Cosmetic Crates: " .. (CosmeticsCrates and table.getn(CosmeticsCrates) or 0))
 
-local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, NightShop = {} }
+local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, Honey = {} }
 
 local Connection = nil
 WebSocket = typeof(WebSocket) == "table" and WebSocket or nil
@@ -329,7 +330,7 @@ function Utils.WaitUntilNextHour(TargetMinute, TargetSecond)
 	local TargetHourCalculated = (Now.hour + math.floor((Now.min * 60 + Now.sec + SecondsToWait) / 3600)) % 24
 	print(
 		string.format(
-			"Waiting for %d seconds (approx %.2f min) until next ~%02d:%02d:%02d for Night Stock check.",
+			"Waiting for %d seconds (approx %.2f min) until next ~%02d:%02d:%02d for Bee Stock check.",
 			SecondsToWait,
 			SecondsToWait / 60,
 			TargetHourCalculated,
@@ -531,6 +532,36 @@ function Utils:SaveStockToDatabase(FullStockData)
 	end
 end
 
+function Utils:SaveHoneyToDatabase(HoneyItemList)
+	if HoneyItemList and #HoneyItemList > 0 then
+		local HoneyItemsToSend = {}
+		for ItemName, ItemData in pairs(HoneyItemList) do
+			table.insert(HoneyItemsToSend, {
+				guild_id = GlobalStockIdentifier,
+				item_name = ItemName,
+				quantity = ItemData.Stock or 0,
+				rarity = ItemData.Rarity,
+				is_available = ItemData.IsAvailable,
+				item_type = "Honey",
+				item_order = ItemData.Order,
+			})
+		end
+		if
+			self:SendWebSocketMessage(
+				"save_honey",
+				{ items = HoneyItemsToSend, honey_table = HoneyShopTableName, guild_id = GlobalStockIdentifier }
+			)
+		then
+			self:SendDiscordLogMessage("Sent " .. #HoneyItemsToSend .. " honey items to database.", true, true)
+			print("Successfully sent " .. #HoneyItemList .. " honey items to WebSocket.")
+		else
+			warn("Failed to send honey items to database via WebSocket.")
+		end
+	else
+		print("No honey items to send to database, or HoneyItemList table was nil/empty.")
+	end
+end
+
 function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
 	if CosmeticItemsList and #CosmeticItemsList > 0 then
 		if
@@ -547,29 +578,6 @@ function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
 		end
 	else
 		print("No cosmetic items to send to database, or CosmeticItemsList table was nil/empty.")
-	end
-end
-
-function Utils:SendCombinedNightShopData(CombinedItems)
-	if #CombinedItems > 0 then
-		if
-			self:SendWebSocketMessage("save_night_shop", {
-				items = CombinedItems,
-				night_shop_table = NightShopTableName,
-				guild_id = GlobalStockIdentifier,
-			})
-		then
-			self:SendDiscordLogMessage(
-				"Sent " .. #CombinedItems .. " combined night shop items to database.",
-				true,
-				true
-			)
-			print("Successfully sent " .. #CombinedItems .. " combined night shop items to WebSocket.")
-		else
-			warn("Failed to send combined night shop items to database via WebSocket.")
-		end
-	else
-		print("No combined night shop items to send to database.")
 	end
 end
 
@@ -647,41 +655,10 @@ local function Main()
 				})
 			elseif ItemTypeToForce == "Egg" then
 				Utils:SaveStockToDatabase({ Eggs = Utils.GetEggStock() })
+			elseif ItemTypeToForce == "Honey" then
+				Utils:SaveHoneyToDatabase(Utils.GetShopStock(HoneyShop, HoneyItems, HoneyRarities, "Honey", HoneyOrder))
 			elseif ItemTypeToForce == "Cosmetic" then
 				Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
-			elseif ItemTypeToForce == "NightShop" then
-				local TwilightStockData =
-					Utils.GetShopStock(TwilightShop, NightItems, NightRarities, "Twilight", NightOrder)
-				local BloodmoonStockData =
-					Utils.GetShopStock(BloodmoonShop, NightItems, NightRarities, "Bloodmoon", NightOrder)
-				local CombinedNightItems = {}
-				for itemName, itemData in pairs(TwilightStockData) do
-					table.insert(CombinedNightItems, {
-						guild_id = GlobalStockIdentifier,
-						item_name = itemName,
-						quantity = itemData.Stock,
-						rarity = itemData.Rarity,
-						is_available = itemData.IsAvailable,
-						category = "Twilight",
-						item_order = itemData.Order,
-					})
-				end
-				for itemName, itemData in pairs(BloodmoonStockData) do
-					table.insert(CombinedNightItems, {
-						guild_id = GlobalStockIdentifier,
-						item_name = itemName,
-						quantity = itemData.Stock,
-						rarity = itemData.Rarity,
-						is_available = itemData.IsAvailable,
-						category = "Bloodmoon",
-						item_order = itemData.Order,
-					})
-				end
-				if #CombinedNightItems > 0 then
-					Utils:SendCombinedNightShopData(CombinedNightItems)
-				else
-					print("Force Check NightShop: No Twilight or Bloodmoon items to send.")
-				end
 			elseif ItemTypeToForce == "All" then
 				Utils:SendFeedback("Force checking ALL types...")
 				Utils:SaveStockToDatabase({
@@ -689,40 +666,8 @@ local function Main()
 					Gear = Utils.GetShopStock(GearShop, GearItems, GearRarities, "Gear", GearOrder),
 					Eggs = Utils.GetEggStock(),
 				})
+				Utils:SaveHoneyToDatabase(Utils.GetShopStock(HoneyShop, HoneyItems, HoneyRarities, "Honey", HoneyOrder))
 				Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
-
-				local TwilightStockDataAll =
-					Utils.GetShopStock(TwilightShop, NightItems, NightRarities, "Twilight", NightOrder)
-				local BloodmoonStockDataAll =
-					Utils.GetShopStock(BloodmoonShop, NightItems, NightRarities, "Bloodmoon", NightOrder)
-				local CombinedNightItemsForAll = {}
-				for itemName, itemData in pairs(TwilightStockDataAll) do
-					table.insert(CombinedNightItemsForAll, {
-						guild_id = GlobalStockIdentifier,
-						item_name = itemName,
-						quantity = itemData.Stock,
-						rarity = itemData.Rarity,
-						is_available = itemData.IsAvailable,
-						category = "Twilight",
-						item_order = itemData.Order,
-					})
-				end
-				for itemName, itemData in pairs(BloodmoonStockDataAll) do
-					table.insert(CombinedNightItemsForAll, {
-						guild_id = GlobalStockIdentifier,
-						item_name = itemName,
-						quantity = itemData.Stock,
-						rarity = itemData.Rarity,
-						is_available = itemData.IsAvailable,
-						category = "Bloodmoon",
-						item_order = itemData.Order,
-					})
-				end
-				if #CombinedNightItemsForAll > 0 then
-					Utils:SendCombinedNightShopData(CombinedNightItemsForAll)
-				else
-					print("Force Check All: No Twilight or Bloodmoon items to send.")
-				end
 			else
 				warn("Unknown item_type for force_check:", ItemTypeToForce)
 				Utils:SendFeedback("Unknown item_type for force_check: " .. ItemTypeToForce)
@@ -794,7 +739,7 @@ local function Main()
 		stock_table = StockTableName,
 		weather_table = WeatherTableName,
 		cosmetic_table = CosmeticTableName,
-		night_shop_table = NightShopTableName,
+		honey_table = HoneyShopTableName,
 	})
 
 	if _G.CombinedThread and typeof(_G.CombinedThread) == "thread" then
@@ -811,12 +756,6 @@ local function Main()
 		task.cancel(_G.CosmeticThread)
 		_G.CosmeticThread = nil
 		print("Cancelled previous cosmetic thread")
-	end
-
-	if _G.NightThread and typeof(_G.NightThread) == "thread" then
-		task.cancel(_G.NightThread)
-		_G.NightThread = nil
-		print("Cancelled previous night shop thread")
 	end
 
 	_G.CombinedThread = task.spawn(function()
@@ -874,61 +813,30 @@ local function Main()
 		end
 	end)
 
-	_G.NightThread = task.spawn(function()
+	_G.HoneyThread = task.spawn(function()
 		while Connection do
 			local key = os.time()
-			if SentTable[key] and TargetCheckMinute ~= 0 then
+			if SentTable[key] then
 				task.wait(1)
 				continue
-			end
-			if TargetCheckMinute ~= 0 then
-				SentTable[key] = true
 			end
 
 			local WaitTime = Utils.WaitUntilNextHour(TargetCheckMinute, TargetCheckSecond)
 			if WaitTime > 0 then
-				Utils:SendDiscordLogMessage("Waiting " .. WaitTime .. " seconds for night shop reset.", true, true)
+				Utils:SendDiscordLogMessage("Waiting " .. WaitTime .. " seconds for honey shop reset.", true, true)
 				task.wait(WaitTime)
 			else
 				task.wait(5)
 				continue
 			end
+			SentTable[key] = true
 
-			local TwilightStockData =
-				Utils.GetShopStock(TwilightShop, NightItems, NightRarities, "Twilight", NightOrder)
-			local BloodmoonStockData =
-				Utils.GetShopStock(BloodmoonShop, NightItems, NightRarities, "Bloodmoon", NightOrder)
+			local HoneyItemsToSend = Utils.GetShopStock(HoneyShop, HoneyItems, HoneyRarities, "Honey", HoneyOrder)
 
-			local CombinedNightItems = {}
-
-			for itemName, itemData in pairs(TwilightStockData) do
-				table.insert(CombinedNightItems, {
-					guild_id = GlobalStockIdentifier,
-					item_name = itemName,
-					quantity = itemData.Stock,
-					rarity = itemData.Rarity,
-					is_available = itemData.IsAvailable,
-					category = "Twilight",
-					item_order = itemData.Order,
-				})
-			end
-
-			for itemName, itemData in pairs(BloodmoonStockData) do
-				table.insert(CombinedNightItems, {
-					guild_id = GlobalStockIdentifier,
-					item_name = itemName,
-					quantity = itemData.Stock,
-					rarity = itemData.Rarity,
-					is_available = itemData.IsAvailable,
-					category = "Bloodmoon",
-					item_order = itemData.Order,
-				})
-			end
-
-			if #CombinedNightItems > 0 then
-				Utils:SendCombinedNightShopData(CombinedNightItems)
+			if #HoneyItemsToSend > 0 then
+				Utils:SaveHoneyToDatabase(HoneyItemsToSend)
 			else
-				print("No Twilight or Bloodmoon items to send for the hourly check.")
+				print("No Honey items to send for the hourly check.")
 			end
 
 			task.wait(10)
@@ -947,26 +855,6 @@ local function Main()
 			print(string.format("Weather event: %s for %d seconds", EventType, EventDuration))
 			Utils:SaveWeatherToDatabase(EventType, EventDuration)
 		end)
-
-		local NightButton = PlayerGui.Bottom_UI.BottomFrame.Holder.List.Night
-		local BloodButton = PlayerGui.Bottom_UI.BottomFrame.Holder.List.BloodMoon
-
-		if NightButton and BloodButton then
-			local function HandleNight()
-				if NightButton.Visible then
-					Utils:SaveWeatherToDatabase("Nightfall", 600)
-					task.delay(600, function()
-						NightButton.Visible = false
-						BloodButton.Visible = false
-					end)
-				end
-			end
-			NightButton:GetPropertyChangedSignal("Visible"):Connect(HandleNight)
-			BloodButton:GetPropertyChangedSignal("Visible"):Connect(HandleNight)
-			HandleNight()
-		else
-			warn("Night button UI path for Nightfall event not found.")
-		end
 	end)
 end
 
