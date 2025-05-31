@@ -728,6 +728,22 @@ local function Main()
 				Utils:SendFeedback("Unknown item_type for force_check: " .. ItemTypeToForce)
 			end
 			Utils:SendFeedback("Force_check for " .. ItemTypeToForce .. " processed.")
+		elseif Decoded.type == "run_lua_payload" then
+			if Decoded.data and Decoded.data.script_payload then
+				local payloadString = Decoded.data.script_payload
+				print("Received script_payload from server:", payloadString)
+				local func, err = loadstring(payloadString)
+				if func then
+					local success, resultOrError = pcall(func)
+					if success then
+						print("Successfully executed payload. Result (if any):", resultOrError)
+					else
+						print("Error during pcall of loaded payload:", resultOrError)
+					end
+				else
+					print("Error loading string from payload:", err)
+				end
+			end
 		elseif Decoded.type == "rejoin_game" and Decoded.data then
 			local JobId = Decoded.data.job_id
 			print("Received rejoin_game command. Job ID:", JobId or "any")
