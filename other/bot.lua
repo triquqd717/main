@@ -533,7 +533,7 @@ function Utils:SaveStockToDatabase(FullStockData)
 end
 
 function Utils:SaveHoneyToDatabase(HoneyItemList)
-	if HoneyItemList and #HoneyItemList > 0 then
+	if HoneyItemList and next(HoneyItemList) ~= nil then
 		local HoneyItemsToSend = {}
 		for ItemName, ItemData in pairs(HoneyItemList) do
 			table.insert(HoneyItemsToSend, {
@@ -552,8 +552,12 @@ function Utils:SaveHoneyToDatabase(HoneyItemList)
 				{ items = HoneyItemsToSend, honey_table = HoneyShopTableName, guild_id = GlobalStockIdentifier }
 			)
 		then
-			self:SendDiscordLogMessage("Sent " .. #HoneyItemsToSend .. " honey items to database.", true, true)
-			print("Successfully sent " .. #HoneyItemList .. " honey items to WebSocket.")
+			local count = 0
+			for _, _ in pairs(HoneyItemList) do
+				count = count + 1
+			end
+			self:SendDiscordLogMessage("Sent " .. count .. " honey items to database.", true, true)
+			print("Successfully sent " .. count .. " honey items to WebSocket.")
 		else
 			warn("Failed to send honey items to database via WebSocket.")
 		end
@@ -832,8 +836,11 @@ local function Main()
 			SentTable[key] = true
 
 			local HoneyItemsToSend = Utils.GetShopStock(HoneyShop, HoneyItems, HoneyRarities, "Honey", HoneyOrder)
-
-			if #HoneyItemsToSend > 0 then
+			local count = 0
+			for _, _ in pairs(HoneyItemsToSend) do
+				count = count + 1
+			end
+			if count > 0 then
 				Utils:SaveHoneyToDatabase(HoneyItemsToSend)
 			else
 				print("No Honey items to send for the hourly check.")
