@@ -106,6 +106,17 @@
     "Favorite Tool": "Divine"
   },
 
+  "WeatherEmojis": {
+    "Rain": "🌧️",
+    "Snow": "❄️",
+    "Thunderstorm": "⛈️",
+    "Night": "🌑",
+    "BloodMoon": "🩸",
+    "ChocolateRain": "🍫",
+    "MeteorShower": "☄️",
+    "Tornado": "🌪️"
+  },
+
   "WEATHER_TYPES": [
     "Rain",
     "Snow",
