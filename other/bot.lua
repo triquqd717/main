@@ -388,7 +388,7 @@ function Utils.GetShopStock(GuiName, ItemList, RarityTable, Category, OrderTable
 					or MainFrame:FindFirstChild("Item_Name_Text")
 				if StockText and ItemText then
 					local ItemName = ItemText.Text
-					if ItemName:find(" Seed") then
+					if ItemName:find(" Seed") and not ItemName:find(" Seed ") then
 						ItemName = ItemName:gsub(" Seed", "")
 					end
 					if table.find(ItemList, ItemName) then
