@@ -31,8 +31,7 @@
     "Godly Sprinkler",
     "Lightning Rod",
     "Master Sprinkler",
-    "Favorite Tool",
-    "Harvest Tool"
+    "Favorite Tool"
   ],
 
   "EGG_ITEMS": [
@@ -47,20 +46,17 @@
     "Bug Egg"
   ],
 
-  "NIGHTSTOCK_ITEMS": [
-    "Bloodmoon Crate",
-    "Night Egg",
-    "Night Seed Pack",
-    "Blood Banana",
-    "Moon Melon",
-    "Star Caller",
-    "Blood Hedgehog",
-    "Blood Kiwi",
-    "Blood Owl",
-    "Twilight Crate",
-    "Moon Cat",
-    "Celestiberry",
-    "Moon Mango"
+  "HONEY_ITEMS": [
+    "Flower Seed Pack",
+    "Nectarine Seed",
+    "Hive Fruit Seed",
+    "Honey Sprinkler",
+    "Bee Egg",
+    "Bee Crate",
+    "Honey Comb",
+    "Bee Chair",
+    "Honey Torch",
+    "Honey Walkway"
   ],
 
   "CropRarities": {
@@ -114,70 +110,11 @@
     "Rain",
     "Snow",
     "Thunderstorm",
-    "Nightfall",
-    "BloodMoon",
-    "ChocolateRain",
     "MeteorShower",
-    "Tornado"
-  ],
-
-  "SeedEmojis": {
-    "Carrot": "🥕",
-    "Strawberry": "🍓",
-    "Blueberry": "🫐",
-    "Orange Tulip": "🌷",
-    "Tomato": "🍅",
-    "Corn": "🌽",
-    "Daffodil": "🌼",
-    "Watermelon": "🍉",
-    "Pumpkin": "🎃",
-    "Apple": "🍎",
-    "Bamboo": "🎍",
-    "Coconut": "🥥",
-    "Cactus": "🌵",
-    "Dragon Fruit": "🍎",
-    "Mango": "🥭",
-    "Grape": "🍇",
-    "Mushroom": "🍄",
-    "Pepper": "🌶️",
-    "Cacao": "🍫",
-    "Beanstalk": "🫘"
-  },
-
-  "EggEmojis": {
-    "Common Egg": "🥚",
-    "Uncommon Egg": "🥚",
-    "Rare Egg": "🥚",
-    "Exotic Bug Egg": "🐛",
-    "Epic Egg": "🥚",
-    "Legendary Egg": "🥚",
-    "Mythical Egg": "🥚",
-    "Divine Egg": "🥚",
-    "Bug Egg": "🐞"
-  },
-
-  "WeatherEmojis": {
-    "Rain": "🌧️",
-    "Snow": "❄️",
-    "Thunderstorm": "⛈️",
-    "Nightfall": "🌑",
-    "BloodMoon": "🩸",
-    "ChocolateRain": "🍫",
-    "MeteorShower": "☄️",
-    "Tornado": "🌪️"
-  },
-
-  "RarityOrder": {
-    "Premium": 9,
-    "Prismatic": 8,
-    "Divine": 7,
-    "Mythical": 6,
-    "Legendary": 5,
-    "Epic": 4,
-    "Rare": 3,
-    "Uncommon": 2,
-    "Common": 1,
-    "Gear": 0,
-    "Unknown": -1
-  }
+    "ChocolateRain",
+    "Tornado",
+    "Disco",
+    "Blackhole",
+    "JandelStorm"
+  ]
 }
