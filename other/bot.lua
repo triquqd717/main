@@ -507,6 +507,7 @@ function Utils:SaveStockToDatabase(FullStockData)
 		end
 
 		if ItemType then
+			local Key = HttpService:GenerateGUID(false)
 			for ItemName, ItemData in pairs(ItemsInCategory) do
 				table.insert(ItemsToInsert, {
 					guild_id = GlobalStockIdentifier,
@@ -516,6 +517,7 @@ function Utils:SaveStockToDatabase(FullStockData)
 					rarity = ItemData.Rarity,
 					is_available = ItemData.IsAvailable,
 					item_order = ItemData.Order,
+					key = Key,
 				})
 			end
 		end
