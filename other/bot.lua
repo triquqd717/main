@@ -241,8 +241,6 @@ end
 
 function Utils:Abort(log)
 	self:SendDiscordLogMessage("Bot hanged himself: " .. log)
-	while true do
-	end
 	game:Shutdown()
 end
 
@@ -568,7 +566,20 @@ function Utils.GetEggStock()
 	return CurrentStock
 end
 
+local old = nil
+local att = 0
+
 function Utils:SaveStockToDatabase(FullStockData)
+	old = FullStockData
+	att = att + 1
+	if Utils:TablesAreEqual(old, FullStockData) then
+		if att > 5 then
+			Utils:Abort("Bot is probably kicked or dead, leaving the game.")
+		else
+			warn("[WARN]: Stock data is the same as before. Attempt: " .. att)
+		end
+	end
+
 	local ItemsToInsert = {}
 	for Category, ItemsInCategory in pairs(FullStockData) do
 		local ItemType
@@ -866,6 +877,7 @@ local function Main()
 				Gear = Utils.GetShopStock(GearShop, GearItems, GearRarities, "Gear", GearOrder),
 				Eggs = Utils.GetEggStock(),
 			}
+
 			Utils:SaveStockToDatabase(FullStockData)
 		end
 	end)
@@ -892,6 +904,7 @@ local function Main()
 			end
 		end
 	end)
+	local deb2 = false
 
 	_G.HoneyThread = task.spawn(function()
 		while Connection do
@@ -901,7 +914,7 @@ local function Main()
 				continue
 			end
 
-			local WaitTime = Utils.WaitUntilTargetSecond(TargetCheckSecond)
+			local WaitTime = Utils.WaitUntilTargetSecond(TargetCheckSecond + 7)
 			if WaitTime > 0 then
 				task.wait(WaitTime)
 			else
@@ -923,7 +936,16 @@ local function Main()
 				count = count + 1
 			end
 			if count > 0 then
-				Utils:SaveHoneyToDatabase(HoneyItemsToSend)
+				if not deb then
+					Utils:SaveHoneyToDatabase(HoneyItemsToSend)
+					deb = true
+					task.spawn(function()
+						task.wait(10)
+						deb = false
+					end)
+				else
+					print("Already sent Honey items for this hour, skipping.")
+				end
 			else
 				print("No Honey items to send for the hourly check.")
 			end
