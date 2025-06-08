@@ -11,7 +11,7 @@ local TeleportService = game:GetService("TeleportService")
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
-
+local Event = "Honey"
 local WebSocketUrl = "ws://localhost:3000"
 local GlobalStockIdentifier = "global_stock"
 local GlobalWeatherIdentifier = 1
@@ -60,7 +60,7 @@ for GearName in pairs(GearData) do
 	table.insert(gearKeys, GearName)
 end
 table.sort(gearKeys, function(a, b)
-	return (GearData[a].LayoutOrder or 9999) < (GearData[b].LayoutOrder or 9999)
+	return (GearData[a].LayoutOrder or 99099) < (GearData[b].LayoutOrder or 9999)
 end)
 for i, GearName in pairs(gearKeys) do
 	local Data = GearData[GearName]
@@ -101,6 +101,7 @@ end
 table.sort(HoneyKeys, function(a, b)
 	return (HoneyEventData[a].LayoutOrder or 9999) < (HoneyEventData[b].LayoutOrder or 9999)
 end)
+
 for i, HoneyName in pairs(HoneyKeys) do
 	local Data = HoneyEventData[HoneyName]
 	if Data.DisplayInShop then
@@ -183,7 +184,7 @@ print("Cosmetic Crates: " .. (CosmeticsCrates and table.getn(CosmeticsCrates) or
 local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, Honey = {} }
 
 local Connection = nil
-WebSocket = typeof(WebSocket) == "table" and WebSocket or nil
+WebSocket = typeof(WebSocket) == "table" and WebSocket or nil -- usually is an option on good executors
 
 if not WebSocket then
 	warn("WebSocket library not found.")
@@ -298,15 +299,20 @@ local function JoinLink(id, jobid)
 	return string.format("https://speedhubx.vercel.app/?placeId=%s&jobId=%s", id, jobid)
 end
 
+function Utils:AreTablesSame(a, b)
+	
+end
+
+
 function Utils.WaitUntilTargetSecond(TargetSec)
 	local CurrentTime = os.date("*t")
 	local Sec = CurrentTime.sec
 	if Sec == TargetSec then
-		return
+		return 1
 	elseif Sec < TargetSec then
-		task.wait(TargetSec - Sec)
+		return TargetSec - Sec
 	else
-		task.wait(60 - Sec + TargetSec)
+		return 60 - Sec + TargetSec
 	end
 end
 
@@ -766,7 +772,7 @@ local function Main()
 
 	_G.CombinedThread = task.spawn(function()
 		while Connection do
-			Utils.WaitUntilTargetSecond(TargetCheckSecond)
+			task.wait(Utils.WaitUntilTargetSecond(TargetCheckSecond))
 			local CurrentTime = os.date("*t")
 			local CurrentMin = CurrentTime.min
 			if CurrentMin % 5 ~= 0 then
@@ -827,12 +833,19 @@ local function Main()
 				continue
 			end
 
-			local WaitTime = Utils.WaitUntilNextHour(TargetCheckMinute, TargetCheckSecond)
+			local WaitTime = Utils.WaitUntilTargetSecond(TargetCheckSecond)
 			if WaitTime > 0 then
 				Utils:SendDiscordLogMessage("Waiting " .. WaitTime .. " seconds for honey shop reset.", true, true)
 				task.wait(WaitTime)
 			else
 				task.wait(5)
+				continue
+			end
+
+			local time = os.date("*t")
+			local min = time.min
+			if min ~= 30 or min ~= 0 then
+				task.wait()
 				continue
 			end
 			SentTable[key] = true
