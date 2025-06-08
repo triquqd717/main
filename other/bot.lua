@@ -8,6 +8,7 @@ local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TeleportService = game:GetService("TeleportService")
+local LogService = game:GetService("LogService")
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
@@ -186,6 +187,8 @@ local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, Honey = {} }
 local Connection = nil
 WebSocket = typeof(WebSocket) == "table" and WebSocket or nil -- usually is an option on good executors
 
+local deb = false
+
 if not WebSocket then
 	warn("WebSocket library not found.")
 	return
@@ -202,6 +205,25 @@ end)
 
 local Utils = {}
 
+LogService.MessageOutput:Connect(function(Message, Type)
+	if Connection ~= nil then
+		if not deb then
+			if Type == Enum.MessageType.MessageError then
+				Utils:SendDiscordLogMessage("Client Error: " .. Message, true, true, 0xE8101B)
+			elseif Type == Enum.MessageType.MessageWarning then
+				Utils:SendDiscordLogMessage("Client Warning: " .. Message, true, true, 0xFFA500)
+			else
+				return
+			end
+			deb = true
+			task.spawn(function()
+				task.wait(3)
+				deb = false
+			end)
+		end
+	end
+end)
+
 function Utils:SendWebSocketMessage(MessageType, MessageData)
 	if not Connection then
 		warn("WebSocket not connected or connection object invalid, cannot send message.")
@@ -217,7 +239,15 @@ function Utils:SendWebSocketMessage(MessageType, MessageData)
 	return true
 end
 
-function Utils:SendDiscordLogMessage(LogMessage, AddTimestamp, IncludeAvatarThumbnail)
+function Utils:Abort(log)
+	self:SendDiscordLogMessage("Bot hanged himself: " .. log)
+	while true do
+	end
+	game:Shutdown()
+end
+
+function Utils:SendDiscordLogMessage(LogMessage, AddTimestamp, IncludeAvatarThumbnail, Color)
+	Color = Color or tonumber("0x00FF00")
 	if AddTimestamp == nil then
 		AddTimestamp = false
 	end
@@ -279,7 +309,7 @@ function Utils:SendDiscordLogMessage(LogMessage, AddTimestamp, IncludeAvatarThum
 
 	local EmbedData = {
 		description = LogMessage,
-		color = tonumber("0x00FF00"),
+		color = tonumber(Color),
 		timestamp = (AddTimestamp or AddTimestamp == nil) and os.date("!%Y-%m-%dT%H:%M:%SZ") or nil,
 		author = {
 			name = Player.Name,
@@ -299,10 +329,48 @@ local function JoinLink(id, jobid)
 	return string.format("https://speedhubx.vercel.app/?placeId=%s&jobId=%s", id, jobid)
 end
 
-function Utils:AreTablesSame(a, b)
-	
-end
+function Utils:TablesAreEqual(t1, t2)
+	if type(t1) ~= type(t2) then
+		return false
+	end
+	if type(t1) ~= "table" then
+		return t1 == t2
+	end
+	if t1 == t2 then
+		return true
+	end
 
+	local t1KeyCount = 0
+	for _ in pairs(t1) do
+		t1KeyCount = t1KeyCount + 1
+	end
+
+	local t2KeyCount = 0
+	for _ in pairs(t2) do
+		t2KeyCount = t2KeyCount + 1
+	end
+
+	if t1KeyCount ~= t2KeyCount then
+		return false
+	end
+
+	for k, v1 in pairs(t1) do
+		local v2 = t2[k]
+
+		if type(v1) == "table" then
+			if type(v2) == "table" then
+				if not self:TablesAreEqual(v1, v2) then
+					return false
+				end
+			else
+				return false
+			end
+		elseif v1 ~= v2 then
+			return false
+		end
+	end
+	return true
+end
 
 function Utils.WaitUntilTargetSecond(TargetSec)
 	local CurrentTime = os.date("*t")
@@ -835,7 +903,6 @@ local function Main()
 
 			local WaitTime = Utils.WaitUntilTargetSecond(TargetCheckSecond)
 			if WaitTime > 0 then
-				Utils:SendDiscordLogMessage("Waiting " .. WaitTime .. " seconds for honey shop reset.", true, true)
 				task.wait(WaitTime)
 			else
 				task.wait(5)
@@ -844,7 +911,7 @@ local function Main()
 
 			local time = os.date("*t")
 			local min = time.min
-			if min ~= 30 or min ~= 0 then
+			if min ~= 30 and min ~= 0 then
 				task.wait()
 				continue
 			end
