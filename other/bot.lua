@@ -205,7 +205,7 @@ end)
 
 local Utils = {}
 
-LogService.MessageOutput:Connect(function(Message, Type)
+LogService.MessageOut:Connect(function(Message, Type)
 	if Connection ~= nil then
 		if not deb then
 			if Type == Enum.MessageType.MessageError then
