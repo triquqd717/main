@@ -32,7 +32,8 @@
     "Lightning Rod",
     "Master Sprinkler",
     "Favorite Tool",
-    "Harvest Tool"
+    "Harvest Tool",
+    "Friendship Pot"
   ],
   "EGG_ITEMS": [
     "Common Egg",
@@ -191,7 +192,8 @@
     "Lightning Rod": "<:LightningRod:1378018135256465620>",
     "Master Sprinkler": "<:MasterSprinkler:1378019822474100836>",
     "Favorite Tool": "<:FavoriteTool:1378018168546525225>",
-    "Harvest Tool": "<:HarvestTool:1378028514015707328>"
+    "Harvest Tool": "<:HarvestTool:1378028514015707328>",
+    "Friendship Pot": "<:Friendship_Pot:1381224312324751400>"
   },
   "EggEmojis": {
     "Common Egg": "<:CommonEgg:1378023510349189170>",
