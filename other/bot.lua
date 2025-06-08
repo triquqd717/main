@@ -570,7 +570,10 @@ local old = nil
 local att = 0
 
 function Utils:SaveStockToDatabase(FullStockData)
-	old = FullStockData
+	if next(FullStockData) == nil then
+		warn("No stock data to save, skipping database save.")
+		return
+	end
 	att = att + 1
 	if Utils:TablesAreEqual(old, FullStockData) then
 		if att > 5 then
@@ -578,7 +581,10 @@ function Utils:SaveStockToDatabase(FullStockData)
 		else
 			warn("[WARN]: Stock data is the same as before. Attempt: " .. att)
 		end
+	else
+		att = 0
 	end
+	old = FullStockData
 
 	local ItemsToInsert = {}
 	for Category, ItemsInCategory in pairs(FullStockData) do
