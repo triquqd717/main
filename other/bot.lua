@@ -580,6 +580,7 @@ function Utils:SaveStockToDatabase(FullStockData)
 			Utils:Abort("Bot is probably kicked or dead, leaving the game.")
 		else
 			warn("[WARN]: Stock data is the same as before. Attempt: " .. att)
+			return
 		end
 	else
 		att = 0
