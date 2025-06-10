@@ -61,7 +61,7 @@ for GearName in pairs(GearData) do
 	table.insert(gearKeys, GearName)
 end
 table.sort(gearKeys, function(a, b)
-	return (GearData[a].LayoutOrder or 99099) < (GearData[b].LayoutOrder or 9999)
+	return (GearData[a].LayoutOrder or 9999) < (GearData[b].LayoutOrder or 9999)
 end)
 for i, GearName in pairs(gearKeys) do
 	local Data = GearData[GearName]
@@ -893,10 +893,10 @@ local function Main()
 		while Connection do
 			local WaitTime = Utils.WaitUntilCosmetics()
 			if WaitTime > 0 then
-				print("Waiting " .. WaitTime .. " seconds for cosmetic shop reset.")
+				Utils:SendDiscordLogMessage("Waiting " .. WaitTime .. " seconds for cosmetic shop reset.", true, true)
 				task.wait(WaitTime)
 			else
-				warn("Could not determine cosmetic shop reset time, retrying in 60 seconds.")
+				Utils:SendDiscordLogMessage("Could not determine cosmetic shop reset time, retrying in 60 seconds.", true, true)
 				task.wait(60)
 				continue
 			end
