@@ -304,7 +304,8 @@
     "BloodMoon": "🩸",
     "ChocolateRain": "🍫",
     "MeteorShower": "☄️",
-    "Tornado": "🌪️"
+    "Tornado": "🌪️",
+    "Volcano": "🌋"
   },
   "WEATHER_TYPES": [
     "Rain",
@@ -318,6 +319,7 @@
     "JandelStorm",
     "JandelFloat",
     "DJJhai",
-    "SunGod"
+    "SunGod",
+    "Volcano"
   ]
 }
