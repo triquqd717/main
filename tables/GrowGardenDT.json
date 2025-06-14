@@ -20,7 +20,8 @@
     "Pepper",
     "Cacao",
     "Beanstalk",
-    "Ember Lily"
+    "Ember Lily",
+    "Sugar Apple"
   ],
   "GEAR_ITEMS": [
     "Watering Can",
@@ -180,7 +181,8 @@
     "Pepper": "<:Pepper:1378019660665983096>",
     "Cacao": "<:Cacao:1378019677027958844>",
     "Beanstalk": "<:Beanstalk:1378019696254910476>",
-    "Ember Lily": "<:Ember_Lily:1380958148579557630>"
+    "Ember Lily": "<:Ember_Lily:1380958148579557630>",
+    "Sugar Apple": "<:SugarApple:1383408811859116052>"
   },
   "GearEmojis": {
     "Watering Can": "<:WateringCan:1378019719034179665>",
