@@ -188,6 +188,7 @@ local Connection = nil
 WebSocket = typeof(WebSocket) == "table" and WebSocket or nil -- usually is an option on good executors
 
 local deb = false
+local DebWarn = false
 
 if not WebSocket then
 	warn("WebSocket library not found.")
@@ -207,7 +208,7 @@ local Utils = {}
 
 LogService.MessageOut:Connect(function(Message, Type)
 	if Connection ~= nil then
-		if not deb then
+		if not DebWarn then
 			if Type == Enum.MessageType.MessageError then
 				Utils:SendDiscordLogMessage("Client Error: " .. Message, true, true, 0xE8101B)
 			elseif Type == Enum.MessageType.MessageWarning then
@@ -215,10 +216,10 @@ LogService.MessageOut:Connect(function(Message, Type)
 			else
 				return
 			end
-			deb = true
+			DebWarn = true
 			task.spawn(function()
 				task.wait(3)
-				deb = false
+				DebWarn = false
 			end)
 		end
 	end
