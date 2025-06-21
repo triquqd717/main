@@ -40,23 +40,8 @@
     "Legendary Egg",
     "Mythical Egg",
     "Divine Egg",
-    "Bug Egg"
-  ],
-  "HONEY_ITEMS": [
-    "Flower Seed Pack",
-    "Nectarine",
-    "Hive Fruit",
-    "Honey Sprinkler",
-    "Bee Egg",
-    "Bee Crate",
-    "Honey Comb",
-    "Bee Chair",
-    "Honey Torch",
-    "Honey Walkway",
-    "Lavender",
-    "Nectarshade",
-    "Pollen Radar",
-    "Nectar Staff"
+    "Bug Egg",
+    "Paradise Egg"
   ],
   "COSMETIC_ITEMS": [
     "Torch",
