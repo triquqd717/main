@@ -39,7 +39,8 @@
     "Legendary Egg",
     "Mythical Egg",
     "Divine Egg",
-    "Bug Egg"
+    "Bug Egg",
+    "Paradise Egg"
   ],
   "COSMETIC_ITEMS": [
     "Lighting",
@@ -176,7 +177,8 @@
     "Rare Egg": "<:RareEgg:1378023546093174824>",
     "Legendary Egg": "<:LegendaryEgg:1378023558898384986>",
     "Mythical Egg": "<:MythicalEgg:1378023575243718688>",
-    "Bug Egg": "<:BugEgg:1378023597091852359>"
+    "Bug Egg": "<:BugEgg:1378023597091852359>",
+    "Paradise Egg": "<:ParadiseSummerEgg:1386006938432704665>"
   },
   "CosmeticEmojis": {
     "Brick Stack": "<:BrickStack:1380095051425779732>",
