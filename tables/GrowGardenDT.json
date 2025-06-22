@@ -269,7 +269,8 @@
     "SpaceTravel": "🚀",
     "UnderTheSea": "🌊",
     "Windy": "🌬️",
-    "AlienInvasion": "👽"
+    "AlienInvasion": "👽",
+    "HeatWave": "☢️"
   },
   "WEATHER_TYPES": [
     "Rain",
@@ -288,6 +289,7 @@
     "SpaceTravel",
     "UnderTheSea",
     "Windy",
-    "AlienInvasion"
+    "AlienInvasion",
+    "HeatWave"
   ]
 }
