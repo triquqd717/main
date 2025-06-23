@@ -60,7 +60,8 @@
       "Light On Ground",
       "Small Stone Lantern",
       "Lamp Post",
-      "Campfire"
+      "Campfire",
+      "Stone Lantern"
     ],
     "Furniture": [
       "Orange Umbrella",
@@ -74,7 +75,12 @@
       "Mini TV",
       "Bookshelf",
       "Large Wood Table",
-      "Small Wood Table"
+      "Small Wood Table",
+      "Blue Cooler Chest",
+      "Pink Cooler Chest",
+      "Red Cooler Chest",
+      "Blue Hammock",
+      "Red Hammock"
     ],
     "Paths & Flooring": [
       "Small Circle Tile",
@@ -103,7 +109,11 @@
       "Brown Well",
       "Red Well",
       "Blue Well",
-      "Large Wood Arbour"
+      "Large Wood Arbour",
+      "Round Metal Arbour",
+      "Cabana",
+      "Lemonade Stand",
+      "Tiki Bar"
     ],
     "Garden & Farm Decor": [
       "Brick Stack",
@@ -121,10 +131,20 @@
       "Clothesline",
       "Bird Bath",
       "Frog Fountain",
-      "Wheelbarrow"
+      "Wheelbarrow",
+      "Shovel"
     ],
-    "Gnomes": ["Beta Gnome", "Green Female Gnome", "Blue Gnome"],
-    "Vehicles": ["Red Tractor", "Green Tractor"],
+    "Gnomes": [
+      "Beta Gnome",
+      "Green Female Gnome",
+      "Blue Gnome"
+    ],
+    "Vehicles": [
+      "Red Tractor",
+      "Green Tractor",
+      "Market Cart",
+      "Mower"
+    ],
     "Special & Event": [
       "Shovel Grave",
       "Monster Mash Trophy",
@@ -137,7 +157,10 @@
       "Common Gnome Crate",
       "Classic Gnome Crate",
       "Mysterious Crate",
-      "Fun Crate"
+      "Fun Crate",
+      "Beach Crate",
+      "Summer Fun Crate",
+      "Statue Crate"
     ]
   },
   "SeedEmojis": {
@@ -256,7 +279,23 @@
     "Common Gnome Crate": "<:Common_Gnome_Crate:1380098240703238185>",
     "Classic Gnome Crate": "<:Classic_Gnome_Crate:1380098253994856458>",
     "Mysterious Crate": "<:Mysterious_Crate:1380098264220700692>",
-    "Fun Crate": "<:Fun_Crate:1380098273087328317>"
+    "Fun Crate": "<:Fun_Crate:1380098273087328317>",
+    "Stone Lantern": "",
+    "Blue Cooler Chest": "",
+    "Pink Cooler Chest": "",
+    "Red Cooler Chest": "",
+    "Blue Hammock": "",
+    "Red Hammock": "",
+    "Round Metal Arbour": "",
+    "Cabana": "",
+    "Lemonade Stand": "",
+    "Tiki Bar": "",
+    "Shovel": "",
+    "Market Cart": "",
+    "Mower": "",
+    "Beach Crate": "",
+    "Summer Fun Crate": "",
+    "Statue Crate": ""
   },
   "WeatherEmojis": {
     "Rain": "🌧️",
