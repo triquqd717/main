@@ -311,7 +311,8 @@
     "UnderTheSea": "🌊",
     "Windy": "🌬️",
     "AlienInvasion": "👽",
-    "Heatwave": "☢️"
+    "Heatwave": "☢️",
+    "Gale": "💨"
   },
   "WEATHER_TYPES": [
     "Rain",
@@ -331,6 +332,7 @@
     "UnderTheSea",
     "Windy",
     "AlienInvasion",
-    "Heatwave"
+    "Heatwave",
+    "Gale"
   ]
 }
