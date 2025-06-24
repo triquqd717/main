@@ -209,12 +209,15 @@ local Utils = {}
 LogService.MessageOut:Connect(function(Message, Type)
 	if Connection ~= nil then
 		if not DebWarn then
-			if Type == Enum.MessageType.MessageError then
-				Utils:SendDiscordLogMessage("Client Error: " .. Message, true, true, 0xE8101B)
-			elseif Type == Enum.MessageType.MessageWarning then
-				Utils:SendDiscordLogMessage("Client Warning: " .. Message, true, true, 0xFFA500)
-			else
+			if tostring(Message):find("Infinite yield possible") then
 				return
+			end
+			if Type == Enum.MessageType.MessageError then
+				Utils:SendDiscordLogMessage("Client Error: " .. tostring(Message), true, true, 0xE8101B)
+			elseif Type == Enum.MessageType.MessageWarning then
+				Utils:SendDiscordLogMessage("Client Warning: " .. tostring(Message), true, true, 0xFFA500)
+			elseif Type == Enum.MessageType.MessageInfo then
+				Utils:SendDiscordLogMessage("Client Info: " .. tostring(Message), true, true, 0xFFFFFF)
 			end
 			DebWarn = true
 			task.spawn(function()
@@ -897,7 +900,11 @@ local function Main()
 				Utils:SendDiscordLogMessage("Waiting " .. WaitTime .. " seconds for cosmetic shop reset.", true, true)
 				task.wait(WaitTime)
 			else
-				Utils:SendDiscordLogMessage("Could not determine cosmetic shop reset time, retrying in 60 seconds.", true, true)
+				Utils:SendDiscordLogMessage(
+					"Could not determine cosmetic shop reset time, retrying in 60 seconds.",
+					true,
+					true
+				)
 				task.wait(60)
 				continue
 			end
