@@ -3,40 +3,36 @@
     "Carrot",
     "Strawberry",
     "Blueberry",
-    "Orange Tulip",
     "Tomato",
-    "Corn",
-    "Daffodil",
+    "Cauliflower",
     "Watermelon",
-    "Pumpkin",
-    "Apple",
-    "Bamboo",
-    "Coconut",
-    "Cactus",
-    "Dragon Fruit",
-    "Mango",
-    "Grape",
-    "Mushroom",
-    "Pepper",
-    "Cacao",
-    "Beanstalk",
-    "Ember Lily",
+    "Green Apple",
+    "Avocado",
+    "Banana",
+    "Pineapple",
+    "Kiwi",
+    "Bell Pepper",
+    "Pricky Pear",
+    "Loquat",
+    "Feijoa",
     "Sugar Apple"
   ],
+
   "GEAR_ITEMS": [
     "Watering Can",
     "Trowel",
-    "Basic Sprinkler",
     "Recall Wrench",
+    "Basic Sprinkler",
     "Advanced Sprinkler",
     "Godly Sprinkler",
-    "Lightning Rod",
+    "Tanning Mirror",
     "Master Sprinkler",
     "Cleaning Spray",
     "Favorite Tool",
     "Harvest Tool",
     "Friendship Pot"
   ],
+
   "EGG_ITEMS": [
     "Common Egg",
     "Uncommon Egg",
@@ -46,24 +42,10 @@
     "Legendary Egg",
     "Mythical Egg",
     "Divine Egg",
-    "Bug Egg"
+    "Bug Egg",
+    "Paradise Egg"
   ],
-  "HONEY_ITEMS": [
-    "Flower Seed Pack",
-    "Nectarine",
-    "Hive Fruit",
-    "Honey Sprinkler",
-    "Bee Egg",
-    "Bee Crate",
-    "Honey Comb",
-    "Bee Chair",
-    "Honey Torch",
-    "Honey Walkway",
-    "Lavender",
-    "Nectarshade",
-    "Pollen Radar",
-    "Nectar Staff"
-  ],
+
   "COSMETIC_ITEMS": [
     "Torch",
     "Light On Ground",
@@ -267,7 +249,18 @@
     "White Pottery": "<:WhitePottery:1384126209302073434>",
     "Wood Fence": "<:WoodFence:1384126214540755025>",
     "Wood Pile": "<:WoodPile:1384126219351752724>",
-    "Yellow Umbrella": "<:YellowUmbrella:1384126222367457342>"
+    "Yellow Umbrella": "<:YellowUmbrella:1384126222367457342>",
+    "Cauliflower": "<:Cauliflower:1387409282349400236>",
+    "Green Apple": "<:GreenApple:1387409254989959238>",
+    "Avocado": "<:Avocado:1387409231283749015>",
+    "Banana": "<:Banana:1387409241102487695>",
+    "Pineapple": "<:Pineapple:1387409264993112145>",
+    "Kiwi": "<:Kiwi:1387409212870627388>",
+    "Bell Pepper": "<:BellPepper:1387409194931720236>",
+    "Prickly Pear": "<:PricklyPear:1387409273981636663>",
+    "Loquat": "<:PricklyPear:1387409273981636663>",
+    "Feijoa": "<:Feijoa:1387409204460912682>",
+    "Tanning Mirror": "<:TanningMirror:1387411152895741993>"
   },
 
   "WeatherEmojis": {
@@ -279,7 +272,11 @@
     "ChocolateRain": "🍫",
     "MeteorShower": "☄️",
     "Tornado": "🌪️",
-    "Volcano": "🌋"
+    "Volcano": "🌋",
+    "SpaceTravel": "🚀",
+    "UnderTheSea": "🌊",
+    "Windy": "🌬️",
+    "AlienInvasion": "👽"
   },
   "WEATHER_TYPES": [
     "Rain",
@@ -294,6 +291,10 @@
     "JandelFloat",
     "DJJhai",
     "SunGod",
-    "Volcano"
+    "Volcano",
+    "SpaceTravel",
+    "UnderTheSea",
+    "Windy",
+    "AlienInvasion"
   ]
 }
