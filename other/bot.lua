@@ -16,7 +16,7 @@ local Event = "Honey"
 local WebSocketUrl = "ws://localhost:3000"
 local GlobalStockIdentifier = "global_stock"
 local GlobalWeatherIdentifier = 1
-local TargetCheckSecond = 7
+local TargetCheckSecond = 7 -- 7 because the stock might be delayed
 local TargetCheckMinute = 0
 local StockTableName = "stock_data"
 local WeatherTableName = "weather_status"
@@ -908,14 +908,21 @@ local function Main()
 				task.wait(60)
 				continue
 			end
+
+			Utils:SendDiscordLogMessage(
+				"Cosmetic timer expired. Waiting 15 seconds for stock to refresh...",
+				true,
+				true
+			)
+			task.wait(15)
+
 			local CosmeticShopUI = PlayerGui:FindFirstChild("CosmeticShop_UI", true)
 			if CosmeticShopUI then
-				Utils:SendDiscordLogMessage("Executing cosmetic stock check after reset.", true, true)
+				Utils:SendDiscordLogMessage("Executing cosmetic stock check.", true, true)
 				local CosmeticStockData = Utils.GetCosmeticStock()
 				Utils:SaveCosmeticToDatabase(CosmeticStockData)
 			else
 				warn("CosmeticShop_UI not found, Skipping cosmetic stock check.")
-				task.wait(60)
 			end
 		end
 	end)
