@@ -12,7 +12,7 @@
     "Pineapple",
     "Kiwi",
     "Bell Pepper",
-    "Pricky Pear",
+    "Prickly Pear",
     "Loquat",
     "Feijoa",
     "Sugar Apple"
@@ -134,17 +134,8 @@
       "Wheelbarrow",
       "Shovel"
     ],
-    "Gnomes": [
-      "Beta Gnome",
-      "Green Female Gnome",
-      "Blue Gnome"
-    ],
-    "Vehicles": [
-      "Red Tractor",
-      "Green Tractor",
-      "Market Cart",
-      "Mower"
-    ],
+    "Gnomes": ["Beta Gnome", "Green Female Gnome", "Blue Gnome"],
+    "Vehicles": ["Red Tractor", "Green Tractor", "Market Cart", "Mower"],
     "Special & Event": [
       "Shovel Grave",
       "Monster Mash Trophy",
