@@ -160,7 +160,6 @@ local Connection = nil
 WebSocket = typeof(WebSocket) == "table" and WebSocket or nil -- usually is an option on good executors
 
 local deb = false
-local DebWarn = false
 
 if not WebSocket then
 	warn("WebSocket library not found.")
@@ -177,29 +176,6 @@ task.spawn(function()
 end)
 
 local Utils = {}
-
-LogService.MessageOut:Connect(function(Message, Type)
-	if Connection ~= nil then
-		if not DebWarn then
-			if tostring(Message):find("Infinite yield possible") then
-				return
-			end
-			if Type == Enum.MessageType.MessageError then
-				Utils:SendDiscordLogMessage("Client Error: " .. tostring(Message), true, true, 0xE8101B)
-			elseif Type == Enum.MessageType.MessageWarning then
-				Utils:SendDiscordLogMessage("Client Warning: " .. tostring(Message), true, true, 0xFFA500)
-			elseif Type == Enum.MessageType.MessageInfo then
-				Utils:SendDiscordLogMessage("Client Info: " .. tostring(Message), true, true, 0xFFFFFF)
-			end
-			DebWarn = true
-			task.spawn(function()
-				task.wait(3)
-				DebWarn = false
-			end)
-		end
-	end
-end)
-
 function Utils:SendWebSocketMessage(MessageType, MessageData)
 	if not Connection then
 		warn("WebSocket not connected or connection object invalid, cannot send message.")
