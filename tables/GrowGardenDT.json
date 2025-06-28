@@ -44,10 +44,11 @@
     "Mythical Egg",
     "Divine Egg",
     "Bug Egg",
-    "Paradise Egg"
+    "Paradise Egg",
+    "Bee Egg"
   ],
 
-  "HONEY_ITEMS": [ 
+  "SUMMER_ITEMS": [ 
     "Summer Seed Pack",
     "Delphinium",
     "Lily of the Valley",
