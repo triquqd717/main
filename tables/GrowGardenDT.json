@@ -15,6 +15,7 @@
     "Prickly Pear",
     "Loquat",
     "Feijoa",
+    "Pither Plant",
     "Sugar Apple"
   ],
   "GEAR_ITEMS": [
@@ -159,8 +160,8 @@
     "Strawberry": "<:Strawberry:1378018503587790948>",
     "Blueberry": "<:Blueberry:1378018537997865115>",
     "Tomato": "<:Tomato:1378019165209755648>",
+    "Cauliflower": "<:Cauliflower:1385996130478985459>",
     "Watermelon": "<:Watermelon:1378019222676045916>",
-    "Sugar Apple": "<:SugarApple:1383408811859116052>",
     "Bell Pepper": "<:BellPepper:1385995823384494240>",
     "Feijoa": "<:Feijoa:1385995910571360467>",
     "Kiwi": "<:Kiwi:1385995936001425408>",
@@ -169,8 +170,9 @@
     "Green Apple": "<:GreenApple:1385996026804179045>",
     "Pineapple": "<:Pineapple:1385996072505311252>",
     "Prickly Pear": "<:PricklyPear:1385996106739220642>",
-    "Cauliflower": "<:Cauliflower:1385996130478985459>",
-    "Loquat": "<:Loquat:1385996166390616156>"
+    "Loquat": "<:Loquat:1385996166390616156>",
+    "Pither Plant": "<:PitcherPlant:1388463900722200656>",
+    "Sugar Apple": "<:SugarApple:1383408811859116052>"
   },
   "GearEmojis": {
     "Watering Can": "<:WateringCan:1378019719034179665>",
@@ -195,7 +197,8 @@
     "Bug Egg": "<:BugEgg:1378023597091852359>",
     "Paradise Egg": "<:ParadiseSummerEgg:1386006938432704665>",
     "Common Summer Egg": "<:Common_Summer_Egg:1386457747565842432>",
-    "Rare Summer Egg": "<:Rare_Summer_Egg:1386457735276662784>"
+    "Rare Summer Egg": "<:Rare_Summer_Egg:1386457735276662784>",
+    "Oasis Egg": "<:OasisEgg:1388462982333464677>"
   },
   "CosmeticEmojis": {
     "Brick Stack": "<:BrickStack:1380095051425779732>",
@@ -303,27 +306,45 @@
     "Windy": "🌬️",
     "AlienInvasion": "👽",
     "Heatwave": "☢️",
-    "Gale": "💨"
+    "Gale": "💨",
+    "Disco": "🪩",
+    "JandelStorm": "⚡",
+    "DJJhai": "🎧",
+    "JandelLazer": "🔫",
+    "Blackhole": "🌀",
+    "Rainbow": "🌈",
+    "JandelFloat": "🎈",
+    "SunGod": "🌞",
+    "MeteorStrike": "💥",
+    "Drought": "🏜️",
+    "TropicalRain": "🌴",
+    "ChickenRain": "🐔",
+    "AuroraBorealis": "🌌"
   },
   "WEATHER_TYPES": [
+    "Windy",
     "Rain",
-    "Snow",
+    "Gale",
     "Thunderstorm",
     "MeteorShower",
-    "ChocolateRain",
-    "Tornado",
     "Disco",
-    "Blackhole",
     "JandelStorm",
-    "JandelFloat",
     "DJJhai",
+    "Tornado",
+    "JandelLazer",
+    "Blackhole",
+    "Rainbow",
+    "JandelFloat",
     "SunGod",
     "Volcano",
+    "MeteorStrike",
+    "Heatwave",
+    "AlienInvasion",
     "SpaceTravel",
     "UnderTheSea",
-    "Windy",
-    "AlienInvasion",
-    "Heatwave",
-    "Gale"
+    "Drought",
+    "TropicalRain",
+    "ChickenRain",
+    "AuroraBorealis"
   ]
 }
