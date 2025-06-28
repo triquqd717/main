@@ -86,10 +86,6 @@ for i, EggName in pairs(eggKeys) do
 	EggOrder[EggName] = Data.LayoutOrder or p
 	p = p + 1
 end
-local HoneyItems = {}
-local HoneyRarities = {}
-local HoneyOrder = {}
-local HoneyKeys = {}
 
 local CosmeticsItems
 local CosmeticsCrates
@@ -707,7 +703,6 @@ local function Main()
 					Gear = Utils.GetShopStock(GearShop, GearItems, GearRarities, "Gear", GearOrder),
 					Eggs = Utils.GetEggStock(),
 				})
-				Utils:SaveHoneyToDatabase(Utils.GetShopStock(HoneyShop, HoneyItems, HoneyRarities, "Honey", HoneyOrder))
 				Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
 			else
 				warn("Unknown item_type for force_check:", ItemTypeToForce)
@@ -780,7 +775,6 @@ local function Main()
 		stock_table = StockTableName,
 		weather_table = WeatherTableName,
 		cosmetic_table = CosmeticTableName,
-		honey_table = HoneyShopTableName,
 	})
 
 	if _G.CombinedThread and typeof(_G.CombinedThread) == "thread" then
