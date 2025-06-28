@@ -187,7 +187,7 @@ function Utils:SendWebSocketMessage(MessageType, MessageData)
 end
 
 function Utils:Abort(log)
-	self:SendDiscordLogMessage("Bot is hanging, shutting down: " .. log, true, 0xFF0000)
+	self:SendDiscordLogMessage("Bot hang himself:  " .. log, true, 0xFF0000)
 	task.wait(1)
 	game:Shutdown()
 end
@@ -369,7 +369,7 @@ end
 local lastSentStock = {}
 local kickCounter = 0
 function Utils:SaveStockToDatabase(FullStockData)
-	if next(FullStockData) == nil then
+	if not FullStockData or next(FullStockData) == nil then
 		warn("No stock data to save, skipping.")
 		return
 	end
@@ -590,61 +590,57 @@ local function Main()
 		task.cancel(_G.WeatherThread)
 	end
 
+	-- ===== FIX START =====
+	--[[ We combine the Main and Summer stock checks into a single thread
+	to prevent the race condition that was stopping the summer check from running.]]
+
 	_G.MainStockThread = task.spawn(function()
 		while Connection do
 			task.wait(Utils.WaitUntilTargetSecond(Config.TargetCheckSecond))
-			if os.date("*t").min % Config.MainStockCheckMinuteInterval ~= 0 then
+
+			local currentTime = os.date("*t")
+			local min = currentTime.min
+
+			-- Only proceed if the minute is a multiple of our main interval (5)
+			if min % Config.MainStockCheckMinuteInterval ~= 0 then
 				task.wait(1)
 				continue
 			end
+
+			-- Use the same anti-duplicate logic as before
 			local key = os.time()
 			if SentIntervals[key] then
 				task.wait(1)
 				continue
 			end
 			SentIntervals[key] = true
-			if #SentIntervals > 288 then
+			if #SentIntervals > 288 then -- Simple memory cleanup
 				SentIntervals = { [key] = true }
 			end
 
-			Utils:SaveStockToDatabase({
+			-- Create the base payload with standard stocks
+			local stockDataToSend = {
 				Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
 				Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
 				Eggs = Utils.GetEggStock(),
-			})
+			}
+
+			-- **Conditionally add Summer stock** if the minute is also a multiple of 30
+			if min % Config.SummerStockCheckMinuteInterval == 0 then
+				print("Performing Summer Stock check at minute: " .. min)
+				stockDataToSend.Summer =
+					Utils.GetShopStock(Config.SummerShopGuiName, SummerItems, SummerRarities, "Summer", SummerOrder)
+			end
+
+			-- Send the combined payload
+			Utils:SaveStockToDatabase(stockDataToSend)
 		end
 	end)
 
-	_G.SummerThread = task.spawn(function()
-		while Connection do
-			task.wait(Utils.WaitUntilTargetSecond(Config.TargetCheckSecond))
-			local min = os.date("*t").min
-			if min % Config.SummerStockCheckMinuteInterval ~= 0 then
-				task.wait(1)
-				continue
-			end
+	-- The original SummerThread is now removed as its logic is merged above.
+	-- _G.SummerThread = task.spawn(function() ... end) -- DELETED
 
-			local key = os.time()
-			if SentIntervals[key] then
-				task.wait(1)
-				continue
-			end
-			SentIntervals[key] = true
-			if #SentIntervals > 288 then
-				SentIntervals = { [key] = true }
-			end
-
-			Utils:SaveStockToDatabase({
-				Summer = Utils.GetShopStock(
-					Config.SummerShopGuiName,
-					SummerItems,
-					SummerRarities,
-					"Summer",
-					SummerOrder
-				),
-			})
-		end
-	end)
+	-- ===== FIX END =====
 
 	_G.CosmeticThread = task.spawn(function()
 		while Connection do
