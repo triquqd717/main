@@ -12,7 +12,6 @@ local LogService = game:GetService("LogService")
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
-local Event = "Honey"
 local WebSocketUrl = "ws://localhost:3000"
 local GlobalStockIdentifier = "global_stock"
 local GlobalWeatherIdentifier = 1
@@ -21,16 +20,13 @@ local TargetCheckMinute = 0
 local StockTableName = "stock_data"
 local WeatherTableName = "weather_status"
 local CosmeticTableName = "cosmetic_data"
-local HoneyShopTableName = "honey_shop_data"
 
 local SeedShop = "Seed_Shop"
 local GearShop = "Gear_Shop"
-local HoneyShop = "HoneyEventShop_UI"
 
 local SeedData = require(ReplicatedStorage.Data.SeedData)
 local GearData = require(ReplicatedStorage.Data.GearData)
 local PetEggData = require(ReplicatedStorage.Data.PetEggData)
-local HoneyEventData = require(ReplicatedStorage.Data.HoneyEventShopData)
 
 local SeedItems = {}
 local CropRarities = {}
@@ -90,28 +86,10 @@ for i, EggName in pairs(eggKeys) do
 	EggOrder[EggName] = Data.LayoutOrder or p
 	p = p + 1
 end
-
 local HoneyItems = {}
 local HoneyRarities = {}
 local HoneyOrder = {}
 local HoneyKeys = {}
-
-for HoneyName in pairs(HoneyEventData) do
-	table.insert(HoneyKeys, HoneyName)
-end
-table.sort(HoneyKeys, function(a, b)
-	return (HoneyEventData[a].LayoutOrder or 9999) < (HoneyEventData[b].LayoutOrder or 9999)
-end)
-
-for i, HoneyName in pairs(HoneyKeys) do
-	local Data = HoneyEventData[HoneyName]
-	if Data.DisplayInShop then
-		table.insert(HoneyItems, HoneyName)
-		HoneyRarities[HoneyName] = Data.SeedRarity or "Unknown"
-		HoneyOrder[HoneyName] = Data.LayoutOrder or p
-		p = p + 1
-	end
-end
 
 local CosmeticsItems
 local CosmeticsCrates
@@ -171,18 +149,16 @@ end
 local totalItems = #SeedItems
 	+ #GearItems
 	+ #EggItems
-	+ #HoneyItems
 	+ (CosmeticsItems and table.getn(CosmeticsItems) or 0)
 	+ (CosmeticsCrates and table.getn(CosmeticsCrates) or 0)
 print("Total Items: " .. totalItems)
 print("Seed Items: " .. #SeedItems)
 print("Gear Items: " .. #GearItems)
 print("Egg Items: " .. #EggItems)
-print("Honey Items: " .. #HoneyItems)
 print("Cosmetic Items: " .. (CosmeticsItems and table.getn(CosmeticsItems) or 0))
 print("Cosmetic Crates: " .. (CosmeticsCrates and table.getn(CosmeticsCrates) or 0))
 
-local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, Honey = {} }
+local LastStock = { Seeds = {}, Gear = {}, Eggs = {} }
 
 local Connection = nil
 WebSocket = typeof(WebSocket) == "table" and WebSocket or nil -- usually is an option on good executors
@@ -629,41 +605,6 @@ function Utils:SaveStockToDatabase(FullStockData)
 		print("No stock items (Seeds/Gear/Eggs) to send to database.")
 	end
 end
-
-function Utils:SaveHoneyToDatabase(HoneyItemList)
-	if HoneyItemList and next(HoneyItemList) ~= nil then
-		local HoneyItemsToSend = {}
-		for ItemName, ItemData in pairs(HoneyItemList) do
-			table.insert(HoneyItemsToSend, {
-				guild_id = GlobalStockIdentifier,
-				item_name = ItemName,
-				quantity = ItemData.Stock or 0,
-				rarity = ItemData.Rarity,
-				is_available = ItemData.IsAvailable,
-				item_type = "Honey",
-				item_order = ItemData.Order,
-			})
-		end
-		if
-			self:SendWebSocketMessage(
-				"save_honey",
-				{ items = HoneyItemsToSend, honey_table = HoneyShopTableName, guild_id = GlobalStockIdentifier }
-			)
-		then
-			local count = 0
-			for _, _ in pairs(HoneyItemList) do
-				count = count + 1
-			end
-			self:SendDiscordLogMessage("Sent " .. count .. " honey items to database.", true, true)
-			print("Successfully sent " .. count .. " honey items to WebSocket.")
-		else
-			warn("Failed to send honey items to database via WebSocket.")
-		end
-	else
-		print("No honey items to send to database, or HoneyItemList table was nil/empty.")
-	end
-end
-
 function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
 	if CosmeticItemsList and #CosmeticItemsList > 0 then
 		if
@@ -757,8 +698,6 @@ local function Main()
 				})
 			elseif ItemTypeToForce == "Egg" then
 				Utils:SaveStockToDatabase({ Eggs = Utils.GetEggStock() })
-			elseif ItemTypeToForce == "Honey" then
-				Utils:SaveHoneyToDatabase(Utils.GetShopStock(HoneyShop, HoneyItems, HoneyRarities, "Honey", HoneyOrder))
 			elseif ItemTypeToForce == "Cosmetic" then
 				Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
 			elseif ItemTypeToForce == "All" then
@@ -927,54 +866,6 @@ local function Main()
 		end
 	end)
 	local deb2 = false
-
-	_G.HoneyThread = task.spawn(function()
-		while Connection do
-			local key = os.time()
-			if SentTable[key] then
-				task.wait(1)
-				continue
-			end
-
-			local WaitTime = Utils.WaitUntilTargetSecond(TargetCheckSecond + 7)
-			if WaitTime > 0 then
-				task.wait(WaitTime)
-			else
-				task.wait(5)
-				continue
-			end
-
-			local time = os.date("*t")
-			local min = time.min
-			if min ~= 30 and min ~= 0 then
-				task.wait()
-				continue
-			end
-			SentTable[key] = true
-
-			local HoneyItemsToSend = Utils.GetShopStock(HoneyShop, HoneyItems, HoneyRarities, "Honey", HoneyOrder)
-			local count = 0
-			for _, _ in pairs(HoneyItemsToSend) do
-				count = count + 1
-			end
-			if count > 0 then
-				if not deb then
-					Utils:SaveHoneyToDatabase(HoneyItemsToSend)
-					deb = true
-					task.spawn(function()
-						task.wait(10)
-						deb = false
-					end)
-				else
-					print("Already sent Honey items for this hour, skipping.")
-				end
-			else
-				print("No Honey items to send for the hourly check.")
-			end
-
-			task.wait(10)
-		end
-	end)
 
 	_G.WeatherThread = task.spawn(function()
 		local GameEvents = ReplicatedStorage:WaitForChild("GameEvents", 60)
