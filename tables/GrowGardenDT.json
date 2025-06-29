@@ -48,7 +48,7 @@
     "Bee Egg"
   ],
 
-  "SUMMER_ITEMS": [ 
+  "SUMMER_ITEMS": [
     "Summer Seed Pack",
     "Delphinium",
     "Lily of the Valley",
@@ -215,7 +215,8 @@
     "Paradise Egg": "<:ParadiseSummerEgg:1386006938432704665>",
     "Common Summer Egg": "<:Common_Summer_Egg:1386457747565842432>",
     "Rare Summer Egg": "<:Rare_Summer_Egg:1386457735276662784>",
-    "Oasis Egg": "<:OasisEgg:1388462982333464677>"
+    "Oasis Egg": "<:OasisEgg:1388462982333464677>",
+    "Bee Egg": "<:BeeEgg:1378438095296397372>"
   },
 
   "SUMMER_EMOJIS": {
@@ -226,9 +227,9 @@
     "Mutation Spray Burnt": "<:MutationSprayBurnt:1388578141479375061>",
     "Oasis Crate": "<:OasisCrate:1388578318693175388>",
     "Oasis Egg": "<:OasisEgg:1388578566207307867>",
-    "Hamster": "<:Hamster:1388578760206323792>" 
+    "Hamster": "<:Hamster:1388578760206323792>"
   },
-  
+
   "CosmeticEmojis": {
     "Brick Stack": "<:BrickStack:1380095051425779732>",
     "Compost Bin": "<:CompostBin:1380095064222597220>",
