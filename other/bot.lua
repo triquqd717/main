@@ -373,7 +373,8 @@ function Utils:SaveStockToDatabase(FullStockData)
 		warn("No stock data to save, skipping.")
 		return
 	end
-	if self:TablesAreEqual(lastSentStock, FullStockData) then
+	local min = os.date("*t").min
+	if self:TablesAreEqual(lastSentStock, FullStockData) and (min %% 30 ~= 0) then
 		kickCounter = kickCounter + 1
 		if kickCounter > 5 then
 			self:Abort("Stock data has not changed for " .. kickCounter .. " cycles.")
