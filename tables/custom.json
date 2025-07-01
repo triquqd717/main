@@ -302,7 +302,22 @@
     "SpaceTravel": "🚀",
     "UnderTheSea": "🌊",
     "Windy": "🌬️",
-    "AlienInvasion": "👽"
+    "AlienInvasion": "👽",
+    "Heatwave": "☢️",
+    "Gale": "💨",
+    "Disco": "🪩",
+    "JandelStorm": "⚡",
+    "DJJhai": "🎧",
+    "JandelLazer": "🔫",
+    "Blackhole": "🌀",
+    "Rainbow": "🌈",
+    "JandelFloat": "🎈",
+    "SunGod": "🌞",
+    "MeteorStrike": "💥",
+    "Drought": "🏜️",
+    "TropicalRain": "🌴",
+    "ChickenRain": "🐔",
+    "AuroraBorealis": "🌌"
   },
   "WEATHER_TYPES": [
     "Rain",
