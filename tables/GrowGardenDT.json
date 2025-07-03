@@ -206,17 +206,18 @@
     "Friendship Pot": "<:Friendship_Pot:1381224312324751400>"
   },
   "EggEmojis": {
-    "Common Egg": "<:CommonEgg:1378023510349189170>",
-    "Uncommon Egg": "<:UncommonEgg:1378023530209214514>",
-    "Rare Egg": "<:RareEgg:1378023546093174824>",
-    "Legendary Egg": "<:LegendaryEgg:1378023558898384986>",
-    "Mythical Egg": "<:MythicalEgg:1378023575243718688>",
-    "Bug Egg": "<:BugEgg:1378023597091852359>",
-    "Paradise Egg": "<:ParadiseSummerEgg:1386006938432704665>",
-    "Common Summer Egg": "<:Common_Summer_Egg:1386457747565842432>",
-    "Rare Summer Egg": "<:Rare_Summer_Egg:1386457735276662784>",
-    "Oasis Egg": "<:OasisEgg:1388462982333464677>",
-    "Bee Egg": "<:BeeEgg:1378438095296397372>"
+    "Bug Egg": "<:BugEggV2:1390277774681309304>",
+    "Mythical Egg": "<:MythicalEggV2:1390277805983404152>",
+    "Rare Egg": "<:RareEggV2:1390277820651143228>",
+    "Common Egg": "<:CommonEggV2:1390277832185483286>",
+    "Legendary Egg": "<:LegendaryEggV2:1390277841702227978>",
+    "Paradise Egg": "<:ParadiseEggV2:1390277874640228393>",
+    "Common Summer Egg": "<:CommonSummerV2:1390277893925638164>",
+    "Bee Egg": "<:BeeEggV2:1390277906105892986>",
+    "Rare Summer Egg": "<:RareSummerV2:1390277915597475962>",
+    "Anti Egg": "<:AntiEggV2:1390277924841590894>",
+    "Uncommon Egg": "<:UncommonEggV2:1390277947562393713>",
+    "Night Egg": "<:NightEggV2:1390277969800597514>"
   },
 
   "SUMMER_EMOJIS": {
@@ -226,7 +227,7 @@
     "Traveler's Fruit": "<:TravelersFruit:1388577909928755391>",
     "Mutation Spray Burnt": "<:MutationSprayBurnt:1388578141479375061>",
     "Oasis Crate": "<:OasisCrate:1388578318693175388>",
-    "Oasis Egg": "<:OasisEgg:1388578566207307867>",
+    "Oasis Egg": "<:OasisEggV2:1390277859389477005>",
     "Hamster": "<:Hamster:1388578760206323792>"
   },
 
