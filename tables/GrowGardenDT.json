@@ -358,7 +358,8 @@
     "Drought": "🏜️",
     "TropicalRain": "🌴",
     "ChickenRain": "🐔",
-    "AuroraBorealis": "🌌"
+    "AuroraBorealis": "🌌",
+    "Sandstorm": "🌪️"
   },
   "WEATHER_TYPES": [
     "Windy",
@@ -380,7 +381,8 @@
     "Drought",
     "TropicalRain",
     "ChickenRain",
-    "AuroraBorealis"
+    "AuroraBorealis",
+    "Sandstorm"
   ],
   "Advert": false
 }
