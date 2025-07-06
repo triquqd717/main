@@ -52,13 +52,37 @@
     "Bee Egg"
   ],
 
-  "GNOME_MERCHANT_ITEMS": ["test Gnome", "test Gnome 2", "test Gnome 3"],
-  "SKY_MERCHANT_ITEMS": ["test Sky", "test Sky 2", "test Sky 3"],
-  "HONEY_MERCHANT_ITEMS": ["test Honey", "test Honey 2", "test Honey 3"],
+  "GNOME_MERCHANT_ITEMS": [
+    "Common Gnome Crate",
+    "Farmers Gnome Crate",
+    "Classic Gnome Crate",
+    "Iconic Gnome Crate"
+  ],
+  "SKY_MERCHANT_ITEMS": [
+    "Night Staff",
+    "Star Caller",
+    "Mutation Spray Cloudtouched"
+  ],
+  "HONEY_MERCHANT_ITEMS": [
+    "Flower Seed Pack",
+    "Honey Sprinkler",
+    "Bee Egg",
+    "Bee Crate",
+    "Honey Crafters Crate"
+  ],
   "SUMMER_SEED_MERCHANT_ITEMS": [
-    "test Summer Seed",
-    "test Summer Seed 2",
-    "test Summer Seed 3"
+    "Prickly Pear",
+    "Cauliflower",
+    "Kiwi",
+    "Avocado",
+    "Bell Pepper",
+    "Loquat",
+    "Pitcher Plant",
+    "Green Apple",
+    "Feijoa",
+    "Pineapple",
+    "Rafflesia",
+    "Banana"
   ],
 
   "SUMMER_ITEMS": [
@@ -337,7 +361,28 @@
     "Mower": "<:Mower:1386735201324896266>",
     "Beach Crate": "<:Beach_Crate:1386723570058526792>",
     "Summer Fun Crate": "<:SummerFunCrate:1386723686643531869>",
-    "Statue Crate": "<:StatueCrate:1386734158243561512>"
+    "Statue Crate": "<:StatueCrate:1386734158243561512>",
+    "Iconic Gnome Crate": "<:IconicGnomeCrate:1391434980822880407>",
+    "Flower Seed Pack": "<:FlowerSeedPack:1378434569056944129>",
+    "Honey Sprinkler": "<:HoneySprinkler:1378438109842243625>",
+    "Bee Egg": "<:BeeEggV2:1390277906105892986>",
+    "Bee Crate": "<:BeeCrate:1381225022252781710>",
+    "Honey Crafters Crate": "<:HoneyCraftersCrateRender:1391436007211139192>",
+    "Night Staff": "<:NightStaff:1378022849113227415>",
+    "Star Caller": "<:StarCaller:1378022956189351946>",
+    "Mutation Spray Cloudtouched": "<:MutationSprayCloudtouched:1391436836231975032>",
+    "Prickly Pear": "<:PricklyPear:1385996106739220642>",
+    "Cauliflower": "<:Cauliflower:1385996130478985459>",
+    "Kiwi": "<:Kiwi:1385995936001425408>",
+    "Avocado": "<:Avocado:1385995969228832850>",
+    "Bell Pepper": "<:BellPepper:1385995823384494240>",
+    "Loquat": "<:Loquat:1385996166390616156>",
+    "Pitcher Plant": "<:PitcherPlant:1391439188636729546>",
+    "Green Apple": "<:GreenApple:1385996026804179045>",
+    "Feijoa": "<:Feijoa:1385995910571360467>",
+    "Pineapple": "<:Pineapple:1385996072505311252>",
+    "Rafflesia": "<:Raff:1391439722034892971>",
+    "Banana": "<:Banana:1385995999230693486>"
   },
   "WeatherEmojis": {
     "Rain": "🌧️",
