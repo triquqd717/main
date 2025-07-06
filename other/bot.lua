@@ -1,3 +1,5 @@
+local TEST_MODE = true
+
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 	task.wait(5)
@@ -8,7 +10,6 @@ local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TeleportService = game:GetService("TeleportService")
-local LogService = game:GetService("LogService")
 
 local Config = {
 	WebSocketUrl = "ws://localhost:3000",
@@ -16,28 +17,32 @@ local Config = {
 	GlobalWeatherIdentifier = 1,
 	TargetCheckSecond = 9,
 	MainStockCheckMinuteInterval = 5,
-	SummerStockCheckMinuteInterval = 30,
-
 	StockTableName = "stock_data",
 	WeatherTableName = "weather_status",
 	CosmeticTableName = "cosmetic_data",
-
+	TravelerTableName = "traveling_merchant_data",
 	SeedShopGuiName = "Seed_Shop",
 	GearShopGuiName = "Gear_Shop",
-	SummerShopGuiName = "EventShop_UI",
+	TravelerShopGuiName = "TravelingMerchantShop_UI",
 }
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 local Connection = nil
-local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, Summer = {} }
-WebSocket = typeof(WebSocket) == "table" and WebSocket or nil
+local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, TravelingMerchant = {} }
+local WebSocket = typeof(WebSocket) == "table" and WebSocket or nil
 
 local SeedData = require(ReplicatedStorage.Data.SeedData)
 local GearData = require(ReplicatedStorage.Data.GearData)
-local PetEggData = require(ReplicatedStorage.Data.PetEggData)
-local SummerData = require(ReplicatedStorage.Data.EventShopData)
 
+local PetEggData = require(ReplicatedStorage.Data.PetEggData)
+local TravelerData
+pcall(function()
+	TravelerData = require(game:GetService("ReplicatedStorage").Data.TravelingMerchant.TravelingMerchantData)
+end)
+TravelerData = TravelerData or {}
+
+--region Data Loading
 local SeedItems, CropRarities, SeedOrder = {}, {}, {}
 do
 	local seedKeys, p = {}, 1
@@ -93,20 +98,14 @@ do
 	end
 end
 
-local SummerItems, SummerRarities, SummerOrder = {}, {}, {}
-do
-	local summerKeys, p = {}, 1
-	for SummerName in pairs(SummerData) do
-		table.insert(summerKeys, SummerName)
-	end
-	table.sort(summerKeys, function(a, b)
-		return (SummerData[a].LayoutOrder or 9999) < (SummerData[b].LayoutOrder or 9999)
-	end)
-	for _, SummerName in pairs(summerKeys) do
-		table.insert(SummerItems, SummerName)
-		SummerRarities[SummerName] = SummerData[SummerName].Rarity or "Unknown"
-		SummerOrder[SummerName] = SummerData[SummerName].LayoutOrder or p
-		p = p + 1
+local TravelerTable, TravelerRariry, TravelerOrder = {}, {}, {}
+for _, tbl in pairs(TravelerData) do
+	for _, fruit in pairs(tbl.ShopData) do
+		if fruit.DisplayInShop then
+			TravelerRariry[fruit.SeedName] = fruit.SeedRarity
+			TravelerOrder[fruit.SeedName] = fruit.LayoutOrder
+			table.insert(TravelerTable, fruit.SeedName)
+		end
 	end
 end
 
@@ -120,7 +119,6 @@ do
 	for CosmeticName in pairs(CosmeticsItems) do
 		table.insert(CosmeticKeys, CosmeticName)
 	end
-
 	Success, Result = pcall(function()
 		return require(ReplicatedStorage.Data.CosmeticCrateShopData)
 	end)
@@ -128,7 +126,6 @@ do
 	for CrateName in pairs(CosmeticsCrates) do
 		table.insert(CosmeticKeys, CrateName)
 	end
-
 	table.sort(CosmeticKeys, function(a, b)
 		local priceA = (CosmeticsItems[a] and CosmeticsItems[a].Price)
 			or (CosmeticsCrates[a] and CosmeticsCrates[a].Price)
@@ -145,17 +142,16 @@ do
 		CosmeticIndex = CosmeticIndex + 1
 	end
 end
+--endregion
 
 print("--- Item Data Loaded ---")
 print("Seed Items: " .. #SeedItems)
 print("Gear Items: " .. #GearItems)
 print("Egg Items: " .. #EggItems)
-print("Summer Items: " .. #SummerItems)
-print("Cosmetic Items: " .. table.getn(CosmeticsItems))
-print("Cosmetic Crates: " .. table.getn(CosmeticsCrates))
+print("Cosmetic Items: " .. #CosmeticOrder)
 print("------------------------")
 
-if not WebSocket then
+if not WebSocket and not TEST_MODE then
 	warn("WebSocket library not found.")
 	return
 end
@@ -172,6 +168,17 @@ end)
 local Utils = {}
 
 function Utils:SendWebSocketMessage(MessageType, MessageData)
+	if TEST_MODE then
+		print(
+			string.format(
+				"[TEST_MODE] WebSocket Send -> Type: %s\n%s",
+				MessageType,
+				HttpService:JSONEncode(MessageData)
+			)
+		)
+		return true
+	end
+
 	if not Connection then
 		warn("WebSocket not connected, cannot send message.")
 		return false
@@ -189,7 +196,11 @@ end
 function Utils:Abort(log)
 	self:SendDiscordLogMessage("Bot hang himself:  " .. log, true, 0xFF0000)
 	task.wait(1)
-	game:Shutdown()
+	if not TEST_MODE then
+		game:Shutdown()
+	else
+		warn("[TEST_MODE] Abort called with log: " .. log)
+	end
 end
 
 function Utils:SendDiscordLogMessage(LogMessage, AddTimestamp, Color)
@@ -264,6 +275,7 @@ function Utils.WaitUntilCosmetics()
 	return (Hours * 3600) + (Minutes * 60) + Seconds + 10
 end
 
+--<editor-fold desc="Stock Getters">
 function Utils.GetShopStock(GuiName, ItemList, RarityTable, Category, OrderTable)
 	local ShopGui = PlayerGui:WaitForChild(GuiName, 5)
 	if not ShopGui then
@@ -276,7 +288,6 @@ function Utils.GetShopStock(GuiName, ItemList, RarityTable, Category, OrderTable
 		warn("ScrollingFrame not found in " .. GuiName)
 		return LastStock[Category] or {}
 	end
-
 	local CurrentStock = {}
 	for _, ItemFrame in ipairs(ScrollingFrame:GetChildren()) do
 		if ItemFrame:IsA("Frame") and ItemFrame.Name ~= "ItemPadding" then
@@ -291,10 +302,11 @@ function Utils.GetShopStock(GuiName, ItemList, RarityTable, Category, OrderTable
 			if StockText and ItemText then
 				local ItemName = ItemText.Text:gsub(" Seed$", "")
 				if table.find(ItemList, ItemName) then
+					local stock = tonumber(StockText.Text:match("X(%d+) Stock")) or 0
 					CurrentStock[ItemName] = {
-						Stock = tonumber(StockText.Text:match("X(%d+) Stock")) or 0,
+						Stock = stock,
 						Rarity = RarityTable[ItemName] or "Unknown",
-						IsAvailable = (tonumber(StockText.Text:match("X(%d+) Stock")) or 0) > 0,
+						IsAvailable = stock > 0,
 						Order = OrderTable[ItemName] or 9999,
 					}
 				end
@@ -365,6 +377,7 @@ function Utils.GetEggStock()
 	LastStock.Eggs = CurrentStock
 	return CurrentStock
 end
+--</editor-fold>
 
 local lastSentStock = {}
 local kickCounter = 0
@@ -386,7 +399,6 @@ function Utils:SaveStockToDatabase(FullStockData)
 		kickCounter = 0
 	end
 	lastSentStock = FullStockData
-
 	local ItemsToInsert = {}
 	local identifier = HttpService:GenerateGUID(false)
 	for Category, ItemsInCategory in pairs(FullStockData) do
@@ -397,10 +409,7 @@ function Utils:SaveStockToDatabase(FullStockData)
 			ItemType = "Gear"
 		elseif Category == "Eggs" then
 			ItemType = "Egg"
-		elseif Category == "Summer" then
-			ItemType = "Summer"
 		end
-
 		if ItemType then
 			for ItemName, ItemData in pairs(ItemsInCategory) do
 				table.insert(ItemsToInsert, {
@@ -416,7 +425,6 @@ function Utils:SaveStockToDatabase(FullStockData)
 			end
 		end
 	end
-
 	if #ItemsToInsert > 0 then
 		self:SendWebSocketMessage("save_stock", { items = ItemsToInsert, stock_table = Config.StockTableName })
 		self:SendDiscordLogMessage("Sent " .. #ItemsToInsert .. " stock items to database.", true)
@@ -424,11 +432,29 @@ function Utils:SaveStockToDatabase(FullStockData)
 end
 
 function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
+	local Merchant
+	local MerchatData
+	for _, name in pairs(workspace:GetChildren()) do
+		if tostring(name):find("Traveling Merchant") then
+			Merchant = name
+			break
+		end
+	end
+	if Merchant then
+		MerchatData = Utils.GetShopStock(
+			Config.TravelerShopGuiName,
+			TravelerTable,
+			TravelerRariry,
+			"TravelingMerchant",
+			TravelerOrder
+		)
+	end
 	if CosmeticItemsList and #CosmeticItemsList > 0 then
 		if
 			self:SendWebSocketMessage("save_cosmetic", {
-				items = CosmeticItemsList,
+				items = { CosmeticItemsList, MerchatData and MerchatData or {} } or {}, -- if there's merchant data, add it
 				cosmetic_table = Config.CosmeticTableName,
+				merchant_table = Config.TravelerTableName,
 				guild_id = Config.GlobalStockIdentifier,
 			})
 		then
@@ -452,13 +478,15 @@ function Utils:SaveWeatherToDatabase(WeatherType, Duration, Announced)
 		})
 	then
 		self:SendDiscordLogMessage(string.format("Sent weather: %s for %d seconds.", WeatherType, Duration), true)
-		task.spawn(function()
-			task.wait(Duration)
-			self:SendWebSocketMessage(
-				"delete_weather",
-				{ id = Config.GlobalWeatherIdentifier, weather_table = Config.WeatherTableName }
-			)
-		end)
+		if not TEST_MODE then
+			task.spawn(function()
+				task.wait(Duration)
+				self:SendWebSocketMessage(
+					"delete_weather",
+					{ id = Config.GlobalWeatherIdentifier, weather_table = Config.WeatherTableName }
+				)
+			end)
+		end
 	end
 end
 
@@ -468,101 +496,88 @@ end
 
 local SentIntervals = {}
 local function Main()
-	local Success, Result = pcall(function()
-		Connection = WebSocket.connect(Config.WebSocketUrl)
-	end)
-	if not Success or not Connection then
-		warn("Failed to connect to WebSocket: " .. tostring(Result or "Unknown"))
-		return
-	end
-
-	Connection.OnMessage:Connect(function(Msg)
-		local SuccessMsg, Decoded = pcall(function()
-			return HttpService:JSONDecode(Msg)
+	if not TEST_MODE then
+		local Success, Result = pcall(function()
+			Connection = WebSocket.connect(Config.WebSocketUrl)
 		end)
-		if not SuccessMsg then
-			warn("Invalid JSON from WebSocket: " .. Msg)
+		if not Success or not Connection then
+			warn("Failed to connect to WebSocket: " .. tostring(Result or "Unknown"))
 			return
 		end
-		print(
-			string.format(
-				"WS Server (%s): %s",
-				Decoded.type or "?",
-				Decoded.message or HttpService:JSONEncode(Decoded.data) or "?"
-			)
-		)
 
-		if Decoded.type == "force_check" and Decoded.data and Decoded.data.item_type then
-			local ItemType = Decoded.data.item_type
-			Utils:SendFeedback("Force checking: " .. ItemType)
-			if ItemType == "Seed" then
-				Utils:SaveStockToDatabase({
-					Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
-				})
-			elseif ItemType == "Gear" then
-				Utils:SaveStockToDatabase({
-					Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
-				})
-			elseif ItemType == "Egg" then
-				Utils:SaveStockToDatabase({ Eggs = Utils.GetEggStock() })
-			elseif ItemType == "Summer" then
-				Utils:SaveStockToDatabase({
-					Summer = Utils.GetShopStock(
-						Config.SummerShopGuiName,
-						SummerItems,
-						SummerRarities,
-						"Summer",
-						SummerOrder
-					),
-				})
-			elseif ItemType == "Cosmetic" then
-				Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
-			elseif ItemType == "All" then
-				Utils:SendFeedback("Force checking ALL types...")
-				Utils:SaveStockToDatabase({
-					Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
-					Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
-					Eggs = Utils.GetEggStock(),
-					Summer = Utils.GetShopStock(
-						Config.SummerShopGuiName,
-						SummerItems,
-						SummerRarities,
-						"Summer",
-						SummerOrder
-					),
-				})
-				Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
+		Connection.OnMessage:Connect(function(Msg)
+			local SuccessMsg, Decoded = pcall(function()
+				return HttpService:JSONDecode(Msg)
+			end)
+			if not SuccessMsg then
+				warn("Invalid JSON from WebSocket: " .. Msg)
+				return
 			end
-			Utils:SendFeedback("Force_check for " .. ItemType .. " processed.")
-		elseif Decoded.type == "run_lua_payload" and Decoded.data and Decoded.data.script_payload then
-			local func, err = loadstring(Decoded.data.script_payload)
-			if func then
-				pcall(func)
-			else
-				print("Loadstring error:", err)
-			end
-		elseif Decoded.type == "rejoin_game" and Decoded.data then
-			Utils:SendFeedback("Rejoining game. Job ID: " .. (Decoded.data.job_id or "any"))
-			pcall(
-				TeleportService.TeleportToPlaceInstance,
-				TeleportService,
-				game.PlaceId,
-				Decoded.data.job_id or nil,
-				Player
+			print(
+				string.format(
+					"WS Server (%s): %s",
+					Decoded.type or "?",
+					Decoded.message or HttpService:JSONEncode(Decoded.data) or "?"
+				)
 			)
-		elseif Decoded.type == "shutdown_game" then
-			Utils:Abort("Received shutdown command from server.")
+
+			if Decoded.type == "force_check" and Decoded.data and Decoded.data.item_type then
+				local ItemType = Decoded.data.item_type
+				Utils:SendFeedback("Force checking: " .. ItemType)
+				if ItemType == "Seed" then
+					Utils:SaveStockToDatabase({
+						Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
+					})
+				elseif ItemType == "Gear" then
+					Utils:SaveStockToDatabase({
+						Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
+					})
+				elseif ItemType == "Egg" then
+					Utils:SaveStockToDatabase({ Eggs = Utils.GetEggStock() })
+				elseif ItemType == "Cosmetic" then
+					Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
+				elseif ItemType == "All" then
+					Utils:SendFeedback("Force checking ALL types...")
+					Utils:SaveStockToDatabase({
+						Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
+						Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
+						Eggs = Utils.GetEggStock(),
+					})
+					Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
+				end
+				Utils:SendFeedback("Force_check for " .. ItemType .. " processed.")
+			elseif Decoded.type == "run_lua_payload" and Decoded.data and Decoded.data.script_payload then
+				local func, err = loadstring(Decoded.data.script_payload)
+				if func then
+					pcall(func)
+				else
+					print("Loadstring error:", err)
+				end
+			elseif Decoded.type == "rejoin_game" and Decoded.data then
+				Utils:SendFeedback("Rejoining game. Job ID: " .. (Decoded.data.job_id or "any"))
+				pcall(
+					TeleportService.TeleportToPlaceInstance,
+					TeleportService,
+					game.PlaceId,
+					Decoded.data.job_id or nil,
+					Player
+				)
+			elseif Decoded.type == "shutdown_game" then
+				Utils:Abort("Received shutdown command from server.")
+			end
+		end)
+		Connection.OnClose:Connect(function(Code, Reason)
+			warn("WebSocket connection closed. Code: " .. tostring(Code) .. ", Reason: " .. tostring(Reason))
+			Connection = nil
+		end)
+		while not Connection do
+			task.wait(1)
 		end
-	end)
-	Connection.OnClose:Connect(function(Code, Reason)
-		warn("WebSocket connection closed. Code: " .. tostring(Code) .. ", Reason: " .. tostring(Reason))
-		Connection = nil
-	end)
-
-	while not Connection do
-		task.wait(1)
+		print("WebSocket connection established.")
+	else
+		print("[TEST_MODE] WebSocket connection skipped.")
 	end
-	print("WebSocket connection established.")
+
 	pcall(function()
 		Utils:SendDiscordLogMessage(
 			string.format(
@@ -583,9 +598,6 @@ local function Main()
 	if _G.MainStockThread then
 		task.cancel(_G.MainStockThread)
 	end
-	if _G.SummerThread then
-		task.cancel(_G.SummerThread)
-	end
 	if _G.CosmeticThread then
 		task.cancel(_G.CosmeticThread)
 	end
@@ -594,18 +606,15 @@ local function Main()
 	end
 
 	_G.MainStockThread = task.spawn(function()
-		while Connection do
+		while true do
 			task.wait(Utils.WaitUntilTargetSecond(Config.TargetCheckSecond))
-
 			local currentTime = os.date("*t")
 			local min = currentTime.min
-
 			if min % Config.MainStockCheckMinuteInterval ~= 0 then
 				task.wait(1)
 				continue
 			end
-
-			local key = os.time()
+			local key = currentTime.hour * 60 + currentTime.min
 			if SentIntervals[key] then
 				task.wait(1)
 				continue
@@ -614,25 +623,17 @@ local function Main()
 			if #SentIntervals > 288 then
 				SentIntervals = { [key] = true }
 			end
-
 			local stockDataToSend = {
 				Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
 				Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
 				Eggs = Utils.GetEggStock(),
 			}
-
-			if min % Config.SummerStockCheckMinuteInterval == 0 then
-				print("Performing Summer Stock check at minute: " .. min)
-				stockDataToSend.Summer =
-					Utils.GetShopStock(Config.SummerShopGuiName, SummerItems, SummerRarities, "Summer", SummerOrder)
-			end
-
 			Utils:SaveStockToDatabase(stockDataToSend)
 		end
 	end)
 
 	_G.CosmeticThread = task.spawn(function()
-		while Connection do
+		while true do
 			local waitTime = Utils.WaitUntilCosmetics()
 			if waitTime > 0 then
 				Utils:SendDiscordLogMessage(string.format("Waiting %.2f minutes for cosmetics.", waitTime / 60), true)
