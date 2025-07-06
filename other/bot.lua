@@ -1,4 +1,4 @@
-local TEST_MODE = true
+local TEST_MODE = false
 
 if not game:IsLoaded() then
 	game.Loaded:Wait()
