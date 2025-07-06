@@ -1,397 +1,75 @@
-{
-  "SEED_ITEMS": [
-    "Carrot",
-    "Strawberry",
-    "Blueberry",
-    "Orange Tulip",
-    "Tomato",
-    "Daffodil",
-    "Watermelon",
-    "Pumpkin",
-    "Apple",
-    "Bamboo",
-    "Coconut",
-    "Cactus",
-    "Dragon Fruit",
-    "Mango",
-    "Grape",
-    "Mushroom",
-    "Pepper",
-    "Cacao",
-    "Beanstalk",
-    "Ember Lily",
-    "Sugar Apple",
-    "Burning Bud"
-  ],
-  "GEAR_ITEMS": [
-    "Watering Can",
-    "Trowel",
-    "Recall Wrench",
-    "Basic Sprinkler",
-    "Advanced Sprinkler",
-    "Godly Sprinkler",
-    "Magnifying Glass",
-    "Tanning Mirror",
-    "Master Sprinkler",
-    "Cleaning Spray",
-    "Favorite Tool",
-    "Harvest Tool",
-    "Friendship Pot"
-  ],
-  "EGG_ITEMS": [
-    "Common Egg",
-    "Common Summer Egg",
-    "Uncommon Egg",
-    "Rare Egg",
-    "Rare Summer Egg",
-    "Legendary Egg",
-    "Mythical Egg",
-    "Divine Egg",
-    "Bug Egg",
-    "Paradise Egg",
-    "Bee Egg"
-  ],
+// data/game_data_loader.js
+require("../utils/logger");
+const fetch = require("node-fetch");
 
-  "GNOME_MERCHANT_ITEMS": ["test Gnome", "test Gnome 2", "test Gnome 3"],
-  "SKY_MERCHANT_ITEMS": ["test Sky", "test Sky 2", "test Sky 3"],
-  "HONEY_MERCHANT_ITEMS": ["test Honey", "test Honey 2", "test Honey 3"],
-  "SUMMER_SEED_MERCHANT_ITEMS": [
-    "test Summer Seed",
-    "test Summer Seed 2",
-    "test Summer Seed 3"
-  ],
+class GameDataLoader {
+  constructor() {
+    this.gameData = {
+      SEED_ITEMS: [],
+      GEAR_ITEMS: [],
+      EGG_ITEMS: [],
+      COSMETIC_ITEMS: [],
+      WEATHER_TYPES: [],
+      GNOME_MERCHANT_ITEMS: [],
+      SKY_MERCHANT_ITEMS: [],
+      HONEY_MERCHANT_ITEMS: [],
+      SUMMER_SEED_MERCHANT_ITEMS: [],
+      SEED_EMOJIS: {},
+      GEAR_EMOJIS: {},
+      EGG_EMOJIS: {},
+      WEATHER_EMOJIS: {},
+      COSMETIC_EMOJIS: {},
+      COSMETIC_CATEGORIES: {},
+      Advert: null,
+    };
+  }
 
-  "SUMMER_ITEMS": [
-    "Summer Seed Pack",
-    "Delphinium",
-    "Lily of the Valley",
-    "Traveler's Fruit",
-    "Mutation Spray Burnt",
-    "Oasis Crate",
-    "Oasis Egg",
-    "Hamster"
-  ],
+  async refreshGameData() {
+    const url =
+      "https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/tables/GrowGardenDT.json";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const jsonData = await response.json();
+      this.gameData.SEED_ITEMS = jsonData.SEED_ITEMS || [];
+      this.gameData.GEAR_ITEMS = jsonData.GEAR_ITEMS || [];
+      this.gameData.EGG_ITEMS = jsonData.EGG_ITEMS || [];
+      this.gameData.COSMETIC_ITEMS = jsonData.COSMETIC_ITEMS || [];
+      this.gameData.WEATHER_TYPES = jsonData.WEATHER_TYPES || [];
+      this.gameData.COSMETIC_CATEGORIES = jsonData.COSMETIC_CATEGORIES || {};
+      this.gameData.WEATHER_EMOJIS = jsonData.WeatherEmojis || {};
+      this.gameData.SEED_EMOJIS = jsonData.SeedEmojis || {};
+      this.gameData.GEAR_EMOJIS = jsonData.GearEmojis || {};
+      this.gameData.EGG_EMOJIS = jsonData.EggEmojis || {};
+      this.gameData.COSMETIC_EMOJIS = jsonData.CosmeticEmojis || {};
+      this.gameData.Advert = jsonData.Advert || null;
+      this.gameData.GNOME_MERCHANT_ITEMS = jsonData.GNOME_MERCHANT_ITEMS || [];
+      this.gameData.SKY_MERCHANT_ITEMS = jsonData.SKY_MERCHANT_ITEMS || [];
+      this.gameData.HONEY_MERCHANT_ITEMS = jsonData.HONEY_MERCHANT_ITEMS || [];
+      this.gameData.SUMMER_SEED_MERCHANT_ITEMS =
+        jsonData.SUMMER_SEED_MERCHANT_ITEMS || [];
 
-  "COSMETIC_ITEMS": [
-    "Lighting",
-    "Furniture",
-    "Paths & Flooring",
-    "Structures",
-    "Garden & Farm Decor",
-    "Gnomes",
-    "Vehicles",
-    "Special & Event",
-    "Crates"
-  ],
-  "COSMETIC_CATEGORIES": {
-    "Lighting": [
-      "Torch",
-      "Light On Ground",
-      "Small Stone Lantern",
-      "Lamp Post",
-      "Campfire",
-      "Stone Lantern"
-    ],
-    "Furniture": [
-      "Orange Umbrella",
-      "Yellow Umbrella",
-      "Log Bench",
-      "Brown Bench",
-      "White Bench",
-      "Small Stone Table",
-      "Medium Stone Table",
-      "Long Stone Table",
-      "Mini TV",
-      "Bookshelf",
-      "Large Wood Table",
-      "Small Wood Table",
-      "Blue Cooler Chest",
-      "Pink Cooler Chest",
-      "Red Cooler Chest",
-      "Blue Hammock",
-      "Red Hammock"
-    ],
-    "Paths & Flooring": [
-      "Small Circle Tile",
-      "Medium Circle Tile",
-      "Small Path Tile",
-      "Medium Path Tile",
-      "Large Path Tile",
-      "Small Stone Pad",
-      "Large Stone Pad",
-      "Small Wood Flooring",
-      "Medium Wood Flooring",
-      "Large Wood Flooring",
-      "Ring Walkway",
-      "Viney Ring Walkway"
-    ],
-    "Structures": [
-      "Wood Fence",
-      "Viney Beam",
-      "Brown Stone Pillar",
-      "Grey Stone Pillar",
-      "Dark Stone Pillar",
-      "Curved Canopy",
-      "Flat Canopy",
-      "Small Wood Arbour",
-      "Square Metal Arbour",
-      "Brown Well",
-      "Red Well",
-      "Blue Well",
-      "Large Wood Arbour",
-      "Round Metal Arbour",
-      "Cabana",
-      "Lemonade Stand",
-      "Tiki Bar"
-    ],
-    "Garden & Farm Decor": [
-      "Brick Stack",
-      "Compost Bin",
-      "Log",
-      "Wood Pile",
-      "Rock Pile",
-      "Red Pottery",
-      "White Pottery",
-      "Rake",
-      "Hay Bale",
-      "Water Trough",
-      "Axe Stump",
-      "Cooking Pot",
-      "Clothesline",
-      "Bird Bath",
-      "Frog Fountain",
-      "Wheelbarrow",
-      "Shovel"
-    ],
-    "Gnomes": ["Beta Gnome", "Green Female Gnome", "Blue Gnome"],
-    "Vehicles": ["Red Tractor", "Green Tractor", "Market Cart", "Mower"],
-    "Special & Event": [
-      "Shovel Grave",
-      "Monster Mash Trophy",
-      "Metal Wind Chime",
-      "Bamboo Wind Chimes"
-    ],
-    "Crates": [
-      "Farmers Gnome Crate",
-      "Sign Crate",
-      "Common Gnome Crate",
-      "Classic Gnome Crate",
-      "Mysterious Crate",
-      "Fun Crate",
-      "Beach Crate",
-      "Summer Fun Crate",
-      "Statue Crate"
-    ]
-  },
-  "SeedEmojis": {
-    "Carrot": "<:Carrot:1391084692291452928>",
-    "Strawberry": "<:Strawberry:1391084804170186863>",
-    "Blueberry": "<:Blueberry:1391084836407742555>",
-    "Orange Tulip": "<:OrangeTulip:1391084870016438312>",
-    "Tomato": "<:Tomato:1391084908482396362>",
-    "Daffodil": "<:Daffodil:1391084940791386173>",
-    "Watermelon": "<:Watermelon:1391084967286669332>",
-    "Pumpkin": "<:Watermelon:1391084967286669332>",
-    "Apple": "<:Apple:1391085051755757599>",
-    "Bamboo": "<:Bamboo:1391085124027682947>",
-    "Coconut": "<:Coconut:1391085160581042197>",
-    "Cactus": "<:Cactus:1391085189865803856>",
-    "Dragon Fruit": "<:DragonFruit:1391085225928429599>",
-    "Mango": "<:Mango:1391085257893085385>",
-    "Grape": "<:Grape:1391085300129992764>",
-    "Mushroom": "<:Mushroom:1391085347537944576>",
-    "Pepper": "<:Pepper:1391085377112113212>",
-    "Cacao": "<:Cacao:1391085407256576173>",
-    "Beanstalk": "<:Beanstalk:1391085435761197056>",
-    "Ember Lily": "<:EmberLily:1391085459064488127>",
-    "Sugar Apple": "<:SugarApple:1391085485740523690>",
-    "Burning Bud": "<:BurningFruit:1391085515561762988>"
-  },
-  "GearEmojis": {
-    "Watering Can": "<:Watering_Can:1385995649471746169>",
-    "Trowel": "<:Trowel:1391088133092671580>",
-    "Recall Wrench": "<:RecallWren_ch:1391088327553454090>",
-    "Basic Sprinkler": "<:Basic_Sprinkler:1391088501042450533>",
-    "Advanced Sprinkler": "<:Advanced_Sprinkler:1385994957126373517>",
-    "Godly Sprinkler": "<:Godly_Sprinkler:1385995227621359657>",
-    "Tanning Mirror": "<:TanningMirror:1385999031053975733>",
-    "Magnifying Glass": "<:Magnifying_Glass:1391088602049675264>",
-    "Master Sprinkler": "<:Master_Sprinkler:1385995333154111528>",
-    "Cleaning Spray": "<:SprayingTool:1385995417619267716>",
-    "Favorite Tool": "<:Favorite_Tool:1385995212677189642>",
-    "Harvest Tool": "<:Harvest_tool:1385995239675662386>",
-    "Friendship Pot": "<:Friendship_Pot:1381224312324751400>"
-  },
-  "EggEmojis": {
-    "Bug Egg": "<:BugEggV2:1390277774681309304>",
-    "Mythical Egg": "<:MythicalEggV2:1390277805983404152>",
-    "Rare Egg": "<:RareEggV2:1390277820651143228>",
-    "Common Egg": "<:CommonEggV2:1390277832185483286>",
-    "Legendary Egg": "<:LegendaryEggV2:1390277841702227978>",
-    "Paradise Egg": "<:ParadiseEggV2:1390277874640228393>",
-    "Common Summer Egg": "<:CommonSummerV2:1390277893925638164>",
-    "Bee Egg": "<:BeeEggV2:1390277906105892986>",
-    "Rare Summer Egg": "<:RareSummerV2:1390277915597475962>",
-    "Anti Egg": "<:AntiEggV2:1390277924841590894>",
-    "Uncommon Egg": "<:UncommonEggV2:1390277947562393713>",
-    "Night Egg": "<:NightEggV2:1390277969800597514>"
-  },
+      console.log(
+        "[GameDataLoader] Successfully refreshed game data from GitHub."
+      );
+      return true;
+    } catch (error) {
+      console.error(
+        `[GameDataLoader] Failed to refresh game data: ${error.message}`
+      );
+      console.warn("[GameDataLoader] Using previous game data as a fallback.");
+      return false;
+    }
+  }
 
-  "SUMMER_EMOJIS": {
-    "Summer Seed Pack": "<:SummerSeedPack:1388576321696825544>",
-    "Delphinium": "<:Delphinium:1388576827487944787>",
-    "Lily of the Valley": "<:LilyOfTheValley:1388577618554785934>",
-    "Traveler's Fruit": "<:TravelersFruit:1388577909928755391>",
-    "Mutation Spray Burnt": "<:MutationSprayBurnt:1388578141479375061>",
-    "Oasis Crate": "<:OasisCrate:1388578318693175388>",
-    "Oasis Egg": "<:OasisEggV2:1390277859389477005>",
-    "Hamster": "<:Hamster:1388578760206323792>"
-  },
-
-  "CosmeticEmojis": {
-    "Brick Stack": "<:BrickStack:1380095051425779732>",
-    "Compost Bin": "<:CompostBin:1380095064222597220>",
-    "Log": "<:Log:1380095076402728991>",
-    "Wood Pile": "<:WoodPile:1380095089035972698>",
-    "Torch": "<:Torch:1380095102172528660>",
-    "Small Circle Tile": "<:SmallCircleTile:1380095114810232862>",
-    "Medium Circle Tile": "<:MediumCircleTile:1380095128051388466>",
-    "Small Path Tile": "<:SmallPathTile:1380095140466655363>",
-    "Medium Path Tile": "<:MediumPathTile:1380095153318137947>",
-    "Large Path Tile": "<:LargePathTile:1380095166261493860>",
-    "Rock Pile": "<:RockPile:1380095179020697742>",
-    "Red Pottery": "<:RedPottery:1380095191788032051>",
-    "White Pottery": "<:WhitePottery:1380095204278796329>",
-    "Rake": "<:Rake:1380095217247453215>",
-    "Orange Umbrella": "<:OrangeUmbrella:1380095230065512489>",
-    "Yellow Umbrella": "<:YellowUmbrella:1380095243084501054>",
-    "Log Bench": "<:LogBench:1380095256007016508>",
-    "Brown Bench": "<:BrownBench:1380095268921540659>",
-    "White Bench": "<:WhiteBench:1380095281822957609>",
-    "Hay Bale": "<:HayBale:1380095294523445339>",
-    "Small Stone Pad": "<:SmallStonePad:1380095306871472128>",
-    "Large Stone Pad": "<:LargeStonePad:1380095319982735381>",
-    "Small Stone Table": "<:SmallStoneTable:1380095333106712698>",
-    "Medium Stone Table": "<:MediumStoneTable:1380095346021109800>",
-    "Long Stone Table": "<:LongStoneTable:1380095358801285180>",
-    "Wood Fence": "<:WoodFence:1380095371853693019>",
-    "Small Wood Flooring": "<:SmallWoodFlooring:1380095384071835748>",
-    "Medium Wood Flooring": "<:MediumWoodFlooring:1380095397271175209>",
-    "Large Wood Flooring": "<:LargeWoodFlooring:1380095409925394462>",
-    "Mini TV": "<:MiniTv:1380095422894182441>",
-    "Viney Beam": "<:VineyBeam:1380095435212984410>",
-    "Light On Ground": "<:LightOnGround:1380095448282304562>",
-    "Water Trough": "<:WaterTrough:1380095461452677180>",
-    "Shovel Grave": "<:ShovelGrave:1380095474354225162>",
-    "Small Stone Lantern": "<:SmallStoneLantern:1380095486979211354>",
-    "Bookshelf": "<:Bookshelf:1380095500925141063>",
-    "Axe Stump": "<:AxeStump:1380095512266674186>",
-    "Brown Stone Pillar": "<:BrownStonePillar:1380095525549899927>",
-    "Grey Stone Pillar": "<:GreyStonePillar:1380095537902125086>",
-    "Dark Stone Pillar": "<:DarkStonePillar:1380095550858330212>",
-    "Large Wood Table": "<:LargeWoodTable:1380095564049420358>",
-    "Curved Canopy": "<:CurvedCanopy:1380095576867209277>",
-    "Flat Canopy": "<:FlatCanopy:1380095590125539369>",
-    "Campfire": "<:Campfire:1380095603056443412>",
-    "Cooking Pot": "<:CookingPot:1380095615198822420>",
-    "Clothesline": "<:Clothesline:1380095628381651035>",
-    "Small Wood Arbour": "<:SmallWoodArbour:1380095641681920071>",
-    "Square Metal Arbour": "<:SquareMetalArbour:1380095654134812694>",
-    "Bird Bath": "<:BirdBath:1380095665820139611>",
-    "Lamp Post": "<:LampPost:1380095679501697055>",
-    "Metal Wind Chime": "<:MetalWindChime:1380095691933745312>",
-    "Bamboo Wind Chimes": "<:BambooWindChimes:1380095704978165851>",
-    "Brown Well": "<:BrownWell:1380095719427539015>",
-    "Red Well": "<:RedWell:1380095731091898478>",
-    "Blue Well": "<:BlueWell:1380095749706223677>",
-    "Ring Walkway": "<:RingWalkway:1380095756731416607>",
-    "Viney Ring Walkway": "<:VineyRingWalkway:1380095770073632818>",
-    "Red Tractor": "<:RedTractor:1380095781725540383>",
-    "Green Tractor": "<:GreenTractor:1380095795360960523>",
-    "Large Wood Arbour": "<:LargeWoodArbour:1380095808166432839>",
-    "Frog Fountain": "<:FrogFountain:1380095938621739138>",
-    "Small Wood Table": "<:SmallWoodTable:1380095951523287040>",
-    "Beta Gnome": "<:BetaGnome:1380095964018249759>",
-    "Green Female Gnome": "<:GreenFemaleGnome:1380095977159004221>",
-    "Blue Gnome": "<:BlueGnome:1380095990060679228>",
-    "Wheelbarrow": "<:Wheelbarrow:1380096002626949260>",
-    "Monster Mash Trophy": "<:MonsterMashTrophy:1380096015939665981>",
-    "Farmers Gnome Crate": "<:Farmers_Gnome_Crate:1380098218385211432>",
-    "Sign Crate": "<:Sign_Crate:1380098229781135483>",
-    "Common Gnome Crate": "<:Common_Gnome_Crate:1380098240703238185>",
-    "Classic Gnome Crate": "<:Classic_Gnome_Crate:1380098253994856458>",
-    "Mysterious Crate": "<:Mysterious_Crate:1380098264220700692>",
-    "Fun Crate": "<:Fun_Crate:1380098273087328317>",
-    "Stone Lantern": "<:StoneLantern:1386735780034248735>",
-    "Blue Cooler Chest": "<:BlueCoolerChest:1386721940995051620>",
-    "Pink Cooler Chest": "<:PinkCoolerChest:1386721923987411024>",
-    "Red Cooler Chest": "<:RedCoolerChest:1386721933525258290>",
-    "Blue Hammock": "<:RedHammock:1386721896518651936>",
-    "Red Hammock": "<:BlueHammock:1386721884997025942>",
-    "Round Metal Arbour": "<:RoundMetalArbour:1386735517437001912>",
-    "Cabana": "<:Cabana:1386721867695521994>",
-    "Lemonade Stand": "<:LemonadeStand:1386721915145818182>",
-    "Tiki Bar": "<:TikiBar:1386721876201570364>",
-    "Shovel": "<:Shovel:1386721849798295622>",
-    "Market Cart": "<:MarketCart:1386721905796714506>",
-    "Mower": "<:Mower:1386735201324896266>",
-    "Beach Crate": "<:Beach_Crate:1386723570058526792>",
-    "Summer Fun Crate": "<:SummerFunCrate:1386723686643531869>",
-    "Statue Crate": "<:StatueCrate:1386734158243561512>"
-  },
-  "WeatherEmojis": {
-    "Rain": "🌧️",
-    "Snow": "❄️",
-    "Thunderstorm": "⛈️",
-    "Night": "🌑",
-    "BloodMoon": "🩸",
-    "ChocolateRain": "🍫",
-    "MeteorShower": "☄️",
-    "Tornado": "🌪️",
-    "Volcano": "🌋",
-    "SpaceTravel": "🚀",
-    "UnderTheSea": "🌊",
-    "Windy": "🌬️",
-    "AlienInvasion": "👽",
-    "Heatwave": "☢️",
-    "Gale": "💨",
-    "Disco": "🪩",
-    "JandelStorm": "⚡",
-    "DJJhai": "🎧",
-    "JandelLazer": "🔫",
-    "Blackhole": "🌀",
-    "Rainbow": "🌈",
-    "JandelFloat": "🎈",
-    "SunGod": "🌞",
-    "MeteorStrike": "💥",
-    "Drought": "🏜️",
-    "TropicalRain": "🌴",
-    "ChickenRain": "🐔",
-    "AuroraBorealis": "🌌",
-    "Sandstorm": "🌪️"
-  },
-  "WEATHER_TYPES": [
-    "Windy",
-    "Rain",
-    "Gale",
-    "Thunderstorm",
-    "MeteorShower",
-    "Disco",
-    "JandelStorm",
-    "DJJhai",
-    "Tornado",
-    "Blackhole",
-    "Rainbow",
-    "SunGod",
-    "MeteorStrike",
-    "Heatwave",
-    "SpaceTravel",
-    "UnderTheSea",
-    "Drought",
-    "TropicalRain",
-    "ChickenRain",
-    "AuroraBorealis",
-    "Sandstorm"
-  ],
-  "Advert": false
+  setGameData(newData) {
+    if (!newData) return;
+    const dataToAssign = newData.gameData ? newData.gameData : newData;
+    Object.assign(this.gameData, dataToAssign);
+    console.log("[GameDataLoader] Game data has been set from another shard.");
+  }
 }
+
+module.exports = new GameDataLoader();
