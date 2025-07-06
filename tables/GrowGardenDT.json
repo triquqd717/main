@@ -52,6 +52,15 @@
     "Bee Egg"
   ],
 
+  "GNOME_MERCHANT_ITEMS": ["test Gnome", "test Gnome 2", "test Gnome 3"],
+  "SKY_MERCHANT_ITEMS": ["test Sky", "test Sky 2", "test Sky 3"],
+  "HONEY_MERCHANT_ITEMS": ["test Honey", "test Honey 2", "test Honey 3"],
+  "SUMMER_SEED_MERCHANT_ITEMS": [
+    "test Summer Seed",
+    "test Summer Seed 2",
+    "test Summer Seed 3"
+  ],
+
   "SUMMER_ITEMS": [
     "Summer Seed Pack",
     "Delphinium",
