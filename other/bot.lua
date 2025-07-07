@@ -437,7 +437,7 @@ function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
 	for _, obj in pairs(workspace:GetChildren()) do
 		if tostring(obj.Name):find("Traveling Merchant") then
 			Merchant = obj
-			MerchantName = obj.Namet
+			MerchantName = obj.Name
 			break
 		end
 	end
