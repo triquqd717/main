@@ -432,34 +432,53 @@ function Utils:SaveStockToDatabase(FullStockData)
 end
 
 function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
-	local Merchant
-	local MerchatData
-	for _, name in pairs(workspace:GetChildren()) do
-		if tostring(name):find("Traveling Merchant") then
-			Merchant = name
+	local Merchant, MerchantData, MerchantName
+
+	for _, obj in pairs(workspace:GetChildren()) do
+		if tostring(obj.Name):find("Traveling Merchant") then
+			Merchant = obj
+			MerchantName = obj.Namet
 			break
 		end
 	end
+
 	if Merchant then
-		MerchatData = Utils.GetShopStock(
+		MerchantData = Utils.GetShopStock(
 			Config.TravelerShopGuiName,
 			TravelerTable,
 			TravelerRariry,
 			"TravelingMerchant",
 			TravelerOrder
 		)
+		print("Merchant found: " .. MerchantName .. ", Stock: " .. HttpService:JSONEncode(MerchantData))
+	else
+		print("No Traveling Merchant found in workspace.")
+		MerchantData = {}
 	end
-	if CosmeticItemsList and #CosmeticItemsList > 0 then
-		if
-			self:SendWebSocketMessage("save_cosmetic", {
-				items = { CosmeticItemsList, MerchatData and MerchatData or {} } or {}, -- if there's merchant data, add it
-				cosmetic_table = Config.CosmeticTableName,
-				merchant_table = Config.TravelerTableName,
-				guild_id = Config.GlobalStockIdentifier,
-			})
-		then
-			self:SendDiscordLogMessage("Sent " .. #CosmeticItemsList .. " cosmetic items to database.", true)
+
+	if CosmeticItemsList and #CosmeticItemsList > 0 or next(MerchantData) ~= nil then
+		local success = self:SendWebSocketMessage("save_cosmetic", {
+			items = { CosmeticItemsList or {}, MerchantData },
+			cosmetic_table = Config.CosmeticTableName,
+			merchant_table = Config.TravelerTableName,
+			guild_id = Config.GlobalStockIdentifier,
+			merchant_name = MerchantName or "Unknown",
+		})
+		if success then
+			self:SendDiscordLogMessage(
+				"Sent "
+					.. #CosmeticItemsList
+					.. " cosmetic items and "
+					.. table.getn(MerchantData)
+					.. " merchant items to database.",
+				true
+			)
+		else
+			self:SendDiscordLogMessage("Failed to send cosmetic/merchant data to database.", true, 0xFF0000)
 		end
+	else
+		print("No cosmetic or merchant items to send.")
+		self:SendDiscordLogMessage("No cosmetic or merchant items to send to database.", true, 0xFF8C00)
 	end
 end
 
