@@ -102,9 +102,11 @@ local TravelerTable, TravelerRariry, TravelerOrder = {}, {}, {}
 for _, tbl in pairs(TravelerData) do
 	for _, fruit in pairs(tbl.ShopData) do
 		if fruit.DisplayInShop then
-			TravelerRariry[fruit.SeedName] = fruit.SeedRarity
-			TravelerOrder[fruit.SeedName] = fruit.LayoutOrder
-			table.insert(TravelerTable, fruit.SeedName)
+            -- FIX: Process the name here to match the GetShopStock logic
+			local processedName = fruit.SeedName:gsub(" Seed$", "")
+			TravelerRariry[processedName] = fruit.SeedRarity
+			TravelerOrder[processedName] = fruit.LayoutOrder
+			table.insert(TravelerTable, processedName)
 		end
 	end
 end
