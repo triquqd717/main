@@ -337,7 +337,9 @@
     "Drought": "🏜️",
     "TropicalRain": "🌴",
     "ChickenRain": "🐔",
-    "AuroraBorealis": "🌌"
+    "AuroraBorealis": "🌌",
+    "Sandstorm": "🌪️",
+    "DJSandstorm": "🌪️"
   },
   "WEATHER_TYPES": [
     "Rain",
@@ -365,6 +367,7 @@
     "Drought",
     "TropicalRain",
     "ChickenRain",
-    "AuroraBorealis"
+    "AuroraBorealis",
+    "Sandstorm"
   ]
 }
