@@ -13,6 +13,7 @@ local TeleportService = game:GetService("TeleportService")
 
 local Config = {
 	WebSocketUrl = "ws://localhost:3000",
+	WatchdogUrl = "ws://localhost:6070",
 	GlobalStockIdentifier = "global_stock",
 	GlobalWeatherIdentifier = 1,
 	TargetCheckSecond = 9,
@@ -25,6 +26,23 @@ local Config = {
 	GearShopGuiName = "Gear_Shop",
 	TravelerShopGuiName = "TravelingMerchantShop_UI",
 }
+task.spawn(function()
+	local WebSocket = typeof(WebSocket) == "table" and WebSocket or nil
+	if WebSocket then
+		print("Attempting to connect to server at " .. Config.WatchdogUrl)
+		local success, conn = pcall(WebSocket.connect, Config.WatchdogUrl)
+
+		if not success then
+			warn("could not connect to server: " .. conn)
+		else
+			print("connected to watchdog server").conn.OnClose:Connect(function(code, reason)
+				warn("Watchdog connection closed. Code: " .. tostring(code) .. ", Reason: " .. tostring(reason))
+			end)
+		end
+	else
+		warn("no websocket support")
+	end
+end)
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
@@ -102,7 +120,7 @@ local TravelerTable, TravelerRariry, TravelerOrder = {}, {}, {}
 for _, tbl in pairs(TravelerData) do
 	for _, fruit in pairs(tbl.ShopData) do
 		if fruit.DisplayInShop then
-            -- FIX: Process the name here to match the GetShopStock logic
+			-- FIX: Process the name here to match the GetShopStock logic
 			local processedName = fruit.SeedName:gsub(" Seed$", "")
 			TravelerRariry[processedName] = fruit.SeedRarity
 			TravelerOrder[processedName] = fruit.LayoutOrder
@@ -394,7 +412,20 @@ function Utils:SaveStockToDatabase(FullStockData)
 		if kickCounter > 5 then
 			self:Abort("Stock data has not changed for " .. kickCounter .. " cycles.")
 		else
-			warn("Stock data is identical to last send. Skipping. Attempt: " .. kickCounter)
+			local min = os.date("*t").min -- get the minute
+			if tonumber(min) % 5 == 0 then
+				task.wait(5)
+			else
+				self:SendDiscordLogMessage(
+					"Same stock data received for the " .. kickCounter .. kickCounter == 1 and "st"
+						or kickCounter == 2 and "nd"
+						or kickCounter == 3 and "rd"
+						or "th" .. " time, skipping update",
+					true,
+					0xFFFF00
+				)
+				return
+			end
 		end
 		return
 	else
@@ -437,7 +468,7 @@ function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
 	local Merchant, MerchantData, MerchantName
 
 	for _, obj in pairs(workspace:GetChildren()) do
-		if tostring(obj.Name):find("Traveling Merchant") then
+		if tostring(obj.Name):find("Traveling Merchant") or tostring(obj.Name) == "SkyTravelingMerchant" then
 			Merchant = obj
 			MerchantName = obj.Name
 			break
@@ -464,7 +495,9 @@ function Utils:SaveCosmeticToDatabase(CosmeticItemsList)
 			cosmetic_table = Config.CosmeticTableName,
 			merchant_table = Config.TravelerTableName,
 			guild_id = Config.GlobalStockIdentifier,
-			merchant_name = MerchantName or "Unknown",
+			merchant_name = MerchantName and MerchantName == "SkyTravelingMerchant" and "Sky Traveling Merchant"
+				or MerchantName
+				or "Traveling Merchant",
 		})
 		if success then
 			self:SendDiscordLogMessage(
