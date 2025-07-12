@@ -30,6 +30,8 @@
     "Recall Wrench",
     "Basic Sprinkler",
     "Advanced Sprinkler",
+    "Medium Toy",
+    "Medium Treat",
     "Godly Sprinkler",
     "Magnifying Glass",
     "Tanning Mirror",
@@ -37,7 +39,8 @@
     "Cleaning Spray",
     "Favorite Tool",
     "Harvest Tool",
-    "Friendship Pot"
+    "Friendship Pot",
+    "Levelup Lollipop"
   ],
   "EGG_ITEMS": [
     "Common Egg",
@@ -239,6 +242,8 @@
     "Recall Wrench": "<:RecallWren_ch:1391088327553454090>",
     "Basic Sprinkler": "<:Basic_Sprinkler:1391088501042450533>",
     "Advanced Sprinkler": "<:Advanced_Sprinkler:1385994957126373517>",
+    "Medium Toy": "<:MediumToy:1393603690665083021>",
+    "Medium Treat": "<:MediumTreat:1393603613733159033>",
     "Godly Sprinkler": "<:Godly_Sprinkler:1385995227621359657>",
     "Tanning Mirror": "<:TanningMirror:1385999031053975733>",
     "Magnifying Glass": "<:Magnifying_Glass:1391088602049675264>",
@@ -246,7 +251,8 @@
     "Cleaning Spray": "<:SprayingTool:1385995417619267716>",
     "Favorite Tool": "<:Favorite_Tool:1385995212677189642>",
     "Harvest Tool": "<:Harvest_tool:1385995239675662386>",
-    "Friendship Pot": "<:Friendship_Pot:1381224312324751400>"
+    "Friendship Pot": "<:Friendship_Pot:1381224312324751400>",
+    "Levelup Lollipop": "<:LevelupLollipop:1393603721564389397>"
   },
   "EggEmojis": {
     "Bug Egg": "<:BugEggV2:1390277774681309304>",
