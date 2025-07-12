@@ -21,7 +21,8 @@
     "Beanstalk",
     "Ember Lily",
     "Sugar Apple",
-    "Burning Bud"
+    "Burning Bud",
+    "Giant Pinecone"
   ],
   "GEAR_ITEMS": [
     "Watering Can",
@@ -229,7 +230,8 @@
     "Beanstalk": "<:Beanstalk:1391085435761197056>",
     "Ember Lily": "<:EmberLily:1391085459064488127>",
     "Sugar Apple": "<:SugarApple:1391085485740523690>",
-    "Burning Bud": "<:BurningFruit:1391085515561762988>"
+    "Burning Bud": "<:BurningFruit:1391085515561762988>",
+    "Giant Pinecone": "<:GiantPinecone:1393534340104851517>"
   },
   "GearEmojis": {
     "Watering Can": "<:Watering_Can:1385995649471746169>",
