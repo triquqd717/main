@@ -677,5 +677,4 @@ local function Main()
 	end)
 end
 
-task.wait(2)
 Main()
