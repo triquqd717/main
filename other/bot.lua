@@ -25,15 +25,12 @@ local Config = {
 	GearShopGuiName = "Gear_Shop",
 	TravelerShopGuiName = "TravelingMerchantShop_UI",
 	EggShopName = "PetShop_UI",
-	IsEventActive = false,
-	EventDataPath = nil,
-	EventShopName = "",
 }
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 local Connection = nil
-local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, TravelingMerchant = {}, Event = {} }
+local LastStock = { Seeds = {}, Gear = {}, Eggs = {}, TravelingMerchant = {} }
 local WebSocket = typeof(WebSocket) == "table" and WebSocket or nil
 
 local SeedData = require(ReplicatedStorage.Data.SeedData)
@@ -106,6 +103,7 @@ local TravelerTable, TravelerRariry, TravelerOrder = {}, {}, {}
 for _, tbl in pairs(TravelerData) do
 	for _, fruit in pairs(tbl.ShopData) do
 		if fruit.DisplayInShop then
+			-- FIX: Process the name here to match the GetShopStock logic
 			local processedName = fruit.SeedName:gsub(" Seed$", "")
 			TravelerRariry[processedName] = fruit.SeedRarity
 			TravelerOrder[processedName] = fruit.LayoutOrder
@@ -113,32 +111,6 @@ for _, tbl in pairs(TravelerData) do
 		end
 	end
 end
-
-local EventItems, EventRarities, EventOrder = {}, {}, {}
-if Config.IsEventActive then
-	local EventData = Config.EventDataPath
-	if EventData and type(EventData) == "table" then
-		local eventKeys, p = {}, 1
-		for ItemName in pairs(EventData) do
-			table.insert(eventKeys, ItemName)
-		end
-		table.sort(eventKeys, function(a, b)
-			return (EventData[a].LayoutOrder or 9999) < (EventData[b].LayoutOrder or 9999)
-		end)
-		for _, ItemName in pairs(eventKeys) do
-			if EventData[ItemName].DisplayInShop then
-				table.insert(EventItems, ItemName)
-				EventRarities[ItemName] = EventData[ItemName].Rarity or "Unknown"
-				EventOrder[ItemName] = EventData[ItemName].LayoutOrder or p
-				p = p + 1
-			end
-		end
-	else
-		warn("Event is active but EventDataPath is invalid or not a table. Disabling event features.")
-		Config.IsEventActive = false
-	end
-end
-
 
 local CosmeticsItems, CosmeticsCrates, CosmeticOrder = {}, {}, {}
 do
@@ -180,9 +152,6 @@ print("Seed Items: " .. #SeedItems)
 print("Gear Items: " .. #GearItems)
 print("Egg Items: " .. #EggItems)
 print("Cosmetic Items: " .. #CosmeticOrder)
-if Config.IsEventActive then
-	print("Event Items: " .. #EventItems)
-end
 print("------------------------")
 
 if not WebSocket and not TEST_MODE then
@@ -316,7 +285,8 @@ function Utils.GetShopStock(GuiName, ItemList, RarityTable, Category, OrderTable
 		warn(string.format("'%s' not found in PlayerGui.", GuiName))
 		return LastStock[Category] or {}
 	end
-	local ScrollingFrame = ShopGui:FindFirstChildOfClass("ScrollingFrame")
+	local ScrollingFrame = ShopGui:FindFirstChild("Frame", true)
+		and ShopGui.Frame:FindFirstChild("ScrollingFrame", true)
 	if not ScrollingFrame then
 		warn("ScrollingFrame not found in " .. GuiName)
 		return LastStock[Category] or {}
@@ -324,9 +294,14 @@ function Utils.GetShopStock(GuiName, ItemList, RarityTable, Category, OrderTable
 	local CurrentStock = {}
 	for _, ItemFrame in ipairs(ScrollingFrame:GetChildren()) do
 		if ItemFrame:IsA("Frame") and ItemFrame.Name ~= "ItemPadding" then
-			local StockText = ItemFrame:FindFirstChild("Stock_Text", true)
-			local ItemText = ItemFrame:FindFirstChild("Item_Name_Text", true) or ItemFrame:FindFirstChild("Seed_Text", true) or ItemFrame:FindFirstChild("Gear_Text", true)
-
+			local MainFrame = ItemFrame:FindFirstChild("Main_Frame")
+			local StockText = MainFrame and MainFrame:FindFirstChild("Stock_Text")
+			local ItemText = MainFrame
+				and (
+					MainFrame:FindFirstChild("Seed_Text")
+					or MainFrame:FindFirstChild("Gear_Text")
+					or MainFrame:FindFirstChild("Item_Name_Text")
+				)
 			if StockText and ItemText then
 				local ItemName = ItemText.Text:gsub(" Seed$", "")
 				if table.find(ItemList, ItemName) then
@@ -426,8 +401,6 @@ function Utils:SaveStockToDatabase(FullStockData)
 			ItemType = "Gear"
 		elseif Category == "Eggs" then
 			ItemType = "Egg"
-		elseif Category == "Event" then
-			ItemType = "Event"
 		end
 		if ItemType then
 			for ItemName, ItemData in pairs(ItemsInCategory) do
@@ -578,21 +551,13 @@ local function Main()
 					})
 				elseif ItemType == "Cosmetic" then
 					Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
-				elseif ItemType == "Event" and Config.IsEventActive then
-					Utils:SaveStockToDatabase({
-						Event = Utils.GetShopStock(Config.EventShopName, EventItems, EventRarities, "Event", EventOrder),
-					})
 				elseif ItemType == "All" then
 					Utils:SendFeedback("Force checking ALL types...")
-					local stockData = {
+					Utils:SaveStockToDatabase({
 						Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
 						Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
 						Eggs = Utils.GetShopStock(Config.EggShopName, EggItems, EggRarities, "Eggs", EggOrder),
-					}
-					if Config.IsEventActive then
-						stockData.Event = Utils.GetShopStock(Config.EventShopName, EventItems, EventRarities, "Event", EventOrder)
-					end
-					Utils:SaveStockToDatabase(stockData)
+					})
 					Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
 				end
 				Utils:SendFeedback("Force_check for " .. ItemType .. " processed.")
@@ -642,7 +607,6 @@ local function Main()
 		stock_table = Config.StockTableName,
 		weather_table = Config.WeatherTableName,
 		cosmetic_table = Config.CosmeticTableName,
-		merchant_table = Config.TravelerTableName,
 	})
 
 	if _G.MainStockThread then
@@ -678,9 +642,6 @@ local function Main()
 				Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
 				Eggs = Utils.GetShopStock(Config.EggShopName, EggItems, EggRarities, "Eggs", EggOrder),
 			}
-			if Config.IsEventActive then
-				stockDataToSend.Event = Utils.GetShopStock(Config.EventShopName, EventItems, EventRarities, "Event", EventOrder)
-			end
 			Utils:SaveStockToDatabase(stockDataToSend)
 		end
 	end)
