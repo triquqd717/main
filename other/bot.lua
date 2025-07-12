@@ -13,7 +13,6 @@ local TeleportService = game:GetService("TeleportService")
 
 local Config = {
 	WebSocketUrl = "ws://localhost:3000",
-	WatchdogUrl = "ws://localhost:6070",
 	GlobalStockIdentifier = "global_stock",
 	GlobalWeatherIdentifier = 1,
 	TargetCheckSecond = 9,
@@ -25,24 +24,8 @@ local Config = {
 	SeedShopGuiName = "Seed_Shop",
 	GearShopGuiName = "Gear_Shop",
 	TravelerShopGuiName = "TravelingMerchantShop_UI",
+	EggShopName = "PetShop_UI",
 }
-task.spawn(function()
-	local WebSocket = typeof(WebSocket) == "table" and WebSocket or nil
-	if WebSocket then
-		print("Attempting to connect to server at " .. Config.WatchdogUrl)
-		local success, conn = pcall(WebSocket.connect, Config.WatchdogUrl)
-
-		if not success then
-			warn("could not connect to server: " .. conn)
-		else
-			print("connected to watchdog server").conn.OnClose:Connect(function(code, reason)
-				warn("Watchdog connection closed. Code: " .. tostring(code) .. ", Reason: " .. tostring(reason))
-			end)
-		end
-	else
-		warn("no websocket support")
-	end
-end)
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
@@ -373,30 +356,6 @@ function Utils.GetCosmeticStock()
 	print("Fetched " .. #Items .. " cosmetic items from UI.")
 	return Items
 end
-
-function Utils.GetEggStock()
-	local Path = workspace:FindFirstChild("NPCS", true)
-		and workspace.NPCS:FindFirstChild("Pet Stand", true)
-		and workspace.NPCS["Pet Stand"]:FindFirstChild("EggLocations", true)
-	if not Path then
-		warn("EggLocations path not found for GetEggStock")
-		return LastStock.Eggs or {}
-	end
-	local CurrentStock = {}
-	for _, EggLocation in pairs(Path:GetChildren()) do
-		if EggLocation:IsA("Model") and table.find(EggItems, EggLocation.Name) then
-			CurrentStock[EggLocation.Name] = {
-				Stock = (CurrentStock[EggLocation.Name] and CurrentStock[EggLocation.Name].Stock or 0) + 1,
-				Rarity = EggRarities[EggLocation.Name] or "Unknown",
-				IsAvailable = true,
-				Order = EggOrder[EggLocation.Name] or 9999,
-			}
-		end
-	end
-	print("Scraped " .. table.getn(CurrentStock) .. " egg types from Pet Stand.")
-	LastStock.Eggs = CurrentStock
-	return CurrentStock
-end
 --</editor-fold>
 
 local lastSentStock = {}
@@ -587,7 +546,9 @@ local function Main()
 						Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
 					})
 				elseif ItemType == "Egg" then
-					Utils:SaveStockToDatabase({ Eggs = Utils.GetEggStock() })
+					Utils:SaveStockToDatabase({
+						Eggs = Utils.GetShopStock(Config.EggShopName, EggItems, EggRarities, "Eggs", EggOrder),
+					})
 				elseif ItemType == "Cosmetic" then
 					Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
 				elseif ItemType == "All" then
@@ -595,7 +556,7 @@ local function Main()
 					Utils:SaveStockToDatabase({
 						Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
 						Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
-						Eggs = Utils.GetEggStock(),
+						Eggs = Utils.GetShopStock(Config.EggShopName, EggItems, EggRarities, "Eggs", EggOrder),
 					})
 					Utils:SaveCosmeticToDatabase(Utils.GetCosmeticStock())
 				end
@@ -609,13 +570,12 @@ local function Main()
 				end
 			elseif Decoded.type == "rejoin_game" and Decoded.data then
 				Utils:SendFeedback("Rejoining game. Job ID: " .. (Decoded.data.job_id or "any"))
-				pcall(
-					TeleportService.TeleportToPlaceInstance,
-					TeleportService,
-					game.PlaceId,
-					Decoded.data.job_id or nil,
-					Player
-				)
+				local JobId = Decoded.data.job_id or nil
+				if JobId and JobId ~= "" then
+					pcall(TeleportService.TeleportToPlaceInstance, TeleportService, game.PlaceId, JobId, Player)
+				else
+					pcall(TeleportService.Teleport, TeleportService, game.PlaceId, Player)
+				end
 			elseif Decoded.type == "shutdown_game" then
 				Utils:Abort("Received shutdown command from server.")
 			end
@@ -680,7 +640,7 @@ local function Main()
 			local stockDataToSend = {
 				Seeds = Utils.GetShopStock(Config.SeedShopGuiName, SeedItems, CropRarities, "Seeds", SeedOrder),
 				Gear = Utils.GetShopStock(Config.GearShopGuiName, GearItems, GearRarities, "Gear", GearOrder),
-				Eggs = Utils.GetEggStock(),
+				Eggs = Utils.GetShopStock(Config.EggShopName, EggItems, EggRarities, "Eggs", EggOrder),
 			}
 			Utils:SaveStockToDatabase(stockDataToSend)
 		end
@@ -717,5 +677,4 @@ local function Main()
 	end)
 end
 
-task.wait(2)
 Main()
