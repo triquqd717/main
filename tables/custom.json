@@ -21,7 +21,8 @@
     "Beanstalk",
     "Ember Lily",
     "Sugar Apple",
-    "Burning Bud"
+    "Burning Bud",
+    "Giant Pinecone"
   ],
   "GEAR_ITEMS": [
     "Watering Can",
@@ -29,6 +30,8 @@
     "Recall Wrench",
     "Basic Sprinkler",
     "Advanced Sprinkler",
+    "Medium Toy",
+    "Medium Treat",
     "Godly Sprinkler",
     "Tanning Mirror",
     "Master Sprinkler",
@@ -36,7 +39,8 @@
     "Favorite Tool",
     "Harvest Tool",
     "Friendship Pot",
-    "Magnifying Glass"
+    "Magnifying Glass",
+    "Levelup Lollipop"
   ],
   "EGG_ITEMS": [
     "Common Egg",
@@ -307,7 +311,12 @@
     "Night Staff": "<:Night_staff:1392038183025381456>",
     "Star Caller": "<:Star_Caller:1392038251656642650>",
     "Mutation Spray Cloudtouched": "<:Mutation_Cloudtouched:1392038286905577586>",
-    "Iconic Gnome Crate": "<:IconicGnomeCrate:1392038368614944789>"
+    "Iconic Gnome Crate": "<:IconicGnomeCrate:1392038368614944789>",
+    "Giant Pinecone": "<:GiantPinecone:1393650412631887992>",
+    "Corn": "<:Corn:1393650466331562206>",
+    "Medium Toy": "<:MediumToy:1393650516353093732>",
+    "Medium Treat": "<:MediumTreat:1393650591724605583>",
+    "Levelup Lollipop": "<:LevelupLollipop:1393650561282347178>"
   },
   "WeatherEmojis": {
     "Rain": "🌧️",
