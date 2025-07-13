@@ -423,30 +423,185 @@
     "TropicalRain": "🌴",
     "ChickenRain": "🐔",
     "AuroraBorealis": "🌌",
-    "Sandstorm": "🌪️"
+    "Sandstorm": "🌪️",
+    "Obby": "🚀",
+    "JandelZombie": "🧟",
+    "CrystalBeams": "🪨"
   },
-  "WEATHER_TYPES": [
-    "Windy",
-    "Rain",
-    "Gale",
-    "Thunderstorm",
-    "MeteorShower",
-    "Disco",
-    "JandelStorm",
-    "DJJhai",
-    "Tornado",
-    "Blackhole",
-    "Rainbow",
-    "SunGod",
-    "MeteorStrike",
-    "Heatwave",
-    "SpaceTravel",
-    "UnderTheSea",
-    "Drought",
-    "TropicalRain",
-    "ChickenRain",
-    "AuroraBorealis",
-    "Sandstorm"
+  "WEATHER_TYPES": {
+    "Obby": "Admin",
+    "Gale": "Admin",
+    "SheckleRain": "Admin",
+    "MeteorShower": "Natural",
+    "Disco": "Admin",
+    "ChocolateRain": "Admin",
+    "JandelStorm": "Admin",
+    "DJJhai": "Admin",
+    "Tornado": "Natural",
+    "JandelLazer": "Admin",
+    "Blackhole": "Admin",
+    "Rainbow": "Admin",
+    "JandelFloat": "Admin",
+    "Windy": "Natural",
+    "SunGod": "Natural",
+    "Volcano": "Admin",
+    "MeteorStrike": "Natural",
+    "Heatwave": "Natural",
+    "AlienInvasion": "Admin",
+    "SpaceTravel": "Admin",
+    "UnderTheSea": "Admin",
+    "Thunderstorm": "Natural",
+    "SolarFlare": "Natural",
+    "Drought": "Admin",
+    "TropicalRain": "Natural",
+    "ChickenRain": "Admin",
+    "AuroraBorealis": "Natural",
+    "Sandstorm": "Natural",
+    "ShootingStars": "Admin",
+    "DJSandstorm": "Admin",
+    "Rain": "Natural",
+    "PoolParty": "Admin",
+    "AirHead": "Admin",
+    "TextCollect": "Admin",
+    "CrystalBeams": "Admin",
+    "JandelZombie": "Admin"
+  },
+
+  "RareStuff": [
+    "Master Sprinkler",
+    "Mythical Egg",
+    "Paradise Egg",
+    "Bug Egg",
+    "Bee Egg",
+    "Burning Bud",
+    "Sugar Apple",
+    "Ember Lily",
+    "Grape",
+    "Mushroom",
+    "Pepper",
+    "Cacao",
+    "Beanstalk",
+    "Giant Pinecone"
   ],
+  "TargetReactChannel": "1365497720118186025",
+  "COLOR_PALETTE": {
+    "Green": {
+      "hex": "#11d91f"
+    },
+    "Blue": {
+      "hex": "#1a08bf"
+    },
+    "Orange": {
+      "hex": "#e67e22"
+    },
+    "Pink": {
+      "hex": "#ff80df"
+    },
+    "Purple": {
+      "hex": "#6000d6"
+    },
+    "Teal": {
+      "hex": "#17ffd1"
+    },
+    "Red": {
+      "hex": "#e74c3c"
+    }
+  },
+  "IgnoreGuilds": ["1342864504404316180", "1386781192422031502"],
+  "WeatherData": {
+    "Rain": {
+      "Description": "+50% Grow Speed | Higher **Wet** Fruit Chance!",
+      "Color": "#135bcf"
+    },
+    "Thunderstorm": {
+      "Description": "+50% Grow Speed | Higher **Wet** & **Shocked** Fruit Chance!",
+      "Color": "#07285e"
+    },
+    "Snow": {
+      "Description": "+50% Grow Speed | Higher **Chilled** & **Frozen** Fruit Chance!",
+      "Color": "#a0b7db"
+    },
+    "MeteorShower": {
+      "Description": "Higher **Celestial** Fruit Chance!",
+      "Color": "#7923c4"
+    },
+    "Disco": {
+      "Description": "Higher **Disco** Fruit Chance!",
+      "Color": "#fc035e"
+    },
+    "DJJhai": {
+      "Description": "Higer **Disco** Fruit Chance!",
+      "Color": "#ff00ff"
+    },
+    "JandelStorm": {
+      "Description": "Higher **Shocked** Fruit Chance!",
+      "Color": "#3399ff"
+    },
+    "SheckleRain": {
+      "Description": "Collect falling sheckles!",
+      "Color": "#ffd700"
+    },
+    "ChocolateRain": {
+      "Description": "+50% Grow Speed | Higher **Chocolate** Fruit Chance!",
+      "Color": "#8b4513"
+    },
+    "LazerStorm": {
+      "Description": "Higher **Plasma** Fruit Chance!",
+      "Color": "#ff3366"
+    },
+    "Tornado": {
+      "Description": "Higher **Twisted** Fruit Chance!",
+      "Color": "#909090"
+    },
+    "Blackhole": {
+      "Description": "Higher **Void Touched** Fruit Chance!",
+      "Color": "#551a8b"
+    },
+    "SunGod": {
+      "Description": "Higher **Sun God** Fruit Chance!",
+      "Color": "#ffcc00"
+    },
+    "Windy": {
+      "Description": "Higher **Windstruck** Fruit Chance!",
+      "Color": "#1e90ff"
+    },
+    "Heatwave": {
+      "Description": "Higher **Sundried** Fruit Chance!",
+      "Color": "#ff661f"
+    },
+    "UnderTheSea": {
+      "Description": "Unique visual and audio effects!",
+      "Color": "#008080"
+    },
+    "TropicalRain": {
+      "Description": "+50% Grow Speed | Higher **Drenched** Fruit Chance!",
+      "Color": "#20B2AA"
+    },
+    "AuroraBorealis": {
+      "Description": "Higher **Aurora** Fruit Chance!",
+      "Color": "#9400D3"
+    },
+    "Sandstorm": {
+      "Description": "Higher **Sandy** Fruit Chance!",
+      "Color": "#ffc899"
+    }
+  },
+  "RareStuffEmoji": {
+    "Master Sprinkler": "<:Master_Sprinkler:1391710026166571161>",
+    "Mythical Egg": "<:MythicalEggV2:1391709415412858940>",
+    "Paradise Egg": "<:ParadiseEggV2:1391709418835546143>",
+    "Bug Egg": "<:BugEggV2:1391709406563012719>",
+    "Bee Egg": "<:BeeEggV2:1391709422073675879>",
+    "Burning Bud": "<:BurningFruit:1391709544668725298>",
+    "Sugar Apple": "<:SugarApple:1391709547105615944>",
+    "Ember Lily": "<:EmberLily:1391709549886439484>",
+    "Grape": "<:Grape:1391709559634133002>",
+    "Mushroom": "<:Mushroom:1391709557759414282>",
+    "Pepper": "<:Pepper:1391709556005933160>",
+    "Cacao": "<:Cacao:1391709553875226707>",
+    "Beanstalk": "<:Beanstalk:1391709551987785778>",
+    "Giant Pinecone": "<:GiantPinecone:1393834257801023569>"
+  },
+
   "Advert": false
 }
