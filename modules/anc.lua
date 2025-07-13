@@ -2,6 +2,8 @@ local HttpService = game:GetService("HttpService")
 local Frame = game:GetService("Players").LocalPlayer.PlayerGui.Top_Notification.Frame
 
 local WS = "ws://localhost:3054/"
+Conn = WebSocket.connect(WS)
+print(Conn)
 local Conn
 local Start
 
@@ -53,6 +55,9 @@ end
 
 function send(text, skip)
 	local CleanText = notag(text, skip == true)
+	if text then
+		return print(CleanText)
+	end
 	local Data = {
 		content = CleanText,
 	}
@@ -60,7 +65,6 @@ function send(text, skip)
 
 	if not Conn then
 		log("WebSocket not connected. Attempting to connect...")
-		Conn = WebSocket.connect(WS)
 		if Conn then
 			log("Connected to WebSocket.")
 			Start = os.clock()
@@ -172,12 +176,3 @@ game.ReplicatedStorage.GameEvents.WeatherEventStarted.OnClientEvent:Connect(func
 		true
 	)
 end)
-
-
-local Module = require(game:GetService("ReplicatedStorage").Modules.Notification)
-
-Module.CreateNotification = function(...)
-	local args = { ... }
-	args[1] = false
-	return Module.CreateNotification(unpack(args))
-end
