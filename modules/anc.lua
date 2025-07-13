@@ -1,5 +1,6 @@
 local HttpService = game:GetService("HttpService")
 local Frame = game:GetService("Players").LocalPlayer.PlayerGui.Top_Notification.Frame
+print("Frame: " .. Frame)
 
 local WS = "ws://localhost:3054/"
 local Conn
