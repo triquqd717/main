@@ -113,24 +113,27 @@ function send(text, skip)
 end
 
 Frame.ChildAdded:Connect(function(notif)
-	if notif.Name == "Notification_UI" or notif.Name == "Notification_UI_Mobile" then
-		log("New notification:", notif.Name)
-		local Label = notif:FindFirstChild("TextLabel")
-		if Label then
-			if not string.find(Label.Text, "<font") or string.find(Label.Text, "was restocked") then
-				local clean = notag(Label.Text)
-				if not check(clean) then
-					local Final = clean
-					Final = Final == "Not your garden!" and "test message" or Final
-					Final = Final:gsub("@everyone", "@eh?veryone"):gsub("@here", "@th?ere")
-					if string.find(Label.Text, "was restocked") then
-						Final = "```" .. clean .. "```"
+	print(notif.Name)
+	task.spawn(function()
+		if notif.Name == "Notification_UI" or notif.Name == "Notification_UI_Mobile" then
+			log("New notification:", notif.Name)
+			local Label = notif:FindFirstChild("TextLabel")
+			if Label then
+				if not string.find(Label.Text, "<font") or string.find(Label.Text, "was restocked") then
+					local clean = notag(Label.Text)
+					if not check(clean) then
+						local Final = clean
+						Final = Final == "Not your garden!" and "test message" or Final
+						Final = Final:gsub("@everyone", "@eh?veryone"):gsub("@here", "@th?ere")
+						if string.find(Label.Text, "was restocked") then
+							Final = "```" .. clean .. "```"
+						end
+						send(Final)
 					end
-					send(Final)
 				end
 			end
 		end
-	end
+	end)
 end)
 
 task.spawn(function() -- anti afk
