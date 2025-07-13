@@ -28,7 +28,7 @@ local Config = {
 }
 
 local success, result = pcall(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))()
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))()
 end)
 
 if not success then
