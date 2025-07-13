@@ -27,12 +27,14 @@ local Config = {
 	EggShopName = "PetShop_UI",
 }
 
-local Success, Result =
-	pcall(loadstring, game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))
-if not Success or not Result then
-	warn("Failed to load anc module: " .. tostring(Result or "Unknown"))
-	return
+local success, result = pcall(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))()
+end)
+
+if not success then
+	warn("Failed to load anc module:", tostring(result) or "Unknown")
 end
+
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
