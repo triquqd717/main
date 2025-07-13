@@ -105,7 +105,7 @@ end)
 task.spawn(function() -- anti afk
 	local Player = game:GetService("Players").LocalPlayer
 	Player.Idled:Connect(function()
-		log("💤 Anti-AFK triggered")
+		log("Anti-AFK triggered")
 		local VirtualUser = game:GetService("VirtualUser")
 		VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
 		task.wait(0.1)
