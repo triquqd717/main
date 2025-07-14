@@ -27,15 +27,11 @@ local Config = {
 	EggShopName = "PetShop_UI",
 }
 
-local success, result = pcall(function()
-	return coroutine.wrap(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))()
-	end)()
+task.spawn(function()
+	print("Loading jandel module...")
+	jndl = loadstring(game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))()
+	print(jndl)
 end)
-
-if not success then
-	warn("Failed to load anc module:", tostring(result) or "Unknown")
-end
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
