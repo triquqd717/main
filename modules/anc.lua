@@ -178,14 +178,5 @@ game.ReplicatedStorage.GameEvents.WeatherEventStarted.OnClientEvent:Connect(func
 		log("Weather event triggered:", AliasEvent)
 	end
 
-	send(
-		"_"
-			.. AliasEvent
-			.. " weather has started!_ \nDuration: "
-			.. Duration
-			.. " seconds\nEnds: <t:"
-			.. EndTime
-			.. ":R>",
-		true
-	)
+	send(`_{AliasEvent} weather has started!_\nEnds: <t:{EndTime}:R>`, true)
 end)
