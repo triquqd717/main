@@ -54,34 +54,47 @@ function notag(text, skip)
 end
 
 function send(text, skip)
+	log("send() called with text:", text, " | skip:", skip)
+
 	local CleanText = notag(text, skip == true)
-	if text then
-		return print(CleanText)
+	log("Cleaned text:", CleanText)
+
+	if not text then
+		log("Text is nil, bailing send()")
+		return
 	end
+
 	local Data = {
 		content = CleanText,
 	}
 	local JSONData = HttpService:JSONEncode(Data)
+	log("Encoded JSON data:", JSONData)
 
 	if not Conn then
-		log("WebSocket not connected. Attempting to connect...")
+		log("WebSocket not connected. Trying to connect...")
+		Conn = WebSocket.connect(WS)
+		print("Conn after WebSocket.connect:", Conn)
+
 		if Conn then
-			log("Connected to WebSocket.")
+			log("Connected to WebSocket successfully!")
 			Start = os.clock()
 			Conn.OnClose:Connect(function()
 				log("WebSocket connection closed after", os.clock() - (Start or 0), "seconds")
 				Conn = nil
 			end)
 		else
-			warn("Failed to connect to WebSocket")
+			warn("WebSocket connect failed.")
 		end
+	else
+		log("WebSocket is already connected.")
 	end
 
 	if Conn then
+		log("Attempting to send CleanText:", CleanText)
 		Conn:Send(CleanText)
 		log("Sent to WebSocket:", CleanText)
 	else
-		warn("WebSocket connection is not open")
+		warn("Cannot send, WebSocket connection is dead")
 	end
 end
 
