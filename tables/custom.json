@@ -330,7 +330,7 @@
     "Volcano": "🌋",
     "SpaceTravel": "🚀",
     "UnderTheSea": "🌊",
-    "Windy": "🍃",
+    "Windy": "🌬️",
     "AlienInvasion": "👽",
     "Heatwave": "☢️",
     "Gale": "💨",
@@ -348,7 +348,9 @@
     "ChickenRain": "🐔",
     "AuroraBorealis": "🌌",
     "Sandstorm": "🌪️",
-    "DJSandstorm": "🌪️"
+    "Obby": "🚀",
+    "JandelZombie": "🧟",
+    "CrystalBeams": "🪨"
   },
   "WEATHER_TYPES": [
     "Rain",
@@ -377,6 +379,8 @@
     "TropicalRain",
     "ChickenRain",
     "AuroraBorealis",
-    "Sandstorm"
+    "Sandstorm",
+    "Obby",
+    "PoolParty"
   ]
 }
