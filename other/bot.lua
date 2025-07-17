@@ -29,8 +29,7 @@ local Config = {
 
 task.spawn(function()
 	print("Loading jandel module...")
-	jndl = loadstring(game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))()
-	print(jndl)
+	print(loadstring(game:HttpGet("https://raw.githubusercontent.com/triquqd717/main/refs/heads/main/modules/anc.lua"))())
 end)
 
 local Player = Players.LocalPlayer
