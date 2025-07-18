@@ -1,11 +1,8 @@
 local HttpService = game:GetService("HttpService")
 local Frame = game:GetService("Players").LocalPlayer.PlayerGui.Top_Notification.Frame
-
-local WS = "ws://localhost:3054/"
 local Conn
-Conn = WebSocket.connect(WS)
-print(Conn)
-local Start
+local WS = "ws://localhost:3054/"
+local Start	
 
 local Exact = {
 	["No one submitted to the Harvest... No rewards"] = true,
@@ -14,17 +11,17 @@ local Exact = {
 	["You didnt submit to the Harvest... No rewards"] = true,
 	["The Traveling Merchant has arrived"] = true,
 	["The Traveling Merchant has left"] = true,
-    ["Trade expired!"] = true
+	["Trade expired!"] = true
 }
 
 local Wildcard = {
 	["gift has been sent to"] = true,
-	["liked your farm 👍"] = true,
+	["liked your farm"] = true,
 	["stole from"] = true,
 }
 
 function log(...)
-	print("[NotifScript]", os.date("%X"), ...)
+	print(`<t:${os.time()}:t>`, ...)
 end
 
 function check(text)
@@ -109,7 +106,7 @@ Frame.ChildAdded:Connect(function(notif)
 				if not check(clean) then
 					local Final = clean
 					Final = Final == "Not your garden!" and "test message" or Final
-					Final = Final:gsub("@everyone", "@eh?veryone"):gsub("@here", "@th?ere")
+					Final = Final:gsub("@everyone", "@eh?veryone"):gsub("@here", "@eh?ere")
 					if string.find(Label.Text, "was restocked") then
 						Final = "```" .. clean .. "```"
 					end
