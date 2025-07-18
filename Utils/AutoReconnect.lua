@@ -1,22 +1,10 @@
-local Conn = nil
-
-if typeof(WebSocket) == "table" and typeof(WebSocket.connect) == "function" then
-	Conn = WebSocket.connect("ws://localhost:6070")
-end
-
 local Debounce = 0
 
 local function Signal()
 	local now = os.time()
-	if Conn then
-		pcall(function()
-			Conn:Send("kicked")
-		end)
-	else
-		if now > Debounce then
-			game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
-			Debounce = now + 1
-		end
+	if now > Debounce then
+		game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+		Debounce = now + 1
 	end
 end
 
