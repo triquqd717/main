@@ -1,13 +1,21 @@
-local Conn = WebSocket.connect("ws://localhost:6070")
-local Debounce = 1
+local Conn = nil
+
+if typeof(WebSocket) == "table" and typeof(WebSocket.connect) == "function" then
+	Conn = WebSocket.connect("ws://localhost:6070")
+end
+
+local Debounce = 0
 
 local function Signal()
+	local now = os.time()
 	if Conn then
-		Conn:Send("kicked")
+		pcall(function()
+			Conn:Send("kicked")
+		end)
 	else
-		if Debounce < os.time() then
-			game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer) -- Rejoin
-			Debounce = os.time() + 1
+		if now > Debounce then
+			game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+			Debounce = now + 1
 		end
 	end
 end
