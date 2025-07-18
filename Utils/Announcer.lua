@@ -2,9 +2,9 @@ local HttpService = game:GetService("HttpService")
 local Frame = game:GetService("Players").LocalPlayer.PlayerGui.Top_Notification.Frame
 
 local WS = "ws://localhost:3054/"
+local Conn
 Conn = WebSocket.connect(WS)
 print(Conn)
-local Conn
 local Start
 
 local Exact = {
