@@ -212,6 +212,21 @@
       "Statue Crate"
     ]
   },
+
+  "EVENT_ITEMS": [
+    "Zen Seed Pack",
+    "Zen Egg",
+    "Hot Spring",
+    "Zen Sand",
+    "Zenflare",
+    "Zen Crate",
+    "Soft Sunshine",
+    "Koi",
+    "Zen Gnome Crate",
+    "Spiked Mango",
+    "Pet Shard Tranquil"
+  ],
+
   "SeedEmojis": {
     "Carrot": "<:Carrot_v2:1394763792700674108>",
     "Strawberry": "<:Strawberry_v2:1394763933847654470>",
@@ -281,20 +296,6 @@
     "Oasis Egg": "<:OasisEggV2:1390277859389477005>",
     "Hamster": "<:Hamster:1388578760206323792>"
   },
-
-  "EVENT_ITEMS": [
-    "Zen Seed Pack",
-    "Zen Egg",
-    "Hot Spring",
-    "Zen Sand",
-    "Zenflare",
-    "Zen Crate",
-    "Soft Sunshine",
-    "Koi",
-    "Zen Gnome Crate",
-    "Spiked Mango",
-    "Pet Shard Tranquil"
-  ],
 
   "EventEmojis": {
     "Zen Seed Pack": "<:ZenSeedPack_v2:1396153884409598043>",
@@ -473,13 +474,11 @@
     "Windy": "Natural",
     "SunGod": "Natural",
     "Volcano": "Admin",
-    "MeteorStrike": "Natural",
     "Heatwave": "Natural",
     "AlienInvasion": "Admin",
     "SpaceTravel": "Admin",
     "UnderTheSea": "Admin",
     "Thunderstorm": "Natural",
-    "SolarFlare": "Natural",
     "Drought": "Admin",
     "TropicalRain": "Natural",
     "ChickenRain": "Admin",
@@ -491,7 +490,7 @@
     "PoolParty": "Admin",
     "AirHead": "Admin",
     "TextCollect": "Admin",
-    "CrystalBeams": "Admin",
+    "CrystalBeams": "Natural",
     "JandelZombie": "Admin",
     "Snow": "Natural"
   },
