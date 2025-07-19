@@ -492,7 +492,8 @@
     "AirHead": "Admin",
     "TextCollect": "Admin",
     "CrystalBeams": "Admin",
-    "JandelZombie": "Admin"
+    "JandelZombie": "Admin",
+    "Snow": "Natural"
   },
 
   "RareStuff": [
