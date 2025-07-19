@@ -2,7 +2,7 @@ local HttpService = game:GetService("HttpService")
 local Frame = game:GetService("Players").LocalPlayer.PlayerGui.Top_Notification.Frame
 local Conn
 local WS = "ws://localhost:3054/"
-local Start	
+local Start
 
 local Exact = {
 	["No one submitted to the Harvest... No rewards"] = true,
@@ -11,7 +11,7 @@ local Exact = {
 	["You didnt submit to the Harvest... No rewards"] = true,
 	["The Traveling Merchant has arrived"] = true,
 	["The Traveling Merchant has left"] = true,
-	["Trade expired!"] = true
+	["Trade expired!"] = true,
 }
 
 local Wildcard = {
@@ -129,46 +129,45 @@ task.spawn(function() -- anti afk
 end)
 
 local Alias = {
-	["Obby"] = "🧗 Obby",
-	["Gale"] = "🌪️ Gale",
-	["SheckleRain"] = "💰 Sheckle Rain",
-	["MeteorShower"] = "☄️ Meteor Shower",
-	["Disco"] = "🪩 Disco",
-	["ChocolateRain"] = "🍫 Chocolate Rain",
-	["JandelStorm"] = "⚡ Jandel Storm",
-	["DJJhai"] = "🎧 DJ Jhai",
-	["Tornado"] = "🌪️ Tornado",
-	["JandelLazer"] = "🦸 Jandel Lazer",
-	["Blackhole"] = "👽 Black Hole",
-	["Rainbow"] = "🌈 Rainbow",
-	["JandelFloat"] = "🪁 Floating Jandel",
-	["Windy"] = "🍃 Windy",
-	["SunGod"] = "🌞 Sun God",
-	["Volcano"] = "🌋 Volcano",
-	["MeteorStrike"] = "☄️ Meteor Strike",
-	["Heatwave"] = "🔥 Heatwave",
-	["AlienInvasion"] = "👽 Alien Invasion",
-	["SpaceTravel"] = "🚀 Space Travel",
-	["UnderTheSea"] = "🌊 Under the Sea",
-	["Thunderstorm"] = "⚡ Thunderstorm",
-	["SolarFlare"] = "🌞 Solar Flare",
-	["Drought"] = "🌞 Drought",
-	["TropicalRain"] = "🍋‍🟩 Tropical Rain",
-	["ChickenRain"] = "🐔 Chicken Rain",
-	["AuroraBorealis"] = "🌌 Aurora Borealis",
-	["Sandstorm"] = "🌪 Sandstorm",
-	["ShootingStars"] = "🌠 Shooting Stars",
-	["DJSandstorm"] = "🎧 DJ Sandstorm",
-	["Rain"] = "🌧 Rain",
-	["PoolParty"] = "🏊 Pool Party",
-	["AirHead"] = "🪂 Air Head",
-	["TextCollect"] = "📝 Text Collect",
-	["CrystalBeams"] = "🔮 Crystal Beams",
-	["JandelZombie"] = "🧟 Zombie Attack",
+	["Obby"] = "Obby",
+	["Gale"] = "Gale",
+	["SheckleRain"] = "Sheckle Rain",
+	["MeteorShower"] = "Meteor Shower",
+	["Disco"] = "Disco",
+	["ChocolateRain"] = "Chocolate Rain",
+	["JandelStorm"] = "Jandel Storm",
+	["DJJhai"] = "DJ Jhai",
+	["Tornado"] = "Tornado",
+	["JandelLazer"] = "Jandel Lazer",
+	["Blackhole"] = "Black Hole",
+	["Rainbow"] = "Rainbow",
+	["JandelFloat"] = "Floating Jandel",
+	["Windy"] = "Windy",
+	["SunGod"] = "Sun God",
+	["Volcano"] = "Volcano",
+	["MeteorStrike"] = "Meteor Strike",
+	["Heatwave"] = "Heatwave",
+	["AlienInvasion"] = "Alien Invasion",
+	["SpaceTravel"] = "Space Travel",
+	["UnderTheSea"] = "Under the Sea",
+	["Thunderstorm"] = "Thunderstorm",
+	["SolarFlare"] = "Solar Flare",
+	["Drought"] = "Drought",
+	["TropicalRain"] = "Tropical Rain",
+	["ChickenRain"] = "Chicken Rain",
+	["AuroraBorealis"] = "Aurora Borealis",
+	["Sandstorm"] = "Sandstorm",
+	["ShootingStars"] = "Shooting Stars",
+	["DJSandstorm"] = "DJ Sandstorm",
+	["Rain"] = "Rain",
+	["PoolParty"] = "Pool Party",
+	["AirHead"] = "Air Head",
+	["TextCollect"] = "Text Collect",
+	["CrystalBeams"] = "Crystal Beams",
+	["JandelZombie"] = "Zombie Attack",
 }
 
 game.ReplicatedStorage.GameEvents.WeatherEventStarted.OnClientEvent:Connect(function(EventType, Duration)
-	local EndTime = math.floor(os.time() + Duration)
 	local AliasEvent = Alias[EventType] or EventType
 	if not Alias[EventType] then
 		log("No alias found for:", EventType)
@@ -176,5 +175,5 @@ game.ReplicatedStorage.GameEvents.WeatherEventStarted.OnClientEvent:Connect(func
 		log("Weather event triggered:", AliasEvent)
 	end
 
-	send(`_{AliasEvent} weather has started!_\nEnds: <t:{EndTime}:R>`, true)
+	send(`*{AliasEvent} weather has started.*`, true)
 end)
