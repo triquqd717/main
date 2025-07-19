@@ -296,7 +296,7 @@
     "Pet Shard Tranquil"
   ],
 
-  "EVENT_EMOJIS": {
+  "EventEmojis": {
     "Zen Seed Pack": "<:ZenSeedPack_v2:1396153884409598043>",
     "Zen Egg": "<:ZenEgg_v2:1396153854667788500>",
     "Hot Spring": "<:HotSpring_v2:1396153766428020866>",
@@ -509,8 +509,7 @@
     "Pepper",
     "Cacao",
     "Beanstalk",
-    "Giant Pinecone",
-    "Pet Shard Tranquil"
+    "Giant Pinecone"
   ],
   "TargetReactChannel": "1365497720118186025",
   "COLOR_PALETTE": {
