@@ -75,7 +75,7 @@
     "Bee Crate",
     "Honey Crafters Crate"
   ],
-  "SUMMER_SEED_MERCHANT_ITEMS": [
+  "SUMMER_MERCHANT_ITEMS": [
     "Prickly Pear",
     "Cauliflower",
     "Kiwi",
@@ -88,6 +88,12 @@
     "Pineapple",
     "Rafflesia",
     "Banana"
+  ],
+
+  "SPRAY_MERCHANT_ITEMS": [
+    "Mutation Spray Wet",
+    "Mutation Spray Windstruck",
+    "Mutation Spray Verdant"
   ],
 
   "SUMMER_ITEMS": [
@@ -423,7 +429,10 @@
     "Feijoa": "<:Feijoa:1385995910571360467>",
     "Pineapple": "<:Pineapple:1385996072505311252>",
     "Rafflesia": "<:Raff:1391439722034892971>",
-    "Banana": "<:Banana:1385995999230693486>"
+    "Banana": "<:Banana:1385995999230693486>",
+    "Mutation Spray Wet": "<:MutationSprayWet:1396491011915776081>",
+    "Mutation Spray Windstruck": "<:MutationSprayWindstruck:1396491049756659804>",
+    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396491089699012648>"
   },
   "WeatherEmojis": {
     "Rain": "🌧️",
