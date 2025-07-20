@@ -327,7 +327,11 @@
     "Pet Shard Tranquil": "<:PetShardTanquil_v2:1396135259015352340>",
     "Zen Egg": "<:ZenEgg_v2:1396135278992949461>",
     "Koi": "<:Koi_v2:1396135230674571304>",
-    "Spiked Mango": "<:SpikedMango_v2:1396135575538634918>"
+    "Spiked Mango": "<:SpikedMango_v2:1396135575538634918>",
+    "Tranquil Radar": "<:TranquilRadar_v2:1396513644812173415>",
+    "Mutation Spray Windstruck": "<:MutationSprayWet:1396514020365832263>",
+    "Mutation Spray Wet": "<:MutationSprayWet:1396514020365832263>",
+    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396513978259210350>"
   },
   "WeatherEmojis": {
     "Rain": "🌧️",
