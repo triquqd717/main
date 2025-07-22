@@ -503,7 +503,8 @@
     "TextCollect": "Admin",
     "CrystalBeams": "Natural",
     "JandelZombie": "Admin",
-    "Snow": "Natural"
+    "Snow": "Natural",
+    "Night": "Natural"
   },
 
   "RareStuff": [
