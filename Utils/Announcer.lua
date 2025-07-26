@@ -104,7 +104,7 @@ Frame.ChildAdded:Connect(function(notif)
 			local raw = Label.Text
 
 			local allowFont = raw:find("was restocked") 
-				or raw:lower():find("<font color=\"rgb%(%s*255%s*,%s*50%s*,%s*50%s*%)\">jandel")
+				or raw:lower():find("jandel</font>")
 
 			if not raw:find("<font") or allowFont then
 				local clean = notag(raw)
