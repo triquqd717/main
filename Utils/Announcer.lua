@@ -101,21 +101,29 @@ Frame.ChildAdded:Connect(function(notif)
 		log("New notification:", notif.Name)
 		local Label = notif:FindFirstChild("TextLabel")
 		if Label then
-			if not string.find(Label.Text, "<font") or string.find(Label.Text, "was restocked") then
-				local clean = notag(Label.Text)
+			local raw = Label.Text
+
+			local allowFont = raw:find("was restocked") 
+				or raw:lower():find("<font color=\"rgb%(%s*255%s*,%s*50%s*,%s*50%s*%)\">jandel")
+
+			if not raw:find("<font") or allowFont then
+				local clean = notag(raw)
 				if not check(clean) then
 					local Final = clean
 					Final = Final == "Not your garden!" and "test message" or Final
 					Final = Final:gsub("@everyone", "@eh?veryone"):gsub("@here", "@eh?ere")
-					if string.find(Label.Text, "was restocked") then
+					if raw:find("was restocked") then
 						Final = "```" .. clean .. "```"
 					end
 					send(Final)
 				end
+			else
+				log("Skipped due to font tag and not allowed exception:", raw)
 			end
 		end
 	end
 end)
+
 
 task.spawn(function() -- anti afk
 	local Player = game:GetService("Players").LocalPlayer
