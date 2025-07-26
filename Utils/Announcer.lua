@@ -96,6 +96,8 @@ function send(text, skip)
 	end
 end
 
+local lastTExt = ""
+
 Frame.ChildAdded:Connect(function(notif)
 	if notif.Name == "Notification_UI" or notif.Name == "Notification_UI_Mobile" then
 		log("New notification:", notif.Name)
@@ -104,7 +106,7 @@ Frame.ChildAdded:Connect(function(notif)
 			local raw = Label.Text
 
 			local allowFont = raw:find("was restocked") 
-				or raw:lower():find("jandel</font>")
+				or raw:lower():find("jandel</font>") or raw:lower():find("elce</font>") or raw:lower():find("icial</font>")
 
 			if not raw:find("<font") or allowFont then
 				local clean = notag(raw)
@@ -115,7 +117,11 @@ Frame.ChildAdded:Connect(function(notif)
 					if raw:find("was restocked") then
 						Final = "```" .. clean .. "```"
 					end
+                    if lastTExt == Final then
+                        return
+                    end
 					send(Final)
+                    lastTExt = Final
 				end
 			else
 				log("Skipped due to font tag and not allowed exception:", raw)
