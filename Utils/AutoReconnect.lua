@@ -1,14 +1,10 @@
 local Debounce = 0
-local Conn
+local Conn = game.PlaceId == 109983668079237 and WebSocket.connect("ws://localhost:6070/")
 
 local function Signal()
 	local now = os.time()
 	if now > Debounce then
 		if game.PlaceId == 109983668079237 then
-			if not Conn then
-				Conn = WebSocket.connect("ws://localhost:6070/")
-			end
-
 			local success = pcall(function()
 				Conn:Send("kicked")
 			end)
