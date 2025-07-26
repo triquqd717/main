@@ -522,7 +522,8 @@
     "Pepper",
     "Cacao",
     "Beanstalk",
-    "Giant Pinecone"
+    "Giant Pinecone",
+    "Elder Strawberry"
   ],
   "TargetReactChannel": "1365497720118186025",
   "COLOR_PALETTE": {
@@ -649,7 +650,8 @@
     "Pepper": "<:Pepper:1391709556005933160>",
     "Cacao": "<:Cacao:1391709553875226707>",
     "Beanstalk": "<:Beanstalk:1391709551987785778>",
-    "Giant Pinecone": "<:GiantPinecone:1393834257801023569>"
+    "Giant Pinecone": "<:GiantPinecone:1393834257801023569>",
+    "Elder Strawberry": "<:ElderStrawberry:1398679852193808394>"
   },
 
   "Advert": false
