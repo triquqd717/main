@@ -1,5 +1,6 @@
 {
   "SEED_ITEMS": [
+    "Elder Strawberry",
     "Giant Pinecone",
     "Burning Bud",
     "Sugar Apple",
@@ -399,7 +400,8 @@
     "Tranquil Radar": "<:TranquilRadar_v2:1396513644812173415>",
     "Mutation Spray Windstruck": "<:MutationSprayWet:1396514020365832263>",
     "Mutation Spray Wet": "<:MutationSprayWet:1396514020365832263>",
-    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396513978259210350>"
+    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396513978259210350>",
+    "Elder Strawberry": "<:ElderStrawberry:1398680338221236224>"
   },
   "WeatherEmojis": {
     "Rain": "🌧️",
@@ -534,6 +536,7 @@
     "Beanstalk",
     "Ember Lily",
     "Burning Bud",
-    "Giant Pinecone"
+    "Giant Pinecone",
+    "Elder Strawberry"
   ]
 }
