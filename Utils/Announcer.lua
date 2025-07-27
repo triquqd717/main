@@ -12,6 +12,7 @@ local Exact = {
 	["The Traveling Merchant has arrived"] = true,
 	["The Traveling Merchant has left"] = true,
 	["Trade expired!"] = true,
+	["You can only place your pets in your garden!"] = true,
 }
 
 local Wildcard = {
@@ -117,6 +118,7 @@ Frame.ChildAdded:Connect(function(notif)
 					if raw:find("was restocked") then
 						Final = "```" .. clean .. "```"
 					end
+					clean = clean:gsub("", "")
                     if lastTExt == Final then
                         return
                     end
