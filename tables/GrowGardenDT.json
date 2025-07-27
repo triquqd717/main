@@ -226,13 +226,17 @@
     "Hot Spring",
     "Zen Sand",
     "Tranquil Radar",
+    "Corrupt Radar",
     "Zenflare",
     "Zen Crate",
+    "Sakura Bush",
     "Soft Sunshine",
     "Koi",
     "Zen Gnome Crate",
     "Spiked Mango",
-    "Pet Shard Tranquil"
+    "Pet Shard Tranquil",
+    "Pet Shard Corrupt",
+    "Raiju"
   ],
 
   "SeedEmojis": {
@@ -318,7 +322,11 @@
     "Koi": "<:Koi_v2:1396153769439399976>",
     "Zen Gnome Crate": "<:ZenGnomeCrate_v2:1396153866290069524>",
     "Spiked Mango": "<:SpikedMango_v2:1396154113258946684>",
-    "Pet Shard Tranquil": "<:PetShardTanquil_v2:1396153837336920155>"
+    "Pet Shard Tranquil": "<:PetShardTanquil_v2:1396153837336920155>",
+    "Corrupt Radar": "<:PetShardCorrupt_:1399062457107873792>",
+    "Sakura Bush": "<:SakuraBush_:1399062402703687820>",
+    "Pet Shard Corrupt": "<:PetShardCorrupt_:1399062457107873792>",
+    "Raiju": "<:Raiju_:1399062377793716284>"
   },
 
   "CosmeticEmojis": {
