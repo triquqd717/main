@@ -31,3 +31,14 @@ old = hookfunction(game.Players.LocalPlayer.Kick, function(...)
 	Signal()
 	return nil
 end)
+
+if Conn then
+	task.spawn(function()
+		while true do
+			pcall(function()
+				Conn:Send("ping")
+				task.wait(5)
+			end)
+		end
+	end)
+end
