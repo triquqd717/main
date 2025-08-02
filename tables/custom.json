@@ -43,6 +43,7 @@
     "Basic Sprinkler",
     "Recall Wrench",
     "Trowel",
+    "Trading Ticket",
     "Watering Can"
   ],
   "EGG_ITEMS": [
@@ -403,7 +404,8 @@
     "Mutation Spray Wet": "<:MutationSprayWet:1396514020365832263>",
     "Mutation Spray Verdant": "<:MutationSprayVerdant:1396513978259210350>",
     "Elder Strawberry": "<:ElderStrawberry:1398680338221236224>",
-    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401217281886781591>"
+    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401217281886781591>",
+    "Trading Ticket": "<:TradingTicket_:1401219880111571167>"
   },
   "WeatherEmojis": {
     "Rain": "🌧️",
