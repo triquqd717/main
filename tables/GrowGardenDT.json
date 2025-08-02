@@ -29,6 +29,7 @@
   "GEAR_ITEMS": [
     "Watering Can",
     "Trowel",
+    "Trading Ticket",
     "Recall Wrench",
     "Basic Sprinkler",
     "Advanced Sprinkler",
@@ -42,6 +43,7 @@
     "Favorite Tool",
     "Harvest Tool",
     "Friendship Pot",
+    "Grandmaster Sprinkler",
     "Levelup Lollipop"
   ],
   "EGG_ITEMS": [
@@ -220,24 +222,7 @@
     ]
   },
 
-  "EVENT_ITEMS": [
-    "Zen Seed Pack",
-    "Zen Egg",
-    "Hot Spring",
-    "Zen Sand",
-    "Tranquil Radar",
-    "Corrupt Radar",
-    "Zenflare",
-    "Zen Crate",
-    "Sakura Bush",
-    "Soft Sunshine",
-    "Koi",
-    "Zen Gnome Crate",
-    "Spiked Mango",
-    "Pet Shard Tranquil",
-    "Pet Shard Corrupt",
-    "Raiju"
-  ],
+  "EVENT_ITEMS": [],
 
   "SeedEmojis": {
     "Carrot": "<:Carrot_v2:1394763792700674108>",
@@ -269,6 +254,7 @@
   "GearEmojis": {
     "Watering Can": "<:WateringCan_v2:1394763153149137058>",
     "Trowel": "<:Trowel_v2:1394763143271678042>",
+    "Trading Ticket": "<:TradingTicket_:1401176626666016791>",
     "Recall Wrench": "<:RecallWrench_v2:1394763102930862281>",
     "Basic Sprinkler": "<:BasicSprinkler_v2:1394762870717415444>",
     "Advanced Sprinkler": "<:AdvancedSprinkler_v2:1394762858738356255>",
@@ -282,6 +268,7 @@
     "Favorite Tool": "<:FavoriteTool_v2:1394762891902587034>",
     "Harvest Tool": "<:HarvestTool_v2:1394762935586390126>",
     "Friendship Pot": "<:FriendshipPot_v2:1394762920130379787>",
+    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176612489269328>",
     "Levelup Lollipop": "<:MagnifyingGlass_v2:1394762955861786635>"
   },
   "EggEmojis": {
@@ -660,7 +647,8 @@
     "Cacao": "<:Cacao:1391709553875226707>",
     "Beanstalk": "<:Beanstalk:1391709551987785778>",
     "Giant Pinecone": "<:GiantPinecone:1393834257801023569>",
-    "Elder Strawberry": "<:ElderStrawberry:1398679852193808394>"
+    "Elder Strawberry": "<:ElderStrawberry:1398679852193808394>",
+    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176940374921267>"
   },
 
   "Advert": false
