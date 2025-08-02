@@ -118,7 +118,7 @@ Frame.ChildAdded:Connect(function(notif)
 					if raw:find("was restocked") then
 						Final = "```" .. clean .. "```"
 					end
-					clean = clean:gsub("", "")
+					Final = Final:gsub("", "")
                     if lastTExt == Final then
                         return
                     end
