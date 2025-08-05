@@ -451,7 +451,9 @@
     "Obby": "🚀",
     "JandelZombie": "🧟",
     "CrystalBeams": "🪨",
-    "AcidRain": "🧪"
+    "AcidRain": "🧪",
+    "RadioactiveCarrot": "🥕",
+    "PoolParty": "🦆",
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
