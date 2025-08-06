@@ -463,7 +463,8 @@
     "Sandstorm": "🌪️",
     "Obby": "🚀",
     "JandelZombie": "🧟",
-    "CrystalBeams": "🪨"
+    "CrystalBeams": "🪨",
+    "AcidRain": "🧪"
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
@@ -501,7 +502,8 @@
     "CrystalBeams": "Natural",
     "JandelZombie": "Admin",
     "Snow": "Natural",
-    "Night": "Natural"
+    "Night": "Natural",
+    "AcidRain": "Natural",
   },
 
   "RareStuff": [
@@ -631,6 +633,10 @@
     "Night": {
       "Description": "Higher **Moonlit** Fruit Chance!",
       "Color": "#7645FF"
+    },
+    "AcidRain": {
+      "Description": "Higher **Acidic** Fruit Chance!",
+      "Color": "#00FF00"
     }
   },
   "RareStuffEmoji": {
