@@ -19,7 +19,7 @@ local Wildcard = {
 	["gift has been sent to"] = true,
 	["liked your farm"] = true,
 	["stole from"] = true,
-	["Kitsune applied"] = true,
+	["kitsune applied"] = true,
 }
 
 function log(...)
