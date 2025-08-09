@@ -107,8 +107,11 @@ Frame.ChildAdded:Connect(function(notif)
 		if Label then
 			local raw = Label.Text
 
-			local allowFont = raw:find("was restocked") 
-				or raw:lower():find("jandel</font>") or raw:lower():find("elce</font>") or raw:lower():find("icial</font>" or raw:lower():find("lam</font>"))
+			local allowFont = raw:find("was restocked")
+				or raw:lower():find("jandel</font>")
+				or raw:lower():find("elce</font>")
+				or raw:lower():find("icial</font>")
+				or raw:lower():find("am</font>")
 
 			if not raw:find("<font") or allowFont then
 				local clean = notag(raw)
@@ -120,11 +123,11 @@ Frame.ChildAdded:Connect(function(notif)
 						Final = "```" .. clean .. "```"
 					end
 					Final = Final:gsub("", "")
-                    if lastTExt == Final then
-                        return
-                    end
+					if lastTExt == Final then
+						return
+					end
 					send(Final)
-                    lastTExt = Final
+					lastTExt = Final
 				end
 			else
 				log("Skipped due to font tag and not allowed exception:", raw)
@@ -132,7 +135,6 @@ Frame.ChildAdded:Connect(function(notif)
 		end
 	end
 end)
-
 
 task.spawn(function() -- anti afk
 	local Player = game:GetService("Players").LocalPlayer
