@@ -454,7 +454,12 @@
     "CrystalBeams": "🪨",
     "AcidRain": "🧪",
     "RadioactiveCarrot": "🥕",
-    "PoolParty": "🦆"
+    "PoolParty": "🦆",
+    "FlamingoLazer": "🦩",
+    "JunkbotRaid": "🤖",
+    "FlamingoFloat": "🦩",
+    "Boil": "🔥",
+    "Oil": "🛢️"
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
