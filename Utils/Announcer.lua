@@ -108,7 +108,7 @@ Frame.ChildAdded:Connect(function(notif)
 			local raw = Label.Text
 
 			local allowFont = raw:find("was restocked") 
-				or raw:lower():find("jandel</font>") or raw:lower():find("elce</font>") or raw:lower():find("icial</font>")
+				or raw:lower():find("jandel</font>") or raw:lower():find("elce</font>") or raw:lower():find("icial</font>" or raw:lower():find("lam</font>"))
 
 			if not raw:find("<font") or allowFont then
 				local clean = notag(raw)
@@ -119,7 +119,7 @@ Frame.ChildAdded:Connect(function(notif)
 					if raw:find("was restocked") then
 						Final = "```" .. clean .. "```"
 					end
-					Final = Final:gsub("jandel: ", "")
+					Final = Final:gsub(" ", "")
                     if lastTExt == Final then
                         return
                     end
