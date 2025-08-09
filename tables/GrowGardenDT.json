@@ -49,12 +49,8 @@
   "EGG_ITEMS": [
     "Common Egg",
     "Common Summer Egg",
-    "Uncommon Egg",
-    "Rare Egg",
     "Rare Summer Egg",
-    "Legendary Egg",
     "Mythical Egg",
-    "Divine Egg",
     "Bug Egg",
     "Paradise Egg",
     "Bee Egg"
@@ -431,6 +427,7 @@
     "Mutation Spray Windstruck": "<:MutationSprayWindstruck:1396491049756659804>",
     "Mutation Spray Verdant": "<:MutationSprayVerdant:1396491089699012648>"
   },
+
   "WeatherEmojis": {
     "Rain": "🌧️",
     "Snow": "❄️",
@@ -464,7 +461,12 @@
     "Obby": "🚀",
     "JandelZombie": "🧟",
     "CrystalBeams": "🪨",
-    "AcidRain": "🧪"
+    "AcidRain": "🧪",
+    "FlamingoLazer": "🦩",
+    "JunkbotRaid": "🤖",
+    "FlamingoFloat": "🦩",
+    "Boil": "🔥",
+    "Oil": "🛢️"
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
