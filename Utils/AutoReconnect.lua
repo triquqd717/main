@@ -1,17 +1,13 @@
 local Debounce = 0
-local Conn = game.PlaceId == 109983668079237 and WebSocket.connect("ws://localhost:6070/")
+local Conn = WebSocket.connect("ws://localhost:6070/")
 
 local function Signal()
 	local now = os.time()
 	if now > Debounce then
-		if game.PlaceId == 109983668079237 then
-			local success = pcall(function()
-				Conn:Send("kicked")
-			end)
-			if not success then
-				game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
-			end
-		elseif game.PlaceId == 126884695634066 then
+		local success = pcall(function()
+			Conn:Send("kicked")
+		end)
+		if not success then
 			game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 		end
 		Debounce = now + 1
