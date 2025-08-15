@@ -621,5 +621,26 @@
       "Color": "#00FF00"
     }
   },
+
+  "RareStuff": [
+    "Master Sprinkler",
+    "Mythical Egg",
+    "Paradise Egg",
+    "Bug Egg",
+    "Bee Egg",
+    "Burning Bud",
+    "Sugar Apple",
+    "Ember Lily",
+    "Grape",
+    "Mushroom",
+    "Pepper",
+    "Cacao",
+    "Beanstalk",
+    "Giant Pinecone",
+    "Elder Strawberry",
+    "Grandmaster Sprinkler"
+  ],
+
+
   "Advert": false
 }
