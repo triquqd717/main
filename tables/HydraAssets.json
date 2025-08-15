@@ -268,18 +268,12 @@
     "Levelup Lollipop": "<:LevelupLollipop_:1405840714008498228>"
   },
   "EggEmojis": {
-    "Bug Egg": "<:BugEggV2:1390277774681309304>",
-    "Mythical Egg": "<:MythicalEggV2:1390277805983404152>",
-    "Common Egg": "<:CommonEggV2:1390277832185483286>",
-    "Paradise Egg": "<:ParadiseEggV2:1390277874640228393>",
-    "Common Summer Egg": "<:CommonSummerV2:1390277893925638164>",
-    "Rare Summer Egg": "<:RareSummerV2:1390277915597475962>",
-    "Uncommon Egg": "<:UncommonEggV2:1390277947562393713>"
-  },
-
-  "ForeverPackEmojis": {
-    "50¢": "",
-    "100¢": ""
+    "Bug Egg": "<:BugEggV2min_:1405924172831654009>",
+    "Mythical Egg": "<:MythicalEggV2_:1405924133937746010>",
+    "Common Egg": "<:CommonEggV2_:1405913549590761563>",
+    "Paradise Egg": "<:ParadiseEggV2_:1405924091109576754>",
+    "Common Summer Egg": "<:CommonSummerV2_:1405924017193353236>",
+    "Rare Summer Egg": "<:RareSummerV2_:1405924220478951435>",
   },
 
   "SUMMER_EMOJIS": {
@@ -403,29 +397,29 @@
     "Summer Fun Crate": "",
     "Statue Crate": "",
     "Iconic Gnome Crate": "",
-    "Flower Seed Pack": "<:FlowerSeedPack:1378434569056944129>",
-    "Honey Sprinkler": "<:HoneySprinkler:1378438109842243625>",
-    "Bee Egg": "<:BeeEggV2:1390277906105892986>",
-    "Bee Crate": "<:BeeCrate:1381225022252781710>",
-    "Honey Crafters Crate": "<:HoneyCraftersCrateRender:1391436007211139192>",
-    "Night Staff": "<:NightStaff:1378022849113227415>",
-    "Star Caller": "<:StarCaller:1378022956189351946>",
-    "Mutation Spray Cloudtouched": "<:MutationSprayCloudtouched:1391436836231975032>",
-    "Prickly Pear": "<:PricklyPear:1385996106739220642>",
-    "Cauliflower": "<:Cauliflower:1385996130478985459>",
-    "Kiwi": "<:Kiwi:1385995936001425408>",
-    "Avocado": "<:Avocado:1385995969228832850>",
-    "Bell Pepper": "<:BellPepper:1385995823384494240>",
-    "Loquat": "<:Loquat:1385996166390616156>",
-    "Pitcher Plant": "<:PitcherPlant:1391439188636729546>",
-    "Green Apple": "<:GreenApple:1385996026804179045>",
-    "Feijoa": "<:Feijoa:1385995910571360467>",
-    "Pineapple": "<:Pineapple:1385996072505311252>",
-    "Rafflesia": "<:Raff:1391439722034892971>",
-    "Banana": "<:Banana:1385995999230693486>",
-    "Mutation Spray Wet": "<:MutationSprayWet:1396491011915776081>",
-    "Mutation Spray Windstruck": "<:MutationSprayWindstruck:1396491049756659804>",
-    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396491089699012648>"
+    "Flower Seed Pack": "",
+    "Honey Sprinkler": "",
+    "Bee Egg": "",
+    "Bee Crate": "",
+    "Honey Crafters Crate": "",
+    "Night Staff": "",
+    "Star Caller": "",
+    "Mutation Spray Cloudtouched": "",
+    "Prickly Pear": "",
+    "Cauliflower": "",
+    "Kiwi": "",
+    "Avocado": "",
+    "Bell Pepper": "",
+    "Loquat": "",
+    "Pitcher Plant": "",
+    "Green Apple": "",
+    "Feijoa": "",
+    "Pineapple": "",
+    "Rafflesia": "",
+    "Banana": "",
+    "Mutation Spray Wet": "",
+    "Mutation Spray Windstruck": "",
+    "Mutation Spray Verdant": ""
   },
 
   "WeatherEmojis": {
@@ -640,7 +634,6 @@
     "Elder Strawberry",
     "Grandmaster Sprinkler"
   ],
-
 
   "Advert": false
 }
