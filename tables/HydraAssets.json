@@ -463,7 +463,13 @@
     "JunkbotRaid": "🤖",
     "FlamingoFloat": "🦩",
     "Boil": "🔥",
-    "Oil": "🛢️"
+    "Oil": "🛢️",
+    "DJSandstorm": "🌪️",
+    "RadioactiveCarrot": "🥕",
+    "SolarEclipse": "🌞",
+    "Stoplight": "🚦",
+    "JandelKatana": "🔪",
+    "Armageddon": "💣"
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
@@ -635,7 +641,8 @@
     "Beanstalk",
     "Giant Pinecone",
     "Elder Strawberry",
-    "Grandmaster Sprinkler"
+    "Grandmaster Sprinkler",
+    "Romanesco"
   ],
 
   "Advert": false
