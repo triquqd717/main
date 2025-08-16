@@ -24,7 +24,8 @@
     "Sugar Apple",
     "Burning Bud",
     "Giant Pinecone",
-    "Elder Strawberry"
+    "Elder Strawberry",
+    "Romanesco"
   ],
   "GEAR_ITEMS": [
     "Watering Can",
@@ -222,7 +223,16 @@
     ]
   },
 
-  "EVENT_ITEMS": [],
+  "EVENT_ITEMS": [
+    "Sprout Seed Pack",
+    "Sprout Egg",
+    "Mandrake",
+    "Sprout Crate",
+    "Silver Fertilizer",
+    "Canary Melon",
+    "Amberheart",
+    "Spriggan"
+  ],
 
   "SeedEmojis": {
     "Carrot": "<:Carrot_v2:1394987367928172616>",
@@ -249,7 +259,8 @@
     "Sugar Apple": "<:SugarApple_v2:1394987252941066270>",
     "Burning Bud": "<:BurningFruit_v2:1394987472089251941>",
     "Giant Pinecone": "<:GiantPinecone_v2:1394987377419620392>",
-    "Elder Strawberry": "<:ElderStrawberry:1398680338221236224>"
+    "Elder Strawberry": "<:ElderStrawberry:1398680338221236224>",
+    "Romanesco": "<:Romanesco:1406402444367233154>"
   },
   "GearEmojis": {
     "Watering Can": "<:WateringCan_v2:1394993215626674207>",
@@ -285,24 +296,7 @@
     "Uncommon Egg": "<:UncommonEgg:1383881529591337051>",
     "Night Egg": ""
   },
-  "EventEmojis": {
-    "Zen Seed Pack": "<:ZenSeedPack_v2:1396135318390046830>",
-    "Zen Egg": "<:ZenEgg_v2:1396135278992949461>",
-    "Hot Spring": "<:HotSpring_v2:1396135177503375381>",
-    "Zen Sand": "<:ZenSand_v2:1396135309812699216>",
-    "Tranquil Radar": "<:TranquilRadar_v2:1396513644812173415>",
-    "Zenflare": "<:Zenflare_v2:1396135289868652606>",
-    "Zen Crate": "<:ZenCrate_v2:1396135111715721391>",
-    "Soft Sunshine": "<:SoftSunshine_v2:1396135335334772937>",
-    "Koi": "<:Koi_v2:1396135230674571304>",
-    "Zen Gnome Crate": "<:ZenGnomeCrate_v2:1396135297967849552>",
-    "Spiked Mango": "<:SpikedMango_v2:1396135575538634918>",
-    "Pet Shard Tranquil": "<:PetShardTanquil_v2:1396135259015352340>",
-    "Corrupt Radar": "",
-    "Sakura Bush": "",
-    "Pet Shard Corrupt": "",
-    "Raiju": ""
-  },
+  "EventEmojis": {},
   "CosmeticEmojis": {
     "Brick Stack": "<:BrickStack:1383879565021024396>",
     "Compost Bin": "<:CompostBin:1383879581156769954>",
@@ -517,7 +511,8 @@
     "Beanstalk",
     "Giant Pinecone",
     "Elder Strawberry",
-    "Grandmaster Sprinkler"
+    "Grandmaster Sprinkler",
+    "Romanesco"
   ],
   "TargetReactChannel": "1365497720118186025",
   "COLOR_PALETTE": {
