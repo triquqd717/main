@@ -24,7 +24,8 @@
     "Sugar Apple",
     "Burning Bud",
     "Giant Pinecone",
-    "Elder Strawberry"
+    "Elder Strawberry",
+    "Romanesco"
   ],
   "GEAR_ITEMS": [
     "Harvest Tool",
@@ -218,7 +219,16 @@
     ]
   },
 
-  "EVENT_ITEMS": [],
+  "EVENT_ITEMS": [
+    "Sprout Seed Pack",
+    "Sprout Egg",
+    "Mandrake",
+    "Sprout Crate",
+    "Silver Fertilizer",
+    "Canary Melon",
+    "Amberheart",
+    "Spriggan"
+  ],
 
   "SeedEmojis": {
     "Carrot": "<:Carrot_v2:1394763792700674108>",
@@ -294,22 +304,14 @@
   },
 
   "EventEmojis": {
-    "Zen Seed Pack": "<:ZenSeedPack_v2:1396153884409598043>",
-    "Zen Egg": "<:ZenEgg_v2:1396153854667788500>",
-    "Hot Spring": "<:HotSpring_v2:1396153766428020866>",
-    "Zen Sand": "<:ZenSand_v2:1396153892558868591>",
-    "Tranquil Radar": "<:TranquilRadar_v2:1396471060815282317>",
-    "Zenflare": "<:Zenflare_v2:1396153876050219048>",
-    "Zen Crate": "<:ZenCrate_v2:1396153857066668093>",
-    "Soft Sunshine": "<:SoftSunshine_v2:1396153821906075708>",
-    "Koi": "<:Koi_v2:1396153769439399976>",
-    "Zen Gnome Crate": "<:ZenGnomeCrate_v2:1396153866290069524>",
-    "Spiked Mango": "<:SpikedMango_v2:1396154113258946684>",
-    "Pet Shard Tranquil": "<:PetShardTanquil_v2:1396153837336920155>",
-    "Corrupt Radar": "<:CorruptRadar_:1399062427126992906>",
-    "Sakura Bush": "<:SakuraBush_:1399062402703687820>",
-    "Pet Shard Corrupt": "<:PetShardCorrupt_:1399062457107873792>",
-    "Raiju": "<:Raiju_:1399062377793716284>"
+    "Sprout Seed Pack": "<:SproutSeedPack:1406372936582955060>",
+    "Sprout Egg": "<:SproutEgg:1406372948130005103>",
+    "Mandrake": "<:Mandrake:1406372888747180103>",
+    "Sprout Crate": "<:SproutCrate:1406372973451153448>",
+    "Silver Fertilizer": "<:SilverFertilizer:1406372924213952676>",
+    "Canary Melon": "<:CanaryMelon:1406372903309672448>",
+    "Amberheart": "<:Amberheart:1406372915225825310>",
+    "Spriggan": "<:Spriggan:1406372959047913604>"
   },
 
   "CosmeticEmojis": {
@@ -524,7 +526,8 @@
     "Beanstalk",
     "Giant Pinecone",
     "Elder Strawberry",
-    "Grandmaster Sprinkler"
+    "Grandmaster Sprinkler",
+    "Romanesco"
   ],
   "TargetReactChannel": "1365497720118186025",
   "COLOR_PALETTE": {
@@ -657,7 +660,8 @@
     "Beanstalk": "<:Beanstalk:1391709551987785778>",
     "Giant Pinecone": "<:GiantPinecone:1393834257801023569>",
     "Elder Strawberry": "<:ElderStrawberry:1398679852193808394>",
-    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176940374921267>"
+    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176940374921267>",
+    "Romanesco": "<:Romanesco:1406384242560340159>"
   },
 
   "Advert": false
