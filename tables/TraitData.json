@@ -472,5 +472,27 @@
     "Fruit",
     "Tropical",
     "Prickly"
-  ]
+  ],
+  "TraitEmojis": {
+    "Vegetable": "🥕",
+    "Woody": "🌳",
+    "Zen": "🧘",
+    "Berry": "🍓",
+    "Prickly": "🌵",
+    "Flower": "🌸",
+    "Toxic": "☠️",
+    "Stalky": "🌿",
+    "Summer": "☀️",
+    "Root": "🥔",
+    "Candy": "🍬",
+    "Prehistoric": "🦴",
+    "Fungus": "🍄",
+    "Spicy": "🌶️",
+    "Night": "🌙",
+    "Sour": "🍋",
+    "Sweet": "🍰",
+    "Fruit": "🍎",
+    "Tropical": "🌴",
+    "Leafy": "🍃"
+  }
 }
