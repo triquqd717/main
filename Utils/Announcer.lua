@@ -13,6 +13,7 @@ local Exact = {
 	["The Traveling Merchant has left"] = true,
 	["Trade expired!"] = true,
 	["You can only place your pets in your garden!"] = true,
+	["The Beanstalk is growing!!"] = true,
 }
 
 local Wildcard = {
@@ -20,6 +21,7 @@ local Wildcard = {
 	["liked your farm"] = true,
 	["stole from"] = true,
 	["kitsune applied"] = true,
+	["gets a bonus reward for"] = true,
 }
 
 function log(...)
