@@ -1,669 +1,676 @@
 {
-  "SEED_ITEMS": [
-    "Carrot",
-    "Strawberry",
-    "Blueberry",
-    "Tomato",
-    "Orange Tulip",
-    "Corn",
-    "Daffodil",
-    "Watermelon",
-    "Pumpkin",
-    "Apple",
-    "Bamboo",
-    "Coconut",
-    "Cactus",
-    "Dragon Fruit",
-    "Mango",
-    "Grape",
-    "Mushroom",
-    "Pepper",
-    "Cacao",
-    "Beanstalk",
-    "Ember Lily",
-    "Sugar Apple",
-    "Burning Bud",
-    "Giant Pinecone",
-    "Elder Strawberry",
-    "Romanesco"
-  ],
-  "GEAR_ITEMS": [
-    "Harvest Tool",
-    "Watering Can",
-    "Trowel",
-    "Trading Ticket",
-    "Recall Wrench",
-    "Tanning Mirror",
-    "Cleaning Spray",
-    "Favorite Tool",
-    "Friendship Pot",
-    "Medium Toy",
-    "Medium Treat",
-    "Basic Sprinkler",
-    "Magnifying Glass",
-    "Levelup Lollipop",
-    "Advanced Sprinkler",
-    "Godly Sprinkler",
-    "Master Sprinkler",
-    "Grandmaster Sprinkler"
-  ],
-  "EGG_ITEMS": [
-    "Common Egg",
-    "Common Summer Egg",
-    "Rare Summer Egg",
-    "Mythical Egg",
-    "Bug Egg",
-    "Paradise Egg",
-    "Bee Egg"
-  ],
-
-  "GNOME_MERCHANT_ITEMS": [
-    "Common Gnome Crate",
-    "Farmers Gnome Crate",
-    "Classic Gnome Crate",
-    "Iconic Gnome Crate"
-  ],
-  "SKY_MERCHANT_ITEMS": [
-    "Night Staff",
-    "Star Caller",
-    "Mutation Spray Cloudtouched"
-  ],
-  "HONEY_MERCHANT_ITEMS": [
-    "Flower Seed Pack",
-    "Honey Sprinkler",
-    "Bee Egg",
-    "Bee Crate",
-    "Honey Crafters Crate"
-  ],
-  "SUMMER_MERCHANT_ITEMS": [
-    "Prickly Pear",
-    "Cauliflower",
-    "Kiwi",
-    "Avocado",
-    "Bell Pepper",
-    "Loquat",
-    "Pitcher Plant",
-    "Green Apple",
-    "Feijoa",
-    "Pineapple",
-    "Rafflesia",
-    "Banana"
-  ],
-
-  "SPRAY_MERCHANT_ITEMS": [
-    "Mutation Spray Wet",
-    "Mutation Spray Windstruck",
-    "Mutation Spray Verdant"
-  ],
-
-  "SUMMER_ITEMS": [
-    "Summer Seed Pack",
-    "Delphinium",
-    "Lily of the Valley",
-    "Traveler's Fruit",
-    "Mutation Spray Burnt",
-    "Oasis Crate",
-    "Oasis Egg",
-    "Hamster"
-  ],
-
-  "COSMETIC_ITEMS": [
-    "Lighting",
-    "Furniture",
-    "Paths & Flooring",
-    "Structures",
-    "Garden & Farm Decor",
-    "Gnomes",
-    "Vehicles",
-    "Special & Event",
-    "Crates"
-  ],
-  "COSMETIC_CATEGORIES": {
-    "Lighting": [
-      "Torch",
-      "Light On Ground",
-      "Small Stone Lantern",
-      "Lamp Post",
-      "Campfire",
-      "Stone Lantern"
+    "SEED_ITEMS": [
+      "Carrot",
+      "Strawberry",
+      "Blueberry",
+      "Tomato",
+      "Orange Tulip",
+      "Corn",
+      "Daffodil",
+      "Watermelon",
+      "Pumpkin",
+      "Apple",
+      "Bamboo",
+      "Coconut",
+      "Cactus",
+      "Dragon Fruit",
+      "Mango",
+      "Grape",
+      "Mushroom",
+      "Pepper",
+      "Cacao",
+      "Beanstalk",
+      "Ember Lily",
+      "Sugar Apple",
+      "Burning Bud",
+      "Giant Pinecone",
+      "Elder Strawberry",
+      "Romanesco"
     ],
-    "Furniture": [
-      "Orange Umbrella",
-      "Yellow Umbrella",
-      "Log Bench",
-      "Brown Bench",
-      "White Bench",
-      "Small Stone Table",
-      "Medium Stone Table",
-      "Long Stone Table",
-      "Mini TV",
-      "Bookshelf",
-      "Large Wood Table",
-      "Small Wood Table",
-      "Blue Cooler Chest",
-      "Pink Cooler Chest",
-      "Red Cooler Chest",
-      "Blue Hammock",
-      "Red Hammock"
+    "GEAR_ITEMS": [
+      "Harvest Tool",
+      "Watering Can",
+      "Trowel",
+      "Trading Ticket",
+      "Recall Wrench",
+      "Tanning Mirror",
+      "Cleaning Spray",
+      "Favorite Tool",
+      "Friendship Pot",
+      "Medium Toy",
+      "Medium Treat",
+      "Basic Sprinkler",
+      "Magnifying Glass",
+      "Levelup Lollipop",
+      "Advanced Sprinkler",
+      "Godly Sprinkler",
+      "Master Sprinkler",
+      "Grandmaster Sprinkler"
     ],
-    "Paths & Flooring": [
-      "Small Circle Tile",
-      "Medium Circle Tile",
-      "Small Path Tile",
-      "Medium Path Tile",
-      "Large Path Tile",
-      "Small Stone Pad",
-      "Large Stone Pad",
-      "Small Wood Flooring",
-      "Medium Wood Flooring",
-      "Large Wood Flooring",
-      "Ring Walkway",
-      "Viney Ring Walkway"
+    "EGG_ITEMS": [
+      "Common Egg",
+      "Common Summer Egg",
+      "Rare Summer Egg",
+      "Mythical Egg",
+      "Bug Egg",
+      "Paradise Egg",
+      "Bee Egg"
     ],
-    "Structures": [
-      "Wood Fence",
-      "Viney Beam",
-      "Brown Stone Pillar",
-      "Grey Stone Pillar",
-      "Dark Stone Pillar",
-      "Curved Canopy",
-      "Flat Canopy",
-      "Small Wood Arbour",
-      "Square Metal Arbour",
-      "Brown Well",
-      "Red Well",
-      "Blue Well",
-      "Large Wood Arbour",
-      "Round Metal Arbour",
-      "Cabana",
-      "Lemonade Stand",
-      "Tiki Bar"
-    ],
-    "Garden & Farm Decor": [
-      "Brick Stack",
-      "Compost Bin",
-      "Log",
-      "Wood Pile",
-      "Rock Pile",
-      "Red Pottery",
-      "White Pottery",
-      "Rake",
-      "Hay Bale",
-      "Water Trough",
-      "Axe Stump",
-      "Cooking Pot",
-      "Clothesline",
-      "Bird Bath",
-      "Frog Fountain",
-      "Wheelbarrow",
-      "Shovel"
-    ],
-    "Gnomes": ["Beta Gnome", "Green Female Gnome", "Blue Gnome"],
-    "Vehicles": ["Red Tractor", "Green Tractor", "Market Cart", "Mower"],
-    "Special & Event": [
-      "Shovel Grave",
-      "Monster Mash Trophy",
-      "Metal Wind Chime",
-      "Bamboo Wind Chimes"
-    ],
-    "Crates": [
-      "Farmers Gnome Crate",
-      "Sign Crate",
+  
+    "GNOME_MERCHANT_ITEMS": [
       "Common Gnome Crate",
+      "Farmers Gnome Crate",
       "Classic Gnome Crate",
-      "Mysterious Crate",
-      "Fun Crate",
-      "Beach Crate",
-      "Summer Fun Crate",
-      "Statue Crate"
-    ]
-  },
-
-  "EVENT_ITEMS": [
-    "Sprout Seed Pack",
-    "Sprout Egg",
-    "Mandrake",
-    "Sprout Crate",
-    "Silver Fertilizer",
-    "Canary Melon",
-    "Amberheart",
-    "Spriggan"
-  ],
-
-  "SeedEmojis": {
-    "Carrot": "<:Carrot_v2:1394763792700674108>",
-    "Strawberry": "<:Strawberry_v2:1394763933847654470>",
-    "Blueberry": "<:Blueberry_v2:1394763755660906496>",
-    "Orange Tulip": "<:OrangeTulip_v2:1394763901970812969>",
-    "Corn": "<:Corn_v2:1394763811122188348>",
-    "Tomato": "<:Tomato_v2:1394763951492829205>",
-    "Daffodil": "<:Daffodil_v2:1394763819858788492>",
-    "Watermelon": "<:Watermelon_v2:1394763960313581660>",
-    "Pumpkin": "<:Pumpkin_v2:1394763920748580965>",
-    "Apple": "<:Apple_v2:1394763731027759214>",
-    "Bamboo": "<:Bamboo_v2:1394763737306628136>",
-    "Coconut": "<:Coconut_v2:1394763802611810325>",
-    "Cactus": "<:Cactus_v2:1394763782907236364>",
-    "Dragon Fruit": "<:DragonFruit_v2:1394763829342245035>",
-    "Mango": "<:Mango_v2:1394763876326707270>",
-    "Grape": "<:Grape_v2:1394763862498218084>",
-    "Mushroom": "<:Mushroom_v2:1394763891766071447>",
-    "Pepper": "<:Pepper_v2:1394763911571443712>",
-    "Cacao": "<:Cacao_v2:1394763773457465385>",
-    "Beanstalk": "<:Beanstalk_v2:1394763746681028628>",
-    "Ember Lily": "<:EmberLily_v2:1394763838858985532>",
-    "Sugar Apple": "<:SugarApple_v2:1394763942701694996>",
-    "Burning Bud": "<:BurningFruit_v2:1394763766318628954>",
-    "Giant Pinecone": "<:GiantPinecone_v2:1394763852314578994>",
-    "Elder Strawberry": "<:ElderStrawberry_:1400399240752136275>",
-    "Romanesco": "<:Romanesco:1406373257103413370>"
-  },
-  "GearEmojis": {
-    "Watering Can": "<:WateringCan_v2:1394763153149137058>",
-    "Trowel": "<:Trowel_v2:1394763143271678042>",
-    "Trading Ticket": "<:TradingTicket_:1401176626666016791>",
-    "Recall Wrench": "<:RecallWrench_v2:1394763102930862281>",
-    "Basic Sprinkler": "<:BasicSprinkler_v2:1394762870717415444>",
-    "Advanced Sprinkler": "<:AdvancedSprinkler_v2:1394762858738356255>",
-    "Medium Toy": "<:MediumToy_v2:1394763074057277660>",
-    "Medium Treat": "<:MediumTreat_v2:1394763084735840287>",
-    "Godly Sprinkler": "<:GodlySprinkler_v2:1394762907182698747>",
-    "Tanning Mirror": "<:TanningMirror_v2:1394763130369740891>",
-    "Magnifying Glass": "<:MagnifyingGlass_v2:1394762955861786635>",
-    "Master Sprinkler": "<:MasterSprinkler_v2:1394763064221630494>",
-    "Cleaning Spray": "<:SprayingTool_v2:1394763117384171601>",
-    "Favorite Tool": "<:FavoriteTool_v2:1394762891902587034>",
-    "Harvest Tool": "<:HarvestTool_v2:1394762935586390126>",
-    "Friendship Pot": "<:FriendshipPot_v2:1394762920130379787>",
-    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176612489269328>",
-    "Levelup Lollipop": "<:MagnifyingGlass_v2:1394762955861786635>"
-  },
-  "EggEmojis": {
-    "Bug Egg": "<:BugEggV2:1390277774681309304>",
-    "Mythical Egg": "<:MythicalEggV2:1390277805983404152>",
-    "Rare Egg": "<:RareEggV2:1390277820651143228>",
-    "Common Egg": "<:CommonEggV2:1390277832185483286>",
-    "Legendary Egg": "<:LegendaryEggV2:1390277841702227978>",
-    "Paradise Egg": "<:ParadiseEggV2:1390277874640228393>",
-    "Common Summer Egg": "<:CommonSummerV2:1390277893925638164>",
-    "Bee Egg": "<:BeeEggV2:1390277906105892986>",
-    "Rare Summer Egg": "<:RareSummerV2:1390277915597475962>",
-    "Anti Egg": "<:AntiEggV2:1390277924841590894>",
-    "Uncommon Egg": "<:UncommonEggV2:1390277947562393713>",
-    "Night Egg": "<:NightEggV2:1390277969800597514>"
-  },
-
-  "SUMMER_EMOJIS": {
-    "Summer Seed Pack": "<:SummerSeedPack:1388576321696825544>",
-    "Delphinium": "<:Delphinium:1388576827487944787>",
-    "Lily of the Valley": "<:LilyOfTheValley:1388577618554785934>",
-    "Traveler's Fruit": "<:TravelersFruit:1388577909928755391>",
-    "Mutation Spray Burnt": "<:MutationSprayBurnt:1388578141479375061>",
-    "Oasis Crate": "<:OasisCrate:1388578318693175388>",
-    "Oasis Egg": "<:OasisEggV2:1390277859389477005>",
-    "Hamster": "<:Hamster:1388578760206323792>"
-  },
-
-  "EventEmojis": {
-    "Sprout Seed Pack": "<:SproutSeedPack:1406372936582955060>",
-    "Sprout Egg": "<:SproutEgg:1406372948130005103>",
-    "Mandrake": "<:Mandrake:1406372888747180103>",
-    "Sprout Crate": "<:SproutCrate:1406372973451153448>",
-    "Silver Fertilizer": "<:SilverFertilizer:1406372924213952676>",
-    "Canary Melon": "<:CanaryMelon:1406372903309672448>",
-    "Amberheart": "<:Amberheart:1406372915225825310>",
-    "Spriggan": "<:Spriggan:1406372959047913604>"
-  },
-
-  "CosmeticEmojis": {
-    "Brick Stack": "<:BrickStack:1380095051425779732>",
-    "Compost Bin": "<:CompostBin:1380095064222597220>",
-    "Log": "<:Log:1380095076402728991>",
-    "Wood Pile": "<:WoodPile:1380095089035972698>",
-    "Torch": "<:Torch:1380095102172528660>",
-    "Small Circle Tile": "<:SmallCircleTile:1380095114810232862>",
-    "Medium Circle Tile": "<:MediumCircleTile:1380095128051388466>",
-    "Small Path Tile": "<:SmallPathTile:1380095140466655363>",
-    "Medium Path Tile": "<:MediumPathTile:1380095153318137947>",
-    "Large Path Tile": "<:LargePathTile:1380095166261493860>",
-    "Rock Pile": "<:RockPile:1380095179020697742>",
-    "Red Pottery": "<:RedPottery:1380095191788032051>",
-    "White Pottery": "<:WhitePottery:1380095204278796329>",
-    "Rake": "<:Rake:1380095217247453215>",
-    "Orange Umbrella": "<:OrangeUmbrella:1380095230065512489>",
-    "Yellow Umbrella": "<:YellowUmbrella:1380095243084501054>",
-    "Log Bench": "<:LogBench:1380095256007016508>",
-    "Brown Bench": "<:BrownBench:1380095268921540659>",
-    "White Bench": "<:WhiteBench:1380095281822957609>",
-    "Hay Bale": "<:HayBale:1380095294523445339>",
-    "Small Stone Pad": "<:SmallStonePad:1380095306871472128>",
-    "Large Stone Pad": "<:LargeStonePad:1380095319982735381>",
-    "Small Stone Table": "<:SmallStoneTable:1380095333106712698>",
-    "Medium Stone Table": "<:MediumStoneTable:1380095346021109800>",
-    "Long Stone Table": "<:LongStoneTable:1380095358801285180>",
-    "Wood Fence": "<:WoodFence:1380095371853693019>",
-    "Small Wood Flooring": "<:SmallWoodFlooring:1380095384071835748>",
-    "Medium Wood Flooring": "<:MediumWoodFlooring:1380095397271175209>",
-    "Large Wood Flooring": "<:LargeWoodFlooring:1380095409925394462>",
-    "Mini TV": "<:MiniTv:1380095422894182441>",
-    "Viney Beam": "<:VineyBeam:1380095435212984410>",
-    "Light On Ground": "<:LightOnGround:1380095448282304562>",
-    "Water Trough": "<:WaterTrough:1380095461452677180>",
-    "Shovel Grave": "<:ShovelGrave:1380095474354225162>",
-    "Small Stone Lantern": "<:SmallStoneLantern:1380095486979211354>",
-    "Bookshelf": "<:Bookshelf:1380095500925141063>",
-    "Axe Stump": "<:AxeStump:1380095512266674186>",
-    "Brown Stone Pillar": "<:BrownStonePillar:1380095525549899927>",
-    "Grey Stone Pillar": "<:GreyStonePillar:1380095537902125086>",
-    "Dark Stone Pillar": "<:DarkStonePillar:1380095550858330212>",
-    "Large Wood Table": "<:LargeWoodTable:1380095564049420358>",
-    "Curved Canopy": "<:CurvedCanopy:1380095576867209277>",
-    "Flat Canopy": "<:FlatCanopy:1380095590125539369>",
-    "Campfire": "<:Campfire:1380095603056443412>",
-    "Cooking Pot": "<:CookingPot:1380095615198822420>",
-    "Clothesline": "<:Clothesline:1380095628381651035>",
-    "Small Wood Arbour": "<:SmallWoodArbour:1380095641681920071>",
-    "Square Metal Arbour": "<:SquareMetalArbour:1380095654134812694>",
-    "Bird Bath": "<:BirdBath:1380095665820139611>",
-    "Lamp Post": "<:LampPost:1380095679501697055>",
-    "Metal Wind Chime": "<:MetalWindChime:1380095691933745312>",
-    "Bamboo Wind Chimes": "<:BambooWindChimes:1380095704978165851>",
-    "Brown Well": "<:BrownWell:1380095719427539015>",
-    "Red Well": "<:RedWell:1380095731091898478>",
-    "Blue Well": "<:BlueWell:1380095749706223677>",
-    "Ring Walkway": "<:RingWalkway:1380095756731416607>",
-    "Viney Ring Walkway": "<:VineyRingWalkway:1380095770073632818>",
-    "Red Tractor": "<:RedTractor:1380095781725540383>",
-    "Green Tractor": "<:GreenTractor:1380095795360960523>",
-    "Large Wood Arbour": "<:LargeWoodArbour:1380095808166432839>",
-    "Frog Fountain": "<:FrogFountain:1380095938621739138>",
-    "Small Wood Table": "<:SmallWoodTable:1380095951523287040>",
-    "Beta Gnome": "<:BetaGnome:1380095964018249759>",
-    "Green Female Gnome": "<:GreenFemaleGnome:1380095977159004221>",
-    "Blue Gnome": "<:BlueGnome:1380095990060679228>",
-    "Wheelbarrow": "<:Wheelbarrow:1380096002626949260>",
-    "Monster Mash Trophy": "<:MonsterMashTrophy:1380096015939665981>",
-    "Farmers Gnome Crate": "<:Farmers_Gnome_Crate:1380098218385211432>",
-    "Sign Crate": "<:Sign_Crate:1380098229781135483>",
-    "Common Gnome Crate": "<:Common_Gnome_Crate:1380098240703238185>",
-    "Classic Gnome Crate": "<:Classic_Gnome_Crate:1380098253994856458>",
-    "Mysterious Crate": "<:Mysterious_Crate:1380098264220700692>",
-    "Fun Crate": "<:Fun_Crate:1380098273087328317>",
-    "Stone Lantern": "<:StoneLantern:1386735780034248735>",
-    "Blue Cooler Chest": "<:BlueCoolerChest:1386721940995051620>",
-    "Pink Cooler Chest": "<:PinkCoolerChest:1386721923987411024>",
-    "Red Cooler Chest": "<:RedCoolerChest:1386721933525258290>",
-    "Blue Hammock": "<:RedHammock:1386721896518651936>",
-    "Red Hammock": "<:BlueHammock:1386721884997025942>",
-    "Round Metal Arbour": "<:RoundMetalArbour:1386735517437001912>",
-    "Cabana": "<:Cabana:1386721867695521994>",
-    "Lemonade Stand": "<:LemonadeStand:1386721915145818182>",
-    "Tiki Bar": "<:TikiBar:1386721876201570364>",
-    "Shovel": "<:Shovel:1386721849798295622>",
-    "Market Cart": "<:MarketCart:1386721905796714506>",
-    "Mower": "<:Mower:1386735201324896266>",
-    "Beach Crate": "<:Beach_Crate:1386723570058526792>",
-    "Summer Fun Crate": "<:SummerFunCrate:1386723686643531869>",
-    "Statue Crate": "<:StatueCrate:1386734158243561512>",
-    "Iconic Gnome Crate": "<:IconicGnomeCrate:1391434980822880407>",
-    "Flower Seed Pack": "<:FlowerSeedPack:1378434569056944129>",
-    "Honey Sprinkler": "<:HoneySprinkler:1378438109842243625>",
-    "Bee Egg": "<:BeeEggV2:1390277906105892986>",
-    "Bee Crate": "<:BeeCrate:1381225022252781710>",
-    "Honey Crafters Crate": "<:HoneyCraftersCrateRender:1391436007211139192>",
-    "Night Staff": "<:NightStaff:1378022849113227415>",
-    "Star Caller": "<:StarCaller:1378022956189351946>",
-    "Mutation Spray Cloudtouched": "<:MutationSprayCloudtouched:1391436836231975032>",
-    "Prickly Pear": "<:PricklyPear:1385996106739220642>",
-    "Cauliflower": "<:Cauliflower:1385996130478985459>",
-    "Kiwi": "<:Kiwi:1385995936001425408>",
-    "Avocado": "<:Avocado:1385995969228832850>",
-    "Bell Pepper": "<:BellPepper:1385995823384494240>",
-    "Loquat": "<:Loquat:1385996166390616156>",
-    "Pitcher Plant": "<:PitcherPlant:1391439188636729546>",
-    "Green Apple": "<:GreenApple:1385996026804179045>",
-    "Feijoa": "<:Feijoa:1385995910571360467>",
-    "Pineapple": "<:Pineapple:1385996072505311252>",
-    "Rafflesia": "<:Raff:1391439722034892971>",
-    "Banana": "<:Banana:1385995999230693486>",
-    "Mutation Spray Wet": "<:MutationSprayWet:1396491011915776081>",
-    "Mutation Spray Windstruck": "<:MutationSprayWindstruck:1396491049756659804>",
-    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396491089699012648>"
-  },
-
-  "WeatherEmojis": {
-    "Rain": "🌧️",
-    "Snow": "❄️",
-    "Thunderstorm": "⛈️",
-    "Night": "🌑",
-    "BloodMoon": "🩸",
-    "ChocolateRain": "🍫",
-    "MeteorShower": "☄️",
-    "Tornado": "🌪️",
-    "Volcano": "🌋",
-    "SpaceTravel": "🚀",
-    "UnderTheSea": "🌊",
-    "Windy": "🌬️",
-    "AlienInvasion": "👽",
-    "Heatwave": "☢️",
-    "Gale": "💨",
-    "Disco": "🪩",
-    "JandelStorm": "⚡",
-    "DJJhai": "🎧",
-    "JandelLazer": "🔫",
-    "Blackhole": "🌀",
-    "Rainbow": "🌈",
-    "JandelFloat": "🎈",
-    "SunGod": "🌞",
-    "MeteorStrike": "💥",
-    "Drought": "🏜️",
-    "TropicalRain": "🌴",
-    "ChickenRain": "🐔",
-    "AuroraBorealis": "🌌",
-    "Sandstorm": "🌪️",
-    "Obby": "🚀",
-    "JandelZombie": "🧟",
-    "CrystalBeams": "🪨",
-    "AcidRain": "🧪",
-    "FlamingoLazer": "🦩",
-    "JunkbotRaid": "🤖",
-    "FlamingoFloat": "🦩",
-    "Boil": "🔥",
-    "Oil": "🛢️"
-  },
-  "WEATHER_TYPES": {
-    "Obby": "Admin",
-    "Gale": "Admin",
-    "SheckleRain": "Admin",
-    "MeteorShower": "Natural",
-    "Disco": "Admin",
-    "ChocolateRain": "Admin",
-    "JandelStorm": "Admin",
-    "DJJhai": "Admin",
-    "Tornado": "Natural",
-    "JandelLazer": "Admin",
-    "Blackhole": "Admin",
-    "Rainbow": "Admin",
-    "JandelFloat": "Admin",
-    "Windy": "Natural",
-    "SunGod": "Natural",
-    "Volcano": "Admin",
-    "Heatwave": "Natural",
-    "AlienInvasion": "Admin",
-    "SpaceTravel": "Admin",
-    "UnderTheSea": "Admin",
-    "Thunderstorm": "Natural",
-    "Drought": "Admin",
-    "TropicalRain": "Natural",
-    "ChickenRain": "Admin",
-    "AuroraBorealis": "Natural",
-    "Sandstorm": "Natural",
-    "ShootingStars": "Admin",
-    "DJSandstorm": "Admin",
-    "Rain": "Natural",
-    "PoolParty": "Admin",
-    "AirHead": "Admin",
-    "TextCollect": "Admin",
-    "CrystalBeams": "Natural",
-    "JandelZombie": "Admin",
-    "Snow": "Natural",
-    "Night": "Natural",
-    "AcidRain": "Natural"
-  },
-
-  "RareStuff": [
-    "Master Sprinkler",
-    "Mythical Egg",
-    "Paradise Egg",
-    "Bug Egg",
-    "Bee Egg",
-    "Burning Bud",
-    "Sugar Apple",
-    "Ember Lily",
-    "Grape",
-    "Mushroom",
-    "Pepper",
-    "Cacao",
-    "Beanstalk",
-    "Giant Pinecone",
-    "Elder Strawberry",
-    "Grandmaster Sprinkler",
-    "Romanesco"
-  ],
-  "TargetReactChannel": "1365497720118186025",
-  "COLOR_PALETTE": {
-    "Green": {
-      "hex": "#11d91f"
+      "Iconic Gnome Crate"
+    ],
+    "SKY_MERCHANT_ITEMS": [
+      "Night Staff",
+      "Star Caller",
+      "Mutation Spray Cloudtouched"
+    ],
+    "HONEY_MERCHANT_ITEMS": [
+      "Flower Seed Pack",
+      "Honey Sprinkler",
+      "Bee Egg",
+      "Bee Crate",
+      "Honey Crafters Crate"
+    ],
+    "SUMMER_MERCHANT_ITEMS": [
+      "Prickly Pear",
+      "Cauliflower",
+      "Kiwi",
+      "Avocado",
+      "Bell Pepper",
+      "Loquat",
+      "Pitcher Plant",
+      "Green Apple",
+      "Feijoa",
+      "Pineapple",
+      "Rafflesia",
+      "Banana"
+    ],
+  
+    "SPRAY_MERCHANT_ITEMS": [
+      "Mutation Spray Wet",
+      "Mutation Spray Windstruck",
+      "Mutation Spray Verdant"
+    ],
+  
+    "SUMMER_ITEMS": [
+      "Summer Seed Pack",
+      "Delphinium",
+      "Lily of the Valley",
+      "Traveler's Fruit",
+      "Mutation Spray Burnt",
+      "Oasis Crate",
+      "Oasis Egg",
+      "Hamster"
+    ],
+  
+    "COSMETIC_ITEMS": [
+      "Lighting",
+      "Furniture",
+      "Paths & Flooring",
+      "Structures",
+      "Garden & Farm Decor",
+      "Gnomes",
+      "Vehicles",
+      "Special & Event",
+      "Crates"
+    ],
+    "COSMETIC_CATEGORIES": {
+      "Lighting": [
+        "Torch",
+        "Light On Ground",
+        "Small Stone Lantern",
+        "Lamp Post",
+        "Campfire",
+        "Stone Lantern"
+      ],
+      "Furniture": [
+        "Orange Umbrella",
+        "Yellow Umbrella",
+        "Log Bench",
+        "Brown Bench",
+        "White Bench",
+        "Small Stone Table",
+        "Medium Stone Table",
+        "Long Stone Table",
+        "Mini TV",
+        "Bookshelf",
+        "Large Wood Table",
+        "Small Wood Table",
+        "Blue Cooler Chest",
+        "Pink Cooler Chest",
+        "Red Cooler Chest",
+        "Blue Hammock",
+        "Red Hammock"
+      ],
+      "Paths & Flooring": [
+        "Small Circle Tile",
+        "Medium Circle Tile",
+        "Small Path Tile",
+        "Medium Path Tile",
+        "Large Path Tile",
+        "Small Stone Pad",
+        "Large Stone Pad",
+        "Small Wood Flooring",
+        "Medium Wood Flooring",
+        "Large Wood Flooring",
+        "Ring Walkway",
+        "Viney Ring Walkway"
+      ],
+      "Structures": [
+        "Wood Fence",
+        "Viney Beam",
+        "Brown Stone Pillar",
+        "Grey Stone Pillar",
+        "Dark Stone Pillar",
+        "Curved Canopy",
+        "Flat Canopy",
+        "Small Wood Arbour",
+        "Square Metal Arbour",
+        "Brown Well",
+        "Red Well",
+        "Blue Well",
+        "Large Wood Arbour",
+        "Round Metal Arbour",
+        "Cabana",
+        "Lemonade Stand",
+        "Tiki Bar"
+      ],
+      "Garden & Farm Decor": [
+        "Brick Stack",
+        "Compost Bin",
+        "Log",
+        "Wood Pile",
+        "Rock Pile",
+        "Red Pottery",
+        "White Pottery",
+        "Rake",
+        "Hay Bale",
+        "Water Trough",
+        "Axe Stump",
+        "Cooking Pot",
+        "Clothesline",
+        "Bird Bath",
+        "Frog Fountain",
+        "Wheelbarrow",
+        "Shovel"
+      ],
+      "Gnomes": ["Beta Gnome", "Green Female Gnome", "Blue Gnome"],
+      "Vehicles": ["Red Tractor", "Green Tractor", "Market Cart", "Mower"],
+      "Special & Event": [
+        "Shovel Grave",
+        "Monster Mash Trophy",
+        "Metal Wind Chime",
+        "Bamboo Wind Chimes"
+      ],
+      "Crates": [
+        "Farmers Gnome Crate",
+        "Sign Crate",
+        "Common Gnome Crate",
+        "Classic Gnome Crate",
+        "Mysterious Crate",
+        "Fun Crate",
+        "Beach Crate",
+        "Summer Fun Crate",
+        "Statue Crate"
+      ]
     },
-    "Blue": {
-      "hex": "#1a08bf"
+  
+    "EVENT_ITEMS": [
+      "Sprout Seed Pack",
+      "Sprout Egg",
+      "Mandrake",
+      "Sprout Crate",
+      "Silver Fertilizer",
+      "Canary Melon",
+      "Amberheart",
+      "Spriggan"
+    ],
+  
+    "SeedEmojis": {
+      "Carrot": "<:Carrot_v2:1394763792700674108>",
+      "Strawberry": "<:Strawberry_v2:1394763933847654470>",
+      "Blueberry": "<:Blueberry_v2:1394763755660906496>",
+      "Orange Tulip": "<:OrangeTulip_v2:1394763901970812969>",
+      "Corn": "<:Corn_v2:1394763811122188348>",
+      "Tomato": "<:Tomato_v2:1394763951492829205>",
+      "Daffodil": "<:Daffodil_v2:1394763819858788492>",
+      "Watermelon": "<:Watermelon_v2:1394763960313581660>",
+      "Pumpkin": "<:Pumpkin_v2:1394763920748580965>",
+      "Apple": "<:Apple_v2:1394763731027759214>",
+      "Bamboo": "<:Bamboo_v2:1394763737306628136>",
+      "Coconut": "<:Coconut_v2:1394763802611810325>",
+      "Cactus": "<:Cactus_v2:1394763782907236364>",
+      "Dragon Fruit": "<:DragonFruit_v2:1394763829342245035>",
+      "Mango": "<:Mango_v2:1394763876326707270>",
+      "Grape": "<:Grape_v2:1394763862498218084>",
+      "Mushroom": "<:Mushroom_v2:1394763891766071447>",
+      "Pepper": "<:Pepper_v2:1394763911571443712>",
+      "Cacao": "<:Cacao_v2:1394763773457465385>",
+      "Beanstalk": "<:Beanstalk_v2:1394763746681028628>",
+      "Ember Lily": "<:EmberLily_v2:1394763838858985532>",
+      "Sugar Apple": "<:SugarApple_v2:1394763942701694996>",
+      "Burning Bud": "<:BurningFruit_v2:1394763766318628954>",
+      "Giant Pinecone": "<:GiantPinecone_v2:1394763852314578994>",
+      "Elder Strawberry": "<:ElderStrawberry_:1400399240752136275>",
+      "Romanesco": "<:Romanesco:1406373257103413370>"
     },
-    "Orange": {
-      "hex": "#e67e22"
+    "GearEmojis": {
+      "Watering Can": "<:WateringCan_v2:1394763153149137058>",
+      "Trowel": "<:Trowel_v2:1394763143271678042>",
+      "Trading Ticket": "<:TradingTicket_:1401176626666016791>",
+      "Recall Wrench": "<:RecallWrench_v2:1394763102930862281>",
+      "Basic Sprinkler": "<:BasicSprinkler_v2:1394762870717415444>",
+      "Advanced Sprinkler": "<:AdvancedSprinkler_v2:1394762858738356255>",
+      "Medium Toy": "<:MediumToy_v2:1394763074057277660>",
+      "Medium Treat": "<:MediumTreat_v2:1394763084735840287>",
+      "Godly Sprinkler": "<:GodlySprinkler_v2:1394762907182698747>",
+      "Tanning Mirror": "<:TanningMirror_v2:1394763130369740891>",
+      "Magnifying Glass": "<:MagnifyingGlass_v2:1394762955861786635>",
+      "Master Sprinkler": "<:MasterSprinkler_v2:1394763064221630494>",
+      "Cleaning Spray": "<:SprayingTool_v2:1394763117384171601>",
+      "Favorite Tool": "<:FavoriteTool_v2:1394762891902587034>",
+      "Harvest Tool": "<:HarvestTool_v2:1394762935586390126>",
+      "Friendship Pot": "<:FriendshipPot_v2:1394762920130379787>",
+      "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176612489269328>",
+      "Levelup Lollipop": "<:MagnifyingGlass_v2:1394762955861786635>"
     },
-    "Pink": {
-      "hex": "#ff80df"
+    "EggEmojis": {
+      "Bug Egg": "<:BugEggV2:1390277774681309304>",
+      "Mythical Egg": "<:MythicalEggV2:1390277805983404152>",
+      "Rare Egg": "<:RareEggV2:1390277820651143228>",
+      "Common Egg": "<:CommonEggV2:1390277832185483286>",
+      "Legendary Egg": "<:LegendaryEggV2:1390277841702227978>",
+      "Paradise Egg": "<:ParadiseEggV2:1390277874640228393>",
+      "Common Summer Egg": "<:CommonSummerV2:1390277893925638164>",
+      "Bee Egg": "<:BeeEggV2:1390277906105892986>",
+      "Rare Summer Egg": "<:RareSummerV2:1390277915597475962>",
+      "Anti Egg": "<:AntiEggV2:1390277924841590894>",
+      "Uncommon Egg": "<:UncommonEggV2:1390277947562393713>",
+      "Night Egg": "<:NightEggV2:1390277969800597514>"
     },
-    "Purple": {
-      "hex": "#6000d6"
+  
+    "SUMMER_EMOJIS": {
+      "Summer Seed Pack": "<:SummerSeedPack:1388576321696825544>",
+      "Delphinium": "<:Delphinium:1388576827487944787>",
+      "Lily of the Valley": "<:LilyOfTheValley:1388577618554785934>",
+      "Traveler's Fruit": "<:TravelersFruit:1388577909928755391>",
+      "Mutation Spray Burnt": "<:MutationSprayBurnt:1388578141479375061>",
+      "Oasis Crate": "<:OasisCrate:1388578318693175388>",
+      "Oasis Egg": "<:OasisEggV2:1390277859389477005>",
+      "Hamster": "<:Hamster:1388578760206323792>"
     },
-    "Teal": {
-      "hex": "#17ffd1"
+  
+    "EventEmojis": {
+      "Sprout Seed Pack": "<:SproutSeedPack:1406372936582955060>",
+      "Sprout Egg": "<:SproutEgg:1406372948130005103>",
+      "Mandrake": "<:Mandrake:1406372888747180103>",
+      "Sprout Crate": "<:SproutCrate:1406372973451153448>",
+      "Silver Fertilizer": "<:SilverFertilizer:1406372924213952676>",
+      "Canary Melon": "<:CanaryMelon:1406372903309672448>",
+      "Amberheart": "<:Amberheart:1406372915225825310>",
+      "Spriggan": "<:Spriggan:1406372959047913604>"
     },
-    "Red": {
-      "hex": "#e74c3c"
-    }
-  },
-  "IgnoreGuilds": ["1342864504404316180", "1386781192422031502"],
-  "WeatherData": {
-    "Rain": {
-      "Description": "+50% Grow Speed | Higher **Wet** Fruit Chance!",
-      "Color": "#135bcf"
+  
+    "CosmeticEmojis": {
+      "Brick Stack": "<:BrickStack:1380095051425779732>",
+      "Compost Bin": "<:CompostBin:1380095064222597220>",
+      "Log": "<:Log:1380095076402728991>",
+      "Wood Pile": "<:WoodPile:1380095089035972698>",
+      "Torch": "<:Torch:1380095102172528660>",
+      "Small Circle Tile": "<:SmallCircleTile:1380095114810232862>",
+      "Medium Circle Tile": "<:MediumCircleTile:1380095128051388466>",
+      "Small Path Tile": "<:SmallPathTile:1380095140466655363>",
+      "Medium Path Tile": "<:MediumPathTile:1380095153318137947>",
+      "Large Path Tile": "<:LargePathTile:1380095166261493860>",
+      "Rock Pile": "<:RockPile:1380095179020697742>",
+      "Red Pottery": "<:RedPottery:1380095191788032051>",
+      "White Pottery": "<:WhitePottery:1380095204278796329>",
+      "Rake": "<:Rake:1380095217247453215>",
+      "Orange Umbrella": "<:OrangeUmbrella:1380095230065512489>",
+      "Yellow Umbrella": "<:YellowUmbrella:1380095243084501054>",
+      "Log Bench": "<:LogBench:1380095256007016508>",
+      "Brown Bench": "<:BrownBench:1380095268921540659>",
+      "White Bench": "<:WhiteBench:1380095281822957609>",
+      "Hay Bale": "<:HayBale:1380095294523445339>",
+      "Small Stone Pad": "<:SmallStonePad:1380095306871472128>",
+      "Large Stone Pad": "<:LargeStonePad:1380095319982735381>",
+      "Small Stone Table": "<:SmallStoneTable:1380095333106712698>",
+      "Medium Stone Table": "<:MediumStoneTable:1380095346021109800>",
+      "Long Stone Table": "<:LongStoneTable:1380095358801285180>",
+      "Wood Fence": "<:WoodFence:1380095371853693019>",
+      "Small Wood Flooring": "<:SmallWoodFlooring:1380095384071835748>",
+      "Medium Wood Flooring": "<:MediumWoodFlooring:1380095397271175209>",
+      "Large Wood Flooring": "<:LargeWoodFlooring:1380095409925394462>",
+      "Mini TV": "<:MiniTv:1380095422894182441>",
+      "Viney Beam": "<:VineyBeam:1380095435212984410>",
+      "Light On Ground": "<:LightOnGround:1380095448282304562>",
+      "Water Trough": "<:WaterTrough:1380095461452677180>",
+      "Shovel Grave": "<:ShovelGrave:1380095474354225162>",
+      "Small Stone Lantern": "<:SmallStoneLantern:1380095486979211354>",
+      "Bookshelf": "<:Bookshelf:1380095500925141063>",
+      "Axe Stump": "<:AxeStump:1380095512266674186>",
+      "Brown Stone Pillar": "<:BrownStonePillar:1380095525549899927>",
+      "Grey Stone Pillar": "<:GreyStonePillar:1380095537902125086>",
+      "Dark Stone Pillar": "<:DarkStonePillar:1380095550858330212>",
+      "Large Wood Table": "<:LargeWoodTable:1380095564049420358>",
+      "Curved Canopy": "<:CurvedCanopy:1380095576867209277>",
+      "Flat Canopy": "<:FlatCanopy:1380095590125539369>",
+      "Campfire": "<:Campfire:1380095603056443412>",
+      "Cooking Pot": "<:CookingPot:1380095615198822420>",
+      "Clothesline": "<:Clothesline:1380095628381651035>",
+      "Small Wood Arbour": "<:SmallWoodArbour:1380095641681920071>",
+      "Square Metal Arbour": "<:SquareMetalArbour:1380095654134812694>",
+      "Bird Bath": "<:BirdBath:1380095665820139611>",
+      "Lamp Post": "<:LampPost:1380095679501697055>",
+      "Metal Wind Chime": "<:MetalWindChime:1380095691933745312>",
+      "Bamboo Wind Chimes": "<:BambooWindChimes:1380095704978165851>",
+      "Brown Well": "<:BrownWell:1380095719427539015>",
+      "Red Well": "<:RedWell:1380095731091898478>",
+      "Blue Well": "<:BlueWell:1380095749706223677>",
+      "Ring Walkway": "<:RingWalkway:1380095756731416607>",
+      "Viney Ring Walkway": "<:VineyRingWalkway:1380095770073632818>",
+      "Red Tractor": "<:RedTractor:1380095781725540383>",
+      "Green Tractor": "<:GreenTractor:1380095795360960523>",
+      "Large Wood Arbour": "<:LargeWoodArbour:1380095808166432839>",
+      "Frog Fountain": "<:FrogFountain:1380095938621739138>",
+      "Small Wood Table": "<:SmallWoodTable:1380095951523287040>",
+      "Beta Gnome": "<:BetaGnome:1380095964018249759>",
+      "Green Female Gnome": "<:GreenFemaleGnome:1380095977159004221>",
+      "Blue Gnome": "<:BlueGnome:1380095990060679228>",
+      "Wheelbarrow": "<:Wheelbarrow:1380096002626949260>",
+      "Monster Mash Trophy": "<:MonsterMashTrophy:1380096015939665981>",
+      "Farmers Gnome Crate": "<:Farmers_Gnome_Crate:1380098218385211432>",
+      "Sign Crate": "<:Sign_Crate:1380098229781135483>",
+      "Common Gnome Crate": "<:Common_Gnome_Crate:1380098240703238185>",
+      "Classic Gnome Crate": "<:Classic_Gnome_Crate:1380098253994856458>",
+      "Mysterious Crate": "<:Mysterious_Crate:1380098264220700692>",
+      "Fun Crate": "<:Fun_Crate:1380098273087328317>",
+      "Stone Lantern": "<:StoneLantern:1386735780034248735>",
+      "Blue Cooler Chest": "<:BlueCoolerChest:1386721940995051620>",
+      "Pink Cooler Chest": "<:PinkCoolerChest:1386721923987411024>",
+      "Red Cooler Chest": "<:RedCoolerChest:1386721933525258290>",
+      "Blue Hammock": "<:RedHammock:1386721896518651936>",
+      "Red Hammock": "<:BlueHammock:1386721884997025942>",
+      "Round Metal Arbour": "<:RoundMetalArbour:1386735517437001912>",
+      "Cabana": "<:Cabana:1386721867695521994>",
+      "Lemonade Stand": "<:LemonadeStand:1386721915145818182>",
+      "Tiki Bar": "<:TikiBar:1386721876201570364>",
+      "Shovel": "<:Shovel:1386721849798295622>",
+      "Market Cart": "<:MarketCart:1386721905796714506>",
+      "Mower": "<:Mower:1386735201324896266>",
+      "Beach Crate": "<:Beach_Crate:1386723570058526792>",
+      "Summer Fun Crate": "<:SummerFunCrate:1386723686643531869>",
+      "Statue Crate": "<:StatueCrate:1386734158243561512>",
+      "Iconic Gnome Crate": "<:IconicGnomeCrate:1391434980822880407>",
+      "Flower Seed Pack": "<:FlowerSeedPack:1378434569056944129>",
+      "Honey Sprinkler": "<:HoneySprinkler:1378438109842243625>",
+      "Bee Egg": "<:BeeEggV2:1390277906105892986>",
+      "Bee Crate": "<:BeeCrate:1381225022252781710>",
+      "Honey Crafters Crate": "<:HoneyCraftersCrateRender:1391436007211139192>",
+      "Night Staff": "<:NightStaff:1378022849113227415>",
+      "Star Caller": "<:StarCaller:1378022956189351946>",
+      "Mutation Spray Cloudtouched": "<:MutationSprayCloudtouched:1391436836231975032>",
+      "Prickly Pear": "<:PricklyPear:1385996106739220642>",
+      "Cauliflower": "<:Cauliflower:1385996130478985459>",
+      "Kiwi": "<:Kiwi:1385995936001425408>",
+      "Avocado": "<:Avocado:1385995969228832850>",
+      "Bell Pepper": "<:BellPepper:1385995823384494240>",
+      "Loquat": "<:Loquat:1385996166390616156>",
+      "Pitcher Plant": "<:PitcherPlant:1391439188636729546>",
+      "Green Apple": "<:GreenApple:1385996026804179045>",
+      "Feijoa": "<:Feijoa:1385995910571360467>",
+      "Pineapple": "<:Pineapple:1385996072505311252>",
+      "Rafflesia": "<:Raff:1391439722034892971>",
+      "Banana": "<:Banana:1385995999230693486>",
+      "Mutation Spray Wet": "<:MutationSprayWet:1396491011915776081>",
+      "Mutation Spray Windstruck": "<:MutationSprayWindstruck:1396491049756659804>",
+      "Mutation Spray Verdant": "<:MutationSprayVerdant:1396491089699012648>"
     },
-    "Thunderstorm": {
-      "Description": "+50% Grow Speed | Higher **Wet** & **Shocked** Fruit Chance!",
-      "Color": "#07285e"
+  
+    "WeatherEmojis": {
+      "Rain": "🌧️",
+      "Snow": "❄️",
+      "Thunderstorm": "⛈️",
+      "Night": "🌑",
+      "BloodMoon": "🩸",
+      "ChocolateRain": "🍫",
+      "MeteorShower": "☄️",
+      "Tornado": "🌪️",
+      "Volcano": "🌋",
+      "SpaceTravel": "🚀",
+      "UnderTheSea": "🌊",
+      "Windy": "🌬️",
+      "AlienInvasion": "👽",
+      "Heatwave": "☢️",
+      "Gale": "💨",
+      "Disco": "🪩",
+      "JandelStorm": "⚡",
+      "DJJhai": "🎧",
+      "JandelLazer": "🔫",
+      "Blackhole": "🌀",
+      "Rainbow": "🌈",
+      "JandelFloat": "🎈",
+      "SunGod": "🌞",
+      "MeteorStrike": "💥",
+      "Drought": "🏜️",
+      "TropicalRain": "🌴",
+      "ChickenRain": "🐔",
+      "AuroraBorealis": "🌌",
+      "Sandstorm": "🌪️",
+      "Obby": "🚀",
+      "JandelZombie": "🧟",
+      "CrystalBeams": "🪨",
+      "AcidRain": "🧪",
+      "FlamingoLazer": "🦩",
+      "JunkbotRaid": "🤖",
+      "FlamingoFloat": "🦩",
+      "Boil": "🔥",
+      "Oil": "🛢️",
+      "Stoplight": "🚦",
+      "SolarEclipse": "🌑",
+      "DJSandstorm": "🌪️",
+      "RadioactiveCarrot": "🥕",
+      "JandelKatana": "🔪",
+      "Armageddon": "💥"
     },
-    "Snow": {
-      "Description": "+50% Grow Speed | Higher **Chilled** & **Frozen** Fruit Chance!",
-      "Color": "#a0b7db"
+    "WEATHER_TYPES": {
+      "Obby": "Admin",
+      "Gale": "Admin",
+      "SheckleRain": "Admin",
+      "MeteorShower": "Natural",
+      "Disco": "Admin",
+      "ChocolateRain": "Admin",
+      "JandelStorm": "Admin",
+      "DJJhai": "Admin",
+      "Tornado": "Natural",
+      "JandelLazer": "Admin",
+      "Blackhole": "Admin",
+      "Rainbow": "Admin",
+      "JandelFloat": "Admin",
+      "Windy": "Natural",
+      "SunGod": "Natural",
+      "Volcano": "Admin",
+      "Heatwave": "Natural",
+      "AlienInvasion": "Admin",
+      "SpaceTravel": "Admin",
+      "UnderTheSea": "Admin",
+      "Thunderstorm": "Natural",
+      "Drought": "Admin",
+      "TropicalRain": "Natural",
+      "ChickenRain": "Admin",
+      "AuroraBorealis": "Natural",
+      "Sandstorm": "Natural",
+      "ShootingStars": "Admin",
+      "DJSandstorm": "Admin",
+      "Rain": "Natural",
+      "PoolParty": "Admin",
+      "AirHead": "Admin",
+      "TextCollect": "Admin",
+      "CrystalBeams": "Natural",
+      "JandelZombie": "Admin",
+      "Snow": "Natural",
+      "Night": "Natural",
+      "AcidRain": "Natural",
+      "SolarEclipse": "Natural"
     },
-    "MeteorShower": {
-      "Description": "Higher **Celestial** Fruit Chance!",
-      "Color": "#7923c4"
+  
+    "RareStuff": [
+      "Master Sprinkler",
+      "Mythical Egg",
+      "Paradise Egg",
+      "Bug Egg",
+      "Bee Egg",
+      "Burning Bud",
+      "Sugar Apple",
+      "Ember Lily",
+      "Grape",
+      "Mushroom",
+      "Pepper",
+      "Cacao",
+      "Beanstalk",
+      "Giant Pinecone",
+      "Elder Strawberry",
+      "Grandmaster Sprinkler",
+      "Romanesco"
+    ],
+    "TargetReactChannel": "1365497720118186025",
+    "COLOR_PALETTE": {
+      "Green": {
+        "hex": "#11d91f"
+      },
+      "Blue": {
+        "hex": "#1a08bf"
+      },
+      "Orange": {
+        "hex": "#e67e22"
+      },
+      "Pink": {
+        "hex": "#ff80df"
+      },
+      "Purple": {
+        "hex": "#6000d6"
+      },
+      "Teal": {
+        "hex": "#17ffd1"
+      },
+      "Red": {
+        "hex": "#e74c3c"
+      }
     },
-    "Disco": {
-      "Description": "Higher **Disco** Fruit Chance!",
-      "Color": "#fc035e"
+    "IgnoreGuilds": ["1342864504404316180", "1386781192422031502"],
+    "WeatherData": {
+      "Rain": {
+        "Description": "+50% Grow Speed | Higher **Wet** Fruit Chance!",
+        "Color": "#135bcf"
+      },
+      "Thunderstorm": {
+        "Description": "+50% Grow Speed | Higher **Wet** & **Shocked** Fruit Chance!",
+        "Color": "#07285e"
+      },
+      "Snow": {
+        "Description": "+50% Grow Speed | Higher **Chilled** & **Frozen** Fruit Chance!",
+        "Color": "#a0b7db"
+      },
+      "MeteorShower": {
+        "Description": "Higher **Celestial** Fruit Chance!",
+        "Color": "#7923c4"
+      },
+      "Disco": {
+        "Description": "Higher **Disco** Fruit Chance!",
+        "Color": "#fc035e"
+      },
+      "DJJhai": {
+        "Description": "Higer **Disco** Fruit Chance!",
+        "Color": "#ff00ff"
+      },
+      "JandelStorm": {
+        "Description": "Higher **Shocked** Fruit Chance!",
+        "Color": "#3399ff"
+      },
+      "SheckleRain": {
+        "Description": "Collect falling sheckles!",
+        "Color": "#ffd700"
+      },
+      "ChocolateRain": {
+        "Description": "+50% Grow Speed | Higher **Chocolate** Fruit Chance!",
+        "Color": "#8b4513"
+      },
+      "LazerStorm": {
+        "Description": "Higher **Plasma** Fruit Chance!",
+        "Color": "#ff3366"
+      },
+      "Tornado": {
+        "Description": "Higher **Twisted** Fruit Chance!",
+        "Color": "#909090"
+      },
+      "Blackhole": {
+        "Description": "Higher **Void Touched** Fruit Chance!",
+        "Color": "#551a8b"
+      },
+      "SunGod": {
+        "Description": "Higher **Sun God** Fruit Chance!",
+        "Color": "#ffcc00"
+      },
+      "Windy": {
+        "Description": "Higher **Windstruck** Fruit Chance!",
+        "Color": "#1e90ff"
+      },
+      "Heatwave": {
+        "Description": "Higher **Sundried** Fruit Chance!",
+        "Color": "#ff661f"
+      },
+      "UnderTheSea": {
+        "Description": "Unique visual and audio effects!",
+        "Color": "#008080"
+      },
+      "TropicalRain": {
+        "Description": "+50% Grow Speed | Higher **Drenched** Fruit Chance!",
+        "Color": "#20B2AA"
+      },
+      "AuroraBorealis": {
+        "Description": "Higher **Aurora** Fruit Chance!",
+        "Color": "#9400D3"
+      },
+      "Sandstorm": {
+        "Description": "Higher **Sandy** Fruit Chance!",
+        "Color": "#ffc899"
+      },
+      "CrystalBeams": {
+        "Description": "Active all the crystals!",
+        "Color": "#FF0077"
+      },
+      "Night": {
+        "Description": "Higher **Moonlit** Fruit Chance!",
+        "Color": "#7645FF"
+      },
+      "AcidRain": {
+        "Description": "Higher **Acidic** Fruit Chance!",
+        "Color": "#00FF00"
+      }
     },
-    "DJJhai": {
-      "Description": "Higer **Disco** Fruit Chance!",
-      "Color": "#ff00ff"
+    "RareStuffEmoji": {
+      "Master Sprinkler": "<:Master_Sprinkler:1391710026166571161>",
+      "Mythical Egg": "<:MythicalEggV2:1391709415412858940>",
+      "Paradise Egg": "<:ParadiseEggV2:1391709418835546143>",
+      "Bug Egg": "<:BugEggV2:1391709406563012719>",
+      "Bee Egg": "<:BeeEggV2:1391709422073675879>",
+      "Burning Bud": "<:BurningFruit:1391709544668725298>",
+      "Sugar Apple": "<:SugarApple:1391709547105615944>",
+      "Ember Lily": "<:EmberLily:1391709549886439484>",
+      "Grape": "<:Grape:1391709559634133002>",
+      "Mushroom": "<:Mushroom:1391709557759414282>",
+      "Pepper": "<:Pepper:1391709556005933160>",
+      "Cacao": "<:Cacao:1391709553875226707>",
+      "Beanstalk": "<:Beanstalk:1391709551987785778>",
+      "Giant Pinecone": "<:GiantPinecone:1393834257801023569>",
+      "Elder Strawberry": "<:ElderStrawberry:1398679852193808394>",
+      "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176940374921267>",
+      "Romanesco": "<:Romanesco:1406373257103413370>"
     },
-    "JandelStorm": {
-      "Description": "Higher **Shocked** Fruit Chance!",
-      "Color": "#3399ff"
-    },
-    "SheckleRain": {
-      "Description": "Collect falling sheckles!",
-      "Color": "#ffd700"
-    },
-    "ChocolateRain": {
-      "Description": "+50% Grow Speed | Higher **Chocolate** Fruit Chance!",
-      "Color": "#8b4513"
-    },
-    "LazerStorm": {
-      "Description": "Higher **Plasma** Fruit Chance!",
-      "Color": "#ff3366"
-    },
-    "Tornado": {
-      "Description": "Higher **Twisted** Fruit Chance!",
-      "Color": "#909090"
-    },
-    "Blackhole": {
-      "Description": "Higher **Void Touched** Fruit Chance!",
-      "Color": "#551a8b"
-    },
-    "SunGod": {
-      "Description": "Higher **Sun God** Fruit Chance!",
-      "Color": "#ffcc00"
-    },
-    "Windy": {
-      "Description": "Higher **Windstruck** Fruit Chance!",
-      "Color": "#1e90ff"
-    },
-    "Heatwave": {
-      "Description": "Higher **Sundried** Fruit Chance!",
-      "Color": "#ff661f"
-    },
-    "UnderTheSea": {
-      "Description": "Unique visual and audio effects!",
-      "Color": "#008080"
-    },
-    "TropicalRain": {
-      "Description": "+50% Grow Speed | Higher **Drenched** Fruit Chance!",
-      "Color": "#20B2AA"
-    },
-    "AuroraBorealis": {
-      "Description": "Higher **Aurora** Fruit Chance!",
-      "Color": "#9400D3"
-    },
-    "Sandstorm": {
-      "Description": "Higher **Sandy** Fruit Chance!",
-      "Color": "#ffc899"
-    },
-    "CrystalBeams": {
-      "Description": "Active all the crystals!",
-      "Color": "#FF0077"
-    },
-    "Night": {
-      "Description": "Higher **Moonlit** Fruit Chance!",
-      "Color": "#7645FF"
-    },
-    "AcidRain": {
-      "Description": "Higher **Acidic** Fruit Chance!",
-      "Color": "#00FF00"
-    }
-  },
-  "RareStuffEmoji": {
-    "Master Sprinkler": "<:Master_Sprinkler:1391710026166571161>",
-    "Mythical Egg": "<:MythicalEggV2:1391709415412858940>",
-    "Paradise Egg": "<:ParadiseEggV2:1391709418835546143>",
-    "Bug Egg": "<:BugEggV2:1391709406563012719>",
-    "Bee Egg": "<:BeeEggV2:1391709422073675879>",
-    "Burning Bud": "<:BurningFruit:1391709544668725298>",
-    "Sugar Apple": "<:SugarApple:1391709547105615944>",
-    "Ember Lily": "<:EmberLily:1391709549886439484>",
-    "Grape": "<:Grape:1391709559634133002>",
-    "Mushroom": "<:Mushroom:1391709557759414282>",
-    "Pepper": "<:Pepper:1391709556005933160>",
-    "Cacao": "<:Cacao:1391709553875226707>",
-    "Beanstalk": "<:Beanstalk:1391709551987785778>",
-    "Giant Pinecone": "<:GiantPinecone:1393834257801023569>",
-    "Elder Strawberry": "<:ElderStrawberry:1398679852193808394>",
-    "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176940374921267>",
-    "Romanesco": "<:Romanesco:1406373257103413370>"
-  },
-
-  "Advert": false
-}
+  
+    "Advert": false
+  }
