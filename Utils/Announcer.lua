@@ -114,8 +114,8 @@ Frame.ChildAdded:Connect(function(notif)
 				or raw:lower():find("elce</font>")
 				or raw:lower():find("icial</font>")
 				or raw:lower():find("am</font>")
-                or raw:lower():find("Scammy</font>")
-                or raw:lower():find("Jhai</font>")
+                or raw:lower():find("scammy</font>")
+                or raw:lower():find("jhai</font>")
 
 			if not raw:find("<font") or allowFont then
 				local clean = notag(raw)
