@@ -687,6 +687,10 @@
     "AcidRain": {
       "Description": "Higher **Acidic** Fruit Chance!",
       "Color": "#00FF00"
+    },
+    "SolarEclipse": {
+      "Description": "Higher **Eclipse** Fruit Chance!",
+      "Color": "#ffcc00"
     }
   },
   "RareStuffEmoji": {
