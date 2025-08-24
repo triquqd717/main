@@ -43,6 +43,7 @@
     "Magnifying Glass",
     "Levelup Lollipop",
     "Advanced Sprinkler",
+    "Cleansing Pet Shard",
     "Godly Sprinkler",
     "Master Sprinkler",
     "Grandmaster Sprinkler"
@@ -87,7 +88,9 @@
     "Feijoa",
     "Pineapple",
     "Rafflesia",
-    "Banana"
+    "Banana",
+    "Paradise Egg",
+    ""
   ],
 
   "SPRAY_MERCHANT_ITEMS": [
@@ -236,7 +239,16 @@
     "Silver Fertilizer",
     "Canary Melon",
     "Amberheart",
-    "Spriggan"
+    "Spriggan",
+    "Skyroot Chest",
+    "Griffin Statue",
+    "Bouncy Mushroom",
+    "Beanstalk Painting",
+    "Can Of Beans",
+    "Glowpod",
+    "Flare Melon",
+    "Pet Shard GiantBean",
+    "Gnome"
   ],
 
   "SeedEmojis": {
@@ -284,6 +296,7 @@
     "Favorite Tool": "<:FavoriteTool_v2:1394762891902587034>",
     "Harvest Tool": "<:HarvestTool_v2:1394762935586390126>",
     "Friendship Pot": "<:FriendshipPot_v2:1394762920130379787>",
+    "Cleansing Pet Shard": "<:CleansingPetShard:1409283247396884594>",
     "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176612489269328>",
     "Levelup Lollipop": "<:MagnifyingGlass_v2:1394762955861786635>"
   },
@@ -321,7 +334,16 @@
     "Silver Fertilizer": "<:SilverFertilizer:1406372924213952676>",
     "Canary Melon": "<:CanaryMelon:1406372903309672448>",
     "Amberheart": "<:Amberheart:1406372915225825310>",
-    "Spriggan": "<:Spriggan:1406372959047913604>"
+    "Spriggan": "<:Spriggan:1406372959047913604>",
+    "Skyroot Chest": "",
+    "Griffin Statue": "",
+    "Bouncy Mushroom": "",
+    "Beanstalk Painting": "",
+    "Can Of Beans": "",
+    "Glowpod": "",
+    "Flare Melon": "",
+    "Pet Shard GiantBean": "",
+    "Gnome": ""
   },
 
   "CosmeticEmojis": {
@@ -438,12 +460,12 @@
     "Mutation Spray Wet": "<:MutationSprayWet:1396491011915776081>",
     "Mutation Spray Windstruck": "<:MutationSprayWindstruck:1396491049756659804>",
     "Mutation Spray Verdant": "<:MutationSprayVerdant:1396491089699012648>",
-    "Tropical Mist Sprinkler": "",
-    "Berry Blusher Sprinkler": "",
-    "Spice Spritzer Sprinkler": "",
-    "Sweet Soaker Sprinkler": "",
-    "Flower Froster Sprinkler": "",
-    "Stalk Sprout Sprinkler": ""
+    "Tropical Mist Sprinkler": "<:TropicalSprinkler:1409304359740899429>",
+    "Berry Blusher Sprinkler": "<:BerrySprinkler:1409304142073303161>",
+    "Spice Spritzer Sprinkler": "<:SpiceSprinkler:1409304299699179520>",
+    "Sweet Soaker Sprinkler": "<:SweetSoaker:1409304213418147930>",
+    "Flower Froster Sprinkler": "<:FlowerSprinkler:1409304178270142686>",
+    "Stalk Sprout Sprinkler": "<:StalkSprinkler:1409304247216115732>"
   },
 
   "WeatherEmojis": {
