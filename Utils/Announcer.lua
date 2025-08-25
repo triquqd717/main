@@ -14,6 +14,7 @@ local Exact = {
 	["Trade expired!"] = true,
 	["You can only place your pets in your garden!"] = true,
 	["The Beanstalk is growing!!"] = true,
+	["Your Cosmetic Shop stock has been reset!"] = true
 }
 
 local Wildcard = {
