@@ -712,5 +712,191 @@
     "Romanesco": "<:Romanesco:1406373257103413370>"
   },
 
-  "Advert": false
+  "Advert": false,
+
+  "SAB_EVENTS": [
+    "Rainbow",
+    "Nyan Cats",
+    "La Vacca Saturno Saturnita",
+    "Raining Tacos",
+    "2x Luck",
+    "4x luck",
+    "6x luck",
+    "8x luck",
+    "Matteo",
+    "4th of July",
+    "Bloodmoon",
+    "Tung Tung Attack",
+    "Candy",
+    "Crab Rave",
+    "Glitch",
+    "Bubblegum",
+    "Molten",
+    "Bombardiro Crocodilo",
+    "Solar Flare",
+    "Rain",
+    "Snow",
+    "Starfall",
+    "Concert",
+    "10B Visits",
+    "Water",
+    "Brazil",
+    "Los Matteos",
+    "UFO",
+    "Galaxy",
+    "Rap Concert",
+    "Fuse Machine Luck"
+  ],
+  "SAB_EVENT_EMOJIS": {
+    "Rainbow": "<:Rainbow:1409626541897289728>",
+    "Nyan Cats": "<:NyanCats:1409626519386456064>",
+    "La Vacca Saturno Saturnita": "<:LaVaccaSaturnoSaturnita:1409626448108716172>",
+    "Raining Tacos": "<:RainingTacos:1409626556233547816>",
+    "2x": "<:2xLuck:1409626474650275962>",
+    "Matteo": "<:Matteo:1409626485928497265>",
+    "4th of July": "<:4thofJuly:1409626264574099537>",
+    "Bloodmoon": "<:Bloodmoon:1409626290541170849>",
+    "Tung Tung Attack": "<:TungTungAttack:1409626619076673546>",
+    "Candy": "<:Candy:1409626350582759484>",
+    "Crab Rave": "<:CrabRave:1409626392244650017>",
+    "Glitch": "<:Glitch:1409626435294859386>",
+    "Bubblegum": "<:Bubblegum:1409626337337016501>",
+    "Molten": "<:Molten:1409626500889706576>",
+    "Bombardiro Crocodilo": "<:BombardiroCrocodilo:1409626307356266706>",
+    "Solar Flare": "<:SolarFlare:1409626604648271943>",
+    "Rain": "<:Rain:1409626530488782958>",
+    "Snow": "<:Snow:1409626584507224216>",
+    "Starfall": "<:Starfall:1409626638974587020>",
+    "Concert": "<:Concert:1409626364641808434>",
+    "10B Visits": "<:10BVisits:1409626280084901928>",
+    "Water": "<:Water:1409626673602625628>",
+    "Brazil": "<:Brazil:1409626321973280870>",
+    "Los Matteos": "<:LosMatteos:1409626461249470584>",
+    "UFO": "<:UFO:1409626660113743903>",
+    "Galaxy": "<:Galaxy:1409626422309425254>",
+    "Rap Concert": "<:RapConcert:1409626570020225064>",
+    "Fuse Machine Luck": "<:FuseMachineLuck:1409626407113588828>"
+  },
+  "SAB_EVENT_DATA": {
+    "Rainbow": {
+      "Description": "Higher **Rainbow** Brainrot Chance!",
+      "Color": "#E863FF"
+    },
+    "Nyan Cats": {
+      "Description": "Higher **Nyan** Brainrot Chance!",
+      "Color": "#EE59FF"
+    },
+    "La Vacca Saturno Saturnita": {
+      "Description": "Higher **Galactic** Brainrot Chance!",
+      "Color": "#7D59FF"
+    },
+    "Raining Tacos": {
+      "Description": "Higher **Taco** Brainrot Chance!",
+      "Color": "#FFDE59"
+    },
+    "2x Luck": {
+      "Description": "**2x chance** for Rare Brainrots!",
+      "Color": "#39FC03"
+    },
+    "4x luck": {
+      "Description": "**4x chance** for Rare Brainrots!",
+      "Color": "#FFD700"
+    },
+    "6x luck": {
+      "Description": "**6x chance** for Rare Brainrots!",
+      "Color": "#FC03FC"
+    },
+    "8x luck": {
+      "Description": "**8x chance** for Rare Brainrots!",
+      "Color": "#0320FC"
+    },
+    "Matteo": {
+      "Description": "Higher **Matteo** Brainrot Chance!",
+      "Color": "#FF961D"
+    },
+    "4th of July": {
+      "Description": "Higher **Firework** Brainrot Chance!",
+      "Color": "#FF2828"
+    },
+    "Tung Tung Attack": {
+      "Description": "Higher **Zombie** Brainrot Chance!",
+      "Color": "#4AFF47"
+    },
+    "Candy": {
+      "Description": "Higher **Candy** Brainrot Chance!",
+      "Color": "#FF69B4"
+    },
+    "Crab Rave": {
+      "Description": "Higher **Claw** Brainrot Chance!",
+      "Color": "#EB391A"
+    },
+    "Glitch": {
+      "Description": "Higher **Glitch** Brainrot Chance!",
+      "Color": "#A75EDF"
+    },
+    "Bubblegum": {
+      "Description": "Higher **Bubblegum** Brainrot Chance!",
+      "Color": "#F058FE"
+    },
+    "Molten": {
+      "Description": "Higher **Lava** Brainrot Chance!",
+      "Color": "#FFAA00"
+    },
+    "Bombardiro Crocodilo": {
+      "Description": "Higher **Explosive** Brainrot Chance!",
+      "Color": "#FFAA00"
+    },
+    "Solar Flare": {
+      "Description": "Higher **Fire** Brainrot Chance!",
+      "Color": "#FFAA00"
+    },
+    "Rain": {
+      "Description": "Higher **Wet** Brainrot Chance!",
+      "Color": "#1E82DC"
+    },
+    "Snow": {
+      "Description": "Higher **Snowy** Brainrot Chance!",
+      "Color": "#FFFFFF"
+    },
+    "Starfall": {
+      "Description": "Higher **Comet-struck** Brainrot Chance!",
+      "Color": "#AF1EDC"
+    },
+    "Concert": {
+      "Description": "Higher **Disco** Brainrot Chance!",
+      "Color": "#E863FF"
+    },
+    "10B Visits": {
+      "Description": "Higher **10B** Brainrot Chance!",
+      "Color": "#FF2828"
+    },
+    "Water": {
+      "Description": "Higher **Shark Fin** Brainrot Chance!",
+      "Color": "#1E82DC"
+    },
+    "Brazil": {
+      "Description": "Higher **Brazil** Brainrot Chance!",
+      "Color": "#00FF00"
+    },
+    "Los Matteos": {
+      "Description": "Higher **Matteo** Brainrot Chance!",
+      "Color": "#FF961D"
+    },
+    "UFO": {
+      "Description": "Higher **UFO** Brainrot Chance!",
+      "Color": "#00FF00"
+    },
+    "Galaxy": {
+      "Description": "Higher **Galactic** Brainrot Chance!",
+      "Color": "#7D59FF"
+    },
+    "Rap Concert": {
+      "Description": "Higher **Disco** Brainrot Chance!",
+      "Color": "#E863FF"
+    },
+    "Fuse Machine Luck": {
+      "Description": "**4x chance** in the Fuse Machine!",
+      "Color": "#FFD700"
+    }
+  }
 }
