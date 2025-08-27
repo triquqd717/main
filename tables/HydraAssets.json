@@ -48,12 +48,12 @@
     "Grandmaster Sprinkler"
   ],
   "EGG_ITEMS": [
-    "Common Egg",
-    "Common Summer Egg",
-    "Rare Summer Egg",
+"Common Egg",
+    "Uncommon Egg",
+    "Rare Egg",
+    "Legendary Egg",
     "Mythical Egg",
     "Bug Egg",
-    "Paradise Egg",
     "Bee Egg"
   ],
 
