@@ -1,5 +1,9 @@
 {
   "SEED_ITEMS": [
+    "Broccoli",
+    "Potato",
+    "Brussels Sprout",
+    "Cocomango",
     "Carrot",
     "Strawberry",
     "Blueberry",
@@ -251,6 +255,10 @@
   ],
 
   "SeedEmojis": {
+    "Broccoli": "<:Broccoli:1411500029205549056>",
+    "Potato": "<:Potato:1411500043621367900>",
+    "Brussels Sprout": "<:Brussels:1411500014437404772>",
+    "Cocomango": "<:Cocomango:1411499999921180792>",
     "Carrot": "<:Carrot_v2:1394763792700674108>",
     "Strawberry": "<:Strawberry_v2:1394763933847654470>",
     "Blueberry": "<:Blueberry_v2:1394763755660906496>",
