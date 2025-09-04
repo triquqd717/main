@@ -3,7 +3,6 @@
     "Broccoli",
     "Potato",
     "Brussels Sprout",
-    "Cocomango",
     "Carrot",
     "Strawberry",
     "Blueberry",
@@ -474,6 +473,27 @@
     "Flower Froster Sprinkler": "<:FlowerSprinkler:1409304178270142686>",
     "Stalk Sprout Sprinkler": "<:StalkSprinkler:1409304247216115732>"
   },
+
+  "LAST_SEEN_IGNORE_ITEMS": [
+    "Carrot",
+    "Strawberry",
+    "Blueberry",
+    "Orange Tulip",
+    "Corn",
+    "Tomato",
+    "Daffodil",
+    "Paradise Egg",
+    "Common Summer Egg",
+    "Rare Summer Egg",
+    "Harvest Tool",
+    "Watering Can",
+    "Trowel",
+    "Trading Ticket",
+    "Recall Wrench",
+    "Cleaning Spray",
+    "Favorite Tool",
+    "Common Egg"
+  ],
 
   "WeatherEmojis": {
     "Rain": "🌧️",
