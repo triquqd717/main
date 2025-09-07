@@ -1,7 +1,7 @@
 local HttpService = game:GetService("HttpService")
 local Frame = game:GetService("Players").LocalPlayer.PlayerGui.Top_Notification.Frame
 local Conn
-local WS = "ws://localhost:3055/"
+local WS = "ws://localhost:3054/"
 local Start
 
 local Exact = {
@@ -14,7 +14,8 @@ local Exact = {
 	["Trade expired!"] = true,
 	["You can only place your pets in your garden!"] = true,
 	["The Beanstalk is growing!!"] = true,
-	["Your Cosmetic Shop stock has been reset!"] = true
+	["An earthquake is happening!"] = true,
+	["The fairy ring is fading..."] = true,
 }
 
 local Wildcard = {
@@ -115,10 +116,6 @@ Frame.ChildAdded:Connect(function(notif)
 				or raw:lower():find("elce</font>")
 				or raw:lower():find("icial</font>")
 				or raw:lower():find("am</font>")
-                or raw:lower():find("scammy</font>")
-                or raw:lower():find("jhai</font>")
-                or raw:lower():find("latte</font>")
-                or raw:lower():find("")
 
 			if not raw:find("<font") or allowFont then
 				local clean = notag(raw)
