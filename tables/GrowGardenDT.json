@@ -30,6 +30,7 @@
     "Elder Strawberry",
     "Romanesco"
   ],
+
   "GEAR_ITEMS": [
     "Harvest Tool",
     "Watering Can",
@@ -51,6 +52,7 @@
     "Master Sprinkler",
     "Grandmaster Sprinkler"
   ],
+
   "EGG_ITEMS": [
     "Common Egg",
     "Uncommon Egg",
@@ -72,6 +74,7 @@
     "Star Caller",
     "Mutation Spray Cloudtouched"
   ],
+
   "HONEY_MERCHANT_ITEMS": [
     "Flower Seed Pack",
     "Honey Sprinkler",
@@ -79,6 +82,7 @@
     "Bee Crate",
     "Honey Crafters Crate"
   ],
+
   "SUMMER_MERCHANT_ITEMS": [
     "Prickly Pear",
     "Cauliflower",
@@ -542,7 +546,8 @@
     "DJSandstorm": "🌪️",
     "RadioactiveCarrot": "🥕",
     "JandelKatana": "🔪",
-    "Armageddon": "💥"
+    "Armageddon": "💥",
+    "Earthquake": "🫨"
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
@@ -582,7 +587,8 @@
     "Snow": "Natural",
     "Night": "Natural",
     "AcidRain": "Natural",
-    "SolarEclipse": "Natural"
+    "SolarEclipse": "Natural",
+    "Earthquake": "Natural"
   },
 
   "RareStuff": [
@@ -721,6 +727,10 @@
     "SolarEclipse": {
       "Description": "Higher **Eclipse** Fruit Chance!",
       "Color": "#ffcc00"
+    },
+    "Earthquake": {
+      "Description": "Higher **Cracked** Fruit Chance!",
+      "Color": "#c91423"
     }
   },
   "RareStuffEmoji": {
@@ -743,7 +753,7 @@
     "Romanesco": "<:Romanesco:1406373257103413370>"
   },
 
-  "Advert": true,
+  "Advert": false,
 
   "SAB_EVENTS": [
     "Rainbow",
