@@ -1,7 +1,7 @@
 local HttpService = game:GetService("HttpService")
 local Frame = game:GetService("Players").LocalPlayer.PlayerGui.Top_Notification.Frame
 local Conn
-local WS = "ws://localhost:3054/"
+local WS = "ws://localhost:3055/"
 local Start
 
 local Exact = {
