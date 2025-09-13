@@ -16,6 +16,7 @@ local Exact = {
 	["The Beanstalk is growing!!"] = true,
 	["An earthquake is happening!"] = true,
 	["The fairy ring is fading..."] = true,
+	["Your Cosmetic Shop stock has been reset!"] = true
 }
 
 local Wildcard = {
