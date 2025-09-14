@@ -787,7 +787,8 @@
     "UFO",
     "Galaxy",
     "Rap Concert",
-    "Fuse Machine Luck"
+    "Fuse Machine Luck",
+    "Extinct"
   ],
   "SAB_EVENT_EMOJIS": {
     "Rainbow": "<:Rainbow:1409626541897289728>",
@@ -820,7 +821,8 @@
     "UFO": "<:UFO:1409626660113743903>",
     "Galaxy": "<:Galaxy:1409626422309425254>",
     "Rap Concert": "<:RapConcert:1409626570020225064>",
-    "Fuse Machine Luck": "<:FuseMachineLuck:1409626407113588828>"
+    "Fuse Machine Luck": "<:FuseMachineLuck:1409626407113588828>",
+    "Extinct": "<:Extinct:1416823994862010398>"
   },
   "SAB_EVENT_DATA": {
     "Rainbow": {
@@ -942,6 +944,284 @@
     "Fuse Machine Luck": {
       "Description": "**4x chance** in the Fuse Machine!",
       "Color": "#FFD700"
+    },
+    "Extinct": {
+      "Description": "Spawns **Extinct** Brainrots!",
+      "Color": "#FF035E"
     }
+  },
+
+  "CraftingRecipes": {
+    "Epic": {
+      "Bandito Axolito": {
+        "time": "7 Minutes",
+        "ingredients": {
+          "Trippi Troppi": "<:Trippi_Troppi:1416745176717590588>",
+          "Bandito Bobritto": "<:Bandito_Bobritto:1416745270875525273>"
+        },
+        "emoji": "<:Bandito_Axolito:1416810493917532160>"
+      },
+      "Malame Amarele": {
+        "time": "7 Minutes",
+        "ingredients": {
+          "Tung Tung Tung Sahur": "<:Tung_Tung_Tung_Sahur:1416745433425907742>",
+          "Ta Ta Ta Ta Sahur": "<:Ta_Ta_Ta_Ta_Sahur:1416746064035315763>",
+          "Brr Brr Patapim": "<:Brr_Brr_Patapim:1416746236639182918>"
+        },
+        "emoji": "<:Malame_Amarele:1416810615946870835>"
+      },
+      "Mangolini Parrocini": {
+        "time": "7 Minutes",
+        "ingredients": {
+          "Pipi Kiwi": "<:Pipi_Kiwi:1416747058727096534>",
+          "Pipi Avocado": "<:Pipi_Avocado:1416747167246192710>",
+          "Boneca Ambalabu": "<:Boneca_Ambalabu:1416773406111830167>",
+          "Perochello Lemonchello": "<:Perochello_Lemonchello:1416773589952106526>"
+        },
+        "emoji": "<:Mangolini_Parrocini:1416811234413772872>"
+      },
+      "RefreshTimeSeconds": 420
+    },
+    "Legendary": {
+      "Caramello Filtrello": {
+        "time": "15 Minutes",
+        "ingredients": {
+          "Salamino Penguino": "<:Salamino_Penguino:1416773685985017886>",
+          "Bananita Dolphinita": "<:Bananita_Dolphinita:1416774175619547136>",
+          "Chimpanzini Bananini": "<:Chimpanzini_Bananini:1416774317915770880>",
+          "Burbaloni Loliloli": "<:Burbaloni_Loliloli:1416774457279643790>"
+        },
+        "emoji": "<:Caramello_Filtrello:1416811365858803783>"
+      },
+      "Signore Carapace": {
+        "time": "15 Minutes",
+        "ingredients": {
+          "Brri Brri Bicus Dicus Bombicus": "<:Brri_Brri_Bicus_Dicus_Bombicus:1416774798088081570>",
+          "Glorbo Fruttodrillo": "<:Glorbo_Fruttodrillo:1416775279631798442>",
+          "Penguino Cocosino": "<:Penguino_Cocosino:1416775577159073923>"
+        },
+        "emoji": "<:Signore_Carapace:1416811512479350806>"
+      },
+      "Tirilikalika Tirilikalako": {
+        "time": "15 Minutes",
+        "ingredients": {
+          "Cacto Hipopotamo": "<:Cacto_Hipopotamo:1416775697506238625>",
+          "Penguino Cocosino": "<:Penguino_Cocosino:1416775577159073923>",
+          "Cappuccino Assassino": "<:Cappuccino_Assasino:1416775899654651945>"
+        },
+        "emoji": "<:Tirilikalika_Tirilikalako:1416811623041073232>"
+      },
+      "RefreshTimeSeconds": 900
+    },
+    "Mythic": {
+      "Brutto Gialutto": {
+        "time": "30 Minutes",
+        "ingredients": {
+          "Salamino Penguino": "<:Salamino_Penguino:1416773685985017886>",
+          "Blueberrinni Octopusini": "<:Blueberrini_Octopusini:1416776110125092964>",
+          "Rhino Tosterino": "<:Rhino_Tosterino:1416776217981489212>"
+        },
+        "emoji": "<:Bruto_Gialutto:1416811832387047444>"
+      },
+      "Gorillo Subwoofero": {
+        "time": "30 Minutes",
+        "ingredients": {
+          "Spioniro Golubiro": "<:Spioniro_Golubiro:1416776365805539479>",
+          "Orangutini Ananassini": "<:Orangutini_Ananasini:1416776539889991842>"
+        },
+        "emoji": "<:Gorillo_Subwoofero:1416811952252129401>"
+      },
+      "Los Noobinis": {
+        "time": "30 Minutes",
+        "ingredients": {
+          "Noobini Pizzanini": "<:Noobini_Pizzanini:1416776677958353048>",
+          "Carrotini Brainini": "<:Carrotini_Brainini:1416776831868080169>"
+        },
+        "emoji": "<:Los_Noobinis:1416812079754776768>"
+      },
+      "RefreshTimeSeconds": 1800
+    },
+    "Brainrot God": {
+      "Anpali Babel": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Te Te Te Sahur": "<:Te_Te_Te_Sahur:1416776956380188825>",
+          "Mastodontico Telepiedone": "<:Mastodontico_Telepiedone:1416777061821055099>"
+        },
+        "emoji": "<:Anpali_Babel:1416812299141906622>"
+      },
+      "Antonio": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Ganganzelli Trulala": "<:Ganganzelli_Trulala:1416777426494685306>",
+          "Bombardiro Crocodilo": "<:Bombardiro_Crocodilo:1416777574318735561>",
+          "Frigo Camelo": "<:Frigo_Camelo:1416777705776480276>"
+        },
+        "emoji": "<:Antonio2:1416813309159805022>"
+      },
+      "Las Capuchinas": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Ballerina Cappuccina": "<:Ballerina_Cappucina:1416777852115751004>",
+          "Tralalita Tralala": "<:Tralalita_Tralala:1416777960811139202>"
+        },
+        "emoji": "<:Las_Capuccinas:1416781250240315553>"
+      },
+      "Orcalita Orcala": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Orcalero Orcala": "<:Orcalero_Orcala:1416778048312709312>",
+          "Tralalita Tralala": "<:Tralalita_Tralala:1416777960811139202",
+          "Espresso Signora": "<:Espresso_Signora:1416778265196232865>"
+        },
+        "emoji": "<:Orcalita_Orcala:1416813516442304733>"
+      },
+      "Piccionetta Macchina": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Piccione Macchina": "<:Piccione_Macchina:1416778402865741865>",
+          "Matteo": "<:MatteoBrainrot:1416778735146762370>",
+          "Gattatino Nyanino": "<:Gattatino_Nyanino:1416778928663822487>"
+        },
+        "emoji": "<:Piccionetta_Macchina:1416813741344821331>"
+      },
+      "RefreshTimeSeconds": 2700
+    },
+    "Secret": {
+      "Fragola La La La": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Odin Din Din Dun": "<:Odin_Din_Din_Dun:1416779058473074760>",
+          "Sammyni Spyderini": "<:Sammyni_Spyderini:1416779214966882427>"
+        },
+        "emoji": "<:Fragola_La_La_La:1416813877366095983>"
+      },
+      "La Karkerkar Combinasion": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "La Grande Combinasion": "<:La_Grande_Combinasion:1416779347762876546>",
+          "Karkerkar Kurkur": "<:Karkerkar_Kurkur:1416779464414597173>"
+        },
+        "emoji": "<:La_Karkerkar_Combinasion:1416813991287591002>"
+      },
+      "La Sahur Combinasion": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Ta Ta Ta Ta Sahur": "<:Ta_Ta_Ta_Ta_Sahur:1416746064035315763>",
+          "Te Te Te Sahur": "<:Te_Te_Te_Sahur:1416776956380188825>",
+          "Graipuss Medussi": "<:Graipuss_Medussi:1416779760226402364>",
+          "Job Job Job Sahur": "<:Job_Job_Job_Sahur:1416779949058166976>"
+        },
+        "emoji": "<:La_Sahur_Combinasion:1416814100905984160>"
+      },
+      "Las Sis": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Las Capuchinas": "<:Las_Capuccinas:1416781250240315553>",
+          "Los Combinasionas": "<:Los_Combinasionas:1416781414690459689>",
+          "Las Tralaleritas": "<:Las_Tralaleritas:1416781516423561226>"
+        },
+        "emoji": "<:Las_Sis:1416814263737127022>"
+      },
+      "Los Bros": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Los Combinasionas": "<:Los_Combinasionas:1416781414690459689>",
+          "Los Tungtungtungcitos": "<:Los_Tungtungtungcitos:1416781779259625574>",
+          "Los Tralaleritos": "<:Los_Tralaleritos:1416781881640032337>"
+        },
+        "emoji": "<:Los_Bros:1416814386865115248>"
+      },
+      "Trenostruzzo Turbo 4000": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Girafa Celestre": "<:Girafa_Celestre:1416781959744585728>",
+          "Trenostruzzo Turbo 3000": "<:Trenostruzzo_Turbo_3000:1416810016064929852>"
+        },
+        "emoji": "<:Trenostruzzo_Turbo_4000:1416814903804559601>"
+      },
+      "Tralaledon": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Tralalero Tralala": "<:Tralalero_Tralala:1416810118040916042>",
+          "Nuclearo Dinossauro": "<:Nuclearo_Dinossauro:1416810342671192167>"
+        },
+        "emoji": "<:Tralaledon:1416815007554867322>"
+      },
+      "RefreshTimeSeconds": 5400
+    }
+  },
+  "CraftingRecipesEmojis": {
+    "Bandito Axolito": "<:Bandito_Axolito:1416810493917532160>",
+    "Malame Amarele": "<:Malame_Amarele:1416810615946870835>",
+    "Mangolini Parrocini": "<:Mangolini_Parrocini:1416811234413772872>",
+    "Caramello Filtrello": "<:Caramello_Filtrello:1416811365858803783>",
+    "Signore Carapace": "<:Signore_Carapace:1416811512479350806>",
+    "Tirilikalika Tirilikalako": "<:Tirilikalika_Tirilikalako:1416811623041073232>",
+    "Brutto Gialutto": "<:Bruto_Gialutto:1416811832387047444>",
+    "Gorillo Subwoofero": "<:Gorillo_Subwoofero:1416811952252129401>",
+    "Los Noobinis": "<:Los_Noobinis:1416812079754776768>",
+    "Anpali Babel": "<:Anpali_Babel:1416812299141906622>",
+    "Antonio": "<:Antonio2:1416813309159805022>",
+    "Orcalita Orcala": "<:Orcalita_Orcala:1416813516442304733>",
+    "Piccionetta Macchina": "<:Piccionetta_Macchina:1416813741344821331>",
+    "Fragola La La La": "<:Fragola_La_La_La:1416813877366095983>",
+    "La Karkerkar Combinasion": "<:La_Karkerkar_Combinasion:1416813991287591002>",
+    "La Sahur Combinasion": "<:La_Sahur_Combinasion:1416814100905984160>",
+    "Las Sis": "<:Las_Sis:1416814263737127022>",
+    "Tralaledon": "<:Tralaledon:1416815007554867322>",
+    "Trippi Troppi": "<:Trippi_Troppi:1416745176717590588>",
+    "Bandito Bobritto": "<:Bandito_Bobritto:1416745270875525273>",
+    "Tung Tung Tung Sahur": "<:Tung_Tung_Tung_Sahur:1416745433425907742>",
+    "Ta Ta Ta Ta Sahur": "<:Ta_Ta_Ta_Ta_Sahur:1416746064035315763>",
+    "Brr Brr Patapim": "<:Brr_Brr_Patapim:1416746236639182918>",
+    "Pipi Kiwi": "<:Pipi_Kiwi:1416747058727096534>",
+    "Pipi Avocado": "<:Pipi_Avocado:1416747167246192710>",
+    "Boneca Ambalabu": "<:Boneca_Ambalabu:1416773406111830167>",
+    "Perochello Lemonchello": "<:Perochello_Lemonchello:1416773589952106526>",
+    "Salamino Penguino": "<:Salamino_Penguino:1416773685985017886>",
+    "Bananita Dolphinita": "<:Bananita_Dolphinita:1416774175619547136>",
+    "Chimpanzini Bananini": "<:Chimpanzini_Bananini:1416774317915770880>",
+    "Burbaloni Loliloli": "<:Burbaloni_Loliloli:1416774457279643790>",
+    "Brri Brri Bicus Dicus Bombicus": "<:Brri_Brri_Bicus_Dicus_Bombicus:1416774798088081570>",
+    "Glorbo Fruttodrillo": "<:Glorbo_Fruttodrillo:1416775279631798442>",
+    "Penguino Cocosino": "<:Penguino_Cocosino:1416775577159073923>",
+    "Cacto Hipopotamo": "<:Cacto_Hipopotamo:1416775697506238625>",
+    "Cappuccino Assassino": "<:Cappuccino_Assasino:1416775899654651945>",
+    "Blueberrinni Octopusini": "<:Blueberrini_Octopusini:1416776110125092964>",
+    "Rhino Tosterino": "<:Rhino_Tosterino:1416776217981489212>",
+    "Spioniro Golubiro": "<:Spioniro_Golubiro:1416776365805539479>",
+    "Orangutini Ananassini": "<:Orangutini_Ananasini:1416776539889991842>",
+    "Noobini Pizzanini": "<:Noobini_Pizzanini:1416776677958353048>",
+    "Carrotini Brainini": "<:Carrotini_Brainini:1416776831868080169>",
+    "Te Te Te Sahur": "<:Te_Te_Te_Sahur:1416776956380188825>",
+    "Mastodontico Telepiedone": "<:Mastodontico_Telepiedone:1416777061821055099>",
+    "Ganganzelli Trulala": "<:Ganganzelli_Trulala:1416777426494685306>",
+    "Bombardiro Crocodilo": "<:Bombardiro_Crocodilo:1416777574318735561>",
+    "Frigo Camelo": "<:Frigo_Camelo:1416777705776480276>",
+    "Ballerina Cappuccina": "<:Ballerina_Cappucina:1416777852115751004>",
+    "Tralalita Tralala": "<:Tralalita_Tralala:1416777960811139202>",
+    "Orcalero Orcala": "<:Orcalero_Orcala:1416778048312709312>",
+    "Espresso Signora": "<:Espresso_Signora:1416778265196232865>",
+    "Piccione Macchina": "<:Piccione_Macchina:1416778402865741865>",
+    "Matteo": "<:MatteoBrainrot:1416778735146762370>",
+    "Gattatino Nyanino": "<:Gattatino_Nyanino:1416778928663822487>",
+    "Odin Din Din Dun": "<:Odin_Din_Din_Dun:1416779058473074760>",
+    "Sammyni Spyderini": "<:Sammyni_Spyderini:1416779214966882427>",
+    "La Grande Combinasion": "<:La_Grande_Combinasion:1416779347762876546>",
+    "Karkerkar Kurkur": "<:Karkerkar_Kurkur:1416779464414597173>",
+    "Graipuss Medussi": "<:Graipuss_Medussi:1416779760226402364>",
+    "Job Job Job Sahur": "<:Job_Job_Job_Sahur:1416779949058166976>",
+    "Las Capuchinas": "<:Las_Capuccinas:1416781250240315553>",
+    "Los Combinasionas": "<:Los_Combinasionas:1416781414690459689>",
+    "Las Tralaleritas": "<:Las_Tralaleritas:1416781516423561226>",
+    "Los Tungtungtungcitos": "<:Los_Tungtungtungcitos:1416781779259625574>",
+    "Los Tralaleritos": "<:Los_Tralaleritos:1416781881640032337>",
+    "Girafa Celestre": "<:Girafa_Celestre:1416781959744585728>",
+    "Trenostruzzo Turbo 3000": "<:Trenostruzzo_Turbo_3000:1416810016064929852>",
+    "Tralalero Tralala": "<:Tralalero_Tralala:1416810118040916042>",
+    "Nuclearo Dinossauro": "<:Nuclearo_Dinossauro:1416810342671192167>",
+    "Los Bros": "<:Los_Bros:1416814386865115248>",
+    "Trenostruzzo Turbo 4000": "<:Trenostruzzo_Turbo_4000:1416814903804559601>"
   }
 }
