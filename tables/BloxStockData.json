@@ -1,5 +1,9 @@
 {
   "SEED_ITEMS": [
+    "Cocomango",
+    "Broccoli",
+    "Potato",
+    "Brussels Sprout",
     "Carrot",
     "Strawberry",
     "Blueberry",
@@ -27,28 +31,31 @@
     "Elder Strawberry",
     "Romanesco"
   ],
+
   "GEAR_ITEMS": [
+    "Harvest Tool",
     "Watering Can",
     "Trowel",
     "Trading Ticket",
     "Recall Wrench",
-    "Basic Sprinkler",
-    "Advanced Sprinkler",
-    "Medium Toy",
-    "Medium Treat",
-    "Godly Sprinkler",
-    "Magnifying Glass",
     "Tanning Mirror",
-    "Master Sprinkler",
     "Cleaning Spray",
     "Favorite Tool",
-    "Harvest Tool",
     "Friendship Pot",
-    "Grandmaster Sprinkler",
-    "Levelup Lollipop"
+    "Medium Toy",
+    "Medium Treat",
+    "Basic Sprinkler",
+    "Magnifying Glass",
+    "Levelup Lollipop",
+    "Advanced Sprinkler",
+    "Cleansing Pet Shard",
+    "Godly Sprinkler",
+    "Master Sprinkler",
+    "Grandmaster Sprinkler"
   ],
+
   "EGG_ITEMS": [
-"Common Egg",
+    "Common Egg",
     "Uncommon Egg",
     "Rare Egg",
     "Legendary Egg",
@@ -68,6 +75,7 @@
     "Star Caller",
     "Mutation Spray Cloudtouched"
   ],
+
   "HONEY_MERCHANT_ITEMS": [
     "Flower Seed Pack",
     "Honey Sprinkler",
@@ -75,6 +83,7 @@
     "Bee Crate",
     "Honey Crafters Crate"
   ],
+
   "SUMMER_MERCHANT_ITEMS": [
     "Prickly Pear",
     "Cauliflower",
@@ -87,13 +96,23 @@
     "Feijoa",
     "Pineapple",
     "Rafflesia",
-    "Banana"
+    "Banana",
+    "Paradise Egg"
   ],
 
   "SPRAY_MERCHANT_ITEMS": [
     "Mutation Spray Wet",
     "Mutation Spray Windstruck",
     "Mutation Spray Verdant"
+  ],
+
+  "SPRINKLER_MERCHANT_ITEMS": [
+    "Tropical Mist Sprinkler",
+    "Berry Blusher Sprinkler",
+    "Spice Spritzer Sprinkler",
+    "Sweet Soaker Sprinkler",
+    "Flower Froster Sprinkler",
+    "Stalk Sprout Sprinkler"
   ],
 
   "SUMMER_ITEMS": [
@@ -227,10 +246,23 @@
     "Silver Fertilizer",
     "Canary Melon",
     "Amberheart",
-    "Spriggan"
+    "Spriggan",
+    "Skyroot Chest",
+    "Griffin Statue",
+    "Bouncy Mushroom",
+    "Beanstalk Painting",
+    "Can Of Beans",
+    "Glowpod",
+    "Flare Melon",
+    "Pet Shard GiantBean",
+    "Gnome"
   ],
 
   "SeedEmojis": {
+    "Broccoli": "",
+    "Potato": "",
+    "Brussels Sprout": "",
+    "Cocomango": "",
     "Carrot": "<:Carrot_v2:1394987367928172616>",
     "Strawberry": "<:Strawberry_v2:1394987262424649778>",
     "Blueberry": "<:Blueberry_v2:1394987510471593994>",
@@ -406,8 +438,39 @@
     "Banana": "<:Banana:1386016978019418213>",
     "Mutation Spray Wet": "<:MutationSprayWet:1396514020365832263>",
     "Mutation Spray Windstruck": "<:MutationSprayWet:1396514020365832263>",
-    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396513978259210350>"
+    "Mutation Spray Verdant": "<:MutationSprayVerdant:1396513978259210350>",
+    "Tropical Mist Sprinkler": "",
+    "Berry Blusher Sprinkler": "",
+    "Spice Spritzer Sprinkler": "",
+    "Sweet Soaker Sprinkler": "",
+    "Flower Froster Sprinkler": "",
+    "Stalk Sprout Sprinkler": ""
   },
+
+  "LAST_SEEN_IGNORE_ITEMS": [
+    "Carrot",
+    "Strawberry",
+    "Blueberry",
+    "Orange Tulip",
+    "Corn",
+    "Tomato",
+    "Daffodil",
+    "Paradise Egg",
+    "Common Summer Egg",
+    "Rare Summer Egg",
+    "Harvest Tool",
+    "Watering Can",
+    "Trowel",
+    "Trading Ticket",
+    "Recall Wrench",
+    "Cleaning Spray",
+    "Favorite Tool",
+    "Common Egg",
+    "Pet Name Reroller",
+    "Rainbow Lollipop",
+    "Pet Lead"
+  ],
+
   "WeatherEmojis": {
     "Rain": "🌧️",
     "Snow": "❄️",
@@ -449,7 +512,12 @@
     "JunkbotRaid": "🤖",
     "FlamingoFloat": "🦩",
     "Boil": "🔥",
-    "Oil": "🛢️"
+    "Oil": "🛢️",
+    "Stoplight": "🚦",
+    "SolarEclipse": "🌑",
+    "DJSandstorm": "🌪️",
+    "Armageddon": "💥",
+    "Earthquake": "🫨"
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
@@ -488,7 +556,9 @@
     "CrystalBeams": "Natural",
     "JandelZombie": "Admin",
     "Snow": "Natural",
-    "Night": "Natural"
+    "Night": "Natural",
+    "SolarEclipse": "Natural",
+    "Earthquake": "Natural"
   },
 
   "RareStuff": [
@@ -623,6 +693,14 @@
     "AcidRain": {
       "Description": "Higher **Acidic** Fruit Chance!",
       "Color": "#00FF00"
+    },
+    "SolarEclipse": {
+      "Description": "Higher **Eclipse** Fruit Chance!",
+      "Color": "#ffcc00"
+    },
+    "Earthquake": {
+      "Description": "Higher **Cracked** Fruit Chance!",
+      "Color": "#c91423"
     }
   },
   "RareStuffEmoji": {
@@ -644,5 +722,401 @@
     "Grandmaster Sprinkler": "<:GrandmasterSprinkler_:1401176940374921267>"
   },
 
-  "Advert": true
+  "Advert": true,
+  "SAB_EVENTS": [
+    "Rainbow",
+    "Nyan Cats",
+    "La Vacca Saturno Saturnita",
+    "Raining Tacos",
+    "2x luck",
+    "4x luck",
+    "6x luck",
+    "8x luck",
+    "Matteo",
+    "4th of July",
+    "Bloodmoon",
+    "Tung Tung Attack",
+    "Candy",
+    "Crab Rave",
+    "Glitch",
+    "Bubblegum",
+    "Molten",
+    "Bombardiro Crocodilo",
+    "Solar Flare",
+    "Rain",
+    "Snow",
+    "Starfall",
+    "Concert",
+    "10B Visits",
+    "Water",
+    "Brazil",
+    "Los Matteos",
+    "UFO",
+    "Galaxy",
+    "Rap Concert",
+    "Fuse Machine Luck",
+    "Extinct"
+  ],
+  "SAB_EVENT_EMOJIS": {
+    "Rainbow": "",
+    "Nyan Cats": "",
+    "La Vacca Saturno Saturnita": "",
+    "Raining Tacos": "",
+    "2x luck": "",
+    "4x luck": "",
+    "6x luck": "",
+    "8x luck": "",
+    "Matteo": "",
+    "4th of July": "",
+    "Bloodmoon": "",
+    "Tung Tung Attack": "",
+    "Candy": "",
+    "Crab Rave": "",
+    "Glitch": "",
+    "Bubblegum": "",
+    "Molten": "",
+    "Bombardiro Crocodilo": "",
+    "Solar Flare": "",
+    "Rain": "",
+    "Snow": "",
+    "Starfall": "",
+    "Concert": "",
+    "10B Visits": "",
+    "Water": "",
+    "Brazil": "",
+    "Los Matteos": "",
+    "UFO": "",
+    "Galaxy": "",
+    "Rap Concert": "",
+    "Fuse Machine Luck": "",
+    "Extinct": ""
+  },
+  "SAB_EVENT_DATA": {
+    "Rainbow": {
+      "Description": "Higher **Rainbow** Brainrot Chance!",
+      "Color": "#E863FF"
+    },
+    "Nyan Cats": {
+      "Description": "Higher **Nyan** Brainrot Chance!",
+      "Color": "#EE59FF"
+    },
+    "La Vacca Saturno Saturnita": {
+      "Description": "Higher **Galactic** Brainrot Chance!",
+      "Color": "#7D59FF"
+    },
+    "Raining Tacos": {
+      "Description": "Higher **Taco** Brainrot Chance!",
+      "Color": "#FFDE59"
+    },
+    "2x Luck": {
+      "Description": "**2x chance** for Rare Brainrots!",
+      "Color": "#39FC03"
+    },
+    "4x luck": {
+      "Description": "**4x chance** for Rare Brainrots!",
+      "Color": "#FFD700"
+    },
+    "6x luck": {
+      "Description": "**6x chance** for Rare Brainrots!",
+      "Color": "#FC03FC"
+    },
+    "8x luck": {
+      "Description": "**8x chance** for Rare Brainrots!",
+      "Color": "#0320FC"
+    },
+    "Matteo": {
+      "Description": "Higher **Matteo** Brainrot Chance!",
+      "Color": "#FF961D"
+    },
+    "4th of July": {
+      "Description": "Higher **Firework** Brainrot Chance!",
+      "Color": "#FF2828"
+    },
+    "Tung Tung Attack": {
+      "Description": "Higher **Zombie** Brainrot Chance!",
+      "Color": "#4AFF47"
+    },
+    "Candy": {
+      "Description": "Higher **Candy** Brainrot Chance!",
+      "Color": "#FF69B4"
+    },
+    "Crab Rave": {
+      "Description": "Higher **Claw** Brainrot Chance!",
+      "Color": "#EB391A"
+    },
+    "Glitch": {
+      "Description": "Higher **Glitch** Brainrot Chance!",
+      "Color": "#A75EDF"
+    },
+    "Bubblegum": {
+      "Description": "Higher **Bubblegum** Brainrot Chance!",
+      "Color": "#F058FE"
+    },
+    "Molten": {
+      "Description": "Higher **Lava** Brainrot Chance!",
+      "Color": "#FFAA00"
+    },
+    "Bombardiro Crocodilo": {
+      "Description": "Higher **Explosive** Brainrot Chance!",
+      "Color": "#FFAA00"
+    },
+    "Solar Flare": {
+      "Description": "Higher **Fire** Brainrot Chance!",
+      "Color": "#FFAA00"
+    },
+    "Rain": {
+      "Description": "Higher **Wet** Brainrot Chance!",
+      "Color": "#1E82DC"
+    },
+    "Snow": {
+      "Description": "Higher **Snowy** Brainrot Chance!",
+      "Color": "#FFFFFF"
+    },
+    "Starfall": {
+      "Description": "Higher **Comet-struck** Brainrot Chance!",
+      "Color": "#AF1EDC"
+    },
+    "Concert": {
+      "Description": "Higher **Disco** Brainrot Chance!",
+      "Color": "#E863FF"
+    },
+    "10B Visits": {
+      "Description": "Higher **10B** Brainrot Chance!",
+      "Color": "#FF2828"
+    },
+    "Water": {
+      "Description": "Higher **Shark Fin** Brainrot Chance!",
+      "Color": "#1E82DC"
+    },
+    "Brazil": {
+      "Description": "Higher **Brazil** Brainrot Chance!",
+      "Color": "#00FF00"
+    },
+    "Los Matteos": {
+      "Description": "Higher **Matteo** Brainrot Chance!",
+      "Color": "#FF961D"
+    },
+    "UFO": {
+      "Description": "Higher **UFO** Brainrot Chance!",
+      "Color": "#00FF00"
+    },
+    "Galaxy": {
+      "Description": "Higher **Galactic** Brainrot Chance!",
+      "Color": "#7D59FF"
+    },
+    "Rap Concert": {
+      "Description": "Higher **Disco** Brainrot Chance!",
+      "Color": "#E863FF"
+    },
+    "Fuse Machine Luck": {
+      "Description": "**4x chance** in the Fuse Machine!",
+      "Color": "#FFD700"
+    },
+    "Extinct": {
+      "Description": "Spawns **Extinct** Brainrots!",
+      "Color": "#FF035E"
+    }
+  },
+
+  "CraftingRecipes": {
+    "Epic": {
+      "Bandito Axolito": {
+        "time": "7 Minutes",
+        "ingredients": {
+          "Trippi Troppi": "",
+          "Bandito Bobritto": ""
+        },
+        "emoji": ""
+      },
+      "Malame Amarele": {
+        "time": "7 Minutes",
+        "ingredients": {
+          "Gangster Footera": "",
+          "Ta Ta Ta Ta Sahur": "",
+          "Brr Brr Patapim": ""
+        },
+        "emoji": ""
+      },
+      "Mangolini Parrocini": {
+        "time": "7 Minutes",
+        "ingredients": {
+          "Pipi Kiwi": "",
+          "Pipi Avocado": "",
+          "Boneca Ambalabu": "",
+          "Perochello Lemonchello": ""
+        },
+        "emoji": ""
+      },
+      "RefreshTimeSeconds": 420
+    },
+    "Legendary": {
+      "Caramello Filtrello": {
+        "time": "15 Minutes",
+        "ingredients": {
+          "Salamino Penguino": "",
+          "Bananita Dolphinita": "",
+          "Chimpanzini Bananini": "",
+          "Burbaloni Loliloli": ""
+        },
+        "emoji": ""
+      },
+      "Signore Carapace": {
+        "time": "15 Minutes",
+        "ingredients": {
+          "Brri Brri Bicus Dicus Bombicus": "",
+          "Glorbo Fruttodrillo": "",
+          "Penguino Cocosino": ""
+        },
+        "emoji": ""
+      },
+      "Tirilikalika Tirilikalako": {
+        "time": "15 Minutes",
+        "ingredients": {
+          "Cacto Hipopotamo": "",
+          "Penguino Cocosino": "",
+          "Cappuccino Assassino": ""
+        },
+        "emoji": ""
+      },
+      "RefreshTimeSeconds": 900
+    },
+    "Mythic": {
+      "Brutto Gialutto": {
+        "time": "30 Minutes",
+        "ingredients": {
+          "Salamino Penguino": "",
+          "Blueberrinni Octopusini": "",
+          "Rhino Tosterino": ""
+        },
+        "emoji": ""
+      },
+      "Gorillo Subwoofero": {
+        "time": "30 Minutes",
+        "ingredients": {
+          "Spioniro Golubiro": "",
+          "Orangutini Ananassini": ""
+        },
+        "emoji": ""
+      },
+      "Los Noobinis": {
+        "time": "30 Minutes",
+        "ingredients": {
+          "Noobini Pizzanini": "",
+          "Carrotini Brainini": ""
+        },
+        "emoji": ""
+      },
+      "RefreshTimeSeconds": 1800
+    },
+    "Brainrot God": {
+      "Anpali Babel": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Te Te Te Sahur": "",
+          "Mastodontico Telepiedone": ""
+        },
+        "emoji": ""
+      },
+      "Antonio": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Ganganzelli Trulala": "",
+          "Bombardiro Crocodilo": "",
+          "Frigo Camelo": ""
+        },
+        "emoji": ""
+      },
+      "Las Capuchinas": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Ballerina Cappuccina": "",
+          "Tralalita Tralala": ""
+        },
+        "emoji": ""
+      },
+      "Orcalita Orcala": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Orcalero Orcala": "",
+          "Tralalita Tralala": "",
+          "Espresso Signora": ""
+        },
+        "emoji": ""
+      },
+      "Piccionetta Macchina": {
+        "time": "45 Minutes",
+        "ingredients": {
+          "Piccione Macchina": "",
+          "Matteo": "",
+          "Gattatino Nyanino": ""
+        },
+        "emoji": ""
+      },
+      "RefreshTimeSeconds": 2700
+    },
+    "Secret": {
+      "Fragola La La La": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Odin Din Din Dun": "",
+          "Sammyni Spyderini": ""
+        },
+        "emoji": ""
+      },
+      "La Karkerkar Combinasion": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "La Grande Combinasion": "",
+          "Karkerkar Kurkur": ""
+        },
+        "emoji": ""
+      },
+      "La Sahur Combinasion": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Ta Ta Ta Ta Sahur": "",
+          "Te Te Te Sahur": "",
+          "Graipuss Medussi": "",
+          "Job Job Job Sahur": ""
+        },
+        "emoji": ""
+      },
+      "Las Sis": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Las Capuchinas": "",
+          "Los Combinasionas": "",
+          "Las Tralaleritas": ""
+        },
+        "emoji": ""
+      },
+      "Los Bros": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Los Combinasionas": "",
+          "Los Tungtungtungcitos": "",
+          "Los Tralaleritos": ""
+        },
+        "emoji": ""
+      },
+      "Trenostruzzo Turbo 4000": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Girafa Celestre": "",
+          "Trenostruzzo Turbo 3000": ""
+        },
+        "emoji": ""
+      },
+      "Tralaledon": {
+        "time": "1 Hour, 30 Minutes",
+        "ingredients": {
+          "Tralalero Tralala": "",
+          "Nuclearo Dinossauro": ""
+        },
+        "emoji": ""
+      },
+      "RefreshTimeSeconds": 5400
+    }
+  },
+  "CraftingRecipesEmojis": {}
 }
