@@ -259,10 +259,10 @@
   ],
 
   "SeedEmojis": {
-    "Broccoli": "",
-    "Potato": "",
-    "Brussels Sprout": "",
-    "Cocomango": "",
+    "Broccoli": "<:Broccoli:1417555765035667476>",
+    "Potato": "<:Potato:1417555743300915260>",
+    "Brussels Sprout": "<:Brussels:1417555787429052537>",
+    "Cocomango": "<:Cocomango:1417555832584933397>",
     "Carrot": "<:Carrot_v2:1394987367928172616>",
     "Strawberry": "<:Strawberry_v2:1394987262424649778>",
     "Blueberry": "<:Blueberry_v2:1394987510471593994>",
