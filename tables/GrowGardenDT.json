@@ -515,7 +515,7 @@
     "Volcano": "🌋",
     "SpaceTravel": "🚀",
     "UnderTheSea": "🌊",
-    "Windy": "🌬️",
+    "Windy": "🍃",
     "AlienInvasion": "👽",
     "Heatwave": "☢️",
     "Gale": "💨",
@@ -548,7 +548,7 @@
     "RadioactiveCarrot": "🥕",
     "JandelKatana": "🔪",
     "Armageddon": "💥",
-    "Earthquake": "🫨"
+    "Earthquake": "💥"
   },
   "WEATHER_TYPES": {
     "Obby": "Admin",
