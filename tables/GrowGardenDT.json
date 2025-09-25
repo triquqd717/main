@@ -1224,5 +1224,73 @@
     "Los Bros": "<:Los_Bros:1416814386865115248>",
     "Trenostruzzo Turbo 4000": "<:Trenostruzzo_Turbo_4000:1416814903804559601>",
     "Gangster Footera": "<:GangsterFootera:1416884795354648717>"
-  }
+  },
+
+  "PVB_SEED_ITEMS": [
+    "Cactus",
+    "Strawberry",
+    "Pumpkin",
+    "Sunflower",
+    "Dragon Fruit",
+    "Eggplant",
+    "Watermelon",
+    "Cocotank",
+    "Carnivorous Plant",
+    "Mr Carrot",
+    "Tomatrio"
+  ],
+
+  "PVB_GEAR_ITEMS": [
+    "Water Bucket",
+    "Frost Grenade",
+    "Banana Gun",
+    "Frost Bowler",
+    "Carrot Launcher"
+  ],
+
+  "PVB_WEATHER": [
+    "Diamond",
+		"Frozen",
+		"Galactic",
+		"Gold",
+		"Neon",
+		"Rainbow"
+  ],
+
+  "PVB_SEED_EMOJIS": {
+    "Cactus": "<:pvb_cactus:1420725996956684369>",
+    "Strawberry": "<:pvb_strawberry:1420726218696687676>",
+    "Pumpkin": "<:pvb_pumpkin:1420726423487774730>",
+    "Sunflower": "<:pvb_sunflower:1420727484550479922>",
+    "Dragon Fruit": "<:pvb_dragon_fruit:1420727606545743892>",
+    "Eggplant": "<:pvb_eggplant:1420727739245133884>",
+    "Watermelon": "<:pvb_watermelon:1420727867880374352>",
+    "Cocotank": "<:pvb_cocotank:1420727976949055620>",
+    "Carnivorous Plant": "<:pvb_carn_plant:1420728134231134289>",
+    "Mr Carrot": "<:pvb_mr_carrot:1420728312464015391>",
+    "Tomatrio": "<:pvb_tomatotrio:1420728466680184944>"
+  },
+  "PVB_GEAR_EMOJIS": {
+    "Water Bucket": "<:pvb_water_bucket:1420728667339886636>",
+    "Frost Grenade": "<:pvb_frost_grenade:1420728915030315080>",
+    "Banana Gun": "<:pvb_banana_gun:1420729078478016512>",
+    "Frost Bowler": "<:pvb_frost_bowler:1420729306786828351>",
+    "Carrot Launcher": "<:pvb_carrot_launcher:1420729520352264253>"
+  },
+
+  "PVB_WEATHER_EMOJIS": {
+    "Diamond": "💎",
+		"Frozen": "❄️",
+		"Galactic": "🌌",
+		"Gold": "🪙",
+		"Neon": "💙",
+		"Rainbow": "🌈"
+  },
+
+  "PVB_RARE_STUFF": [
+    "Mr Carrot",
+    "Tomatrio",
+    "Carnivorous Plant",
+    "Cocotank"
+  ]
 }
