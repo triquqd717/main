@@ -29,7 +29,8 @@
     "Burning Bud",
     "Giant Pinecone",
     "Elder Strawberry",
-    "Romanesco"
+    "Romanesco",
+    "Crimson Thron"
   ],
 
   "GEAR_ITEMS": [
@@ -288,7 +289,8 @@
     "Burning Bud": "<:BurningFruit_v2:1394763766318628954>",
     "Giant Pinecone": "<:GiantPinecone_v2:1394763852314578994>",
     "Elder Strawberry": "<:ElderStrawberry_:1400399240752136275>",
-    "Romanesco": "<:Romanesco:1406373257103413370>"
+    "Romanesco": "<:Romanesco:1406373257103413370>",
+    "Crimson Thorn": "<:CrimsonThon:1421504508156051537>"
   },
   "GearEmojis": {
     "Watering Can": "<:WateringCan_v2:1394763153149137058>",
