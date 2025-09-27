@@ -30,7 +30,7 @@
     "Giant Pinecone",
     "Elder Strawberry",
     "Romanesco",
-    "Crimson Thron"
+    "Crimson Thorn"
   ],
 
   "GEAR_ITEMS": [
@@ -61,6 +61,7 @@
     "Rare Egg",
     "Legendary Egg",
     "Mythical Egg",
+    "Jungle Egg",
     "Bug Egg",
     "Bee Egg"
   ],
@@ -324,6 +325,7 @@
     "Bee Egg": "<:BeeEggV2:1390277906105892986>",
     "Rare Summer Egg": "<:RareSummerV2:1390277915597475962>",
     "Anti Egg": "<:AntiEggV2:1390277924841590894>",
+    "Jungle Egg": "<:JungleEgg:1421507673266065458>",
     "Uncommon Egg": "<:UncommonEggV2:1390277947562393713>",
     "Night Egg": "<:NightEggV2:1390277969800597514>"
   },
