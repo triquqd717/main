@@ -754,7 +754,7 @@
     "Romanesco": "<:Romanesco:1406373257103413370>"
   },
 
-  "Advert": false,
+  "Advert": true,
 
   "SAB_EVENTS": [
     "Rainbow",
@@ -1237,7 +1237,8 @@
     "Cocotank",
     "Carnivorous Plant",
     "Mr Carrot",
-    "Tomatrio"
+    "Tomatrio",
+    "Shroombino"
   ],
 
   "PVB_GEAR_ITEMS": [
@@ -1261,7 +1262,8 @@
     "Cocotank": "<:pvb_cocotank:1420727976949055620>",
     "Carnivorous Plant": "<:pvb_carn_plant:1420728134231134289>",
     "Mr Carrot": "<:pvb_mr_carrot:1420728312464015391>",
-    "Tomatrio": "<:pvb_tomatotrio:1420728466680184944>"
+    "Tomatrio": "<:pvb_tomatotrio:1420728466680184944>",
+    "Shroombino": "<:pvb_shroombino:1421467093622067321>"
   },
   "PVB_GEAR_EMOJIS": {
     "Water Bucket": "<:pvb_water_bucket:1420728667339886636>",
