@@ -611,7 +611,8 @@
     "Giant Pinecone",
     "Elder Strawberry",
     "Grandmaster Sprinkler",
-    "Romanesco"
+    "Romanesco",
+    "Crimson Thorn"
   ],
   "TargetReactChannel": "1365497720118186025",
   "COLOR_PALETTE": {
@@ -1311,5 +1312,5 @@
     }
   },
 
-  "PVB_RARE_STUFF": ["Mr Carrot", "Tomatrio", "Carnivorous Plant", "Cocotank"]
+  "PVB_RARE_STUFF": ["Mr Carrot", "Tomatrio", "Carnivorous Plant", "Cocotank", "Shroombino"]
 }
