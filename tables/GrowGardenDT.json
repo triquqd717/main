@@ -759,7 +759,7 @@
     "Romanesco": "<:Romanesco:1406373257103413370>"
   },
 
-  "Advert": true,
+  "Advert": false,
 
   "SAB_EVENTS": [
     "Rainbow",
@@ -1239,6 +1239,7 @@
     "Dragon Fruit",
     "Eggplant",
     "Watermelon",
+    "Grape",
     "Cocotank",
     "Carnivorous Plant",
     "Mr Carrot",
@@ -1264,6 +1265,7 @@
     "Dragon Fruit": "<:pvb_dragon_fruit:1420727606545743892>",
     "Eggplant": "<:pvb_eggplant:1420727739245133884>",
     "Watermelon": "<:pvb_watermelon:1420727867880374352>",
+    "Grape": "<:pvb_grape:1421612149544976546>",
     "Cocotank": "<:pvb_cocotank:1420727976949055620>",
     "Carnivorous Plant": "<:pvb_carn_plant:1420728134231134289>",
     "Mr Carrot": "<:pvb_mr_carrot:1420728312464015391>",
