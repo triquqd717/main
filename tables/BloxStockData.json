@@ -29,7 +29,8 @@
     "Burning Bud",
     "Giant Pinecone",
     "Elder Strawberry",
-    "Romanesco"
+    "Romanesco",
+    "Crimson Thorn"
   ],
 
   "GEAR_ITEMS": [
@@ -60,6 +61,7 @@
     "Rare Egg",
     "Legendary Egg",
     "Mythical Egg",
+    "Jungle Egg",
     "Bug Egg",
     "Bee Egg"
   ],
@@ -288,7 +290,8 @@
     "Burning Bud": "<:BurningFruit_v2:1394987472089251941>",
     "Giant Pinecone": "<:GiantPinecone_v2:1394987377419620392>",
     "Elder Strawberry": "<:ElderStrawberry:1398680338221236224>",
-    "Romanesco": "<:Romanesco:1406402444367233154>"
+    "Romanesco": "<:Romanesco:1406402444367233154>",
+    "Crimson Thorn": "<:CrimsonThon:1422307361737015366>"
   },
   "GearEmojis": {
     "Watering Can": "<:WateringCan_v2:1394993215626674207>",
@@ -321,6 +324,7 @@
     "Common Summer Egg": "<:CommonSummerV2:1392037619302400111>",
     "Bee Egg": "<:BeeEggV2:1392037626239909899>",
     "Rare Summer Egg": "<:RareSummerV2:1392037635882483752>",
+    "Jungle Egg": "<:JungleEgg:1422307426056667196>",
     "Anti Egg": "",
     "Uncommon Egg": "<:UncommonEgg:1383881529591337051>",
     "Night Egg": ""
