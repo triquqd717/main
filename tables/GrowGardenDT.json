@@ -1255,7 +1255,15 @@
     "Carrot Launcher"
   ],
 
-  "PVB_WEATHER": ["Diamond", "Frozen", "Galactic", "Gold", "Neon", "Rainbow"],
+  "PVB_WEATHER": [
+    "Rainbow",
+    "Galactic",
+    "Golden",
+    "Frozen",
+    "UpsideDown",
+    "Underworld",
+    "Volcano"
+  ],
 
   "PVB_SEED_EMOJIS": {
     "Cactus": "<:pvb_cactus:1420725996956684369>",
@@ -1281,40 +1289,50 @@
   },
 
   "PVB_WEATHER_EMOJIS": {
-    "Diamond": "💎",
-    "Frozen": "❄️",
+    "Rainbow": "🌈",
     "Galactic": "🌌",
-    "Gold": "🪙",
-    "Neon": "💙",
-    "Rainbow": "🌈"
+    "Golden": "🪙",
+    "Frozen": "❄️",
+    "UpsideDown": "🙃",
+    "Underworld": "🔥",
+    "Volcano": "🌋"
   },
 
   "PVB_WeatherData": {
-    "Gold": {
+    "Rainbow": {
+      "Color": "#FF69B4",
+      "Description": "5x Base Earnings Increase! Higher spawn chance during Prismatic Surge."
+    },
+    "Galactic": {
+      "Color": "#800080",
+      "Description": "7.5x Base Earnings Increase! Only spawns during Galaxy weather events."
+    },
+    "Golden": {
       "Color": "#FFD700",
       "Description": "2x Base Damage/Earnings Increase!"
-    },
-    "Diamond": {
-      "Color": "#B9F2FF",
-      "Description": "3x Base Damage/Earnings Increase!"
     },
     "Frozen": {
       "Color": "#00BFFF",
       "Description": "4x Base Damage/Earnings Increase! Frozen plants can inflict Freeze for 0.3s."
     },
-    "Neon": {
-      "Color": "#39FF14",
-      "Description": "5x Base Damage / 4.5x Base Earnings Increase!"
+    "UpsideDown": {
+      "Color": "#8B0000",
+      "Description": "Inverts the Brainrots!"
     },
-    "Rainbow": {
-      "Color": "#FF69B4",
-      "Description": "5x Base Earnings Increase! Higher spawn chance during Prismatic Surge."
+    "Underworld": {
+      "Color": "#d934bb",
+      "Description": "Gives Dark Aura to the Brainrots!"
     },
-    "Galaxy": {
-      "Color": "#800080",
-      "Description": "7.5x Base Earnings Increase! Only spawns during Galaxy weather events."
+    "Volcano": {
+      "Color": "#FFAA00",
+      "Description": "Gives **Magma** Mutation to the Brainrots!"
     }
   },
-
-  "PVB_RARE_STUFF": ["Mr Carrot", "Tomatrio", "Carnivorous Plant", "Cocotank", "Shroombino"]
+  "PVB_RARE_STUFF": [
+    "Mr Carrot",
+    "Tomatrio",
+    "Carnivorous Plant",
+    "Cocotank",
+    "Shroombino"
+  ]
 }
