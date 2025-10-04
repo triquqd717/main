@@ -1244,7 +1244,8 @@
     "Carnivorous Plant",
     "Mr Carrot",
     "Tomatrio",
-    "Shroombino"
+    "Shroombino",
+    "Mango"
   ],
 
   "PVB_GEAR_ITEMS": [
@@ -1278,7 +1279,8 @@
     "Carnivorous Plant": "<:pvb_carn_plant:1420728134231134289>",
     "Mr Carrot": "<:pvb_mr_carrot:1420728312464015391>",
     "Tomatrio": "<:pvb_tomatotrio:1420728466680184944>",
-    "Shroombino": "<:pvb_shroombino:1421467093622067321>"
+    "Shroombino": "<:pvb_shroombino:1421467093622067321>",
+    "Mango": "<:pvb_mango:1424004742434000966>"
   },
   "PVB_GEAR_EMOJIS": {
     "Water Bucket": "<:pvb_water_bucket:1420728667339886636>",
