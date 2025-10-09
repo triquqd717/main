@@ -1,6 +1,6 @@
 -- credit to original creators of forbidden! @https://discord.gg/FT5XKxphgM @https://create.roblox.com/store/asset/99009254123330/Forbidden-V2-Unpackaged
 
-return (function()
+return function()
     local AIT
     local AI
     local Common
@@ -2768,4 +2768,4 @@ return (function()
         AI = AI,
         Math = Math,
     }
-end)()
+end
