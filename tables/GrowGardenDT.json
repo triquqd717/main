@@ -1,5 +1,5 @@
 {
-  "SEED_ITEMS": [
+  "SeedItems": [
     "Cocomango",
     "Broccoli",
     "Potato",
@@ -33,7 +33,7 @@
     "Crimson Thorn"
   ],
 
-  "GEAR_ITEMS": [
+  "GearItems": [
     "Harvest Tool",
     "Watering Can",
     "Trowel",
@@ -55,7 +55,7 @@
     "Grandmaster Sprinkler"
   ],
 
-  "EGG_ITEMS": [
+  "EggItems": [
     "Common Egg",
     "Uncommon Egg",
     "Rare Egg",
@@ -66,19 +66,19 @@
     "Bee Egg"
   ],
 
-  "GNOME_MERCHANT_ITEMS": [
+  "GnomeMerchantItems": [
     "Common Gnome Crate",
     "Farmers Gnome Crate",
     "Classic Gnome Crate",
     "Iconic Gnome Crate"
   ],
-  "SKY_MERCHANT_ITEMS": [
+  "SkyMerchantItems": [
     "Night Staff",
     "Star Caller",
     "Mutation Spray Cloudtouched"
   ],
 
-  "HONEY_MERCHANT_ITEMS": [
+  "HoneyMerchantItems": [
     "Flower Seed Pack",
     "Honey Sprinkler",
     "Bee Egg",
@@ -86,7 +86,7 @@
     "Honey Crafters Crate"
   ],
 
-  "SUMMER_MERCHANT_ITEMS": [
+  "SummerMerchantItems": [
     "Prickly Pear",
     "Cauliflower",
     "Kiwi",
@@ -102,13 +102,13 @@
     "Paradise Egg"
   ],
 
-  "SPRAY_MERCHANT_ITEMS": [
+  "SprayMerchantItems": [
     "Mutation Spray Wet",
     "Mutation Spray Windstruck",
     "Mutation Spray Verdant"
   ],
 
-  "SPRINKLER_MERCHANT_ITEMS": [
+  "SprinklerMerchantItems": [
     "Tropical Mist Sprinkler",
     "Berry Blusher Sprinkler",
     "Spice Spritzer Sprinkler",
@@ -117,7 +117,7 @@
     "Stalk Sprout Sprinkler"
   ],
 
-  "SUMMER_ITEMS": [
+  "SummerItems": [
     "Summer Seed Pack",
     "Delphinium",
     "Lily of the Valley",
@@ -128,7 +128,7 @@
     "Hamster"
   ],
 
-  "COSMETIC_ITEMS": [
+  "CosmeticItems": [
     "Lighting",
     "Furniture",
     "Paths & Flooring",
@@ -139,7 +139,7 @@
     "Special & Event",
     "Crates"
   ],
-  "COSMETIC_CATEGORIES": {
+  "CosmeticCategories": {
     "Lighting": [
       "Torch",
       "Light On Ground",
@@ -240,7 +240,7 @@
     ]
   },
 
-  "EVENT_ITEMS": [
+  "EventItems": [
     "Sprout Seed Pack",
     "Sprout Egg",
     "Mandrake",
@@ -328,17 +328,6 @@
     "Jungle Egg": "<:JungleEgg:1421507673266065458>",
     "Uncommon Egg": "<:UncommonEggV2:1390277947562393713>",
     "Night Egg": "<:NightEggV2:1390277969800597514>"
-  },
-
-  "SUMMER_EMOJIS": {
-    "Summer Seed Pack": "<:SummerSeedPack:1388576321696825544>",
-    "Delphinium": "<:Delphinium:1388576827487944787>",
-    "Lily of the Valley": "<:LilyOfTheValley:1388577618554785934>",
-    "Traveler's Fruit": "<:TravelersFruit:1388577909928755391>",
-    "Mutation Spray Burnt": "<:MutationSprayBurnt:1388578141479375061>",
-    "Oasis Crate": "<:OasisCrate:1388578318693175388>",
-    "Oasis Egg": "<:OasisEggV2:1390277859389477005>",
-    "Hamster": "<:Hamster:1388578760206323792>"
   },
 
   "EventEmojis": {
@@ -483,7 +472,7 @@
     "Stalk Sprout Sprinkler": "<:StalkSprinkler:1409304247216115732>"
   },
 
-  "LAST_SEEN_IGNORE_ITEMS": [
+  "LastSeenIgnoreItems": [
     "Carrot",
     "Strawberry",
     "Blueberry",
@@ -554,7 +543,7 @@
     "Armageddon": "💥",
     "Earthquake": "💥"
   },
-  "WEATHER_TYPES": {
+  "WeatherTypes": {
     "Obby": "Admin",
     "Gale": "Admin",
     "SheckleRain": "Admin",
@@ -617,7 +606,7 @@
     "Crimson Thorn"
   ],
   "TargetReactChannel": "1365497720118186025",
-  "COLOR_PALETTE": {
+  "ColorPalette": {
     "Green": {
       "hex": "#11d91f"
     },
@@ -761,7 +750,7 @@
 
   "Advert": false,
 
-  "SAB_EVENTS": [
+  "SABEvents": [
     "Rainbow",
     "Nyan Cats",
     "La Vacca Saturno Saturnita",
@@ -795,7 +784,7 @@
     "Fuse Machine Luck",
     "Extinct"
   ],
-  "SAB_EVENT_EMOJIS": {
+  "SABEventEmojis": {
     "Rainbow": "<:Rainbow:1409626541897289728>",
     "Nyan Cats": "<:NyanCats:1409626519386456064>",
     "La Vacca Saturno Saturnita": "<:LaVaccaSaturnoSaturnita:1409626448108716172>",
@@ -829,7 +818,7 @@
     "Fuse Machine Luck": "<:FuseMachineLuck:1409626407113588828>",
     "Extinct": "<:Extinct:1416823994862010398>"
   },
-  "SAB_EVENT_DATA": {
+  "SABEventData": {
     "Rainbow": {
       "Description": "Higher **Rainbow** Brainrot Chance!",
       "Color": "#E863FF"
@@ -1231,7 +1220,7 @@
     "Gangster Footera": "<:GangsterFootera:1416884795354648717>"
   },
 
-  "PVB_SEED_ITEMS": [
+  "PVBSeedItems": [
     "Cactus",
     "Strawberry",
     "Pumpkin",
@@ -1245,10 +1234,11 @@
     "Mr Carrot",
     "Tomatrio",
     "Shroombino",
-    "Mango"
+    "Mango",
+    "King Limone"
   ],
 
-  "PVB_GEAR_ITEMS": [
+  "PVBGearItems": [
     "Water Bucket",
     "Frost Grenade",
     "Banana Gun",
@@ -1256,7 +1246,7 @@
     "Carrot Launcher"
   ],
 
-  "PVB_WEATHER": [
+  "PVBWeather": [
     "Rainbow",
     "Galactic",
     "Golden",
@@ -1266,7 +1256,7 @@
     "Volcano"
   ],
 
-  "PVB_SEED_EMOJIS": {
+  "PVBSeedEmojis": {
     "Cactus": "<:pvb_cactus:1420725996956684369>",
     "Strawberry": "<:pvb_strawberry:1420726218696687676>",
     "Pumpkin": "<:pvb_pumpkin:1420726423487774730>",
@@ -1280,9 +1270,10 @@
     "Mr Carrot": "<:pvb_mr_carrot:1420728312464015391>",
     "Tomatrio": "<:pvb_tomatotrio:1420728466680184944>",
     "Shroombino": "<:pvb_shroombino:1421467093622067321>",
-    "Mango": "<:pvb_mango:1424004742434000966>"
+    "Mango": "<:pvb_mango:1424004742434000966>",
+    "King Limone": "<:pvb_king_limone:1426537736029995088>"
   },
-  "PVB_GEAR_EMOJIS": {
+  "PVBGearEmojis": {
     "Water Bucket": "<:pvb_water_bucket:1420728667339886636>",
     "Frost Grenade": "<:pvb_frost_grenade:1420728915030315080>",
     "Banana Gun": "<:pvb_banana_gun:1420729078478016512>",
@@ -1290,7 +1281,7 @@
     "Carrot Launcher": "<:pvb_carrot_launcher:1420729520352264253>"
   },
 
-  "PVB_WEATHER_EMOJIS": {
+  "PVBWeatherEmojis": {
     "Rainbow": "🌈",
     "Galactic": "🌌",
     "Golden": "🪙",
@@ -1300,7 +1291,7 @@
     "Volcano": "🌋"
   },
 
-  "PVB_WeatherData": {
+  "PVBWeatherData": {
     "Rainbow": {
       "Color": "#FF69B4",
       "Description": "5x Base Earnings Increase! Higher spawn chance during Prismatic Surge."
@@ -1330,7 +1321,8 @@
       "Description": "Gives **Magma** Mutation to the Brainrots!"
     }
   },
-  "PVB_RARE_STUFF": [
+  "PVBRareStuff": [
+    "King Limone",
     "Mr Carrot",
     "Tomatrio",
     "Carnivorous Plant",
