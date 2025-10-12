@@ -30,7 +30,8 @@
     "Giant Pinecone",
     "Elder Strawberry",
     "Romanesco",
-    "Crimson Thorn"
+    "Crimson Thorn",
+    "Great Pumpkin"
   ],
 
   "GearItems": [
@@ -291,7 +292,8 @@
     "Giant Pinecone": "<:GiantPinecone_v2:1394763852314578994>",
     "Elder Strawberry": "<:ElderStrawberry_:1400399240752136275>",
     "Romanesco": "<:Romanesco:1406373257103413370>",
-    "Crimson Thorn": "<:CrimsonThon:1421504508156051537>"
+    "Crimson Thorn": "<:CrimsonThon:1421504508156051537>",
+    "Great Pumpkin": "<:GreatPumpkin:1426879115428106322>"
   },
   "GearEmojis": {
     "Watering Can": "<:WateringCan_v2:1394763153149137058>",
@@ -603,7 +605,8 @@
     "Elder Strawberry",
     "Grandmaster Sprinkler",
     "Romanesco",
-    "Crimson Thorn"
+    "Crimson Thorn",
+    "Great Pumpkin"
   ],
   "TargetReactChannel": "1365497720118186025",
   "ColorPalette": {
