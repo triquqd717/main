@@ -18,6 +18,7 @@ local Exact = {
 	["The fairy ring is fading..."] = true,
 	["Your Cosmetic Shop stock has been reset!"] = true,
     ["Fall Has Bloomed!"] = true,
+	["Daily Quests"] = true
 }
 
 local Wildcard = {
@@ -26,6 +27,7 @@ local Wildcard = {
 	["stole from"] = true,
 	["kitsune applied"] = true,
 	["gets a bonus reward for"] = true,
+	["Goblin grabbed"] = true
 }
 
 function log(...)
