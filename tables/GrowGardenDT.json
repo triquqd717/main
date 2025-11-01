@@ -31,7 +31,8 @@
     "Elder Strawberry",
     "Romanesco",
     "Crimson Thorn",
-    "Great Pumpkin"
+    "Great Pumpkin",
+    "Trinity Fruit"
   ],
 
   "GearItems": [
@@ -293,7 +294,8 @@
     "Elder Strawberry": "<:ElderStrawberry_:1400399240752136275>",
     "Romanesco": "<:Romanesco:1406373257103413370>",
     "Crimson Thorn": "<:CrimsonThon:1421504508156051537>",
-    "Great Pumpkin": "<:GreatPumpkin:1426879115428106322>"
+    "Great Pumpkin": "<:GreatPumpkin:1426879115428106322>",
+    "Trinity Fruit": "<:TrinityFruit:1434291189993181234>"
   },
   "GearEmojis": {
     "Watering Can": "<:WateringCan_v2:1394763153149137058>",
@@ -1238,7 +1240,8 @@
     "Tomatrio",
     "Shroombino",
     "Mango",
-    "King Limone"
+    "King Limone",
+    "Starfruit"
   ],
 
   "PVBGearItems": [
@@ -1274,7 +1277,8 @@
     "Tomatrio": "<:pvb_tomatotrio:1420728466680184944>",
     "Shroombino": "<:pvb_shroombino:1421467093622067321>",
     "Mango": "<:pvb_mango:1424004742434000966>",
-    "King Limone": "<:pvb_king_limone:1426537736029995088>"
+    "King Limone": "<:pvb_king_limone:1426537736029995088>",
+    "Starfruit": "<:Starfruit:1434291216899641445>"
   },
   "PVBGearEmojis": {
     "Water Bucket": "<:pvb_water_bucket:1420728667339886636>",
