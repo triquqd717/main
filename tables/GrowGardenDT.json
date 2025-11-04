@@ -497,7 +497,16 @@
     "Common Egg",
     "Pet Name Reroller",
     "Rainbow Lollipop",
-    "Pet Lead"
+    "Pet Lead",
+    "Tanning Mirror",
+    "Brussels Sprout",
+    "Potato",
+    "Broccoli",
+    "Watermelon",
+    "Pumpkin",
+    "Apple",
+    "Dragon Fruit",
+    "Bamboo"
   ],
 
   "WeatherEmojis": {
@@ -608,7 +617,8 @@
     "Grandmaster Sprinkler",
     "Romanesco",
     "Crimson Thorn",
-    "Great Pumpkin"
+    "Great Pumpkin",
+    "Trinity Fruit"
   ],
   "TargetReactChannel": "1365497720118186025",
   "ColorPalette": {
@@ -1335,6 +1345,7 @@
     "Carnivorous Plant",
     "Cocotank",
     "Shroombino",
-    "Mango"
+    "Mango",
+    "Starfruit"
   ]
 }
