@@ -1,6 +1,7 @@
 {
   "SeedItems": [
     "Cocomango",
+    "Buttercup",
     "Broccoli",
     "Potato",
     "Brussels Sprout",
@@ -506,7 +507,8 @@
     "Pumpkin",
     "Apple",
     "Dragon Fruit",
-    "Bamboo"
+    "Bamboo",
+    "Buttercup"
   ],
 
   "WeatherEmojis": {
